@@ -1,0 +1,3461 @@
+{
+ "map": "TwistedCity_Part03",
+ "scenes": [
+  {
+   "name": "SceneManager0",
+   "bCinematicView": true,
+   "Tag": "L5M3_BugleBlowsUp",
+   "Location": [
+    7873.8701171875,
+    -5280.8994140625,
+    3436.78662109375
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera3",
+     "IntPoint": "InterpolationPoint3",
+     "SubActions": [
+      {
+       "class": "SubActionFade"
+      }
+     ],
+     "PathLength": 3886.63232421875,
+     "IntPointData": {
+      "name": "InterpolationPoint3",
+      "Location": [
+       8703.7001953125,
+       -4863.86376953125,
+       3226.786865234375
+      ],
+      "Rotation": [
+       36,
+       -17483,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause2",
+     "IntPoint": "InterpolationPoint3",
+     "Comment": "Set Up Cut Scene",
+     "Duration": 2.0,
+     "SubActions": [
+      {
+       "class": "SubActionTrigger",
+       "EventName": "TowerLift",
+       "Delay": 0.5
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "BugleMovie",
+       "Delay": 1.5
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint3",
+      "Location": [
+       8703.7001953125,
+       -4863.86376953125,
+       3226.786865234375
+      ],
+      "Rotation": [
+       36,
+       -17483,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera4",
+     "IntPoint": "InterpolationPoint4",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": "LookTarget6",
+        "LookAtTag": "MysterioTowerLook",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 150273632,
+        "PctInStart": 0.2857142984867096,
+        "PctInEnd": 0.2857142984867096,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 4419.0,
+     "IntPointData": {
+      "name": "InterpolationPoint4",
+      "Location": [
+       9472.49609375,
+       -6016.1298828125,
+       7423.0537109375
+      ],
+      "Rotation": [
+       36,
+       -5671,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera5",
+     "IntPoint": "InterpolationPoint5",
+     "Duration": 5.0,
+     "SubActions": [
+      {
+       "class": "SubActionFade",
+       "bFadeOut": false,
+       "Duration": 2.0
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "MysterioTurretTaunt"
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "MysterioDeathRayTurret",
+       "Delay": 4.5
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "MysterioInTurret",
+       "Delay": 4.900000095367432
+      }
+     ],
+     "PathLength": 2025.6983642578125,
+     "IntPointData": {
+      "name": "InterpolationPoint5",
+      "Location": [
+       7711.90087890625,
+       -5119.58935546875,
+       6976.02978515625
+      ],
+      "Rotation": [
+       -36,
+       -2428,
+       0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager1",
+   "bCinematicView": true,
+   "Tag": "L5M3_MysterioInterrogated",
+   "Location": [
+    10783.955078125,
+    -5936.83154296875,
+    300.0
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera0",
+     "IntPoint": "InterpolationPoint0",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": "LookTarget6",
+        "LookAtTag": "MysterioTowerLook",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 150213312,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 0.193359375,
+     "IntPointData": {
+      "name": "InterpolationPoint0",
+      "Location": [
+       10048.1943359375,
+       -5808.5390625,
+       7450.8359375
+      ],
+      "Rotation": [
+       -1179,
+       -14324,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera1",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "Mysterio Spills His Guts",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "MysterioHeadLook",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 169143360,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 196.80917358398438,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       10208.064453125,
+       -5920.22607421875,
+       7424.46875
+      ],
+      "Rotation": [
+       -395,
+       -23196,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause4",
+     "IntPoint": "InterpolationPoint1",
+     "Duration": 0.10000000149011612,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       10208.064453125,
+       -5920.22607421875,
+       7424.46875
+      ],
+      "Rotation": [
+       -395,
+       -23196,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog0",
+     "dlgName": "My_Fl_E_showmercy",
+     "Duration": 1.8666666746139526,
+     "subtitle": "Curse you, Spider-Man"
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog1",
+     "dlgName": "My_Fl_E_faileddoc",
+     "Duration": 4.4666666984558105,
+     "subtitle": "You may habe defeated me, but you're too late to stop Dr. Octavius."
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera2",
+     "IntPoint": "InterpolationPoint2",
+     "Comment": "Spidey Questions",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "SpideyPawn",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 150247232,
+        "PctInStart": 0.2353658527135849,
+        "PctInEnd": 0.2353658527135849,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 50.63299560546875,
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       10192.0302734375,
+       -5872.14208984375,
+       7391.5126953125
+      ],
+      "Rotation": [
+       -395,
+       -11067,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause5",
+     "IntPoint": "InterpolationPoint2",
+     "Duration": 0.10000000149011612,
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       10192.0302734375,
+       -5872.14208984375,
+       7391.5126953125
+      ],
+      "Rotation": [
+       -395,
+       -11067,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog2",
+     "dlgName": "Sp_Fl_E_whereisdoc",
+     "Duration": 1.7999999523162842,
+     "subtitle": "Where is Doc Ock?"
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera7",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "Mysterio Responds",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "MysterioHeadLook",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 150262592,
+        "PctInStart": 0.30487802624702454,
+        "PctInEnd": 0.30487802624702454,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       10208.064453125,
+       -5920.22607421875,
+       7424.46875
+      ],
+      "Rotation": [
+       -395,
+       -23196,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause6",
+     "IntPoint": "InterpolationPoint1",
+     "Duration": 0.10000000149011612,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       10208.064453125,
+       -5920.22607421875,
+       7424.46875
+      ],
+      "Rotation": [
+       -395,
+       -23196,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog3",
+     "dlgName": "My_Fl_E_neverfindhim",
+     "Duration": 10.0,
+     "subtitle": "You won't catch him, Spider-Man.  His plan is already underway, and you were wasting your time with me when you should have been catching the train."
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera8",
+     "IntPoint": "InterpolationPoint2",
+     "Comment": "Spidey Figuers It Out",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "SpideyPawn",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 115558368,
+        "PctInStart": 0.6743902564048767,
+        "PctInEnd": 0.6743902564048767,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       10192.0302734375,
+       -5872.14208984375,
+       7391.5126953125
+      ],
+      "Rotation": [
+       -395,
+       -11067,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause7",
+     "IntPoint": "InterpolationPoint2",
+     "Duration": 0.10000000149011612,
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       10192.0302734375,
+       -5872.14208984375,
+       7391.5126953125
+      ],
+      "Rotation": [
+       -395,
+       -11067,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog4",
+     "dlgName": "Sp_Fl_E_train",
+     "Duration": 5.733333110809326,
+     "subtitle": "Real cute, Fishbowl.  I take it he's at the train station.  (to himself)  I can still make it."
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera9",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "Mysterio Curses",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "MysterioHeadLook",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 150272192,
+        "PctInStart": 0.8878049254417419,
+        "PctInEnd": 0.8878049254417419,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 50.63299560546875,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       10208.064453125,
+       -5920.22607421875,
+       7424.46875
+      ],
+      "Rotation": [
+       -395,
+       -23196,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause8",
+     "IntPoint": "InterpolationPoint1",
+     "Duration": 0.10000000149011612,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       10208.064453125,
+       -5920.22607421875,
+       7424.46875
+      ],
+      "Rotation": [
+       -395,
+       -23196,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog5",
+     "dlgName": "My_Fl_E_never",
+     "Duration": 0.46666666865348816,
+     "subtitle": "Never!"
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera6",
+     "IntPoint": "InterpolationPoint6",
+     "Duration": 2.5,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": "LookTarget6",
+        "LookAtTag": "MysterioTowerLook",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 115559488,
+        "PctInStart": 0.9085366725921631,
+        "PctInEnd": 0.9085366725921631,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionFade"
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "TransitionMovie",
+       "Delay": 1.899999976158142
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint6",
+      "Location": [
+       10048.2421875,
+       -5808.32275390625,
+       7450.8291015625
+      ],
+      "Rotation": [
+       -396,
+       -14663,
+       0
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "sequences": [
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger0",
+   "Tag": "SpideyStatueVOTrigger",
+   "Location": [
+    -10863.6962890625,
+    -4799.18017578125,
+    166.95408630371094
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent15",
+     "ExternalEvent": "MysterioStatue"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say4",
+     "dlgName": "Sp_Fl_E_statue",
+     "subtitle": "A big Mysterio statue?  That's gotta go."
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger2",
+   "Tag": "StartPlatformTrigger",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -15440.3525390625,
+    864.570068359375,
+    -247.82650756835938
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent5",
+     "ExternalEvent": "MovingRocksTrigger"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer11",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent3",
+     "Event": "StartPlatform"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer2",
+     "PauseTime": 5.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction1",
+     "ActionNumber": 2
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger6",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2,IslandsToBugle",
+   "Location": [
+    1919.921630859375,
+    6015.2841796875,
+    2240.049560546875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent9",
+     "ExternalEvent": "Island02Rock"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer13",
+     "PauseTime": 2.5
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent8",
+     "Event": "MovingRock11"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer18",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction11",
+     "ActionNumber": 2
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger5",
+   "Tag": "BugleMovieandObjectivesTrigger",
+   "Location": [
+    7968.15625,
+    -5200.025390625,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent21",
+     "ExternalEvent": "BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition0",
+     "TriggeredConditionTag": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent3",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection0"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete2",
+     "stateName": "L5M3_MysterioDefeated"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound0",
+     "Sound": "Events.ObjectiveComplete"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say2",
+     "dlgName": "My_Fl_E_surprise",
+     "subtitle": "Here's a new little surprise for you, Spider-Man."
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer0",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent13",
+     "Event": "L5M3_BugleBlowsUp"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence2",
+   "PawnTag": "SpideyPawn",
+   "Tag": "StartDeath",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -15903.703125,
+    865.1234741210938,
+    -260.8775634765625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent16",
+     "ExternalEvent": "StartDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint13",
+     "DestinationTag": "SpideyStartsOver",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face2",
+     "DestinationTag": "LookHereSpidey"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger12",
+   "Tag": "LevelChangeTrigger",
+   "Location": [
+    10784.0341796875,
+    -5888.30859375,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent10",
+     "ExternalEvent": "TrainStation"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave1"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer1",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_ChangeLevel",
+     "name": "ACTION_ChangeLevel0",
+     "URL": "Wharf_TrainStation.whr",
+     "bShowLoadingMessage": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger11",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -3216.26904296875,
+    -3216.131591796875,
+    1807.8306884765625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent32",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent19",
+     "Event": "MovingRock05"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer9",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction9",
+     "ActionNumber": 1
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger42",
+   "Tag": "HiddingDomeTrigger",
+   "Location": [
+    10928.0517578125,
+    -5983.95751953125,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent50",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor6",
+     "ActorTag": "MysterioDeathRayTurret"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence4",
+   "PawnTag": "SpideyPawn",
+   "Tag": "Island1Death",
+   "Group": "None,Island1",
+   "Location": [
+    -13281.17578125,
+    94.95917510986328,
+    91.69586181640625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent17",
+     "ExternalEvent": "Island1Death"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint14",
+     "DestinationTag": "Island1Start",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face4",
+     "DestinationTag": "Island1Look"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger41",
+   "Tag": "RemoveArrowTrigger",
+   "Location": [
+    -2143.77880859375,
+    2832.413818359375,
+    1935.9041748046875
+   ],
+   "Rotation": [
+    0,
+    17408,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent49",
+     "ExternalEvent": "Battle2Start"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd1",
+     "MessageID": "L5M3_MysterioDefeated",
+     "Message": "Defeat Mysterio.",
+     "stateName": "L5M3_MysterioDefeated",
+     "isPrimary": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger1",
+   "Tag": "MysterioSpeachTrigger",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -13535.25,
+    -768.322509765625,
+    74.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent4",
+     "ExternalEvent": "SpideyArrived"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say0",
+     "dlgName": "My_Fl_E_hardesttest",
+     "subtitle": "This time, I'll deal with you myself."
+    },
+    {
+     "class": "ACTION_CombatHelp",
+     "name": "ACTION_CombatHelp2",
+     "CombatIndex": 7
+    },
+    {
+     "class": "ACTION_SetBoss",
+     "name": "ACTION_SetBoss0",
+     "Boss": "Mysterio"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger13",
+   "Tag": "MysterioVOTrigger",
+   "Location": [
+    7871.302734375,
+    -5184.09375,
+    3135.961669921875
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent14",
+     "ExternalEvent": "MysterioTurretTaunt"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say3",
+     "dlgName": "My_Fl_E_ultweapon",
+     "subtitle": "This is my ultimate weapon.  You're embarrassingly outgunned.  Give up now and I may show you some mercy."
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger8",
+   "Tag": "HiddingShootIndicatorForDome",
+   "Location": [
+    10943.9794921875,
+    -6000.033203125,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent7",
+     "ExternalEvent": "DomeDestroyed"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor4",
+     "ActorTag": "DomeShoot"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction5"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger10",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -5903.7021484375,
+    -3232.67919921875,
+    383.85345458984375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent31",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent18",
+     "Event": "MovingRock02"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer8",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction8",
+     "ActionNumber": 1
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger17",
+   "Tag": "LevelLoad",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -16512.095703125,
+    880.2010498046875,
+    -246.0
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent29",
+     "ExternalEvent": "L5M3_InSpace"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition1",
+     "TriggeredConditionTag": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent11",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection1"
+    },
+    {
+     "class": "ACTION_PlayMusic",
+     "name": "ACTION_PlayMusic4",
+     "Song": "TC3_IntroAmbient",
+     "Transition": 0
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say1",
+     "dlgName": "My_Fl_E_endisner",
+     "subtitle": "Spider-Man!  I don't know how you made it this far, but it's time to get serious about this city's pest problem."
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer24",
+     "PauseTime": 14.0
+    },
+    {
+     "class": "ACTION_PlayMusic",
+     "name": "ACTION_PlayMusic1",
+     "Song": "silence"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger29",
+   "Tag": "02MysterioFlysOffTrigger",
+   "Location": [
+    -13919.9580078125,
+    -2400.068603515625,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent43",
+     "ExternalEvent": "Battle02Over"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer23",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent26",
+     "Event": "MysterioRuns03"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd3",
+     "MessageID": "L5M3_MysterioDefeated",
+     "Message": "Defeat Mysterio.",
+     "stateName": "L5M3_MysterioDefeated",
+     "isPrimary": true,
+     "ActorTag": "Mysterio"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger43",
+   "Tag": "HiddingShootIndicatorForDome",
+   "Location": [
+    10944.169921875,
+    -6015.97216796875,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent44",
+     "ExternalEvent": "TurretShutdown"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor17",
+     "Visible": true,
+     "ActorTag": "DomeShoot"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction10"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger27",
+   "Tag": "02MysterioFlysOffTrigger",
+   "Location": [
+    -13919.904296875,
+    -2415.963623046875,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent41",
+     "ExternalEvent": "MysterioAttack01"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent21",
+     "Event": "SpideyOnTrail01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer21",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent22",
+     "Event": "MysterioRuns02"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger38",
+   "Tag": "StatueBlockingVolumeTrigger",
+   "Location": [
+    -2881.1689453125,
+    1887.41259765625,
+    1974.9541015625
+   ],
+   "Rotation": [
+    0,
+    16384,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent48",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent36",
+     "Event": "StatueBlock02"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger36",
+   "Tag": "LevelLoad",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -16543.916015625,
+    912.131103515625,
+    -246.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent77",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable7"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable8",
+     "Upgrade": 1
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable9",
+     "Upgrade": 2
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger33",
+   "Tag": "Statue03Trigger",
+   "Location": [
+    8566.3798828125,
+    4606.18017578125,
+    3206.23388671875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent2",
+     "ExternalEvent": "Statue03"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent29",
+     "Event": "StatueFalls03"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor3",
+     "ActorTag": "Statue03Pull"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer16",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent10",
+     "Event": "StatueDust03"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger34",
+   "Tag": "DestroyBugleTrigger",
+   "Location": [
+    7967.9482421875,
+    -5184.07763671875,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent13",
+     "ExternalEvent": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd2",
+     "MessageID": "L5M3_MysterioTurretDefeated",
+     "Message": "Defeat Mysterio's Turret.",
+     "stateName": "L5M3_MysterioTurretDefeated",
+     "isPrimary": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger35",
+   "Tag": "UnHiddingDomeTrigger",
+   "Location": [
+    10944.005859375,
+    -5983.99462890625,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent12",
+     "ExternalEvent": "TowerLift"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor14",
+     "Visible": true,
+     "ActorTag": "MysterioDeathRayTurret"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger14",
+   "Tag": "StatueBlockingVolumeTrigger",
+   "Location": [
+    -8833.1689453125,
+    -5696.58740234375,
+    166.95408630371094
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent22",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent32",
+     "Event": "StatueBlock01"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger15",
+   "Tag": "InterrogationMovieTrigger",
+   "Location": [
+    10784.39453125,
+    -5968.4697265625,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent27",
+     "ExternalEvent": "MysterioDefeated"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete0",
+     "stateName": "L5M3_MysterioTurretDefeated"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound1",
+     "Sound": "Events.ObjectiveComplete"
+    },
+    {
+     "class": "ACTION_HeroPointsAdd",
+     "name": "ACTION_HeroPointsAdd0",
+     "Points": 5000
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent11",
+     "Event": "TowerDestroyed"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer12",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent14",
+     "Event": "L5M3_MysterioInterrogated"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger23",
+   "Tag": "StatueBlockingVolumeTrigger",
+   "Location": [
+    9318.8310546875,
+    5247.41259765625,
+    2582.9541015625
+   ],
+   "Rotation": [
+    0,
+    16384,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent46",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent34",
+     "Event": "StatueBlock02"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger25",
+   "Tag": "03MysterioFlysOffTrigger",
+   "Location": [
+    -13936.0283203125,
+    -2384.04736328125,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent39",
+     "ExternalEvent": "MysterioAttack02"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent23",
+     "Event": "Island02Rock"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer19",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent15",
+     "Event": "MysterioRuns04"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger31",
+   "Tag": "LevelLoad",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -16527.958984375,
+    879.927490234375,
+    -246.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent51",
+     "ExternalEvent": "L5M3_InSpace"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd4",
+     "MessageID": "L5M3_MysterioDefeated",
+     "Message": "Defeat Mysterio.",
+     "stateName": "L5M3_MysterioDefeated",
+     "isPrimary": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger22",
+   "Tag": "MysterioVOTrigger",
+   "Location": [
+    -3169.162841796875,
+    6784.05224609375,
+    2096.10009765625
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent37",
+     "ExternalEvent": "Battle02Taunt"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say8",
+     "dlgName": "My_Fl_E_warmingup",
+     "subtitle": "Think you're winning, Spider-Man?  Well, think again."
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger19",
+   "Tag": "MysterioVOTrigger",
+   "Location": [
+    9248.1201171875,
+    -63.864715576171875,
+    3103.883544921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent34",
+     "ExternalEvent": "MysterioLastRun"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent0",
+     "Event": "LastRun"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say5",
+     "dlgName": "My_Fl_E_wantyou",
+     "subtitle": "Now I have you right where I want you!"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent45",
+     "ExternalEvent": "JoBoo"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger28",
+   "Tag": "MysterioBattle2Part2Trigger",
+   "Location": [
+    -13936.193359375,
+    -2400.110595703125,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent42",
+     "ExternalEvent": "Battle2PartOver"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent24",
+     "Event": "Battle02Taunt"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer22",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent25",
+     "Event": "Battle2Part02"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger26",
+   "Tag": "01MysterioFlysOffTrigger",
+   "Location": [
+    -13936.1396484375,
+    -2416.005615234375,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent40",
+     "ExternalEvent": "Battle01Over"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer20",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent20",
+     "Event": "MysterioRuns01"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd0",
+     "MessageID": "L5M3_MysterioDefeated",
+     "Message": "Defeat Mysterio.",
+     "stateName": "L5M3_MysterioDefeated",
+     "isPrimary": true,
+     "ActorTag": "Mysterio"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger30",
+   "Tag": "Statue04Trigger",
+   "Location": [
+    7742.89697265625,
+    -578.0166625976562,
+    3718.23388671875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent69",
+     "ExternalEvent": "Statue04"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent16",
+     "Event": "StatueFalls04"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor0",
+     "ActorTag": "Statue04Pull"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer17",
+     "PauseTime": 0.8999999761581421
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent35",
+     "Event": "StatueBlock04"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent12",
+     "Event": "StatueDust04"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger32",
+   "Tag": "Statue02Trigger",
+   "Location": [
+    -2923.16064453125,
+    2863.5439453125,
+    2710.23388671875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent0",
+     "ExternalEvent": "Statue02"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent28",
+     "Event": "StatueFalls02"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor2",
+     "ActorTag": "Statue02Pull"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer10",
+     "PauseTime": 0.8999999761581421
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent33",
+     "Event": "StatueBlock02"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent9",
+     "Event": "StatueDust02"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger40",
+   "Tag": "HiddingShootIndicatorForDome",
+   "Location": [
+    10928.3525390625,
+    -6016.07275390625,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent1",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor5",
+     "ActorTag": "DomeShoot"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger4",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -6784.509765625,
+    -896.1137084960938,
+    1199.8353271484375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent24",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent5",
+     "Event": "MovingRock03"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer6",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction3",
+     "ActionNumber": 1
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger7",
+   "Tag": "Island1RockTrigger",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -11264.3525390625,
+    -3343.429931640625,
+    64.1734848022461
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent135",
+     "ExternalEvent": "SpideyOnTrail01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer35",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent27",
+     "Event": "Island01Platform"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer36",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction4",
+     "ActionNumber": 2
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger21",
+   "Tag": "MysterioVOTrigger",
+   "Location": [
+    -2911.813232421875,
+    1200.70654296875,
+    2060.9541015625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent36",
+     "ExternalEvent": "SpideyTooFar"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say7",
+     "dlgName": "My_Fl_E_toofar",
+     "subtitle": "I don't know how you made it this far, Spider-Man, but you'll go no further."
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger16",
+   "Tag": "LevelLoad",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -16544.03125,
+    896.0791015625,
+    -246.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent28",
+     "ExternalEvent": "L5M3_InSpace"
+    },
+    {
+     "class": "ACTION_LevelSetCurrent",
+     "name": "ACTION_LevelSetCurrent2",
+     "CurrentLevel": 5
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify18",
+     "stateName": "L5M2_FloatingHigher",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify19",
+     "stateName": "L5M2_TurretsDestroyed"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify20",
+     "stateName": "L5M2_ExitPart02"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify21",
+     "stateName": "L5M2_IntoPortal"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify22",
+     "stateName": "L5M3_InSpace",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave5"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger37",
+   "Tag": "DestroyBugleTrigger",
+   "Location": [
+    7887.9873046875,
+    -5215.9794921875,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent82",
+     "ExternalEvent": "MysterioInTurret"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer34",
+     "PauseTime": 5.25
+    },
+    {
+     "class": "ACTION_CombatHelp",
+     "name": "ACTION_CombatHelp1",
+     "CombatIndex": 8
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger55",
+   "Tag": "BugleMoviePlayTrigger",
+   "Location": [
+    7871.6240234375,
+    -5199.91650390625,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent118",
+     "ExternalEvent": "BugleMovie"
+    },
+    {
+     "class": "ACTION_PlayMovie",
+     "name": "ACTION_PlayMovie0",
+     "Movie": "Cinematics.movies.L5M3_CannonBreakout"
+    },
+    {
+     "class": "ACTION_WaitForMovieEnded",
+     "name": "ACTION_WaitForMovieEnded0"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence10",
+   "PawnTag": "TurretMysterio",
+   "Tag": "TowerDestroyed",
+   "Location": [
+    10848.2392578125,
+    -5983.546875,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent25",
+     "ExternalEvent": "TowerDestroyed"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM0",
+     "BaseAnim": "IdleDownOnKneeTurn"
+    },
+    {
+     "class": "ACTION_WaitForAnimEnd",
+     "name": "ACTION_WaitForAnimEnd0"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM1",
+     "BaseAnim": "IdleDownOnKneeDefeat",
+     "bLoopAnim": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger18",
+   "Tag": "TowerLegsVisibilityTrigger",
+   "Location": [
+    8047.7333984375,
+    -5235.7607421875,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent33",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor44",
+     "ActorTag": "TowerLegs"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent142",
+     "ExternalEvent": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor45",
+     "Visible": true,
+     "ActorTag": "TowerLegs"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence5",
+   "PawnTag": "SpideyPawn",
+   "Tag": "I1TI2Death",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -6048.74755859375,
+    -6753.07568359375,
+    343.6811218261719
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent18",
+     "ExternalEvent": "I1TI2Death"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint15",
+     "DestinationTag": "I1TI2Start",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face5",
+     "DestinationTag": "I1TI2Look"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger46",
+   "Tag": "LevelChangeTrigger",
+   "Location": [
+    10784.001953125,
+    -5904.1201171875,
+    6922.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent54",
+     "ExternalEvent": "TransitionMovie"
+    },
+    {
+     "class": "ACTION_PlayMovie",
+     "name": "ACTION_PlayMovie2",
+     "Movie": "Cinematics.movies.L5M3_WorldTransition"
+    },
+    {
+     "class": "ACTION_WaitForMovieEnded",
+     "name": "ACTION_WaitForMovieEnded2"
+    },
+    {
+     "class": "ACTION_LevelSetComplete",
+     "name": "ACTION_LevelSetComplete1",
+     "CurrentLevel": 5
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent1",
+     "Event": "TrainStation"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger9",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -5423.9423828125,
+    -6527.814453125,
+    416.2137451171875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent30",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent17",
+     "Event": "MovingRock01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer7",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction7",
+     "ActionNumber": 1
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger47",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2,IslandsToBugle",
+   "Location": [
+    3455.921630859375,
+    5887.2841796875,
+    2304.049560546875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent55",
+     "ExternalEvent": "Island02Rock"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer25",
+     "PauseTime": 10.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent6",
+     "Event": "MovingRock07"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer26",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction12",
+     "ActionNumber": 2
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence11",
+   "PawnTag": "SpideyPawn",
+   "Tag": "L5M3_BugleBlowsUp",
+   "Location": [
+    7774.888671875,
+    -5214.38134765625,
+    7018.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent26",
+     "ExternalEvent": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint20",
+     "DestinationTag": "SpideyInspectsBugle"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence8",
+   "PawnTag": "SpideyPawn",
+   "Tag": "BugleDeath",
+   "Group": "None,BugleIsland",
+   "Location": [
+    8832.5107421875,
+    -337.0028076171875,
+    3143.724853515625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent23",
+     "ExternalEvent": "BugleDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint10",
+     "DestinationTag": "BugleStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face8",
+     "DestinationTag": "BugleLook"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence9",
+   "PawnTag": "SpideyPawn",
+   "Tag": "TowerDestroyed",
+   "Location": [
+    10847.755859375,
+    -5919.53466796875,
+    6921.57177734375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent8",
+     "ExternalEvent": "TowerDestroyed"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint18",
+     "DestinationTag": "SpideyInsideTurret"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face10",
+     "DestinationTag": "TurretMysterio"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger20",
+   "Tag": "StatueBlockingVolumeTrigger",
+   "Location": [
+    7198.8310546875,
+    223.41259765625,
+    2974.9541015625
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent35",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent31",
+     "Event": "StatueBlock04"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence7",
+   "PawnTag": "SpideyPawn",
+   "Tag": "Island2Death",
+   "Group": "None,Island2",
+   "Location": [
+    -2976.066162109375,
+    3103.90087890625,
+    2119.925537109375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent20",
+     "ExternalEvent": "Island2Death"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint17",
+     "DestinationTag": "Island2Start",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face7",
+     "DestinationTag": "Island2Look"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger3",
+   "Tag": "TriggerMovingRock",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -6527.97119140625,
+    -471.8834228515625,
+    1151.979248046875
+   ],
+   "bClimbable": true,
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent6",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent4",
+     "Event": "MovingRock04"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer3",
+     "PauseTime": 4.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction2",
+     "ActionNumber": 1
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger60",
+   "Tag": "DestroyBugleTrigger",
+   "Location": [
+    7999.64990234375,
+    -5200.20361328125,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent141",
+     "ExternalEvent": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify6",
+     "stateName": "L5M3_InSpace"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify7",
+     "stateName": "L5M3_MysterioDefeated"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify8",
+     "stateName": "L5M3_BugleBlowsUp",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave2"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger70",
+   "Tag": "DestroyBugleTrigger",
+   "Location": [
+    7887.68212890625,
+    -5184.27490234375,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent133",
+     "ExternalEvent": "L5M3_InSpace"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor1",
+     "ActorTag": "BugleRubble"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence6",
+   "PawnTag": "SpideyPawn",
+   "Tag": "Island2PlatformDeath",
+   "Group": "None,Island2",
+   "Location": [
+    1441.333251953125,
+    5920.90966796875,
+    2131.6494140625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent19",
+     "ExternalEvent": "Island2PlatformDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint16",
+     "DestinationTag": "I2PlatformStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face6",
+     "DestinationTag": "I2PlatformLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger24",
+   "Tag": "04MysterioFlysOffTrigger",
+   "Location": [
+    -13919.79296875,
+    -2384.00537109375,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent38",
+     "ExternalEvent": "MysterioAttack03"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer4",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent2",
+     "Event": "MysterioRuns05"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger39",
+   "Tag": "Statue01Trigger",
+   "Location": [
+    -7915.16064453125,
+    -5632.4560546875,
+    902.2337646484375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent47",
+     "ExternalEvent": "Statue01"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent122",
+     "Event": "StatueFalls01"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor8",
+     "ActorTag": "Statue01Pull"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer5",
+     "PauseTime": 0.8999999761581421
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent30",
+     "Event": "StatueBlock01"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent7",
+     "Event": "StatueDust01"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger44",
+   "bLightChanged": true,
+   "Tag": "DestroyBugleTrigger",
+   "Location": [
+    7887.6064453125,
+    -5200.02490234375,
+    3135.961669921875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent52",
+     "ExternalEvent": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor18",
+     "ActorTag": "BugleRoof"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor19",
+     "Visible": true,
+     "ActorTag": "BugleRubble"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor1",
+     "DestroyTag": "Mysterio"
+    },
+    {
+     "class": "ACTION_SetBoss",
+     "name": "ACTION_SetBoss3",
+     "Boss": "MysterioInTurret"
+    }
+   ]
+  }
+ ],
+ "pawns": [
+  {
+   "class": "MysterioPawn",
+   "name": "MysterioPawn2",
+   "FinalKnockdownEvent": "MysterioDefeated",
+   "ActionInfo": {
+    "_array": 2
+   },
+   "Physics": 1,
+   "Tag": "TurretMysterio",
+   "Touching": [
+    "Teleporter21"
+   ],
+   "Location": [
+    10128.0029296875,
+    -6016.0673828125,
+    6065.86767578125
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "AttachTag": "TowerLift"
+  },
+  {
+   "class": "MysterioPawn",
+   "name": "MysterioPawn0",
+   "SummonAttackRange": 5000.0,
+   "ActionInfo": {
+    "_array": 44
+   },
+   "HealthEvents": {
+    "_array": 3
+   },
+   "ShadowType": 2,
+   "SightRadius": 1800.0,
+   "Tag": "Mysterio",
+   "Touching": [
+    "Teleporter6"
+   ],
+   "Location": [
+    -13740.82421875,
+    -2210.97509765625,
+    132.0
+   ]
+  }
+ ],
+ "points": {
+  "Trigger2": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Event": "MovingRocksTrigger",
+   "Group": "None,EntranceIsland",
+   "Touching": [
+    "StaticMeshActor1475",
+    "StaticMeshActor1474",
+    "StaticMeshActor1483"
+   ],
+   "Location": [
+    -15447.634765625,
+    864.1504516601562,
+    -418.28289794921875
+   ],
+   "CollisionRadius": 200.0,
+   "CollisionHeight": 400.0
+  },
+  "InterpolationPoint1": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    10208.064453125,
+    -5920.22607421875,
+    7424.46875
+   ],
+   "Rotation": [
+    -395,
+    -23196,
+    0
+   ]
+  },
+  "Teleporter21": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter9",
+   "Base": "Mover7",
+   "Tag": "InsideTurret",
+   "Touching": [
+    "DestructibleObject1",
+    "MysterioPawn2"
+   ],
+   "Location": [
+    10128.0048828125,
+    -6016.0673828125,
+    6065.8681640625
+   ],
+   "AttachTag": "TowerLift",
+   "RelativeLocation": [
+    16.0048828125,
+    -0.0673828125,
+    621.8681640625
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "InterpolationPoint2": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    10192.0302734375,
+    -5872.14208984375,
+    7391.5126953125
+   ],
+   "Rotation": [
+    -395,
+    -11067,
+    0
+   ]
+  },
+  "Teleporter18": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter15",
+   "Base": "LevelInfo0",
+   "Tag": "Island2Start",
+   "Group": "None,Island2",
+   "Location": [
+    -3327.30419921875,
+    3200.59521484375,
+    2116.0
+   ],
+   "Rotation": [
+    0,
+    -27,
+    0
+   ]
+  },
+  "Teleporter14": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter13",
+   "Base": "LevelInfo0",
+   "Tag": "Island1Start",
+   "Group": "None,Island1",
+   "Location": [
+    -13248.69921875,
+    191.9791717529297,
+    84.0
+   ],
+   "Rotation": [
+    0,
+    -5391,
+    0
+   ]
+  },
+  "LookTarget6": {
+   "class": "LookTarget",
+   "Tag": "MysterioTowerLook",
+   "Location": [
+    10112.0849609375,
+    -6016.0390625,
+    7424.0791015625
+   ]
+  },
+  "Teleporter17": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter10",
+   "Base": "LevelInfo0",
+   "Tag": "I2PlatformStart",
+   "Group": "None,Island2",
+   "Location": [
+    1407.5301513671875,
+    6016.01416015625,
+    2132.0
+   ],
+   "Rotation": [
+    0,
+    -27,
+    0
+   ]
+  },
+  "InterpolationPoint3": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    8703.7001953125,
+    -4863.86376953125,
+    3226.786865234375
+   ],
+   "Rotation": [
+    36,
+    -17483,
+    0
+   ]
+  },
+  "Teleporter8": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter7",
+   "Tag": "MysterioBattle03",
+   "Location": [
+    8705.58984375,
+    -896.5167236328125,
+    3711.973388671875
+   ]
+  },
+  "Teleporter6": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter26",
+   "Base": "LevelInfo0",
+   "Tag": "MysterioHome",
+   "Group": "None,Island1",
+   "Touching": [
+    "MysterioPawn0"
+   ],
+   "Location": [
+    -13695.6650390625,
+    -2174.88525390625,
+    84.0
+   ]
+  },
+  "Teleporter10": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter18",
+   "Base": "LevelInfo0",
+   "Tag": "BugleStart",
+   "Group": "None,BugleIsland",
+   "Location": [
+    8704.125,
+    -335.8819274902344,
+    3140.0
+   ],
+   "Rotation": [
+    0,
+    -16428,
+    0
+   ]
+  },
+  "Teleporter16": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "PlayerStart1",
+   "Tag": "MysterioArrives",
+   "Group": "None,Island1",
+   "Location": [
+    -12286.7255859375,
+    383.86737060546875,
+    410.0
+   ],
+   "Rotation": [
+    0,
+    32748,
+    0
+   ]
+  },
+  "Teleporter1": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter23",
+   "Tag": "MysterioRuns03",
+   "Group": "None,Island2",
+   "Location": [
+    1151.4588623046875,
+    6528.34423828125,
+    2448.12646484375
+   ]
+  },
+  "Teleporter27": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter20",
+   "Tag": "Battle02Part02",
+   "Group": "None,Island2",
+   "Location": [
+    -3198.84912109375,
+    3457.64892578125,
+    2447.70654296875
+   ]
+  },
+  "Teleporter24": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter2",
+   "Tag": "Battle01Part02",
+   "Group": "None,Island1",
+   "Location": [
+    -13568.525390625,
+    -256.30169677734375,
+    410.0
+   ],
+   "Rotation": [
+    0,
+    32748,
+    0
+   ]
+  },
+  "Teleporter26": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter33",
+   "Tag": "MysterioBattle02",
+   "Group": "None,Island2",
+   "Location": [
+    -3839.820068359375,
+    3967.87255859375,
+    2447.70654296875
+   ]
+  },
+  "Teleporter33": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter16",
+   "Tag": "MysterioRuns01",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -7423.97265625,
+    -5249.208984375,
+    656.5509643554688
+   ]
+  },
+  "Teleporter31": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter34",
+   "Tag": "MysterioBugleStand",
+   "Location": [
+    10371.24609375,
+    -7935.9931640625,
+    3711.880859375
+   ]
+  },
+  "Teleporter28": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter0",
+   "Tag": "Battle02Part02",
+   "Group": "None,Island2",
+   "Location": [
+    -2815.500732421875,
+    4607.31884765625,
+    2447.70654296875
+   ]
+  },
+  "Teleporter25": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter24",
+   "Tag": "Battle01Part02",
+   "Group": "None,Island1",
+   "Location": [
+    -12288.09765625,
+    -639.075927734375,
+    410.0
+   ],
+   "Rotation": [
+    0,
+    32748,
+    0
+   ]
+  },
+  "Teleporter12": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter32",
+   "Tag": "BuglePath02",
+   "Location": [
+    10112.349609375,
+    -6272.5244140625,
+    7382.84814453125
+   ],
+   "RelativeLocation": [
+    0.349609375,
+    -256.5244140625,
+    566.84814453125
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "Teleporter22": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter19",
+   "Tag": "SpideyInsideTurret",
+   "Touching": [
+    "DestructibleObject1"
+   ],
+   "Location": [
+    10247.640625,
+    -6020.138671875,
+    7437.876953125
+   ],
+   "Rotation": [
+    0,
+    32760,
+    0
+   ],
+   "AttachTag": "TowerLift",
+   "RelativeLocation": [
+    135.640625,
+    -4.138671875,
+    621.876953125
+   ],
+   "RelativeRotation": [
+    0,
+    -16391,
+    0
+   ]
+  },
+  "Teleporter23": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter6",
+   "Tag": "MysterioRuns02",
+   "Group": "None,Island2",
+   "Location": [
+    -3712.9677734375,
+    7296.1328125,
+    2448.18896484375
+   ]
+  },
+  "Teleporter29": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter8",
+   "Tag": "MysterioRuns07",
+   "Location": [
+    8881.6943359375,
+    -6911.9638671875,
+    3711.880859375
+   ]
+  },
+  "Teleporter30": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter12",
+   "Tag": "MysterioRuns02",
+   "Group": "None,Island2",
+   "Location": [
+    -2815.41552734375,
+    6912.04638671875,
+    2448.18896484375
+   ]
+  },
+  "PlayerStart1": {
+   "class": "PlayerStart",
+   "Base": "LevelInfo0",
+   "Tag": "PlayerStart",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -16511.939453125,
+    896.1521606445312,
+    -268.0
+   ]
+  },
+  "Teleporter20": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter25",
+   "Tag": "Battle01Part02",
+   "Group": "None,Island1",
+   "Location": [
+    -11135.201171875,
+    -128.21542358398438,
+    410.0
+   ],
+   "Rotation": [
+    0,
+    32748,
+    0
+   ]
+  },
+  "Teleporter19": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter17",
+   "Base": "LevelInfo0",
+   "Tag": "SpideyInspectsBugle",
+   "Location": [
+    7760.169921875,
+    -5119.73828125,
+    6996.0
+   ]
+  },
+  "Teleporter34": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter27",
+   "Tag": "Battle02Part02",
+   "Group": "None,Island2",
+   "Location": [
+    -3712.811767578125,
+    4737.12548828125,
+    2447.70654296875
+   ]
+  },
+  "Teleporter7": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter4",
+   "Tag": "MysterioRuns05",
+   "Group": "None,IslandsToBugle",
+   "Location": [
+    7806.001953125,
+    3968.135009765625,
+    2977.083251953125
+   ]
+  },
+  "Teleporter13": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter21",
+   "Base": "LevelInfo0",
+   "Tag": "SpideyStartsOver",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -15856.4521484375,
+    976.6111450195312,
+    -268.0
+   ]
+  },
+  "Teleporter11": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter22",
+   "Tag": "MysterioDown",
+   "Location": [
+    10128.2119140625,
+    -6016.0927734375,
+    7437.8681640625
+   ],
+   "RelativeLocation": [
+    16.2119140625,
+    -0.0927734375,
+    621.8681640625
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "Teleporter32": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter31",
+   "Tag": "BuglePath01",
+   "Location": [
+    10112.3408203125,
+    -7423.75830078125,
+    7040.46484375
+   ]
+  },
+  "Teleporter2": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter11",
+   "Tag": "MysterioStartRun01",
+   "Group": "None,Island1",
+   "Location": [
+    -10111.9677734375,
+    -815.8849487304688,
+    410.0
+   ],
+   "Rotation": [
+    0,
+    32748,
+    0
+   ]
+  },
+  "Teleporter3": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter29",
+   "Tag": "BeforeBattle02",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -4415.63330078125,
+    -1471.8902587890625,
+    1919.9610595703125
+   ]
+  },
+  "Trigger81": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "bTriggerOnceOnly": true,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "BugleBlowsUpTrigger",
+   "Event": "BugleBlowsUp",
+   "Touching": [
+    "Volume47",
+    "TriggeredCondition0"
+   ],
+   "Location": [
+    7933.568359375,
+    -5198.01416015625,
+    3136.322998046875
+   ]
+  },
+  "Teleporter9": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter3",
+   "Tag": "MysterioRuns06",
+   "Location": [
+    8706.1103515625,
+    -3903.5224609375,
+    3711.880859375
+   ]
+  },
+  "Teleporter0": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter30",
+   "Tag": "MysterioRuns02",
+   "Group": "None,Island2",
+   "Location": [
+    -3327.885498046875,
+    6785.6513671875,
+    2448.18896484375
+   ]
+  },
+  "InterpolationPoint4": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    9472.49609375,
+    -6016.1298828125,
+    7423.0537109375
+   ],
+   "Rotation": [
+    36,
+    -5671,
+    0
+   ]
+  },
+  "Teleporter4": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter1",
+   "Tag": "MysterioRuns04",
+   "Group": "None,IslandsToBugle",
+   "Location": [
+    6143.69384765625,
+    7295.76171875,
+    2976.05517578125
+   ]
+  },
+  "InterpolationPoint6": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    10048.2421875,
+    -5808.32275390625,
+    7450.8291015625
+   ],
+   "Rotation": [
+    -396,
+    -14663,
+    0
+   ]
+  },
+  "InterpolationPoint5": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    7711.90087890625,
+    -5119.58935546875,
+    6976.02978515625
+   ],
+   "Rotation": [
+    -36,
+    -2428,
+    0
+   ]
+  },
+  "Teleporter15": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter14",
+   "Base": "LevelInfo0",
+   "Tag": "I1TI2Start",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -6016.271484375,
+    -6655.689453125,
+    324.0
+   ],
+   "Rotation": [
+    0,
+    -28,
+    0
+   ]
+  },
+  "Trigger5": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "bTriggerOnceOnly": true,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "Battle2StartTrigger",
+   "Event": "Battle2Start",
+   "Touching": [
+    "Volume47"
+   ],
+   "Location": [
+    -2176.822509765625,
+    2848.738037109375,
+    2088.0
+   ]
+  },
+  "InterpolationPoint0": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    10048.1943359375,
+    -5808.5390625,
+    7450.8359375
+   ],
+   "Rotation": [
+    -1179,
+    -14324,
+    0
+   ]
+  },
+  "Trigger7": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "StartDeathTrigger",
+   "Event": "StartDeath",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -15854.83984375,
+    896.1598510742188,
+    -437.23846435546875
+   ]
+  },
+  "LookTarget3": {
+   "class": "LookTarget",
+   "Tag": "I2PlatformLook",
+   "Group": "None,Island2",
+   "Location": [
+    1535.87744140625,
+    6016.37548828125,
+    2115.672607421875
+   ]
+  },
+  "LookTarget2": {
+   "class": "LookTarget",
+   "Tag": "I1TI2Look",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -5887.71240234375,
+    -6655.734375,
+    327.70440673828125
+   ]
+  },
+  "LookTarget4": {
+   "class": "LookTarget",
+   "Tag": "Island2Look",
+   "Group": "None,Island2",
+   "Location": [
+    -3326.50634765625,
+    3326.541259765625,
+    2103.94873046875
+   ]
+  },
+  "LookTarget5": {
+   "class": "LookTarget",
+   "Tag": "SpideyHeadLook",
+   "Location": [
+    10232.1884765625,
+    -6019.484375,
+    7419.9267578125
+   ]
+  },
+  "Trigger11": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "I1TI2DeathTrigger",
+   "Event": "I1TI2Death",
+   "Group": "None,IslandsToIsland2",
+   "Location": [
+    -5985.22802734375,
+    -6752.13916015625,
+    167.3202667236328
+   ]
+  },
+  "LookTarget1": {
+   "class": "LookTarget",
+   "Tag": "Island1Look",
+   "Group": "None,Island1",
+   "Location": [
+    -13121.2509765625,
+    128.53836059570312,
+    75.71915435791016
+   ]
+  },
+  "LookTarget11": {
+   "class": "LookTarget",
+   "Tag": "BugleLook",
+   "Group": "None,BugleIsland",
+   "Location": [
+    8703.9423828125,
+    -464.39190673828125,
+    3127.748046875
+   ]
+  },
+  "LookTarget7": {
+   "class": "LookTarget",
+   "Tag": "MysterioHeadLook",
+   "Location": [
+    10127.880859375,
+    -6016.22802734375,
+    7440.001953125
+   ]
+  },
+  "Trigger15": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "Message": "Spidey On Bugle Island",
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "LastRunTrigger",
+   "Event": "MysterioLastRun",
+   "Location": [
+    9216.0458984375,
+    -63.32585525512695,
+    3104.0
+   ]
+  },
+  "Trigger4": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "bTriggerOnceOnly": true,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "MysterioStatueTrigger",
+   "Event": "MysterioStatue",
+   "Group": "None,Island1",
+   "Location": [
+    -10896.0986328125,
+    -4799.921875,
+    -96.11856079101562
+   ]
+  },
+  "Trigger12": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "Island2PlatformDeathTrigger",
+   "Event": "Island2PlatformDeath",
+   "Group": "None,Island2",
+   "Location": [
+    1521.576171875,
+    5920.87646484375,
+    1955.28857421875
+   ]
+  },
+  "Trigger10": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "Island1DeathTrigger",
+   "Event": "Island1Death",
+   "Group": "None,Island1",
+   "Location": [
+    -13217.65625,
+    95.89566802978516,
+    -84.66499328613281
+   ]
+  },
+  "Trigger13": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "Island2DeathTrigger",
+   "Event": "Island2Death",
+   "Group": "None,Island2",
+   "Location": [
+    -2895.8232421875,
+    3103.867919921875,
+    1943.564697265625
+   ]
+  },
+  "Trigger14": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "bTriggerOnceOnly": true,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "SpideyTooFarTrigger",
+   "Event": "SpideyTooFar",
+   "Group": "None,Island1",
+   "Location": [
+    -2944.215576171875,
+    1199.96484375,
+    1797.88134765625
+   ]
+  },
+  "Trigger72": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "BugleDeathTrigger",
+   "Event": "BugleDeath",
+   "Group": "None,BugleIsland",
+   "Location": [
+    8768.341796875,
+    -336.31005859375,
+    2967.364013671875
+   ]
+  },
+  "Trigger22": {
+   "class": "Trigger",
+   "Message": "spidey arrives",
+   "bTriggerOnceOnly": true,
+   "Tag": "SpideyArrivedTrigger",
+   "Event": "SpideyArrived",
+   "Group": "None,Island1",
+   "Location": [
+    -13248.90625,
+    207.76519775390625,
+    68.11006927490234
+   ],
+   "CollisionRadius": 80.0,
+   "CollisionHeight": 100.0
+  },
+  "LookTarget0": {
+   "class": "LookTarget",
+   "Tag": "LookHereSpidey",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -15615.7958984375,
+    895.823486328125,
+    -276.85430908203125
+   ]
+  }
+ },
+ "movies": [
+  {
+   "name": "ACTION_PlayMovie0",
+   "Movie": "Cinematics.movies.L5M3_CannonBreakout"
+  },
+  {
+   "name": "ACTION_PlayMovie2",
+   "Movie": "Cinematics.movies.L5M3_WorldTransition"
+  }
+ ]
+}

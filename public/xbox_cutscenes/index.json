@@ -1,0 +1,5698 @@
+{
+ "cutscenes": [
+  {
+   "name": "AC60_POORQUENTIN",
+   "duration": 40.867,
+   "shots": [
+    {
+     "name": "AC60_POORQUENTIN_01",
+     "num": 1,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 6.366666793823242,
+     "actors": [
+      "peter",
+      "betty"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC60_POORQUENTIN_02",
+     "num": 2,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 2.2333333492279053,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 6.3667
+    },
+    {
+     "name": "AC60_POORQUENTIN_03",
+     "num": 3,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 9.533333778381348,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 8.6
+    },
+    {
+     "name": "AC60_POORQUENTIN_04",
+     "num": 4,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 6.333333492279053,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 18.1333
+    },
+    {
+     "name": "AC60_POORQUENTIN_05",
+     "num": 5,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 24.4667
+    },
+    {
+     "name": "AC60_POORQUENTIN_06",
+     "num": 6,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 6.533333778381348,
+     "actors": [
+      "jameson"
+     ],
+     "camera": true,
+     "start": 27.6333
+    },
+    {
+     "name": "AC60_POORQUENTIN_07",
+     "num": 7,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 1.7333334684371948,
+     "actors": [
+      "peter"
+     ],
+     "camera": true,
+     "start": 34.1667
+    },
+    {
+     "name": "AC60_POORQUENTIN_08",
+     "num": 8,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 4.9666666984558105,
+     "actors": [
+      "jameson"
+     ],
+     "camera": true,
+     "start": 35.9
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC60_POORQUENTIN.m4a",
+   "audio_seconds": "0:40.874",
+   "level": "XB_D34I01",
+   "levels": [
+    "XB_D34I01",
+    "XB_D34I02"
+   ]
+  },
+  {
+   "name": "AC61_MYSTERIOEXP",
+   "duration": 24.667,
+   "shots": [
+    {
+     "name": "AC61_MYSTERIOEXP_01",
+     "num": 1,
+     "pack": "PK_STORY_14",
+     "duration": 12.833333969116211,
+     "actors": [
+      "peter",
+      "betty"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC61_MYSTERIOEXP_02",
+     "num": 2,
+     "pack": "PK_STORY_14",
+     "duration": 5.066667079925537,
+     "actors": [
+      "jameson"
+     ],
+     "camera": true,
+     "start": 12.8333
+    },
+    {
+     "name": "AC61_MYSTERIOEXP_03",
+     "num": 3,
+     "pack": "PK_STORY_14",
+     "duration": 4.0,
+     "actors": [
+      "peter"
+     ],
+     "camera": true,
+     "start": 17.9
+    },
+    {
+     "name": "AC61_MYSTERIOEXP_04",
+     "num": 4,
+     "pack": "PK_STORY_14",
+     "duration": 2.766666889190674,
+     "actors": [
+      "jameson"
+     ],
+     "camera": true,
+     "start": 21.9
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC61_MYSTERIOEXP.m4a",
+   "audio_seconds": "0:24.558",
+   "level": "XB_D34I02",
+   "levels": [
+    "XB_D34I02"
+   ]
+  },
+  {
+   "name": "AC62_LATECLASS",
+   "duration": 15.633,
+   "shots": [
+    {
+     "name": "AC62_LATECLASS_01",
+     "num": 1,
+     "pack": "PK_STORY_02",
+     "duration": 5.800000190734863,
+     "actors": [
+      "hero",
+      "cop"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC62_LATECLASS_02",
+     "num": 2,
+     "pack": "PK_STORY_02",
+     "duration": 2.500000238418579,
+     "actors": [
+      "jewel_thiefa_01",
+      "ped_fem_norm",
+      "briefcase",
+      "jewel_thiefb",
+      "jewel_thiefa_02"
+     ],
+     "camera": true,
+     "start": 5.8
+    },
+    {
+     "name": "AC62_LATECLASS_03",
+     "num": 3,
+     "pack": "PK_STORY_02",
+     "duration": 7.333333492279053,
+     "actors": [
+      "ped_fem_norm",
+      "briefcase",
+      "jewel_thiefb"
+     ],
+     "camera": true,
+     "start": 8.3
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC62_LATECLASS.m4a",
+   "audio_seconds": "0:15.616",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY",
+    "XB_H77I02"
+   ]
+  },
+  {
+   "name": "AC63_LATECLASS",
+   "duration": 20.067,
+   "shots": [
+    {
+     "name": "AC63_LATECLASS_01",
+     "num": 1,
+     "pack": "PK_STORY_02",
+     "duration": 3.366666793823242,
+     "actors": [
+      "hero",
+      "briefcase",
+      "ped_fem_norm"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC63_LATECLASS_02",
+     "num": 2,
+     "pack": "PK_STORY_02",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "hero",
+      "briefcase",
+      "ped_fem_norm"
+     ],
+     "camera": true,
+     "start": 3.3667
+    },
+    {
+     "name": "AC63_LATECLASS_03",
+     "num": 3,
+     "pack": "PK_STORY_02",
+     "duration": 3.8333334922790527,
+     "actors": [
+      "hero",
+      "briefcase",
+      "ped_fem_norm"
+     ],
+     "camera": true,
+     "start": 6.5333
+    },
+    {
+     "name": "AC63_LATECLASS_04",
+     "num": 4,
+     "pack": "PK_STORY_02",
+     "duration": 5.000000476837158,
+     "actors": [
+      "hero",
+      "ped_fem_norm",
+      "briefcase"
+     ],
+     "camera": true,
+     "start": 10.3667
+    },
+    {
+     "name": "AC63_LATECLASS_05",
+     "num": 5,
+     "pack": "PK_STORY_02",
+     "duration": 4.700000286102295,
+     "actors": [
+      "hero",
+      "ped_fem_norm"
+     ],
+     "camera": true,
+     "start": 15.3667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC63_LATECLASS.m4a",
+   "audio_seconds": "0:20.053",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC64_MYSTERIOEXP",
+   "duration": 31.067,
+   "shots": [
+    {
+     "name": "AC64_MYSTERIOEXP_01",
+     "num": 1,
+     "pack": "PK_STORY_14",
+     "duration": 16.033334732055664,
+     "actors": [
+      "robot1",
+      "robot2",
+      "reporter2",
+      "reporter1",
+      "hero",
+      "mysterio",
+      "reporter_6"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC64_MYSTERIOEXP_02",
+     "num": 2,
+     "pack": "PK_STORY_14",
+     "duration": 15.033333778381348,
+     "actors": [
+      "hero",
+      "mysterio"
+     ],
+     "camera": true,
+     "start": 16.0333
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_XC02",
+   "levels": [
+    "XB_XC02",
+    "XB_XC03",
+    "XB_XC01"
+   ]
+  },
+  {
+   "name": "AC65_QBTRIATHLON",
+   "duration": 44.3,
+   "shots": [
+    {
+     "name": "AC65_QBTRIATHLON_01",
+     "num": 1,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 26.533334732055664,
+     "actors": [
+      "hero",
+      "quinten_beck",
+      "xb02_raygun"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC65_QBTRIATHLON_02",
+     "num": 2,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "xb02_raygun"
+     ],
+     "camera": true,
+     "start": 26.5333
+    },
+    {
+     "name": "AC65_QBTRIATHLON_03",
+     "num": 3,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 4.066667079925537,
+     "actors": [
+      "quinten_beck",
+      "xb02_raygun"
+     ],
+     "camera": true,
+     "start": 31.7
+    },
+    {
+     "name": "AC65_QBTRIATHLON_04",
+     "num": 4,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 8.533333778381348,
+     "actors": [
+      "hero",
+      "quinten_beck",
+      "xb02_raygun"
+     ],
+     "camera": true,
+     "start": 35.7667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC65_QBTRIATHLON.m4a",
+   "audio_seconds": "0:44.244",
+   "level": "XB_XB02",
+   "levels": [
+    "XB_XB02",
+    "XB_XB01",
+    "XB_XB03",
+    "XB_XB04",
+    "XB_XB05",
+    "XB_XB06",
+    "XB_XB07",
+    "XB_XB08"
+   ]
+  },
+  {
+   "name": "AC66_QBTRIATHLON",
+   "duration": 91.833,
+   "shots": [
+    {
+     "name": "AC66_QBTRIATHLON_01",
+     "num": 1,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 3.1000001430511475,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC66_QBTRIATHLON_02",
+     "num": 2,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.500000476837158,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 3.1
+    },
+    {
+     "name": "AC66_QBTRIATHLON_03",
+     "num": 3,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 4.800000190734863,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 8.6
+    },
+    {
+     "name": "AC66_QBTRIATHLON_04",
+     "num": 4,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 3.866666793823242,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 13.4
+    },
+    {
+     "name": "AC66_QBTRIATHLON_05",
+     "num": 5,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 3.6666667461395264,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 17.2667
+    },
+    {
+     "name": "AC66_QBTRIATHLON_06",
+     "num": 6,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 3.6000001430511475,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 20.9333
+    },
+    {
+     "name": "AC66_QBTRIATHLON_07",
+     "num": 7,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 9.533333778381348,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 24.5333
+    },
+    {
+     "name": "AC66_QBTRIATHLON_08",
+     "num": 8,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.700000286102295,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 34.0667
+    },
+    {
+     "name": "AC66_QBTRIATHLON_09",
+     "num": 9,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 39.7667
+    },
+    {
+     "name": "AC66_QBTRIATHLON_10",
+     "num": 10,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 4.200000286102295,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 42.9333
+    },
+    {
+     "name": "AC66_QBTRIATHLON_11",
+     "num": 11,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 9.700000762939453,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 47.1333
+    },
+    {
+     "name": "AC66_QBTRIATHLON_12",
+     "num": 12,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.766666889190674,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 56.8333
+    },
+    {
+     "name": "AC66_QBTRIATHLON_13",
+     "num": 13,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 6.000000476837158,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 62.6
+    },
+    {
+     "name": "AC66_QBTRIATHLON_14",
+     "num": 14,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 7.1666669845581055,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 68.6
+    },
+    {
+     "name": "AC66_QBTRIATHLON_15",
+     "num": 15,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.466667175292969,
+     "actors": [
+      "reporter_01",
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 75.7667
+    },
+    {
+     "name": "AC66_QBTRIATHLON_16",
+     "num": 16,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 6.833333492279053,
+     "actors": [
+      "reporter_01",
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 81.2333
+    },
+    {
+     "name": "AC66_QBTRIATHLON_17",
+     "num": 17,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 3.766666889190674,
+     "actors": [
+      "quinten_beck"
+     ],
+     "camera": true,
+     "start": 88.0667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC66_QBTRIATHLON.m4a",
+   "audio_seconds": "1:33.093",
+   "level": "XB_XB02",
+   "levels": [
+    "XB_XB02",
+    "XB_XB03",
+    "XB_XB01",
+    "XB_XB04",
+    "XB_XB05",
+    "XB_XB06",
+    "XB_XB07",
+    "XB_XB08",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC67_SPIDEYSGIRL",
+   "duration": 29.633,
+   "shots": [
+    {
+     "name": "AC67_SPIDEYSGIRL_01",
+     "num": 1,
+     "pack": "PK_STORY_00",
+     "duration": 29.63333511352539,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC67_SPIDEYSGIRL.m4a",
+   "audio_seconds": "0:30.998",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC68_RHINORAMPAGE",
+   "duration": 21.367,
+   "shots": [
+    {
+     "name": "AC68_RHINORAMPAGE_01",
+     "num": 1,
+     "pack": "PK_STORY_05B",
+     "duration": 21.366668701171875,
+     "actors": [
+      "hero",
+      "rhino"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC68_RHINORAMPAGE.m4a",
+   "audio_seconds": "0:21.355",
+   "level": "XB_D27I05",
+   "levels": [
+    "XB_D27I05",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC69_FINALBAT",
+   "duration": 27.033,
+   "shots": [
+    {
+     "name": "AC69_FINALBAT_01",
+     "num": 1,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 4.366666793823242,
+     "actors": [
+      "hero_um",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC69_FINALBAT_02",
+     "num": 2,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 4.0,
+     "actors": [
+      "hero_um",
+      "hero"
+     ],
+     "camera": true,
+     "start": 4.3667
+    },
+    {
+     "name": "AC69_FINALBAT_03",
+     "num": 3,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 2.1000001430511475,
+     "actors": [
+      "hero_um",
+      "docock_rig",
+      "docock",
+      "hero"
+     ],
+     "camera": true,
+     "start": 8.3667
+    },
+    {
+     "name": "AC69_FINALBAT_04",
+     "num": 4,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 1.2333333492279053,
+     "actors": [
+      "hero_um",
+      "docock_rig",
+      "docock",
+      "hero"
+     ],
+     "camera": true,
+     "start": 10.4667
+    },
+    {
+     "name": "AC69_FINALBAT_05",
+     "num": 5,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 3.000000238418579,
+     "actors": [
+      "hero_um",
+      "docock_rig",
+      "docock",
+      "hero"
+     ],
+     "camera": true,
+     "start": 11.7
+    },
+    {
+     "name": "AC69_FINALBAT_06",
+     "num": 6,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 5.6666669845581055,
+     "actors": [
+      "hero_um",
+      "docock_rig",
+      "docock",
+      "hero"
+     ],
+     "camera": true,
+     "start": 14.7
+    },
+    {
+     "name": "AC69_FINALBAT_07",
+     "num": 7,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 3.500000238418579,
+     "actors": [
+      "hero_um",
+      "docock",
+      "docock_rig",
+      "hero"
+     ],
+     "camera": true,
+     "start": 20.3667
+    },
+    {
+     "name": "AC69_FINALBAT_08",
+     "num": 8,
+     "pack": "STORY_37_SCENE_2",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "hero_um",
+      "docock",
+      "docock_rig",
+      "hero"
+     ],
+     "camera": true,
+     "start": 23.8667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC69_FINALBAT.m4a",
+   "audio_seconds": "0:28.529",
+   "level": "XB_XH04",
+   "levels": [
+    "XB_XH04",
+    "XB_XH01",
+    "XB_XH05",
+    "XB_XH06",
+    "XB_XH07"
+   ]
+  },
+  {
+   "name": "AC70_DOCOCKBANK",
+   "duration": 13.367,
+   "shots": [
+    {
+     "name": "AC70_DOCOCKBANK_01",
+     "num": 1,
+     "pack": "STORY_22_OTHER",
+     "duration": 8.200000762939453,
+     "actors": [
+      "aunt_may",
+      "chopper"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC70_DOCOCKBANK_02",
+     "num": 2,
+     "pack": "STORY_22_OTHER",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "aunt_may",
+      "train01",
+      "chopper"
+     ],
+     "camera": true,
+     "start": 8.2
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC70_DOCOCKBANK.m4a",
+   "audio_seconds": "0:13.413",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC71_DOCOCKBANK",
+   "duration": 9.267,
+   "shots": [
+    {
+     "name": "AC71_DOCOCKBANK_01",
+     "num": 1,
+     "pack": "STORY_22_OTHER",
+     "duration": 3.366666793823242,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "aunt_may",
+      "chopper"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC71_DOCOCKBANK_02",
+     "num": 2,
+     "pack": "STORY_22_OTHER",
+     "duration": 5.900000095367432,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "aunt_may",
+      "chopper"
+     ],
+     "camera": true,
+     "start": 3.3667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC71_DOCOCKBANK.m4a",
+   "audio_seconds": "0:09.243",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC72_CATTHIEF",
+   "duration": 15.7,
+   "shots": [
+    {
+     "name": "AC72_CATTHIEF_01",
+     "num": 1,
+     "pack": "PK_STORY_13",
+     "duration": 3.700000286102295,
+     "actors": [
+      "blackcat",
+      "hero",
+      "artthiefa01",
+      "artthiefb01",
+      "artthiefb02",
+      "artthiefa02",
+      "crate"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC72_CATTHIEF_02",
+     "num": 2,
+     "pack": "PK_STORY_13",
+     "duration": 3.8333334922790527,
+     "actors": [
+      "blackcat",
+      "hero",
+      "artthiefa01",
+      "artthiefb01",
+      "artthiefb02",
+      "artthiefa02",
+      "crate"
+     ],
+     "camera": true,
+     "start": 3.7
+    },
+    {
+     "name": "AC72_CATTHIEF_03",
+     "num": 3,
+     "pack": "PK_STORY_13",
+     "duration": 8.166666984558105,
+     "actors": [
+      "blackcat",
+      "hero",
+      "artthiefa01",
+      "artthiefb01",
+      "artthiefb02",
+      "artthiefa02",
+      "crate"
+     ],
+     "camera": true,
+     "start": 7.5333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC72_CATTHIEF.m4a",
+   "audio_seconds": "0:16.116",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC73_RHINORAMPAGE",
+   "duration": 16.733,
+   "shots": [
+    {
+     "name": "AC73_RHINORAMPAGE_01",
+     "num": 1,
+     "pack": "STORY_05B_CUTSCENE",
+     "duration": 6.40000057220459,
+     "actors": [
+      "rhino",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC73_RHINORAMPAGE_02",
+     "num": 2,
+     "pack": "STORY_05B_CUTSCENE",
+     "duration": 10.333333969116211,
+     "actors": [
+      "rhino",
+      "hero"
+     ],
+     "camera": true,
+     "start": 6.4
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC73_RHINORAMPAGE.m4a",
+   "audio_seconds": "0:16.756",
+   "level": "XB_D27I05",
+   "levels": [
+    "XB_D27I05",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC74_CATFUN",
+   "duration": 18.733,
+   "shots": [
+    {
+     "name": "AC74_CATFUN_01",
+     "num": 1,
+     "pack": "STORY_32_P2",
+     "duration": 7.033333778381348,
+     "actors": [
+      "hero",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC74_CATFUN_02",
+     "num": 2,
+     "pack": "STORY_32_P2",
+     "duration": 4.033333778381348,
+     "actors": [
+      "maryjane",
+      "thug_2",
+      "thug_1",
+      "thug_3"
+     ],
+     "camera": true,
+     "start": 7.0333
+    },
+    {
+     "name": "AC74_CATFUN_03",
+     "num": 3,
+     "pack": "STORY_32_P2",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "maryjane",
+      "thug_2",
+      "thug_1",
+      "thug_3"
+     ],
+     "camera": true,
+     "start": 11.0667
+    },
+    {
+     "name": "AC74_CATFUN_04",
+     "num": 4,
+     "pack": "STORY_32_P2",
+     "duration": 4.5,
+     "actors": [
+      "maryjane",
+      "thug_2",
+      "thug_1",
+      "thug_3"
+     ],
+     "camera": true,
+     "start": 14.2333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC74_CATFUN.m4a",
+   "audio_seconds": "0:18.719",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC75_POORQUENTIN",
+   "duration": 20.4,
+   "shots": [
+    {
+     "name": "AC75_POORQUENTIN_01",
+     "num": 1,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 2.6000001430511475,
+     "actors": [
+      "conv_clerk",
+      "hero",
+      "mysterio_quentin",
+      "itm_myst_bowl"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC75_POORQUENTIN_02",
+     "num": 2,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 1.133333444595337,
+     "actors": [
+      "conv_clerk",
+      "hero",
+      "mysterio_quentin",
+      "itm_myst_bowl"
+     ],
+     "camera": true,
+     "start": 2.6
+    },
+    {
+     "name": "AC75_POORQUENTIN_03",
+     "num": 3,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 5.300000190734863,
+     "actors": [
+      "conv_clerk",
+      "hero"
+     ],
+     "camera": true,
+     "start": 3.7333
+    },
+    {
+     "name": "AC75_POORQUENTIN_04",
+     "num": 4,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 5.266666889190674,
+     "actors": [
+      "conv_clerk",
+      "hero",
+      "mysterio_quentin"
+     ],
+     "camera": true,
+     "start": 9.0333
+    },
+    {
+     "name": "AC75_POORQUENTIN_05",
+     "num": 5,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 6.100000381469727,
+     "actors": [
+      "conv_clerk",
+      "hero",
+      "itm_camera"
+     ],
+     "camera": true,
+     "start": 14.3
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC75_POORQUENTIN.m4a",
+   "audio_seconds": "0:20.420",
+   "level": "XB_D36I01",
+   "levels": [
+    "XB_D36I01"
+   ]
+  },
+  {
+   "name": "AC76_DOCOCKBANK",
+   "duration": 19.033,
+   "shots": [
+    {
+     "name": "AC76_DOCOCKBANK_01",
+     "num": 1,
+     "pack": "STORY_22_OTHER",
+     "duration": 4.300000190734863,
+     "actors": [
+      "train01",
+      "hero",
+      "aunt_may",
+      "train02",
+      "train03"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC76_DOCOCKBANK_02",
+     "num": 2,
+     "pack": "STORY_22_OTHER",
+     "duration": 14.7333345413208,
+     "actors": [
+      "train01",
+      "hero",
+      "aunt_may",
+      "train02",
+      "train03",
+      "chopper"
+     ],
+     "camera": true,
+     "start": 4.3
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC76_DOCOCKBANK.m4a",
+   "audio_seconds": "0:18.986",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC77_DOCOCKBANK",
+   "duration": 17.7,
+   "shots": [
+    {
+     "name": "AC77_DOCOCKBANK_01",
+     "num": 1,
+     "pack": "STORY_22_OTHER",
+     "duration": 8.700000762939453,
+     "actors": [
+      "hero",
+      "docock_rig",
+      "docock",
+      "aunt_may"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC77_DOCOCKBANK_02",
+     "num": 2,
+     "pack": "STORY_22_OTHER",
+     "duration": 1.6666667461395264,
+     "actors": [
+      "hero",
+      "docock_rig",
+      "docock",
+      "aunt_may"
+     ],
+     "camera": true,
+     "start": 8.7
+    },
+    {
+     "name": "AC77_DOCOCKBANK_03",
+     "num": 3,
+     "pack": "STORY_22_OTHER",
+     "duration": 7.333333492279053,
+     "actors": [
+      "hero",
+      "docock_rig",
+      "aunt_may",
+      "docock",
+      "ockthug_5",
+      "ockthug_4",
+      "ockthug_6"
+     ],
+     "camera": true,
+     "start": 10.3667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC77_DOCOCKBANK.m4a",
+   "audio_seconds": "0:17.651",
+   "level": "XB_XF02",
+   "levels": [
+    "XB_XF02",
+    "XB_XF01",
+    "XB_XF03",
+    "XB_XF04",
+    "XB_XF06"
+   ]
+  },
+  {
+   "name": "AC78_BIRTHLIZ",
+   "duration": 34.733,
+   "shots": [
+    {
+     "name": "AC78_BIRTHLIZ_01",
+     "num": 1,
+     "pack": "STORY_19_P3",
+     "duration": 9.200000762939453,
+     "actors": [
+      "peter",
+      "betty"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC78_BIRTHLIZ_02",
+     "num": 2,
+     "pack": "STORY_19_P3",
+     "duration": 11.600000381469727,
+     "actors": [
+      "jameson",
+      "peter",
+      "robbie"
+     ],
+     "camera": true,
+     "start": 9.2
+    },
+    {
+     "name": "AC78_BIRTHLIZ_03",
+     "num": 3,
+     "pack": "STORY_19_P3",
+     "duration": 1.0666667222976685,
+     "actors": [
+      "jameson",
+      "peter",
+      "robbie"
+     ],
+     "camera": true,
+     "start": 20.8
+    },
+    {
+     "name": "AC78_BIRTHLIZ_04",
+     "num": 4,
+     "pack": "STORY_19_P3",
+     "duration": 5.633333683013916,
+     "actors": [
+      "jameson",
+      "peter",
+      "robbie"
+     ],
+     "camera": true,
+     "start": 21.8667
+    },
+    {
+     "name": "AC78_BIRTHLIZ_05",
+     "num": 5,
+     "pack": "STORY_19_P3",
+     "duration": 2.8000001907348633,
+     "actors": [
+      "jameson",
+      "peter",
+      "robbie"
+     ],
+     "camera": true,
+     "start": 27.5
+    },
+    {
+     "name": "AC78_BIRTHLIZ_06",
+     "num": 6,
+     "pack": "STORY_19_P3",
+     "duration": 4.433333396911621,
+     "actors": [
+      "jameson",
+      "peter",
+      "robbie"
+     ],
+     "camera": true,
+     "start": 30.3
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC78_BIRTHLIZ.m4a",
+   "audio_seconds": "0:34.735",
+   "level": "XB_D34I01",
+   "levels": [
+    "XB_D34I01",
+    "XB_D34I02"
+   ]
+  },
+  {
+   "name": "AC79_WARWORLD",
+   "duration": 32.1,
+   "shots": [
+    {
+     "name": "AC79_WARWORLD_01",
+     "num": 1,
+     "pack": "STORY_15_CUTSCENE",
+     "duration": 6.700000286102295,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC79_WARWORLD_02",
+     "num": 2,
+     "pack": "STORY_15_CUTSCENE",
+     "duration": 5.333333492279053,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 6.7
+    },
+    {
+     "name": "AC79_WARWORLD_03",
+     "num": 3,
+     "pack": "STORY_15_CUTSCENE",
+     "duration": 10.033333778381348,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 12.0333
+    },
+    {
+     "name": "AC79_WARWORLD_04",
+     "num": 4,
+     "pack": "STORY_15_CUTSCENE",
+     "duration": 10.033333778381348,
+     "actors": [
+      "hero",
+      "itm_cruiseship"
+     ],
+     "camera": true,
+     "start": 22.0667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC79_WARWORLD.m4a",
+   "audio_seconds": "0:29.363",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC80_QBTRIATHLON",
+   "duration": 149.033,
+   "shots": [
+    {
+     "name": "AC80_QBTRIATHLON_01",
+     "num": 1,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 22.433334350585938,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC80_QBTRIATHLON_02",
+     "num": 2,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 9.033333778381348,
+     "actors": [
+      "reporter_01",
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 22.4333
+    },
+    {
+     "name": "AC80_QBTRIATHLON_03",
+     "num": 3,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.333333492279053,
+     "actors": [
+      "reporter_01",
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 31.4667
+    },
+    {
+     "name": "AC80_QBTRIATHLON_04",
+     "num": 4,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 4.133333683013916,
+     "actors": [
+      "reporter_01",
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 36.8
+    },
+    {
+     "name": "AC80_QBTRIATHLON_05",
+     "num": 5,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 28.700000762939453,
+     "actors": [
+      "reporter",
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 40.9333
+    },
+    {
+     "name": "AC80_QBTRIATHLON_06",
+     "num": 6,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 7.3666672706604,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 69.6333
+    },
+    {
+     "name": "AC80_QBTRIATHLON_07",
+     "num": 7,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 48.000003814697266,
+     "actors": [
+      "quinten_beck",
+      "hero"
+     ],
+     "camera": true,
+     "start": 77.0
+    },
+    {
+     "name": "AC80_QBTRIATHLON_08",
+     "num": 8,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 24.033334732055664,
+     "actors": [
+      "reporter_01",
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 125.0
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC80_QBTRIATHLON.m4a",
+   "audio_seconds": "2:28.682",
+   "level": "XB_XB03",
+   "levels": [
+    "XB_XB03",
+    "XB_XB02",
+    "XB_XB08",
+    "XB_XB01",
+    "XB_XB04",
+    "XB_XB05",
+    "XB_XB06",
+    "XB_XB07"
+   ]
+  },
+  {
+   "name": "AC81_LATECLASS",
+   "duration": 58.3,
+   "shots": [
+    {
+     "name": "AC81_LATECLASS_01",
+     "num": 1,
+     "pack": "PK_STORY_02",
+     "duration": 2.700000047683716,
+     "actors": [
+      "dr_connor",
+      "peter",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC81_LATECLASS_02",
+     "num": 2,
+     "pack": "PK_STORY_02",
+     "duration": 1.3333333730697632,
+     "actors": [
+      "dr_connor",
+      "peter",
+      "hero"
+     ],
+     "camera": true,
+     "start": 2.7
+    },
+    {
+     "name": "AC81_LATECLASS_03",
+     "num": 3,
+     "pack": "PK_STORY_02",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 4.0333
+    },
+    {
+     "name": "AC81_LATECLASS_04",
+     "num": 4,
+     "pack": "PK_STORY_02",
+     "duration": 14.333333969116211,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 9.2
+    },
+    {
+     "name": "AC81_LATECLASS_05",
+     "num": 5,
+     "pack": "PK_STORY_02",
+     "duration": 3.433333396911621,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 23.5333
+    },
+    {
+     "name": "AC81_LATECLASS_06",
+     "num": 6,
+     "pack": "PK_STORY_02",
+     "duration": 6.40000057220459,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 26.9667
+    },
+    {
+     "name": "AC81_LATECLASS_07",
+     "num": 7,
+     "pack": "PK_STORY_02",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 33.3667
+    },
+    {
+     "name": "AC81_LATECLASS_08",
+     "num": 8,
+     "pack": "PK_STORY_02",
+     "duration": 11.433334350585938,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 36.5333
+    },
+    {
+     "name": "AC81_LATECLASS_09",
+     "num": 9,
+     "pack": "PK_STORY_02",
+     "duration": 10.333333969116211,
+     "actors": [
+      "dr_connor",
+      "peter"
+     ],
+     "camera": true,
+     "start": 47.9667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC81_LATECLASS.m4a",
+   "audio_seconds": "0:58.358",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC87_CATFUN",
+   "duration": 40.567,
+   "shots": [
+    {
+     "name": "AC87_CATFUN_01",
+     "num": 1,
+     "pack": "STORY_32_P2",
+     "duration": 10.033333778381348,
+     "actors": [
+      "thug_2",
+      "thug_1",
+      "thug_3",
+      "maryjane",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC87_CATFUN_02",
+     "num": 2,
+     "pack": "STORY_32_P2",
+     "duration": 5.333333492279053,
+     "actors": [
+      "maryjane",
+      "hero"
+     ],
+     "camera": true,
+     "start": 10.0333
+    },
+    {
+     "name": "AC87_CATFUN_03",
+     "num": 3,
+     "pack": "STORY_32_P2",
+     "duration": 10.333333969116211,
+     "actors": [
+      "maryjane",
+      "hero",
+      "thug_2",
+      "thug_1",
+      "thug_3"
+     ],
+     "camera": true,
+     "start": 15.3667
+    },
+    {
+     "name": "AC87_CATFUN_04",
+     "num": 4,
+     "pack": "STORY_32_P2",
+     "duration": 10.333333969116211,
+     "actors": [
+      "maryjane",
+      "hero",
+      "thug_2",
+      "thug_1",
+      "thug_3"
+     ],
+     "camera": true,
+     "start": 25.7
+    },
+    {
+     "name": "AC87_CATFUN_05",
+     "num": 5,
+     "pack": "STORY_32_P2",
+     "duration": 4.533333778381348,
+     "actors": [
+      "thug_2",
+      "thug_1",
+      "thug_3",
+      "hero",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 36.0333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC87_CATFUN.m4a",
+   "audio_seconds": "0:40.207",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC89_CATFUN",
+   "duration": 22.7,
+   "shots": [
+    {
+     "name": "AC89_CATFUN_01",
+     "num": 1,
+     "pack": "STORY_32_P7",
+     "duration": 6.366666793823242,
+     "actors": [
+      "blackcat",
+      "hero",
+      "at01"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC89_CATFUN_02",
+     "num": 2,
+     "pack": "STORY_32_P7",
+     "duration": 2.066666841506958,
+     "actors": [
+      "blackcat",
+      "hero",
+      "at01"
+     ],
+     "camera": true,
+     "start": 6.3667
+    },
+    {
+     "name": "AC89_CATFUN_03",
+     "num": 3,
+     "pack": "STORY_32_P7",
+     "duration": 14.266667366027832,
+     "actors": [
+      "blackcat",
+      "hero",
+      "at01"
+     ],
+     "camera": true,
+     "start": 8.4333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC89_CATFUN.m4a",
+   "audio_seconds": "0:22.656",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC90_BLACATJEWELRY",
+   "duration": 11.3,
+   "shots": [
+    {
+     "name": "AC90_BLACATJEWELRY_01",
+     "num": 1,
+     "pack": "PK_STORY_09",
+     "duration": 7.533333778381348,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC90_BLACATJEWELRY_02",
+     "num": 2,
+     "pack": "PK_STORY_09",
+     "duration": 3.766666889190674,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 7.5333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC90_BLACATJEWELRY.m4a",
+   "audio_seconds": "0:11.278",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "AC92_HELLOBC",
+   "duration": 48.2,
+   "shots": [
+    {
+     "name": "AC92_HELLOBC_01",
+     "num": 1,
+     "pack": "STORY_04_SCENE0",
+     "duration": 7.933333873748779,
+     "actors": [
+      "maryjane",
+      "peter"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC92_HELLOBC_02",
+     "num": 2,
+     "pack": "STORY_04_SCENE0",
+     "duration": 4.566667079925537,
+     "actors": [
+      "maryjane",
+      "peter"
+     ],
+     "camera": true,
+     "start": 7.9333
+    },
+    {
+     "name": "AC92_HELLOBC_03",
+     "num": 3,
+     "pack": "STORY_04_SCENE0",
+     "duration": 10.766667366027832,
+     "actors": [
+      "maryjane",
+      "peter"
+     ],
+     "camera": true,
+     "start": 12.5
+    },
+    {
+     "name": "AC92_HELLOBC_04",
+     "num": 4,
+     "pack": "STORY_04_SCENE0",
+     "duration": 3.8333334922790527,
+     "actors": [
+      "maryjane",
+      "peter",
+      "art_thiefb01",
+      "art_thiefb02",
+      "art_thiefb03"
+     ],
+     "camera": true,
+     "start": 23.2667
+    },
+    {
+     "name": "AC92_HELLOBC_05",
+     "num": 5,
+     "pack": "STORY_04_SCENE0",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "maryjane",
+      "peter",
+      "art_thiefb01",
+      "art_thiefb02",
+      "art_thiefb03"
+     ],
+     "camera": true,
+     "start": 27.1
+    },
+    {
+     "name": "AC92_HELLOBC_06",
+     "num": 6,
+     "pack": "STORY_04_SCENE0",
+     "duration": 1.7000000476837158,
+     "actors": [
+      "maryjane",
+      "peter",
+      "art_thiefb01",
+      "art_thiefb02",
+      "art_thiefb03"
+     ],
+     "camera": true,
+     "start": 32.2667
+    },
+    {
+     "name": "AC92_HELLOBC_07",
+     "num": 7,
+     "pack": "STORY_04_SCENE0",
+     "duration": 7.40000057220459,
+     "actors": [
+      "maryjane",
+      "peter"
+     ],
+     "camera": true,
+     "start": 33.9667
+    },
+    {
+     "name": "AC92_HELLOBC_08",
+     "num": 8,
+     "pack": "STORY_04_SCENE0",
+     "duration": 6.833333492279053,
+     "actors": [
+      "maryjane",
+      "peter"
+     ],
+     "camera": true,
+     "start": 41.3667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC92_HELLOBC.m4a",
+   "audio_seconds": "0:48.181",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY",
+    "XB_D27I01"
+   ]
+  },
+  {
+   "name": "AC93_POORQUENTIN",
+   "duration": 27.067,
+   "shots": [
+    {
+     "name": "AC93_POORQUENTIN_01",
+     "num": 1,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 13.200000762939453,
+     "actors": [
+      "mysterio",
+      "hero",
+      "conv_clerk"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC93_POORQUENTIN_02",
+     "num": 2,
+     "pack": "STORY_29_CUTSCENE",
+     "duration": 13.866667747497559,
+     "actors": [
+      "hero",
+      "mysterio",
+      "conv_clerk"
+     ],
+     "camera": true,
+     "start": 13.2
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC93_POORQUENTIN.m4a",
+   "audio_seconds": "0:25.893",
+   "level": "XB_D36I01",
+   "levels": [
+    "XB_D36I01"
+   ]
+  },
+  {
+   "name": "AC96_QBTRIATHLON",
+   "duration": 15.9,
+   "shots": [
+    {
+     "name": "AC96_QBTRIATHLON_01",
+     "num": 1,
+     "pack": "STORY_10_CUTSCENE_BUGLE",
+     "duration": 1.533333420753479,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC96_QBTRIATHLON_02",
+     "num": 2,
+     "pack": "STORY_10_CUTSCENE_BUGLE",
+     "duration": 2.433333396911621,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 1.5333
+    },
+    {
+     "name": "AC96_QBTRIATHLON_03",
+     "num": 3,
+     "pack": "STORY_10_CUTSCENE_BUGLE",
+     "duration": 1.4000000953674316,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 3.9667
+    },
+    {
+     "name": "AC96_QBTRIATHLON_04",
+     "num": 4,
+     "pack": "STORY_10_CUTSCENE_BUGLE",
+     "duration": 5.633333683013916,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 5.3667
+    },
+    {
+     "name": "AC96_QBTRIATHLON_05",
+     "num": 5,
+     "pack": "STORY_10_CUTSCENE_BUGLE",
+     "duration": 4.900000095367432,
+     "actors": [
+      "jameson",
+      "peter"
+     ],
+     "camera": true,
+     "start": 11.0
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC96_QBTRIATHLON.m4a",
+   "audio_seconds": "0:14.882",
+   "level": "XB_D34I01",
+   "levels": [
+    "XB_D34I01"
+   ]
+  },
+  {
+   "name": "AC97_QBTRIATHLON",
+   "duration": 37.1,
+   "shots": [
+    {
+     "name": "AC97_QBTRIATHLON_01",
+     "num": 1,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 9.066667556762695,
+     "actors": [
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "AC97_QBTRIATHLON_02",
+     "num": 2,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 12.133334159851074,
+     "actors": [
+      "quinten_beck"
+     ],
+     "camera": true,
+     "start": 9.0667
+    },
+    {
+     "name": "AC97_QBTRIATHLON_03",
+     "num": 3,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.333333492279053,
+     "actors": [
+      "reporter_01"
+     ],
+     "camera": true,
+     "start": 21.2
+    },
+    {
+     "name": "AC97_QBTRIATHLON_04",
+     "num": 4,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 5.866666793823242,
+     "actors": [
+      "reporter_02"
+     ],
+     "camera": true,
+     "start": 26.5333
+    },
+    {
+     "name": "AC97_QBTRIATHLON_05",
+     "num": 5,
+     "pack": "STORY_10_CUTSCENE",
+     "duration": 4.700000286102295,
+     "actors": [
+      "quinten_beck"
+     ],
+     "camera": true,
+     "start": 32.4
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/AC97_QBTRIATHLON.m4a",
+   "audio_seconds": "0:37.204",
+   "level": "XB_XB02",
+   "levels": [
+    "XB_XB02",
+    "XB_XB03",
+    "XB_XB01",
+    "XB_XB04",
+    "XB_XB05",
+    "XB_XB06",
+    "XB_XB07",
+    "XB_XB08"
+   ]
+  },
+  {
+   "name": "FLYTHRU3",
+   "duration": 86.767,
+   "shots": [
+    {
+     "name": "FLYTHRU3",
+     "num": 0,
+     "pack": "PK_STORY_00",
+     "duration": 86.76667022705078,
+     "actors": [],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "NEW_FLYTHROUGH",
+   "duration": 86.767,
+   "shots": [
+    {
+     "name": "NEW_FLYTHROUGH",
+     "num": 0,
+     "pack": "PK_STORY_00",
+     "duration": 86.76667022705078,
+     "actors": [],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA01_PETERBDAY",
+   "duration": 66.0,
+   "shots": [
+    {
+     "name": "SA01_PETERBDAY_01",
+     "num": 1,
+     "pack": "PK_STORY_03",
+     "duration": 3.5333335399627686,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA01_PETERBDAY_02",
+     "num": 2,
+     "pack": "PK_STORY_03",
+     "duration": 8.300000190734863,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 3.5333
+    },
+    {
+     "name": "SA01_PETERBDAY_03",
+     "num": 3,
+     "pack": "PK_STORY_03",
+     "duration": 6.933333873748779,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 11.8333
+    },
+    {
+     "name": "SA01_PETERBDAY_04",
+     "num": 4,
+     "pack": "PK_STORY_03",
+     "duration": 8.033333778381348,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 18.7667
+    },
+    {
+     "name": "SA01_PETERBDAY_05",
+     "num": 5,
+     "pack": "PK_STORY_03",
+     "duration": 1.7666667699813843,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 26.8
+    },
+    {
+     "name": "SA01_PETERBDAY_06",
+     "num": 6,
+     "pack": "PK_STORY_03",
+     "duration": 2.3000001907348633,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 28.5667
+    },
+    {
+     "name": "SA01_PETERBDAY_07",
+     "num": 7,
+     "pack": "PK_STORY_03",
+     "duration": 3.0333335399627686,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 30.8667
+    },
+    {
+     "name": "SA01_PETERBDAY_08",
+     "num": 8,
+     "pack": "PK_STORY_03",
+     "duration": 14.700000762939453,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 33.9
+    },
+    {
+     "name": "SA01_PETERBDAY_09",
+     "num": 9,
+     "pack": "PK_STORY_03",
+     "duration": 6.700000286102295,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 48.6
+    },
+    {
+     "name": "SA01_PETERBDAY_10",
+     "num": 10,
+     "pack": "PK_STORY_03",
+     "duration": 10.700000762939453,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 55.3
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA01_PETERBDAY.m4a",
+   "audio_seconds": "1:28.088",
+   "level": "XB_E39I02",
+   "levels": [
+    "XB_E39I02",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA01_PETERBDAY_07A",
+   "duration": 3.3,
+   "shots": [
+    {
+     "name": "SA01_PETERBDAY_07A",
+     "num": 0,
+     "pack": "PK_STORY_03",
+     "duration": 3.3000001907348633,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_E39I02",
+   "levels": [
+    "XB_E39I02",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA01_PETERBDAY_07B",
+   "duration": 7.367,
+   "shots": [
+    {
+     "name": "SA01_PETERBDAY_07B",
+     "num": 0,
+     "pack": "PK_STORY_03",
+     "duration": 7.3666672706604,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_E39I02",
+   "levels": [
+    "XB_E39I02",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA01_PETERBDAY_08A",
+   "duration": 11.633,
+   "shots": [
+    {
+     "name": "SA01_PETERBDAY_08A",
+     "num": 0,
+     "pack": "PK_STORY_03",
+     "duration": 11.633334159851074,
+     "actors": [
+      "peter",
+      "mj",
+      "harry"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_E39I02",
+   "levels": [
+    "XB_E39I02",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA02_HELLOBC",
+   "duration": 37.033,
+   "shots": [
+    {
+     "name": "SA02_HELLOBC_01",
+     "num": 1,
+     "pack": "STORY_04_SCENE2",
+     "duration": 3.0333335399627686,
+     "actors": [
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA02_HELLOBC_02",
+     "num": 2,
+     "pack": "STORY_04_SCENE2",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 3.0333
+    },
+    {
+     "name": "SA02_HELLOBC_03",
+     "num": 3,
+     "pack": "STORY_04_SCENE2",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 5.3667
+    },
+    {
+     "name": "SA02_HELLOBC_04",
+     "num": 4,
+     "pack": "STORY_04_SCENE2",
+     "duration": 7.333333492279053,
+     "actors": [
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 7.7
+    },
+    {
+     "name": "SA02_HELLOBC_05",
+     "num": 5,
+     "pack": "STORY_04_SCENE2",
+     "duration": 10.166666984558105,
+     "actors": [
+      "blackcat",
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b"
+     ],
+     "camera": true,
+     "start": 15.0333
+    },
+    {
+     "name": "SA02_HELLOBC_06",
+     "num": 6,
+     "pack": "STORY_04_SCENE2",
+     "duration": 1.133333444595337,
+     "actors": [
+      "blackcat",
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b"
+     ],
+     "camera": true,
+     "start": 25.2
+    },
+    {
+     "name": "SA02_HELLOBC_07",
+     "num": 7,
+     "pack": "STORY_04_SCENE2",
+     "duration": 2.866666793823242,
+     "actors": [
+      "blackcat",
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b"
+     ],
+     "camera": true,
+     "start": 26.3333
+    },
+    {
+     "name": "SA02_HELLOBC_08",
+     "num": 8,
+     "pack": "STORY_04_SCENE2",
+     "duration": 7.833333969116211,
+     "actors": [
+      "blackcat",
+      "hero",
+      "thug03a",
+      "thug01a",
+      "thugb05",
+      "thug02a",
+      "thug06a",
+      "thug04b"
+     ],
+     "camera": true,
+     "start": 29.2
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA02_HELLOBC.m4a",
+   "audio_seconds": "0:41.041",
+   "level": "XB_D27I04",
+   "levels": [
+    "XB_D27I04",
+    "XB_D27I03"
+   ]
+  },
+  {
+   "name": "SA03_HELLOJJ",
+   "duration": 30.7,
+   "shots": [
+    {
+     "name": "SA03_HELLOJJ_01",
+     "num": 1,
+     "pack": "PK_STORY_05",
+     "duration": 9.666666984558105,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA03_HELLOJJ_02",
+     "num": 2,
+     "pack": "PK_STORY_05",
+     "duration": 2.633333444595337,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 9.6667
+    },
+    {
+     "name": "SA03_HELLOJJ_03",
+     "num": 3,
+     "pack": "PK_STORY_05",
+     "duration": 5.400000095367432,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 12.3
+    },
+    {
+     "name": "SA03_HELLOJJ_04",
+     "num": 4,
+     "pack": "PK_STORY_05",
+     "duration": 4.200000286102295,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 17.7
+    },
+    {
+     "name": "SA03_HELLOJJ_05",
+     "num": 5,
+     "pack": "PK_STORY_05",
+     "duration": 3.433333396911621,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 21.9
+    },
+    {
+     "name": "SA03_HELLOJJ_06",
+     "num": 6,
+     "pack": "PK_STORY_05",
+     "duration": 2.566666841506958,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 25.3333
+    },
+    {
+     "name": "SA03_HELLOJJ_07",
+     "num": 7,
+     "pack": "PK_STORY_05",
+     "duration": 2.8000001907348633,
+     "actors": [
+      "jameson",
+      "peter",
+      "newspaper"
+     ],
+     "camera": true,
+     "start": 27.9
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA03_HELLOJJ.m4a",
+   "audio_seconds": "0:31.031",
+   "level": "XB_D34I01",
+   "levels": [
+    "XB_D34I01"
+   ]
+  },
+  {
+   "name": "SA04_MEETOCTAVIUS",
+   "duration": 99.7,
+   "shots": [
+    {
+     "name": "SA04_MEETOCTAVIUS_01",
+     "num": 1,
+     "pack": "PK_STORY_06",
+     "duration": 7.766666889190674,
+     "actors": [
+      "peter",
+      "harry",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_02",
+     "num": 2,
+     "pack": "PK_STORY_06",
+     "duration": 0.9666666984558105,
+     "actors": [
+      "peter",
+      "harry",
+      "hero"
+     ],
+     "camera": true,
+     "start": 7.7667
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_03",
+     "num": 3,
+     "pack": "PK_STORY_06",
+     "duration": 3.200000286102295,
+     "actors": [
+      "peter",
+      "harry"
+     ],
+     "camera": true,
+     "start": 8.7333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_04",
+     "num": 4,
+     "pack": "PK_STORY_06",
+     "duration": 3.200000286102295,
+     "actors": [
+      "peter",
+      "harry",
+      "hero",
+      "xe01_elevdoor_frame"
+     ],
+     "camera": true,
+     "start": 11.9333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_05",
+     "num": 5,
+     "pack": "PK_STORY_06",
+     "duration": 1.6666667461395264,
+     "actors": [
+      "peter",
+      "harry",
+      "hero",
+      "xe01_elevdoor_frame"
+     ],
+     "camera": true,
+     "start": 15.1333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_07",
+     "num": 7,
+     "pack": "PK_STORY_06",
+     "duration": 2.633333444595337,
+     "actors": [],
+     "camera": true,
+     "start": 16.8
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_08",
+     "num": 8,
+     "pack": "PK_STORY_06",
+     "duration": 2.5333335399627686,
+     "actors": [
+      "harry",
+      "peter",
+      "xe01_elevdoor_frame"
+     ],
+     "camera": true,
+     "start": 19.4333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_09",
+     "num": 9,
+     "pack": "PK_STORY_06",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "peter",
+      "harry",
+      "rosie",
+      "docock"
+     ],
+     "camera": true,
+     "start": 21.9667
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_10",
+     "num": 10,
+     "pack": "PK_STORY_06",
+     "duration": 6.6666669845581055,
+     "actors": [
+      "rosie",
+      "peter",
+      "docock",
+      "harry"
+     ],
+     "camera": true,
+     "start": 24.3
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_11",
+     "num": 11,
+     "pack": "PK_STORY_06",
+     "duration": 6.433333873748779,
+     "actors": [
+      "rosie",
+      "peter",
+      "docock",
+      "harry"
+     ],
+     "camera": true,
+     "start": 30.9667
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_12",
+     "num": 12,
+     "pack": "PK_STORY_06",
+     "duration": 3.266666889190674,
+     "actors": [
+      "rosie",
+      "peter",
+      "docock",
+      "harry"
+     ],
+     "camera": true,
+     "start": 37.4
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_13",
+     "num": 13,
+     "pack": "PK_STORY_06",
+     "duration": 12.80000114440918,
+     "actors": [
+      "rosie",
+      "peter",
+      "docock",
+      "harry"
+     ],
+     "camera": true,
+     "start": 40.6667
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_14",
+     "num": 14,
+     "pack": "PK_STORY_06",
+     "duration": 5.566667079925537,
+     "actors": [
+      "harry",
+      "peter",
+      "docock",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 53.4667
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_15",
+     "num": 15,
+     "pack": "PK_STORY_06",
+     "duration": 4.866666793823242,
+     "actors": [
+      "harry",
+      "peter",
+      "docock",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 59.0333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_16",
+     "num": 16,
+     "pack": "PK_STORY_06",
+     "duration": 5.566667079925537,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 63.9
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_17",
+     "num": 17,
+     "pack": "PK_STORY_06",
+     "duration": 2.266666889190674,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 69.4667
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_18",
+     "num": 18,
+     "pack": "PK_STORY_06",
+     "duration": 2.6666667461395264,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 71.7333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_19",
+     "num": 19,
+     "pack": "PK_STORY_06",
+     "duration": 4.133333683013916,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 74.4
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_20",
+     "num": 20,
+     "pack": "PK_STORY_06",
+     "duration": 3.066666841506958,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 78.5333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_21",
+     "num": 21,
+     "pack": "PK_STORY_06",
+     "duration": 6.633333683013916,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 81.6
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_22",
+     "num": 22,
+     "pack": "PK_STORY_06",
+     "duration": 6.000000476837158,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 88.2333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_23",
+     "num": 23,
+     "pack": "PK_STORY_06",
+     "duration": 3.133333444595337,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 94.2333
+    },
+    {
+     "name": "SA04_MEETOCTAVIUS_24",
+     "num": 24,
+     "pack": "PK_STORY_06",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "docock",
+      "peter",
+      "harry",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 97.3667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA04_MEETOCTAVIUS.m4a",
+   "audio_seconds": "1:40.100",
+   "level": "XB_XE02",
+   "levels": [
+    "XB_XE02",
+    "XB_XE01",
+    "XB_XE04",
+    "XB_XE03",
+    "XB_XE05",
+    "XB_XE06",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA07_BLACATJEWELRY",
+   "duration": 29.4,
+   "shots": [
+    {
+     "name": "SA07_BLACATJEWELRY_01",
+     "num": 1,
+     "pack": "PK_STORY_09",
+     "duration": 8.033333778381348,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA07_BLACATJEWELRY_02",
+     "num": 2,
+     "pack": "PK_STORY_09",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 8.0333
+    },
+    {
+     "name": "SA07_BLACATJEWELRY_03",
+     "num": 3,
+     "pack": "PK_STORY_09",
+     "duration": 4.1666669845581055,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 10.3667
+    },
+    {
+     "name": "SA07_BLACATJEWELRY_04",
+     "num": 4,
+     "pack": "PK_STORY_09",
+     "duration": 5.333333492279053,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 14.5333
+    },
+    {
+     "name": "SA07_BLACATJEWELRY_05",
+     "num": 5,
+     "pack": "PK_STORY_09",
+     "duration": 9.533333778381348,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 19.8667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA07_BLACATJEWELRY.m4a",
+   "audio_seconds": "0:38.038",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA07_BLACATJEWELRY_02A",
+   "duration": 5.167,
+   "shots": [
+    {
+     "name": "SA07_BLACATJEWELRY_02A",
+     "num": 0,
+     "pack": "PK_STORY_09",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA07_BLACATJEWELRY_02B",
+   "duration": 2.6,
+   "shots": [
+    {
+     "name": "SA07_BLACATJEWELRY_02B",
+     "num": 0,
+     "pack": "PK_STORY_09",
+     "duration": 2.6000001430511475,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA08_PRIDEOCTAVIUS",
+   "duration": 45.733,
+   "shots": [
+    {
+     "name": "SA08_PRIDEOCTAVIUS_01",
+     "num": 1,
+     "pack": "PK_STORY_11",
+     "duration": 2.7333335876464844,
+     "actors": [
+      "docock_lab",
+      "peter",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_02",
+     "num": 2,
+     "pack": "PK_STORY_11",
+     "duration": 7.633333683013916,
+     "actors": [
+      "docock_lab",
+      "peter",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 2.7333
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_03",
+     "num": 3,
+     "pack": "PK_STORY_11",
+     "duration": 1.9000000953674316,
+     "actors": [
+      "docock_lab",
+      "peter",
+      "rosie"
+     ],
+     "camera": true,
+     "start": 10.3667
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_04",
+     "num": 4,
+     "pack": "PK_STORY_11",
+     "duration": 3.8333334922790527,
+     "actors": [
+      "docock_lab",
+      "rosie",
+      "peter"
+     ],
+     "camera": true,
+     "start": 12.2667
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_05",
+     "num": 5,
+     "pack": "PK_STORY_11",
+     "duration": 7.40000057220459,
+     "actors": [
+      "docock_lab",
+      "rosie",
+      "peter"
+     ],
+     "camera": true,
+     "start": 16.1
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_06",
+     "num": 6,
+     "pack": "PK_STORY_11",
+     "duration": 5.200000286102295,
+     "actors": [
+      "docock_lab",
+      "peter"
+     ],
+     "camera": true,
+     "start": 23.5
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_07",
+     "num": 7,
+     "pack": "PK_STORY_11",
+     "duration": 4.433333396911621,
+     "actors": [
+      "docock_lab",
+      "peter"
+     ],
+     "camera": true,
+     "start": 28.7
+    },
+    {
+     "name": "SA08_PRIDEOCTAVIUS_08",
+     "num": 8,
+     "pack": "PK_STORY_11",
+     "duration": 12.600000381469727,
+     "actors": [
+      "docock_lab",
+      "peter"
+     ],
+     "camera": true,
+     "start": 33.1333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA08_PRIDEOCTAVIUS.m4a",
+   "audio_seconds": "0:46.046",
+   "level": "XB_XE04",
+   "levels": [
+    "XB_XE04",
+    "XB_XE02",
+    "XB_XE01",
+    "XB_XE03",
+    "XB_XE05",
+    "XB_XE06"
+   ]
+  },
+  {
+   "name": "SA09_MISSPLAY",
+   "duration": 52.967,
+   "shots": [
+    {
+     "name": "SA09_MISSPLAY_01",
+     "num": 1,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 6.033333778381348,
+     "actors": [
+      "hero",
+      "blackcat",
+      "johnj",
+      "flowers",
+      "mj"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA09_MISSPLAY_02",
+     "num": 2,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 3.000000238418579,
+     "actors": [
+      "hero",
+      "blackcat",
+      "johnj",
+      "flowers",
+      "mj"
+     ],
+     "camera": true,
+     "start": 6.0333
+    },
+    {
+     "name": "SA09_MISSPLAY_03",
+     "num": 3,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 5.333333492279053,
+     "actors": [
+      "hero",
+      "blackcat",
+      "johnj",
+      "flowers",
+      "mj"
+     ],
+     "camera": true,
+     "start": 9.0333
+    },
+    {
+     "name": "SA09_MISSPLAY_04",
+     "num": 4,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 3.1000001430511475,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 14.3667
+    },
+    {
+     "name": "SA09_MISSPLAY_05",
+     "num": 5,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 5.333333492279053,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 17.4667
+    },
+    {
+     "name": "SA09_MISSPLAY_06",
+     "num": 6,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 4.333333492279053,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 22.8
+    },
+    {
+     "name": "SA09_MISSPLAY_07",
+     "num": 7,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 6.633333683013916,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 27.1333
+    },
+    {
+     "name": "SA09_MISSPLAY_08",
+     "num": 8,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 2.6000001430511475,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 33.7667
+    },
+    {
+     "name": "SA09_MISSPLAY_09",
+     "num": 9,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 16.600000381469727,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 36.3667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA09_MISSPLAY.m4a",
+   "audio_seconds": "0:58.058",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA09_MISSPLAY_02B",
+   "duration": 3.667,
+   "shots": [
+    {
+     "name": "SA09_MISSPLAY_02B",
+     "num": 0,
+     "pack": "STORY_12_CUTSCENE",
+     "duration": 3.6666667461395264,
+     "actors": [
+      "hero",
+      "blackcat",
+      "johnj",
+      "flowers",
+      "mj"
+     ],
+     "camera": true,
+     "start": 0.0
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA10_BIRTHLIZ",
+   "duration": 94.233,
+   "shots": [
+    {
+     "name": "SA10_BIRTHLIZ_01",
+     "num": 1,
+     "pack": "STORY_19_P2",
+     "duration": 5.366666793823242,
+     "actors": [
+      "dr_connor",
+      "docock"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA10_BIRTHLIZ_02",
+     "num": 2,
+     "pack": "STORY_19_P2",
+     "duration": 2.9000000953674316,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 5.3667
+    },
+    {
+     "name": "SA10_BIRTHLIZ_03",
+     "num": 3,
+     "pack": "STORY_19_P2",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 8.2667
+    },
+    {
+     "name": "SA10_BIRTHLIZ_04",
+     "num": 4,
+     "pack": "STORY_19_P2",
+     "duration": 2.6000001430511475,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 10.6
+    },
+    {
+     "name": "SA10_BIRTHLIZ_05",
+     "num": 5,
+     "pack": "STORY_19_P2",
+     "duration": 6.466667175292969,
+     "actors": [
+      "dr_connor",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 13.2
+    },
+    {
+     "name": "SA10_BIRTHLIZ_06",
+     "num": 6,
+     "pack": "STORY_19_P2",
+     "duration": 6.000000476837158,
+     "actors": [
+      "dr_connor",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 19.6667
+    },
+    {
+     "name": "SA10_BIRTHLIZ_07",
+     "num": 7,
+     "pack": "STORY_19_P2",
+     "duration": 5.766666889190674,
+     "actors": [
+      "dr_connor",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 25.6667
+    },
+    {
+     "name": "SA10_BIRTHLIZ_08",
+     "num": 8,
+     "pack": "STORY_19_P2",
+     "duration": 7.700000286102295,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 31.4333
+    },
+    {
+     "name": "SA10_BIRTHLIZ_09",
+     "num": 9,
+     "pack": "STORY_19_P2",
+     "duration": 5.900000095367432,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 39.1333
+    },
+    {
+     "name": "SA10_BIRTHLIZ_10",
+     "num": 10,
+     "pack": "STORY_19_P2",
+     "duration": 2.766666889190674,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 45.0333
+    },
+    {
+     "name": "SA10_BIRTHLIZ_11",
+     "num": 11,
+     "pack": "STORY_19_P2",
+     "duration": 4.733333587646484,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 47.8
+    },
+    {
+     "name": "SA10_BIRTHLIZ_12",
+     "num": 12,
+     "pack": "STORY_19_P2",
+     "duration": 11.933334350585938,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 52.5333
+    },
+    {
+     "name": "SA10_BIRTHLIZ_13",
+     "num": 13,
+     "pack": "STORY_19_P2",
+     "duration": 9.500000953674316,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 64.4667
+    },
+    {
+     "name": "SA10_BIRTHLIZ_14",
+     "num": 14,
+     "pack": "STORY_19_P2",
+     "duration": 6.933333873748779,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "dr_connor"
+     ],
+     "camera": true,
+     "start": 73.9667
+    },
+    {
+     "name": "SA10_BIRTHLIZ_15",
+     "num": 15,
+     "pack": "STORY_19_P2",
+     "duration": 4.9666666984558105,
+     "actors": [
+      "dr_connor",
+      "peter",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 80.9
+    },
+    {
+     "name": "SA10_BIRTHLIZ_16",
+     "num": 16,
+     "pack": "STORY_19_P2",
+     "duration": 8.366666793823242,
+     "actors": [
+      "dr_connor",
+      "peter",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 85.8667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA10_BIRTHLIZ.m4a",
+   "audio_seconds": "1:20.914",
+   "level": "XB_H76I01",
+   "levels": [
+    "XB_H76I01"
+   ]
+  },
+  {
+   "name": "SA12_DOCBANK",
+   "duration": 57.933,
+   "shots": [
+    {
+     "name": "SA12_DOCBANK_01",
+     "num": 1,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 7.700000286102295,
+     "actors": [
+      "aunt_may",
+      "peter"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA12_DOCBANK_02",
+     "num": 2,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 4.700000286102295,
+     "actors": [
+      "aunt_may",
+      "peter"
+     ],
+     "camera": true,
+     "start": 7.7
+    },
+    {
+     "name": "SA12_DOCBANK_03",
+     "num": 3,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 4.033333778381348,
+     "actors": [
+      "aunt_may",
+      "peter"
+     ],
+     "camera": true,
+     "start": 12.4
+    },
+    {
+     "name": "SA12_DOCBANK_04",
+     "num": 4,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 2.3000001907348633,
+     "actors": [
+      "aunt_may",
+      "peter"
+     ],
+     "camera": true,
+     "start": 16.4333
+    },
+    {
+     "name": "SA12_DOCBANK_05",
+     "num": 5,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 3.7333335876464844,
+     "actors": [
+      "aunt_may",
+      "peter"
+     ],
+     "camera": true,
+     "start": 18.7333
+    },
+    {
+     "name": "SA12_DOCBANK_06",
+     "num": 6,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 7.8666672706604,
+     "actors": [
+      "peter",
+      "aunt_may",
+      "banker",
+      "ped_a",
+      "ped_b",
+      "ped_c",
+      "ped_d",
+      "ped_e",
+      "ped_f",
+      "ped_g",
+      "ped_h",
+      "ped_i",
+      "ped_j",
+      "ped_k",
+      "ped_l"
+     ],
+     "camera": true,
+     "start": 22.4667
+    },
+    {
+     "name": "SA12_DOCBANK_07",
+     "num": 7,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 6.033333778381348,
+     "actors": [
+      "peter",
+      "aunt_may",
+      "banker",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 30.3333
+    },
+    {
+     "name": "SA12_DOCBANK_08",
+     "num": 8,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 3.0333335399627686,
+     "actors": [
+      "peter",
+      "aunt_may",
+      "banker",
+      "ped_a",
+      "ped_b",
+      "ped_c",
+      "ped_d",
+      "ped_e"
+     ],
+     "camera": true,
+     "start": 36.3667
+    },
+    {
+     "name": "SA12_DOCBANK_09",
+     "num": 9,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 10.033333778381348,
+     "actors": [
+      "peter",
+      "aunt_may",
+      "banker",
+      "docock",
+      "docock_rig",
+      "ockthug_1",
+      "ockthug_2",
+      "ockthug_3"
+     ],
+     "camera": true,
+     "start": 39.4
+    },
+    {
+     "name": "SA12_DOCBANK_10",
+     "num": 10,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 4.433333396911621,
+     "actors": [
+      "peter",
+      "aunt_may",
+      "banker"
+     ],
+     "camera": true,
+     "start": 49.4333
+    },
+    {
+     "name": "SA12_DOCBANK_11",
+     "num": 11,
+     "pack": "STORY_22_CUTSCENE",
+     "duration": 4.066667079925537,
+     "actors": [
+      "peter",
+      "aunt_may",
+      "banker"
+     ],
+     "camera": true,
+     "start": 53.8667
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_XF03",
+   "levels": [
+    "XB_XF03",
+    "XB_G63I01",
+    "XB_XF01",
+    "XB_XF02",
+    "XB_XF04",
+    "XB_XF06"
+   ]
+  },
+  {
+   "name": "SA15_PROPOSAL",
+   "duration": 91.7,
+   "shots": [
+    {
+     "name": "SA15_PROPOSAL_02",
+     "num": 2,
+     "pack": "PK_STORY_27",
+     "duration": 18.500001907348633,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA15_PROPOSAL_03",
+     "num": 3,
+     "pack": "PK_STORY_27",
+     "duration": 4.200000286102295,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 18.5
+    },
+    {
+     "name": "SA15_PROPOSAL_04",
+     "num": 4,
+     "pack": "PK_STORY_27",
+     "duration": 7.700000286102295,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 22.7
+    },
+    {
+     "name": "SA15_PROPOSAL_05",
+     "num": 5,
+     "pack": "PK_STORY_27",
+     "duration": 3.366666793823242,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 30.4
+    },
+    {
+     "name": "SA15_PROPOSAL_06",
+     "num": 6,
+     "pack": "PK_STORY_27",
+     "duration": 18.533334732055664,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 33.7667
+    },
+    {
+     "name": "SA15_PROPOSAL_07",
+     "num": 7,
+     "pack": "PK_STORY_27",
+     "duration": 4.400000095367432,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 52.3
+    },
+    {
+     "name": "SA15_PROPOSAL_08",
+     "num": 8,
+     "pack": "PK_STORY_27",
+     "duration": 10.033333778381348,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 56.7
+    },
+    {
+     "name": "SA15_PROPOSAL_09",
+     "num": 9,
+     "pack": "PK_STORY_27",
+     "duration": 10.933334350585938,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 66.7333
+    },
+    {
+     "name": "SA15_PROPOSAL_10",
+     "num": 10,
+     "pack": "PK_STORY_27",
+     "duration": 3.066666841506958,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 77.6667
+    },
+    {
+     "name": "SA15_PROPOSAL_11",
+     "num": 11,
+     "pack": "PK_STORY_27",
+     "duration": 1.0,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 80.7333
+    },
+    {
+     "name": "SA15_PROPOSAL_12",
+     "num": 12,
+     "pack": "PK_STORY_27",
+     "duration": 9.966667175292969,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 81.7333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA15_PROPOSAL.m4a",
+   "audio_seconds": "1:32.092",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA16_HELLOSHOCKER",
+   "duration": 33.433,
+   "shots": [
+    {
+     "name": "SA16_HELLOSHOCKER_01",
+     "num": 1,
+     "pack": "PK_STORY_28",
+     "duration": 7.40000057220459,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_02",
+     "num": 2,
+     "pack": "PK_STORY_28",
+     "duration": 0.6333333849906921,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 7.4
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_03",
+     "num": 3,
+     "pack": "PK_STORY_28",
+     "duration": 1.100000023841858,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 8.0333
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_04",
+     "num": 4,
+     "pack": "PK_STORY_28",
+     "duration": 3.566666841506958,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 9.1333
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_05",
+     "num": 5,
+     "pack": "PK_STORY_28",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 12.7
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_06",
+     "num": 6,
+     "pack": "PK_STORY_28",
+     "duration": 3.133333444595337,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 15.0333
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_07",
+     "num": 7,
+     "pack": "PK_STORY_28",
+     "duration": 1.5666667222976685,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 18.1667
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_08",
+     "num": 8,
+     "pack": "PK_STORY_28",
+     "duration": 6.033333778381348,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 19.7333
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_09",
+     "num": 9,
+     "pack": "PK_STORY_28",
+     "duration": 2.433333396911621,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 25.7667
+    },
+    {
+     "name": "SA16_HELLOSHOCKER_10",
+     "num": 10,
+     "pack": "PK_STORY_28",
+     "duration": 5.233333587646484,
+     "actors": [
+      "shocker",
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 28.2
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_XD02",
+   "levels": [
+    "XB_XD02",
+    "XB_XD01",
+    "XB_XD03",
+    "XB_XD04",
+    "XB_XD05",
+    "XB_XD06"
+   ]
+  },
+  {
+   "name": "SA17_BYESHOCKA",
+   "duration": 69.367,
+   "shots": [
+    {
+     "name": "SA17_BYESHOCKA_02",
+     "num": 2,
+     "pack": "STORY_30_P2",
+     "duration": 5.800000190734863,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA17_BYESHOCKA_03",
+     "num": 3,
+     "pack": "STORY_30_P2",
+     "duration": 3.9000000953674316,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 5.8
+    },
+    {
+     "name": "SA17_BYESHOCKA_04",
+     "num": 4,
+     "pack": "STORY_30_P2",
+     "duration": 3.6666667461395264,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 9.7
+    },
+    {
+     "name": "SA17_BYESHOCKA_05",
+     "num": 5,
+     "pack": "STORY_30_P2",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 13.3667
+    },
+    {
+     "name": "SA17_BYESHOCKA_06",
+     "num": 6,
+     "pack": "STORY_30_P2",
+     "duration": 12.500000953674316,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 18.5333
+    },
+    {
+     "name": "SA17_BYESHOCKA_07",
+     "num": 7,
+     "pack": "STORY_30_P2",
+     "duration": 8.5,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 31.0333
+    },
+    {
+     "name": "SA17_BYESHOCKA_08",
+     "num": 8,
+     "pack": "STORY_30_P2",
+     "duration": 1.6666667461395264,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 39.5333
+    },
+    {
+     "name": "SA17_BYESHOCKA_09",
+     "num": 9,
+     "pack": "STORY_30_P2",
+     "duration": 10.033333778381348,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 41.2
+    },
+    {
+     "name": "SA17_BYESHOCKA_10",
+     "num": 10,
+     "pack": "STORY_30_P2",
+     "duration": 4.300000190734863,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 51.2333
+    },
+    {
+     "name": "SA17_BYESHOCKA_11",
+     "num": 11,
+     "pack": "STORY_30_P2",
+     "duration": 7.1666669845581055,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 55.5333
+    },
+    {
+     "name": "SA17_BYESHOCKA_12",
+     "num": 12,
+     "pack": "STORY_30_P2",
+     "duration": 6.6666669845581055,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 62.7
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA17_BYESHOCKA.m4a",
+   "audio_seconds": "1:12.072",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA18_BYESHOCKB",
+   "duration": 32.1,
+   "shots": [
+    {
+     "name": "SA18_BYESHOCKB_01",
+     "num": 1,
+     "pack": "STORY_30_P3",
+     "duration": 7.700000286102295,
+     "actors": [
+      "blackcat",
+      "shocker",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA18_BYESHOCKB_02",
+     "num": 2,
+     "pack": "STORY_30_P3",
+     "duration": 4.200000286102295,
+     "actors": [
+      "blackcat",
+      "shocker",
+      "hero"
+     ],
+     "camera": true,
+     "start": 7.7
+    },
+    {
+     "name": "SA18_BYESHOCKB_03",
+     "num": 3,
+     "pack": "STORY_30_P3",
+     "duration": 8.366666793823242,
+     "actors": [
+      "blackcat",
+      "shocker",
+      "hero"
+     ],
+     "camera": true,
+     "start": 11.9
+    },
+    {
+     "name": "SA18_BYESHOCKB_04",
+     "num": 4,
+     "pack": "STORY_30_P3",
+     "duration": 11.833333969116211,
+     "actors": [
+      "blackcat",
+      "shocker",
+      "hero"
+     ],
+     "camera": true,
+     "start": 20.2667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA18_BYESHOCKB.m4a",
+   "audio_seconds": "0:32.032",
+   "level": "XB_XG04",
+   "levels": [
+    "XB_XG04",
+    "XB_XG01",
+    "XB_XG02",
+    "XB_XG03",
+    "XB_XG05"
+   ]
+  },
+  {
+   "name": "SA20_CATFUN",
+   "duration": 46.367,
+   "shots": [
+    {
+     "name": "SA20_CATFUN_01",
+     "num": 1,
+     "pack": "STORY_32_P5",
+     "duration": 23.366668701171875,
+     "actors": [
+      "blackcat",
+      "hero",
+      "at01",
+      "at03",
+      "dealer01",
+      "dealer02",
+      "dealer03",
+      "dealer00",
+      "jwlthfa01",
+      "jwlthfa02",
+      "jwlthfb01",
+      "jwlthfb02",
+      "auctioneer",
+      "dealer04",
+      "dealer05"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA20_CATFUN_02",
+     "num": 2,
+     "pack": "STORY_32_P5",
+     "duration": 18.0,
+     "actors": [
+      "at01",
+      "auctioneer",
+      "blackcat",
+      "hero",
+      "at03"
+     ],
+     "camera": true,
+     "start": 23.3667
+    },
+    {
+     "name": "SA20_CATFUN_03",
+     "num": 3,
+     "pack": "STORY_32_P5",
+     "duration": 1.6666667461395264,
+     "actors": [
+      "blackcat",
+      "hero",
+      "at01",
+      "at03",
+      "dealer01",
+      "dealer02",
+      "dealer03",
+      "dealer00",
+      "jwlthfa01",
+      "jwlthfa02",
+      "jwlthfb01",
+      "jwlthfb02",
+      "dealer04",
+      "dealer05",
+      "auctioneer"
+     ],
+     "camera": true,
+     "start": 41.3667
+    },
+    {
+     "name": "SA20_CATFUN_04",
+     "num": 4,
+     "pack": "STORY_32_P5",
+     "duration": 3.3333334922790527,
+     "actors": [
+      "blackcat",
+      "hero",
+      "at01",
+      "at03",
+      "dealer01",
+      "dealer02",
+      "dealer03",
+      "dealer00",
+      "jwlthfa01",
+      "jwlthfa02",
+      "jwlthfb01",
+      "jwlthfb02",
+      "dealer04",
+      "dealer05",
+      "auctioneer"
+     ],
+     "camera": true,
+     "start": 43.0333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA20_CATFUN.m4a",
+   "audio_seconds": "0:47.547",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA21_BCBREAKUPA",
+   "duration": 82.067,
+   "shots": [
+    {
+     "name": "SA21_BCBREAKUPA_01",
+     "num": 1,
+     "pack": "PK_STORY_33",
+     "duration": 12.200000762939453,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA21_BCBREAKUPA_02",
+     "num": 2,
+     "pack": "PK_STORY_33",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 12.2
+    },
+    {
+     "name": "SA21_BCBREAKUPA_03",
+     "num": 3,
+     "pack": "PK_STORY_33",
+     "duration": 3.500000238418579,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 15.3667
+    },
+    {
+     "name": "SA21_BCBREAKUPA_04",
+     "num": 4,
+     "pack": "PK_STORY_33",
+     "duration": 24.83333396911621,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 18.8667
+    },
+    {
+     "name": "SA21_BCBREAKUPA_05",
+     "num": 5,
+     "pack": "PK_STORY_33",
+     "duration": 4.733333587646484,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 43.7
+    },
+    {
+     "name": "SA21_BCBREAKUPA_06",
+     "num": 6,
+     "pack": "PK_STORY_33",
+     "duration": 2.3000001907348633,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 48.4333
+    },
+    {
+     "name": "SA21_BCBREAKUPA_07",
+     "num": 7,
+     "pack": "PK_STORY_33",
+     "duration": 31.333335876464844,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 50.7333
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA21_BCBREAKUPA.m4a",
+   "audio_seconds": "1:24.272",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA22_BCBREAKUPB",
+   "duration": 50.867,
+   "shots": [
+    {
+     "name": "SA22_BCBREAKUPB_01",
+     "num": 1,
+     "pack": "PK_STORY_33",
+     "duration": 5.366666793823242,
+     "actors": [
+      "peter"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA22_BCBREAKUPB_02",
+     "num": 2,
+     "pack": "PK_STORY_33",
+     "duration": 13.30000114440918,
+     "actors": [],
+     "camera": false,
+     "start": 5.3667
+    },
+    {
+     "name": "SA22_BCBREAKUPB_03",
+     "num": 3,
+     "pack": "PK_STORY_33",
+     "duration": 2.700000047683716,
+     "actors": [
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 18.6667
+    },
+    {
+     "name": "SA22_BCBREAKUPB_04",
+     "num": 4,
+     "pack": "PK_STORY_33",
+     "duration": 2.0,
+     "actors": [
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 21.3667
+    },
+    {
+     "name": "SA22_BCBREAKUPB_05",
+     "num": 5,
+     "pack": "PK_STORY_33",
+     "duration": 4.0,
+     "actors": [
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 23.3667
+    },
+    {
+     "name": "SA22_BCBREAKUPB_06",
+     "num": 6,
+     "pack": "PK_STORY_33",
+     "duration": 2.0,
+     "actors": [
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 27.3667
+    },
+    {
+     "name": "SA22_BCBREAKUPB_07",
+     "num": 7,
+     "pack": "PK_STORY_33",
+     "duration": 6.333333492279053,
+     "actors": [
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 29.3667
+    },
+    {
+     "name": "SA22_BCBREAKUPB_08",
+     "num": 8,
+     "pack": "PK_STORY_33",
+     "duration": 15.166666984558105,
+     "actors": [
+      "maryjane",
+      "peter"
+     ],
+     "camera": true,
+     "start": 35.7
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA22_BCBREAKUPB.m4a",
+   "audio_seconds": "0:51.051",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA23_HARRYSELLS",
+   "duration": 106.467,
+   "shots": [
+    {
+     "name": "SA23_HARRYSELLS_01",
+     "num": 1,
+     "pack": "PK_STORY_34",
+     "duration": 7.700000286102295,
+     "actors": [],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA23_HARRYSELLS_02",
+     "num": 2,
+     "pack": "PK_STORY_34",
+     "duration": 9.133334159851074,
+     "actors": [
+      "harry",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 7.7
+    },
+    {
+     "name": "SA23_HARRYSELLS_03",
+     "num": 3,
+     "pack": "PK_STORY_34",
+     "duration": 2.2333333492279053,
+     "actors": [
+      "harry",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 16.8333
+    },
+    {
+     "name": "SA23_HARRYSELLS_04",
+     "num": 4,
+     "pack": "PK_STORY_34",
+     "duration": 3.200000286102295,
+     "actors": [
+      "harry",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 19.0667
+    },
+    {
+     "name": "SA23_HARRYSELLS_05",
+     "num": 5,
+     "pack": "PK_STORY_34",
+     "duration": 3.4666669368743896,
+     "actors": [
+      "harry",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 22.2667
+    },
+    {
+     "name": "SA23_HARRYSELLS_06",
+     "num": 6,
+     "pack": "PK_STORY_34",
+     "duration": 3.000000238418579,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 25.7333
+    },
+    {
+     "name": "SA23_HARRYSELLS_07",
+     "num": 7,
+     "pack": "PK_STORY_34",
+     "duration": 3.000000238418579,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 28.7333
+    },
+    {
+     "name": "SA23_HARRYSELLS_08",
+     "num": 8,
+     "pack": "PK_STORY_34",
+     "duration": 8.90000057220459,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 31.7333
+    },
+    {
+     "name": "SA23_HARRYSELLS_09",
+     "num": 9,
+     "pack": "PK_STORY_34",
+     "duration": 6.40000057220459,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 40.6333
+    },
+    {
+     "name": "SA23_HARRYSELLS_10",
+     "num": 10,
+     "pack": "PK_STORY_34",
+     "duration": 5.333333492279053,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 47.0333
+    },
+    {
+     "name": "SA23_HARRYSELLS_11",
+     "num": 11,
+     "pack": "PK_STORY_34",
+     "duration": 3.3333334922790527,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 52.3667
+    },
+    {
+     "name": "SA23_HARRYSELLS_12",
+     "num": 12,
+     "pack": "PK_STORY_34",
+     "duration": 4.5,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 55.7
+    },
+    {
+     "name": "SA23_HARRYSELLS_13",
+     "num": 13,
+     "pack": "PK_STORY_34",
+     "duration": 1.8333333730697632,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 60.2
+    },
+    {
+     "name": "SA23_HARRYSELLS_14",
+     "num": 14,
+     "pack": "PK_STORY_34",
+     "duration": 1.6666667461395264,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 62.0333
+    },
+    {
+     "name": "SA23_HARRYSELLS_15",
+     "num": 15,
+     "pack": "PK_STORY_34",
+     "duration": 2.3333334922790527,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 63.7
+    },
+    {
+     "name": "SA23_HARRYSELLS_16",
+     "num": 16,
+     "pack": "PK_STORY_34",
+     "duration": 2.066666841506958,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 66.0333
+    },
+    {
+     "name": "SA23_HARRYSELLS_17",
+     "num": 17,
+     "pack": "PK_STORY_34",
+     "duration": 3.3333334922790527,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 68.1
+    },
+    {
+     "name": "SA23_HARRYSELLS_18",
+     "num": 18,
+     "pack": "PK_STORY_34",
+     "duration": 4.5,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 71.4333
+    },
+    {
+     "name": "SA23_HARRYSELLS_19",
+     "num": 19,
+     "pack": "PK_STORY_34",
+     "duration": 2.9666669368743896,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 75.9333
+    },
+    {
+     "name": "SA23_HARRYSELLS_20",
+     "num": 20,
+     "pack": "PK_STORY_34",
+     "duration": 2.8333334922790527,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 78.9
+    },
+    {
+     "name": "SA23_HARRYSELLS_21",
+     "num": 21,
+     "pack": "PK_STORY_34",
+     "duration": 2.4000000953674316,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 81.7333
+    },
+    {
+     "name": "SA23_HARRYSELLS_22",
+     "num": 22,
+     "pack": "PK_STORY_34",
+     "duration": 7.000000476837158,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 84.1333
+    },
+    {
+     "name": "SA23_HARRYSELLS_23",
+     "num": 23,
+     "pack": "PK_STORY_34",
+     "duration": 3.566666841506958,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 91.1333
+    },
+    {
+     "name": "SA23_HARRYSELLS_24",
+     "num": 24,
+     "pack": "PK_STORY_34",
+     "duration": 1.933333396911621,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 94.7
+    },
+    {
+     "name": "SA23_HARRYSELLS_25",
+     "num": 25,
+     "pack": "PK_STORY_34",
+     "duration": 7.233333587646484,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 96.6333
+    },
+    {
+     "name": "SA23_HARRYSELLS_26",
+     "num": 26,
+     "pack": "PK_STORY_34",
+     "duration": 2.6000001430511475,
+     "actors": [
+      "harry",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 103.8667
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_A04I01",
+   "levels": [
+    "XB_A04I01",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA24_TRAINA",
+   "duration": 43.867,
+   "shots": [
+    {
+     "name": "SA24_TRAINA_01",
+     "num": 1,
+     "pack": "PK_STORY_35",
+     "duration": 3.366666793823242,
+     "actors": [
+      "maryjane",
+      "peter",
+      "ent_e39i02_bw_a",
+      "ent_e39i02_bw_b",
+      "ent_e39i02_bw_c",
+      "ent_e39i02_bw_d",
+      "ent_e39i02_bw_e",
+      "ent_e39i02_bw_f",
+      "ent_e39i02_bw_g",
+      "ent_e39i02_fronta",
+      "ent_e39i02_chaira19",
+      "ent_e39i02_chaira18",
+      "ent_e39i02_chaira17",
+      "ent_e39i02_chaira16",
+      "ent_e39i02_tableb04",
+      "car"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA24_TRAINA_02",
+     "num": 2,
+     "pack": "PK_STORY_35",
+     "duration": 4.5,
+     "actors": [
+      "maryjane",
+      "peter",
+      "ent_e39i02_bw_a",
+      "ent_e39i02_bw_b",
+      "ent_e39i02_bw_c",
+      "ent_e39i02_bw_d",
+      "ent_e39i02_bw_e",
+      "ent_e39i02_bw_f",
+      "ent_e39i02_bw_g",
+      "ent_e39i02_fronta",
+      "ent_e39i02_chaira19",
+      "ent_e39i02_chaira18",
+      "ent_e39i02_chaira17",
+      "ent_e39i02_chaira16",
+      "ent_e39i02_tableb04",
+      "car"
+     ],
+     "camera": true,
+     "start": 3.3667
+    },
+    {
+     "name": "SA24_TRAINA_03",
+     "num": 3,
+     "pack": "PK_STORY_35",
+     "duration": 3.1666667461395264,
+     "actors": [
+      "maryjane",
+      "peter",
+      "ent_e39i02_bw_a",
+      "ent_e39i02_bw_b",
+      "ent_e39i02_bw_c",
+      "ent_e39i02_bw_d",
+      "ent_e39i02_bw_e",
+      "ent_e39i02_bw_f",
+      "ent_e39i02_bw_g",
+      "ent_e39i02_fronta",
+      "ent_e39i02_chaira19",
+      "ent_e39i02_chaira18",
+      "ent_e39i02_chaira17",
+      "ent_e39i02_chaira16",
+      "ent_e39i02_tableb04",
+      "car"
+     ],
+     "camera": true,
+     "start": 7.8667
+    },
+    {
+     "name": "SA24_TRAINA_04",
+     "num": 4,
+     "pack": "PK_STORY_35",
+     "duration": 2.9666669368743896,
+     "actors": [
+      "maryjane",
+      "peter",
+      "ent_e39i02_bw_a",
+      "ent_e39i02_bw_b",
+      "ent_e39i02_bw_c",
+      "ent_e39i02_bw_d",
+      "ent_e39i02_bw_e",
+      "ent_e39i02_bw_f",
+      "ent_e39i02_bw_g",
+      "ent_e39i02_fronta",
+      "ent_e39i02_chaira19",
+      "ent_e39i02_chaira18",
+      "ent_e39i02_chaira17",
+      "ent_e39i02_chaira16",
+      "ent_e39i02_tableb04",
+      "car"
+     ],
+     "camera": true,
+     "start": 11.0333
+    },
+    {
+     "name": "SA24_TRAINA_05",
+     "num": 5,
+     "pack": "PK_STORY_35",
+     "duration": 4.700000286102295,
+     "actors": [
+      "maryjane",
+      "peter",
+      "ent_e39i02_bw_a",
+      "ent_e39i02_bw_b",
+      "ent_e39i02_bw_c",
+      "ent_e39i02_bw_d",
+      "ent_e39i02_bw_e",
+      "ent_e39i02_bw_f",
+      "ent_e39i02_bw_g",
+      "ent_e39i02_fronta",
+      "ent_e39i02_chaira19",
+      "ent_e39i02_chaira18",
+      "ent_e39i02_chaira17",
+      "ent_e39i02_chaira16",
+      "ent_e39i02_tableb04",
+      "car"
+     ],
+     "camera": true,
+     "start": 14.0
+    },
+    {
+     "name": "SA24_TRAINA_06",
+     "num": 6,
+     "pack": "PK_STORY_35",
+     "duration": 4.700000286102295,
+     "actors": [
+      "maryjane",
+      "peter",
+      "docock",
+      "docock_rig",
+      "ent_e39i02_tableb04"
+     ],
+     "camera": true,
+     "start": 18.7
+    },
+    {
+     "name": "SA24_TRAINA_07",
+     "num": 7,
+     "pack": "PK_STORY_35",
+     "duration": 4.033333778381348,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 23.4
+    },
+    {
+     "name": "SA24_TRAINA_08",
+     "num": 8,
+     "pack": "PK_STORY_35",
+     "duration": 2.200000047683716,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 27.4333
+    },
+    {
+     "name": "SA24_TRAINA_09",
+     "num": 9,
+     "pack": "PK_STORY_35",
+     "duration": 9.0,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 29.6333
+    },
+    {
+     "name": "SA24_TRAINA_10",
+     "num": 10,
+     "pack": "PK_STORY_35",
+     "duration": 1.533333420753479,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "peter",
+      "maryjane"
+     ],
+     "camera": true,
+     "start": 38.6333
+    },
+    {
+     "name": "SA24_TRAINA_11",
+     "num": 11,
+     "pack": "PK_STORY_35",
+     "duration": 3.700000286102295,
+     "actors": [
+      "peter"
+     ],
+     "camera": true,
+     "start": 40.1667
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_E39I02",
+   "levels": [
+    "XB_E39I02",
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA25_TRAINB",
+   "duration": 34.433,
+   "shots": [
+    {
+     "name": "SA25_TRAINB_01",
+     "num": 1,
+     "pack": "PK_STORY_35",
+     "duration": 8.700000762939453,
+     "actors": [
+      "train01",
+      "hero",
+      "train02",
+      "train03",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA25_TRAINB_02",
+     "num": 2,
+     "pack": "PK_STORY_35",
+     "duration": 7.000000476837158,
+     "actors": [
+      "train01",
+      "hero",
+      "train02",
+      "train03",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 8.7
+    },
+    {
+     "name": "SA25_TRAINB_03",
+     "num": 3,
+     "pack": "PK_STORY_35",
+     "duration": 7.8666672706604,
+     "actors": [
+      "train01",
+      "docock",
+      "docock_rig",
+      "hero",
+      "train02",
+      "train03"
+     ],
+     "camera": true,
+     "start": 15.7
+    },
+    {
+     "name": "SA25_TRAINB_04",
+     "num": 4,
+     "pack": "PK_STORY_35",
+     "duration": 3.0333335399627686,
+     "actors": [
+      "box01panel",
+      "docock",
+      "docock_rig",
+      "train01",
+      "train02",
+      "train03"
+     ],
+     "camera": true,
+     "start": 23.5667
+    },
+    {
+     "name": "SA25_TRAINB_05",
+     "num": 5,
+     "pack": "PK_STORY_35",
+     "duration": 7.833333969116211,
+     "actors": [
+      "box01panel",
+      "docock",
+      "docock_rig",
+      "train01",
+      "train02",
+      "train03"
+     ],
+     "camera": true,
+     "start": 26.6
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA26_TRAINC",
+   "duration": 47.033,
+   "shots": [
+    {
+     "name": "SA26_TRAINC_01",
+     "num": 1,
+     "pack": "STORY_36A",
+     "duration": 7.200000286102295,
+     "actors": [
+      "train02",
+      "hero",
+      "docock_rig",
+      "docock",
+      "train03",
+      "train01"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA26_TRAINC_02",
+     "num": 2,
+     "pack": "STORY_36A",
+     "duration": 5.333333492279053,
+     "actors": [
+      "train03",
+      "hero",
+      "train02",
+      "train01",
+      "docock_rig",
+      "docock"
+     ],
+     "camera": true,
+     "start": 7.2
+    },
+    {
+     "name": "SA26_TRAINC_03",
+     "num": 3,
+     "pack": "STORY_36A",
+     "duration": 3.500000238418579,
+     "actors": [
+      "train03",
+      "hero",
+      "train02",
+      "train01"
+     ],
+     "camera": true,
+     "start": 12.5333
+    },
+    {
+     "name": "SA26_TRAINC_04",
+     "num": 4,
+     "pack": "STORY_36A",
+     "duration": 3.000000238418579,
+     "actors": [
+      "hero",
+      "train03",
+      "train02",
+      "train01"
+     ],
+     "camera": true,
+     "start": 16.0333
+    },
+    {
+     "name": "SA26_TRAINC_05",
+     "num": 5,
+     "pack": "STORY_36A",
+     "duration": 2.6666667461395264,
+     "actors": [
+      "train03",
+      "hero",
+      "train02",
+      "train01"
+     ],
+     "camera": true,
+     "start": 19.0333
+    },
+    {
+     "name": "SA26_TRAINC_06",
+     "num": 6,
+     "pack": "STORY_36A",
+     "duration": 5.6666669845581055,
+     "actors": [
+      "train03",
+      "ped07",
+      "train02",
+      "train01",
+      "hero"
+     ],
+     "camera": true,
+     "start": 21.7
+    },
+    {
+     "name": "SA26_TRAINC_07",
+     "num": 7,
+     "pack": "STORY_36A",
+     "duration": 4.0,
+     "actors": [
+      "train03",
+      "ped07",
+      "train02",
+      "train01",
+      "hero"
+     ],
+     "camera": true,
+     "start": 27.3667
+    },
+    {
+     "name": "SA26_TRAINC_08",
+     "num": 8,
+     "pack": "STORY_36A",
+     "duration": 3.6666667461395264,
+     "actors": [
+      "ped07",
+      "ped08",
+      "ped06",
+      "ped04",
+      "ped02",
+      "ped01",
+      "ped05",
+      "ped03",
+      "hero"
+     ],
+     "camera": true,
+     "start": 31.3667
+    },
+    {
+     "name": "SA26_TRAINC_09",
+     "num": 9,
+     "pack": "STORY_36A",
+     "duration": 12.000000953674316,
+     "actors": [
+      "hero",
+      "ped03",
+      "ped04",
+      "docock",
+      "docock_rig",
+      "ped01",
+      "ped02",
+      "train02",
+      "train03",
+      "train01",
+      "ped07",
+      "ped08",
+      "ped05",
+      "ped06"
+     ],
+     "camera": true,
+     "start": 35.0333
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA26_TRAIND",
+   "duration": 66.633,
+   "shots": [
+    {
+     "name": "SA26_TRAIND_01",
+     "num": 1,
+     "pack": "STORY_36B",
+     "duration": 4.366666793823242,
+     "actors": [
+      "safedoor",
+      "hero",
+      "harry",
+      "docock",
+      "docock_rig",
+      "tritium"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA26_TRAIND_02",
+     "num": 2,
+     "pack": "STORY_36B",
+     "duration": 18.600000381469727,
+     "actors": [
+      "safedoor",
+      "hero",
+      "harry",
+      "docock",
+      "docock_rig",
+      "tritium"
+     ],
+     "camera": true,
+     "start": 4.3667
+    },
+    {
+     "name": "SA26_TRAIND_03",
+     "num": 3,
+     "pack": "STORY_36B",
+     "duration": 5.1666669845581055,
+     "actors": [
+      "hero",
+      "harry",
+      "knife",
+      "docock_rig",
+      "docock",
+      "safedoor",
+      "tritium"
+     ],
+     "camera": true,
+     "start": 22.9667
+    },
+    {
+     "name": "SA26_TRAIND_04",
+     "num": 4,
+     "pack": "STORY_36B",
+     "duration": 2.3000001907348633,
+     "actors": [
+      "hero",
+      "harry",
+      "knife",
+      "docock_rig",
+      "docock",
+      "safedoor",
+      "tritium"
+     ],
+     "camera": true,
+     "start": 28.1333
+    },
+    {
+     "name": "SA26_TRAIND_05",
+     "num": 5,
+     "pack": "STORY_36B",
+     "duration": 15.033333778381348,
+     "actors": [
+      "harry",
+      "hero_um",
+      "hero",
+      "knife"
+     ],
+     "camera": true,
+     "start": 30.4333
+    },
+    {
+     "name": "SA26_TRAIND_06",
+     "num": 6,
+     "pack": "STORY_36B",
+     "duration": 21.166667938232422,
+     "actors": [
+      "harry",
+      "hero_um"
+     ],
+     "camera": true,
+     "start": 45.4667
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_A04I01",
+   "levels": [
+    "XB_A04I01"
+   ]
+  },
+  {
+   "name": "SA27_FINALBAT",
+   "duration": 82.133,
+   "shots": [
+    {
+     "name": "SA27_FINALBAT_01",
+     "num": 1,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 22.63333511352539,
+     "actors": [
+      "maryjane",
+      "hero",
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA27_FINALBAT_02",
+     "num": 2,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 6.000000476837158,
+     "actors": [
+      "maryjane",
+      "docock",
+      "docock_rig",
+      "hero"
+     ],
+     "camera": true,
+     "start": 22.6333
+    },
+    {
+     "name": "SA27_FINALBAT_03",
+     "num": 3,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 5.533333778381348,
+     "actors": [
+      "maryjane",
+      "hero"
+     ],
+     "camera": true,
+     "start": 28.6333
+    },
+    {
+     "name": "SA27_FINALBAT_04",
+     "num": 4,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 3.000000238418579,
+     "actors": [
+      "maryjane",
+      "hero"
+     ],
+     "camera": true,
+     "start": 34.1667
+    },
+    {
+     "name": "SA27_FINALBAT_05",
+     "num": 5,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 8.366666793823242,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "maryjane",
+      "hero"
+     ],
+     "camera": true,
+     "start": 37.1667
+    },
+    {
+     "name": "SA27_FINALBAT_06",
+     "num": 6,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 9.800000190734863,
+     "actors": [
+      "docock",
+      "docock_rig",
+      "maryjane",
+      "hero_um",
+      "hero"
+     ],
+     "camera": true,
+     "start": 45.5333
+    },
+    {
+     "name": "SA27_FINALBAT_07",
+     "num": 7,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 4.700000286102295,
+     "actors": [
+      "maryjane",
+      "hero_um",
+      "hero"
+     ],
+     "camera": true,
+     "start": 55.3333
+    },
+    {
+     "name": "SA27_FINALBAT_08",
+     "num": 8,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 3.200000286102295,
+     "actors": [
+      "maryjane",
+      "hero_um",
+      "hero"
+     ],
+     "camera": true,
+     "start": 60.0333
+    },
+    {
+     "name": "SA27_FINALBAT_09",
+     "num": 9,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 12.866667747497559,
+     "actors": [
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 63.2333
+    },
+    {
+     "name": "SA27_FINALBAT_10",
+     "num": 10,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 3.366666793823242,
+     "actors": [
+      "hero_um",
+      "hero"
+     ],
+     "camera": true,
+     "start": 76.1
+    },
+    {
+     "name": "SA27_FINALBAT_11",
+     "num": 11,
+     "pack": "STORY_37_SCENE_1",
+     "duration": 2.6666667461395264,
+     "actors": [
+      "docock",
+      "docock_rig"
+     ],
+     "camera": true,
+     "start": 79.4667
+    }
+   ],
+   "audio": null,
+   "audio_seconds": null,
+   "level": "XB_XH04",
+   "levels": [
+    "XB_XH04",
+    "XB_XH01",
+    "XB_XH05",
+    "XB_XH06",
+    "XB_XH07"
+   ]
+  },
+  {
+   "name": "SA98_CATFUN",
+   "duration": 76.7,
+   "shots": [
+    {
+     "name": "SA98_CATFUN_01",
+     "num": 1,
+     "pack": "STORY_32_P3",
+     "duration": 26.700000762939453,
+     "actors": [
+      "blackcat",
+      "hero"
+     ],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA98_CATFUN_02",
+     "num": 2,
+     "pack": "STORY_32_P3",
+     "duration": 50.000003814697266,
+     "actors": [
+      "hero",
+      "blackcat"
+     ],
+     "camera": true,
+     "start": 26.7
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA98_CATFUN.m4a",
+   "audio_seconds": "1:16.743",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY"
+   ]
+  },
+  {
+   "name": "SA99_HELLOBC",
+   "duration": 8.833,
+   "shots": [
+    {
+     "name": "SA99_HELLOBC_01",
+     "num": 1,
+     "pack": "STORY_04_SCENE",
+     "duration": 2.866666793823242,
+     "actors": [],
+     "camera": true,
+     "start": 0.0
+    },
+    {
+     "name": "SA99_HELLOBC_02",
+     "num": 2,
+     "pack": "STORY_04_SCENE",
+     "duration": 3.000000238418579,
+     "actors": [],
+     "camera": true,
+     "start": 2.8667
+    },
+    {
+     "name": "SA99_HELLOBC_03",
+     "num": 3,
+     "pack": "STORY_04_SCENE",
+     "duration": 2.9666669368743896,
+     "actors": [],
+     "camera": true,
+     "start": 5.8667
+    }
+   ],
+   "audio": "/intermediate/xbox/audio/scene/SA99_HELLOBC.m4a",
+   "audio_seconds": "0:09.142",
+   "level": "XB_CITY",
+   "levels": [
+    "XB_CITY",
+    "XB_D27I04",
+    "XB_D27I03",
+    "XB_D27I02"
+   ]
+  }
+ ]
+}

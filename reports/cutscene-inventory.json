@@ -1,0 +1,1439 @@
+{
+  "root": "/Users/jaydengarrick/Desktop/sm2-office/source/pc",
+  "counts": {
+    ".ukx": 26,
+    ".whr": 17,
+    ".bik": 20,
+    ".uax": 16,
+    ".usx": 32,
+    ".u": 12,
+    ".utx": 99
+  },
+  "items": [
+    {
+      "path": "Animations/AuntMayAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 523365
+    },
+    {
+      "path": "Animations/CSPropsAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 27532
+    },
+    {
+      "path": "Animations/CharacterPropsAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 236919
+    },
+    {
+      "path": "Animations/Cop01Animations.ukx",
+      "extension": ".ukx",
+      "bytes": 541197
+    },
+    {
+      "path": "Animations/DocOcAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 3516890
+    },
+    {
+      "path": "Animations/FemaleScientistAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 282927
+    },
+    {
+      "path": "Animations/GenericFemaleAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 1106574
+    },
+    {
+      "path": "Animations/GenericMaleAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 861272
+    },
+    {
+      "path": "Animations/GnPropsAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 237121
+    },
+    {
+      "path": "Animations/IDEnvAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 678994
+    },
+    {
+      "path": "Animations/MaryJaneAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 529521
+    },
+    {
+      "path": "Animations/MiniChallengeAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 385971
+    },
+    {
+      "path": "Animations/MysterioAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 960950
+    },
+    {
+      "path": "Animations/MysterioBotAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 151418
+    },
+    {
+      "path": "Animations/OLPropsAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 158569
+    },
+    {
+      "path": "Animations/PeterParkerAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 441052
+    },
+    {
+      "path": "Animations/PidgeonAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 39455
+    },
+    {
+      "path": "Animations/PumaAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 822564
+    },
+    {
+      "path": "Animations/RhinoAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 732787
+    },
+    {
+      "path": "Animations/ScientistAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 199797
+    },
+    {
+      "path": "Animations/SpideyAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 2969685
+    },
+    {
+      "path": "Animations/SuperThugAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 771571
+    },
+    {
+      "path": "Animations/TSPropsAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 334513
+    },
+    {
+      "path": "Animations/Thug01Animations.ukx",
+      "extension": ".ukx",
+      "bytes": 976304
+    },
+    {
+      "path": "Animations/VehicleAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 849540
+    },
+    {
+      "path": "Animations/WebShootAnimations.ukx",
+      "extension": ".ukx",
+      "bytes": 5894
+    },
+    {
+      "path": "Maps/CB3_CityStreet.whr",
+      "extension": ".whr",
+      "bytes": 16411951
+    },
+    {
+      "path": "Maps/Entry.whr",
+      "extension": ".whr",
+      "bytes": 336567
+    },
+    {
+      "path": "Maps/HUD-Adrenometer.whr",
+      "extension": ".whr",
+      "bytes": 344374
+    },
+    {
+      "path": "Maps/ParkAve_CityStreet.whr",
+      "extension": ".whr",
+      "bytes": 17077502
+    },
+    {
+      "path": "Maps/ParkAve_ConstructionSite.whr",
+      "extension": ".whr",
+      "bytes": 9419112
+    },
+    {
+      "path": "Maps/PreStartup.whr",
+      "extension": ".whr",
+      "bytes": 336860
+    },
+    {
+      "path": "Maps/TwistedCity_Part01.whr",
+      "extension": ".whr",
+      "bytes": 6212329
+    },
+    {
+      "path": "Maps/TwistedCity_Part02.whr",
+      "extension": ".whr",
+      "bytes": 14809422
+    },
+    {
+      "path": "Maps/TwistedCity_Part03.whr",
+      "extension": ".whr",
+      "bytes": 5587917
+    },
+    {
+      "path": "Maps/WallStreet_Bank.whr",
+      "extension": ".whr",
+      "bytes": 7993177
+    },
+    {
+      "path": "Maps/WallStreet_CityStreet.whr",
+      "extension": ".whr",
+      "bytes": 17492869
+    },
+    {
+      "path": "Maps/WallStreet_OsCorpLab.whr",
+      "extension": ".whr",
+      "bytes": 7588355
+    },
+    {
+      "path": "Maps/Wharf_Docks.whr",
+      "extension": ".whr",
+      "bytes": 13282025
+    },
+    {
+      "path": "Maps/Wharf_Train.whr",
+      "extension": ".whr",
+      "bytes": 893319
+    },
+    {
+      "path": "Maps/Wharf_TrainStation.whr",
+      "extension": ".whr",
+      "bytes": 4378021
+    },
+    {
+      "path": "Maps/Wharf_Warehouse.whr",
+      "extension": ".whr",
+      "bytes": 7718315
+    },
+    {
+      "path": "Maps/startup.whr",
+      "extension": ".whr",
+      "bytes": 336825
+    },
+    {
+      "path": "Movies/ACTIVISN.bik",
+      "extension": ".bik",
+      "bytes": 2485980,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "10.400000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "10.400000"
+    },
+    {
+      "path": "Movies/Breakout.bik",
+      "extension": ".bik",
+      "bytes": 2498452,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "6.866667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "6.866667"
+    },
+    {
+      "path": "Movies/CB3-OpeningChase_anim.bik",
+      "extension": ".bik",
+      "bytes": 4202708,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "14.266667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "14.266667"
+    },
+    {
+      "path": "Movies/Credits.bik",
+      "extension": ".bik",
+      "bytes": 58136516,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "167.666667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "167.666667"
+    },
+    {
+      "path": "Movies/ESRB.bik",
+      "extension": ".bik",
+      "bytes": 323456,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "4.000000"
+        }
+      ],
+      "duration": "4.000000"
+    },
+    {
+      "path": "Movies/FIZZbumper.bik",
+      "extension": ".bik",
+      "bytes": 1977280,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "8.000000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "8.000000"
+    },
+    {
+      "path": "Movies/GasStation.bik",
+      "extension": ".bik",
+      "bytes": 7401732,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "20.466667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "20.466667"
+    },
+    {
+      "path": "Movies/L2M1B_BankVaultIntro.bik",
+      "extension": ".bik",
+      "bytes": 3173772,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "9.666667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "9.666667"
+    },
+    {
+      "path": "Movies/L2M1BankLobbyAnimatic.bik",
+      "extension": ".bik",
+      "bytes": 6860200,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "21.066667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "21.066667"
+    },
+    {
+      "path": "Movies/L2M2_DocEscapeAnimatic.bik",
+      "extension": ".bik",
+      "bytes": 1804680,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "7.000000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "7.000000"
+    },
+    {
+      "path": "Movies/L3M1_PumaExitsGarageAnimatic.bik",
+      "extension": ".bik",
+      "bytes": 2643788,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "8.933333"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "8.933333"
+    },
+    {
+      "path": "Movies/L3M2_PumaThrowsCarAnimatic.bik",
+      "extension": ".bik",
+      "bytes": 5030288,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "14.066667"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "14.066667"
+    },
+    {
+      "path": "Movies/L3M3_CatchPumaAnimatic.bik",
+      "extension": ".bik",
+      "bytes": 4380996,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "14.133333"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "14.133333"
+    },
+    {
+      "path": "Movies/L5M3_CannonBreakout.bik",
+      "extension": ".bik",
+      "bytes": 4651920,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "12.800000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "12.800000"
+    },
+    {
+      "path": "Movies/L5M3_WorldTransition.bik",
+      "extension": ".bik",
+      "bytes": 6456968,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "22.600000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "22.600000"
+    },
+    {
+      "path": "Movies/L6M2_TrainCrashAnimatic.bik",
+      "extension": ".bik",
+      "bytes": 6129304,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "16.733333"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "16.733333"
+    },
+    {
+      "path": "Movies/L6_MomentOfClarity.bik",
+      "extension": ".bik",
+      "bytes": 10837580,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "30.533333"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "30.533333"
+    },
+    {
+      "path": "Movies/Marvel.bik",
+      "extension": ".bik",
+      "bytes": 4250344,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "13.000000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "13.000000"
+    },
+    {
+      "path": "Movies/StartGameIntro.bik",
+      "extension": ".bik",
+      "bytes": 35219340,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "96.600000"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "96.600000"
+    },
+    {
+      "path": "Movies/StorySetUpBlurEdit01.bik",
+      "extension": ".bik",
+      "bytes": 15398324,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "binkvideo",
+          "width": 512,
+          "height": 512,
+          "avg_frame_rate": "15/1",
+          "duration": "55.333333"
+        },
+        {
+          "codec_type": "audio",
+          "codec_name": "binkaudio_dct",
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "duration": "55.333333"
+    },
+    {
+      "path": "Sounds/Ambient.uax",
+      "extension": ".uax",
+      "bytes": 41366154
+    },
+    {
+      "path": "Sounds/DoorsAudio.uax",
+      "extension": ".uax",
+      "bytes": 5078488
+    },
+    {
+      "path": "Sounds/Empty.uax",
+      "extension": ".uax",
+      "bytes": 730893
+    },
+    {
+      "path": "Sounds/Events.uax",
+      "extension": ".uax",
+      "bytes": 20933611
+    },
+    {
+      "path": "Sounds/Footsteps.uax",
+      "extension": ".uax",
+      "bytes": 2952679
+    },
+    {
+      "path": "Sounds/HiTechSounds.uax",
+      "extension": ".uax",
+      "bytes": 20941212
+    },
+    {
+      "path": "Sounds/Impacts.uax",
+      "extension": ".uax",
+      "bytes": 5176756
+    },
+    {
+      "path": "Sounds/MusicFX.uax",
+      "extension": ".uax",
+      "bytes": 4017981
+    },
+    {
+      "path": "Sounds/People.uax",
+      "extension": ".uax",
+      "bytes": 4175014
+    },
+    {
+      "path": "Sounds/RobotAudio.uax",
+      "extension": ".uax",
+      "bytes": 1193447
+    },
+    {
+      "path": "Sounds/Spidey.uax",
+      "extension": ".uax",
+      "bytes": 1735498
+    },
+    {
+      "path": "Sounds/UISounds.uax",
+      "extension": ".uax",
+      "bytes": 678384
+    },
+    {
+      "path": "Sounds/VOAudio.uax",
+      "extension": ".uax",
+      "bytes": 38458827
+    },
+    {
+      "path": "Sounds/Vehicle.uax",
+      "extension": ".uax",
+      "bytes": 15830146
+    },
+    {
+      "path": "Sounds/Walla.uax",
+      "extension": ".uax",
+      "bytes": 7000718
+    },
+    {
+      "path": "Sounds/combat.uax",
+      "extension": ".uax",
+      "bytes": 9449197
+    },
+    {
+      "path": "StaticMeshes/BkPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 2380752
+    },
+    {
+      "path": "StaticMeshes/CSPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 789692
+    },
+    {
+      "path": "StaticMeshes/CombatMeshes.usx",
+      "extension": ".usx",
+      "bytes": 159079
+    },
+    {
+      "path": "StaticMeshes/EffectsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 16380
+    },
+    {
+      "path": "StaticMeshes/EffectsMeshes_Test.usx",
+      "extension": ".usx",
+      "bytes": 4982
+    },
+    {
+      "path": "StaticMeshes/GameplayMeshes.usx",
+      "extension": ".usx",
+      "bytes": 123303
+    },
+    {
+      "path": "StaticMeshes/GenGun_Effects.usx",
+      "extension": ".usx",
+      "bytes": 4750
+    },
+    {
+      "path": "StaticMeshes/GnBldgOrnMeshes.usx",
+      "extension": ".usx",
+      "bytes": 461883
+    },
+    {
+      "path": "StaticMeshes/GnPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 14206378
+    },
+    {
+      "path": "StaticMeshes/IDPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 591298
+    },
+    {
+      "path": "StaticMeshes/IndustrialMeshes.usx",
+      "extension": ".usx",
+      "bytes": 35889
+    },
+    {
+      "path": "StaticMeshes/LoadingScreenMeshes.usx",
+      "extension": ".usx",
+      "bytes": 1009531
+    },
+    {
+      "path": "StaticMeshes/MysterioEffectsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 78413
+    },
+    {
+      "path": "StaticMeshes/NvPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 73157
+    },
+    {
+      "path": "StaticMeshes/OLPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 2554521
+    },
+    {
+      "path": "StaticMeshes/OpTestMeshes.usx",
+      "extension": ".usx",
+      "bytes": 1842505
+    },
+    {
+      "path": "StaticMeshes/PAPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 451696
+    },
+    {
+      "path": "StaticMeshes/ParkAvenueExteriorMeshes.usx",
+      "extension": ".usx",
+      "bytes": 254599
+    },
+    {
+      "path": "StaticMeshes/ParticleMeshes.usx",
+      "extension": ".usx",
+      "bytes": 23045
+    },
+    {
+      "path": "StaticMeshes/ShockWave_Mesh.usx",
+      "extension": ".usx",
+      "bytes": 28370
+    },
+    {
+      "path": "StaticMeshes/TCPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 1277062
+    },
+    {
+      "path": "StaticMeshes/TSPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 1421925
+    },
+    {
+      "path": "StaticMeshes/TestMeshes.usx",
+      "extension": ".usx",
+      "bytes": 227722
+    },
+    {
+      "path": "StaticMeshes/ThugDisappear_Mesh.usx",
+      "extension": ".usx",
+      "bytes": 379320
+    },
+    {
+      "path": "StaticMeshes/TrainTestMeshes.usx",
+      "extension": ".usx",
+      "bytes": 299130
+    },
+    {
+      "path": "StaticMeshes/TrashMeshes.usx",
+      "extension": ".usx",
+      "bytes": 4056
+    },
+    {
+      "path": "StaticMeshes/TwistedSky.usx",
+      "extension": ".usx",
+      "bytes": 881
+    },
+    {
+      "path": "StaticMeshes/VerminMeshes.usx",
+      "extension": ".usx",
+      "bytes": 43570
+    },
+    {
+      "path": "StaticMeshes/WDPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 859120
+    },
+    {
+      "path": "StaticMeshes/WWPropsMeshes.usx",
+      "extension": ".usx",
+      "bytes": 919355
+    },
+    {
+      "path": "StaticMeshes/WallStreetExteriorMeshes.usx",
+      "extension": ".usx",
+      "bytes": 303681
+    },
+    {
+      "path": "StaticMeshes/WebheadMeshes.usx",
+      "extension": ".usx",
+      "bytes": 13487
+    },
+    {
+      "path": "System/Core.u",
+      "extension": ".u",
+      "bytes": 34085
+    },
+    {
+      "path": "System/Editor.u",
+      "extension": ".u",
+      "bytes": 484441
+    },
+    {
+      "path": "System/Engine.u",
+      "extension": ".u",
+      "bytes": 1580462
+    },
+    {
+      "path": "System/FXWebhead.u",
+      "extension": ".u",
+      "bytes": 156853
+    },
+    {
+      "path": "System/Fire.u",
+      "extension": ".u",
+      "bytes": 6784
+    },
+    {
+      "path": "System/GUI.u",
+      "extension": ".u",
+      "bytes": 134319
+    },
+    {
+      "path": "System/GamePlay.u",
+      "extension": ".u",
+      "bytes": 108580
+    },
+    {
+      "path": "System/UDebugMenu.u",
+      "extension": ".u",
+      "bytes": 245887
+    },
+    {
+      "path": "System/UPreview.u",
+      "extension": ".u",
+      "bytes": 726821
+    },
+    {
+      "path": "System/UWindow.u",
+      "extension": ".u",
+      "bytes": 376961
+    },
+    {
+      "path": "System/UnrealEd.u",
+      "extension": ".u",
+      "bytes": 6135
+    },
+    {
+      "path": "System/Webhead.u",
+      "extension": ".u",
+      "bytes": 939692
+    },
+    {
+      "path": "Textures/AdrenalMtrTextures.utx",
+      "extension": ".utx",
+      "bytes": 176817
+    },
+    {
+      "path": "Textures/AuntMayTextures.utx",
+      "extension": ".utx",
+      "bytes": 77561
+    },
+    {
+      "path": "Textures/BKIntTextures.utx",
+      "extension": ".utx",
+      "bytes": 3578424
+    },
+    {
+      "path": "Textures/BKScriptedTextures.utx",
+      "extension": ".utx",
+      "bytes": 671
+    },
+    {
+      "path": "Textures/BotsEffects_Test.utx",
+      "extension": ".utx",
+      "bytes": 2777983
+    },
+    {
+      "path": "Textures/CSEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 1060781
+    },
+    {
+      "path": "Textures/CSPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 1516356
+    },
+    {
+      "path": "Textures/CharacterPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 169478
+    },
+    {
+      "path": "Textures/Cinematics.utx",
+      "extension": ".utx",
+      "bytes": 17828515
+    },
+    {
+      "path": "Textures/CitySky.utx",
+      "extension": ".utx",
+      "bytes": 525651
+    },
+    {
+      "path": "Textures/CombatTextures.utx",
+      "extension": ".utx",
+      "bytes": 895209
+    },
+    {
+      "path": "Textures/Const_Effects.utx",
+      "extension": ".utx",
+      "bytes": 44490
+    },
+    {
+      "path": "Textures/Cop01Textures.utx",
+      "extension": ".utx",
+      "bytes": 111367
+    },
+    {
+      "path": "Textures/Diagrams_CB3.utx",
+      "extension": ".utx",
+      "bytes": 3200597
+    },
+    {
+      "path": "Textures/Diagrams_PACitySt.utx",
+      "extension": ".utx",
+      "bytes": 1085699
+    },
+    {
+      "path": "Textures/Diagrams_Train.utx",
+      "extension": ".utx",
+      "bytes": 1085733
+    },
+    {
+      "path": "Textures/Diagrams_TwistedCity2.utx",
+      "extension": ".utx",
+      "bytes": 1096803
+    },
+    {
+      "path": "Textures/Diagrams_TwistedCity3.utx",
+      "extension": ".utx",
+      "bytes": 2137726
+    },
+    {
+      "path": "Textures/Diagrams_WSCitySt.utx",
+      "extension": ".utx",
+      "bytes": 1085675
+    },
+    {
+      "path": "Textures/Diagrams_WallStBank.utx",
+      "extension": ".utx",
+      "bytes": 1085740
+    },
+    {
+      "path": "Textures/Diagrams_WallStOscorp.utx",
+      "extension": ".utx",
+      "bytes": 2137594
+    },
+    {
+      "path": "Textures/Diagrams_WharfFactory.utx",
+      "extension": ".utx",
+      "bytes": 1085742
+    },
+    {
+      "path": "Textures/DocOcTextures.utx",
+      "extension": ".utx",
+      "bytes": 482744
+    },
+    {
+      "path": "Textures/Earth.utx",
+      "extension": ".utx",
+      "bytes": 266219
+    },
+    {
+      "path": "Textures/EnergyBall.utx",
+      "extension": ".utx",
+      "bytes": 22385
+    },
+    {
+      "path": "Textures/FizzFonts.utx",
+      "extension": ".utx",
+      "bytes": 276755
+    },
+    {
+      "path": "Textures/FlameEffect.utx",
+      "extension": ".utx",
+      "bytes": 1487269
+    },
+    {
+      "path": "Textures/GUIContent.utx",
+      "extension": ".utx",
+      "bytes": 34696753
+    },
+    {
+      "path": "Textures/GUIFONTS.utx",
+      "extension": ".utx",
+      "bytes": 70348
+    },
+    {
+      "path": "Textures/GameplayTextures.utx",
+      "extension": ".utx",
+      "bytes": 588993
+    },
+    {
+      "path": "Textures/GenericEnviroObjects.utx",
+      "extension": ".utx",
+      "bytes": 8908
+    },
+    {
+      "path": "Textures/GenericExterior.utx",
+      "extension": ".utx",
+      "bytes": 15115408
+    },
+    {
+      "path": "Textures/GenericFemaleTextures.utx",
+      "extension": ".utx",
+      "bytes": 688618
+    },
+    {
+      "path": "Textures/GenericMaleTextures.utx",
+      "extension": ".utx",
+      "bytes": 499082
+    },
+    {
+      "path": "Textures/GnBldgOrnTextures.utx",
+      "extension": ".utx",
+      "bytes": 638861
+    },
+    {
+      "path": "Textures/GnIntTextures.utx",
+      "extension": ".utx",
+      "bytes": 662028
+    },
+    {
+      "path": "Textures/GnPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 9496767
+    },
+    {
+      "path": "Textures/HeroPoints.utx",
+      "extension": ".utx",
+      "bytes": 497
+    },
+    {
+      "path": "Textures/HudTest.utx",
+      "extension": ".utx",
+      "bytes": 176370
+    },
+    {
+      "path": "Textures/IDEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 4240618
+    },
+    {
+      "path": "Textures/IDPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 2747223
+    },
+    {
+      "path": "Textures/Lab_Effects.utx",
+      "extension": ".utx",
+      "bytes": 1503804
+    },
+    {
+      "path": "Textures/LoadingScreens.utx",
+      "extension": ".utx",
+      "bytes": 833109
+    },
+    {
+      "path": "Textures/MaryJaneTextures.utx",
+      "extension": ".utx",
+      "bytes": 175765
+    },
+    {
+      "path": "Textures/MiniChallengeTextures.utx",
+      "extension": ".utx",
+      "bytes": 132998
+    },
+    {
+      "path": "Textures/MoviePicsOverlay.utx",
+      "extension": ".utx",
+      "bytes": 7643907
+    },
+    {
+      "path": "Textures/MovieTextures.utx",
+      "extension": ".utx",
+      "bytes": 4195115
+    },
+    {
+      "path": "Textures/MysterioBotTextures.utx",
+      "extension": ".utx",
+      "bytes": 152354
+    },
+    {
+      "path": "Textures/MysterioTextures.utx",
+      "extension": ".utx",
+      "bytes": 364467
+    },
+    {
+      "path": "Textures/Mysterio_Attacks.utx",
+      "extension": ".utx",
+      "bytes": 724862
+    },
+    {
+      "path": "Textures/NvPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 249304
+    },
+    {
+      "path": "Textures/OLIntTextures.utx",
+      "extension": ".utx",
+      "bytes": 3404184
+    },
+    {
+      "path": "Textures/OLPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 3921090
+    },
+    {
+      "path": "Textures/OLScriptedTextures.utx",
+      "extension": ".utx",
+      "bytes": 911
+    },
+    {
+      "path": "Textures/OpTestTextures.utx",
+      "extension": ".utx",
+      "bytes": 3414124
+    },
+    {
+      "path": "Textures/PAEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 6744532
+    },
+    {
+      "path": "Textures/PAPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 879474
+    },
+    {
+      "path": "Textures/Particle.utx",
+      "extension": ".utx",
+      "bytes": 695939
+    },
+    {
+      "path": "Textures/PeterParkerTextures.utx",
+      "extension": ".utx",
+      "bytes": 197476
+    },
+    {
+      "path": "Textures/PidgeonTextures.utx",
+      "extension": ".utx",
+      "bytes": 110724
+    },
+    {
+      "path": "Textures/PumaTextures.utx",
+      "extension": ".utx",
+      "bytes": 110768
+    },
+    {
+      "path": "Textures/ReticuleTextures.utx",
+      "extension": ".utx",
+      "bytes": 189705
+    },
+    {
+      "path": "Textures/RhinoTextures.utx",
+      "extension": ".utx",
+      "bytes": 187696
+    },
+    {
+      "path": "Textures/RhinoTrans_Textures.utx",
+      "extension": ".utx",
+      "bytes": 594888
+    },
+    {
+      "path": "Textures/S_ThugShockWave.utx",
+      "extension": ".utx",
+      "bytes": 22413
+    },
+    {
+      "path": "Textures/ScientistTextures.utx",
+      "extension": ".utx",
+      "bytes": 276043
+    },
+    {
+      "path": "Textures/SpecialFX.utx",
+      "extension": ".utx",
+      "bytes": 1615135
+    },
+    {
+      "path": "Textures/SpideyHUD.utx",
+      "extension": ".utx",
+      "bytes": 5431230
+    },
+    {
+      "path": "Textures/SpideyHUD2.utx",
+      "extension": ".utx",
+      "bytes": 849842
+    },
+    {
+      "path": "Textures/SpideyTextures.utx",
+      "extension": ".utx",
+      "bytes": 878979
+    },
+    {
+      "path": "Textures/Spidey_Power.utx",
+      "extension": ".utx",
+      "bytes": 307457
+    },
+    {
+      "path": "Textures/Subway.utx",
+      "extension": ".utx",
+      "bytes": 699880
+    },
+    {
+      "path": "Textures/SuperThugTextures.utx",
+      "extension": ".utx",
+      "bytes": 307613
+    },
+    {
+      "path": "Textures/TCEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 1419626
+    },
+    {
+      "path": "Textures/TCPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 3454790
+    },
+    {
+      "path": "Textures/TSEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 975662
+    },
+    {
+      "path": "Textures/TSPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 1529613
+    },
+    {
+      "path": "Textures/TestTextures.utx",
+      "extension": ".utx",
+      "bytes": 3184136
+    },
+    {
+      "path": "Textures/Thug01Textures.utx",
+      "extension": ".utx",
+      "bytes": 188604
+    },
+    {
+      "path": "Textures/ThugDisappear.utx",
+      "extension": ".utx",
+      "bytes": 17372
+    },
+    {
+      "path": "Textures/TrainTestTextures.utx",
+      "extension": ".utx",
+      "bytes": 9669599
+    },
+    {
+      "path": "Textures/UDN_BuildTex.utx",
+      "extension": ".utx",
+      "bytes": 700361
+    },
+    {
+      "path": "Textures/UDN_Terrain_T.utx",
+      "extension": ".utx",
+      "bytes": 4414501
+    },
+    {
+      "path": "Textures/UWindowFonts.utx",
+      "extension": ".utx",
+      "bytes": 1755531
+    },
+    {
+      "path": "Textures/VariedEffectsTextures.utx",
+      "extension": ".utx",
+      "bytes": 25132
+    },
+    {
+      "path": "Textures/VerminTextures.utx",
+      "extension": ".utx",
+      "bytes": 14440
+    },
+    {
+      "path": "Textures/WDEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 1212165
+    },
+    {
+      "path": "Textures/WDPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 1513407
+    },
+    {
+      "path": "Textures/WSEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 3710479
+    },
+    {
+      "path": "Textures/WWEnvTextures.utx",
+      "extension": ".utx",
+      "bytes": 1367056
+    },
+    {
+      "path": "Textures/WWPropsTextures.utx",
+      "extension": ".utx",
+      "bytes": 4275213
+    },
+    {
+      "path": "Textures/WWScriptedTextures.utx",
+      "extension": ".utx",
+      "bytes": 556
+    },
+    {
+      "path": "Textures/WallStreetExterior.utx",
+      "extension": ".utx",
+      "bytes": 7624583
+    },
+    {
+      "path": "Textures/Watertest.utx",
+      "extension": ".utx",
+      "bytes": 2469012
+    },
+    {
+      "path": "Textures/WebShootTexture.utx",
+      "extension": ".utx",
+      "bytes": 25047
+    },
+    {
+      "path": "Textures/Web_Effects.utx",
+      "extension": ".utx",
+      "bytes": 3498097
+    },
+    {
+      "path": "Textures/WebheadEditorTextures.utx",
+      "extension": ".utx",
+      "bytes": 11357
+    },
+    {
+      "path": "Textures/WebheadFonts.utx",
+      "extension": ".utx",
+      "bytes": 6011023
+    },
+    {
+      "path": "Textures/WebheadTextures.utx",
+      "extension": ".utx",
+      "bytes": 2938
+    }
+  ]
+}

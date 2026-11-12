@@ -1,0 +1,18 @@
+source/
+intermediate/
+node_modules/
+*.glb
+*.bik
+*.mp4
+*.png
+tools/.venv/
+tools/UEViewer/
+__pycache__/
+.DS_Store
+reports/*.log
+dist/
+# Dollhouse Director: generated speech, verification pictures, caches (specs and briefs stay tracked)
+public/director/*/audio/
+public/director/*/verify/
+public/director/*/prepared.json
+tools/director/test/out/

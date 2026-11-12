@@ -1,0 +1,42 @@
+{
+ "name": "F&F Pizzeria v2",
+ "remap": {
+  "/public/models/xbox/static/F48I01__f48i01r.glb": "/public/models/xbox/static/F48I01__f48i01r_ff.glb",
+  "/public/models/xbox/static/F48I01__f48i01_chair.glb": "/public/models/xbox/static/F48I01__f48i01_chair_ff.glb",
+  "/public/models/xbox/static/F48I01__f48i01_tablea.glb": "/public/models/xbox/static/F48I01__f48i01_tablea_ff.glb",
+  "/public/models/xbox/static/F48I01__f48i01_tableb.glb": "/public/models/xbox/static/F48I01__f48i01_tableb_ff.glb",
+  "/public/models/xbox/static/F48I01__f48i01_lamp.glb": "/public/models/xbox/static/F48I01__f48i01_lamp_ff.glb",
+  "/public/models/xbox/static/F48__f48_i01front.glb": "/public/models/xbox/static/F48__f48_i01front_ff_v2.glb"
+ },
+ "add": [
+  {
+   "actor": "FF_SIGN",
+   "class": "entity",
+   "cell": "F48",
+   "mesh": "FF.FF_SIGN",
+   "url": "/public/models/xbox/static/FF__ff_sign_v2.glb",
+   "tag": "FF_SIGN",
+   "pos": [
+    0,
+    0,
+    0
+   ],
+   "quat": [
+    0,
+    0,
+    0,
+    1
+   ],
+   "scale": [
+    1,
+    1,
+    1
+   ]
+  }
+ ],
+ "props": {
+  "/public/models/xbox/props/itm_pizzaboxflat.glb": "/public/models/xbox/props/itm_pizzaboxflat_ff.glb",
+  "/public/models/xbox/props/itm_pizzabox.glb": "/public/models/xbox/props/itm_pizzabox_ff.glb",
+  "/public/models/xbox/props/itm_pizzabag.glb": "/public/models/xbox/props/itm_pizzabag_ff.glb"
+ }
+}

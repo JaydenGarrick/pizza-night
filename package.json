@@ -1,0 +1,21 @@
+{
+  "name": "pizza-night",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@gltf-transform/cli": "^4.1.1",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "three": "^0.170.0",
+    "three-mesh-bvh": "^0.9.18",
+    "zod": "^4.6.7"
+  },
+  "private": true
+}

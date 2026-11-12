@@ -1,0 +1,897 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><title>Pizza Night in America: Birdie's Adventure</title>
+<style>
+  body{margin:0;background:#000;overflow:hidden;font-family:system-ui,-apple-system,sans-serif;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;overscroll-behavior:none} canvas.gl{display:block;touch-action:none}
+  /* touch controls: twin floating sticks + jump / sprint / pause; the HUD shrinks on a phone */
+  #touch{position:fixed;inset:0;z-index:4;touch-action:none} #touch.hidden{display:none}
+  .stick{position:absolute;width:120px;height:120px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(0,0,0,.25);display:none;pointer-events:none} .stick.on{display:block}
+  .stick i{position:absolute;left:32px;top:32px;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 8px #000;display:block}
+  .tbtn{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.45);background:rgba(0,0,0,.45);color:#fff;font:700 13px/1 ui-monospace,Menlo,monospace;letter-spacing:1px;display:flex;align-items:center;justify-content:center;touch-action:none;padding:0}
+  .tbtn.on{background:#ffd36a;color:#000;border-color:#ffd36a}
+  #xpbar{display:none!important} #sharecard{display:block;margin:6px auto 0;max-width:min(600px,86vw);max-height:52vh;width:auto;height:auto;border:2px solid #3a4a7a;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,.6)} .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px} .btn{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:9px 18px;background:#1b2238;border:2px solid #7f8db0;border-bottom-width:5px;border-radius:6px;box-shadow:0 0 0 1px #000,inset 0 1px 0 rgba(255,255,255,.15);line-height:0} .btn:hover{border-color:#ffd36a} .btn:active{transform:translateY(2px);border-bottom-width:3px} .btn.main{background:#4a3a0c;border-color:#ffd36a} .btn .bf{filter:none} #toast{min-height:16px;margin-top:8px} #cutwrap{position:fixed;inset:0;z-index:6;background:#000;display:flex;align-items:center;justify-content:center} #cutwrap.hidden{display:none} #cut{width:100%;height:100%;object-fit:contain} #cutskip{position:absolute;right:18px;bottom:14px;opacity:.75;line-height:0} #combo{position:absolute;left:calc(50% + 112px);bottom:40px;line-height:0;opacity:0;transition:opacity .25s} #combo.on{opacity:1} #combobar{width:150px;height:6px;margin-top:6px;background:rgba(0,0,0,.6);border-radius:3px;overflow:hidden} #combobar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffd36a,#ff8a2a)} body.touch #combo{left:14px;top:46px;bottom:auto} body.touch #combobar{width:110px} #hud > #compass{position:absolute;left:50%;transform:translateX(-50%);bottom:104px;margin:0} body.touch #hud > #compass{left:calc(50% - 108px);bottom:40px} #toprow > #mid{position:absolute;left:50%;top:0;transform:translateX(-50%);white-space:nowrap} #toprow > #right{margin-left:auto}   /* the compass sits over the wing meter, in the eye line */
+  /* the wing meter: the wide cell of the game's own pizza-mission counter frame (i_pizza_counter) holding one flat yellow emblem per flap; no glow, hard pixels */
+  #wings{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:192px;height:80px;background:var(--wframe) center/100% 100% no-repeat;image-rendering:pixelated}
+  #wings .wp{position:absolute;left:7%;top:14%;width:86%;height:72%;display:flex;align-items:center;justify-content:space-evenly}
+  .wing{position:relative;width:34px;height:27px} .wing i{position:absolute;inset:0;-webkit-mask:var(--wing) center/100% 100% no-repeat;mask:var(--wing) center/100% 100% no-repeat} .wing .off{background:#1b4826} .wing .on{background:#ecd23c}
+  #wings.out{animation:pulse .45s ease-in-out infinite} #wings.out,#wings.hit{filter:hue-rotate(-115deg) saturate(1.6)}
+  body.touch #wings{bottom:46px;width:125px;height:52px} body.touch .wing{width:22px;height:18px}
+  #btnJump{right:22px;bottom:26px;width:78px;height:78px} #btnDive{right:112px;bottom:26px;width:64px;height:64px} #btnPause{left:50%;transform:translateX(-50%);bottom:12px;width:46px;height:28px;border-radius:8px}
+  body.touch.ready #status{display:none} body.touch #status{right:50%;transform:translateX(50%);bottom:50%;font-size:14px;color:#ffd36a}
+  body.touch #toprow{top:18px;left:8px;right:8px} body.touch #compass{width:72px;height:84px;margin-right:4px} body.touch #cdist{font-size:11px}
+  body.touch #timer canvas{height:24px;width:auto} body.touch #mid{line-height:1} body.touch #pizza{margin-top:0} body.touch #msg{margin-top:0;min-height:0}
+  body.touch #hpwrap{width:120px;height:14px;bottom:10px} body.touch #hptxt{line-height:14px} body.touch #hptxt .bf{height:14px;width:auto}
+  body.touch #kills{min-width:0} body.touch #deliv{margin-top:0} body.touch #xpbar{height:12px} body.touch #lvl{top:-1px;line-height:12px} body.touch #lvl .bf{height:12px;width:auto}
+  body.touch #weapons{display:none}   /* phones: no upgrade chips at all (user's call); the level-up cards show what you have */ .chip.mini{position:relative;padding:2px;line-height:0} .chip.mini .gi{width:20px;height:20px;margin:0;vertical-align:top} .chip.mini b{position:absolute;right:-3px;bottom:-4px;font:700 10px/1 ui-monospace,Menlo,monospace;color:#ffd36a;text-shadow:0 1px 0 #000,0 0 3px #000}
+  body.touch .cards{gap:8px;margin-top:8px} body.touch .card{width:200px;padding:10px} body.touch #overlay .box{padding:6px} body.touch #overlay .logo{width:200px;margin-bottom:0} body.touch #overlay h1{margin:0} body.touch #overlay h2{margin:0 0 6px} body.touch #overlay p{margin:3px 0} body.touch .hint{margin-top:6px} body.touch .card .ic .gi{width:44px;height:44px}
+  #rotate{position:fixed;inset:0;z-index:7;background:#000;color:#fff;display:none;align-items:center;justify-content:center;font:700 18px/1.5 ui-monospace,Menlo,monospace;text-align:center;letter-spacing:2px} @media (orientation: portrait){ body.touch #rotate{display:flex} }
+  #hud{position:fixed;inset:0;pointer-events:none;color:#fff;text-shadow:0 1px 2px #000,0 0 6px #000;font:13px/1.3 ui-monospace,Menlo,monospace}
+  #hud.hidden,#overlay.hidden{display:none}
+  #xpbar{position:absolute;left:0;top:0;right:0;height:16px;background:rgba(0,0,0,.65);border-bottom:2px solid #1c1f26}
+  #xpfill{height:100%;width:0;background:linear-gradient(90deg,#3a6cff,#8fd0ff);box-shadow:0 0 8px #5aa0ff}
+  #lvl{position:absolute;right:6px;top:1px;padding:0 7px;border-radius:3px;font-weight:700;font-size:12px;line-height:14px}
+  .band{display:inline-block;padding:3px 10px;border-radius:4px;vertical-align:middle} #lvl .bf,.band .bf{filter:none}
+  #toprow{position:absolute;left:12px;right:12px;top:24px;display:flex;align-items:flex-start;justify-content:space-between}
+  #compass{width:136px;height:154px;margin-right:8px;flex:none;position:relative} #cdist{position:absolute;left:0;right:0;bottom:0;text-align:center;font:700 14px/1.2 ui-monospace,Menlo,monospace;color:#F58426}   /* the 3D compass gadget is drawn by the renderer into this box */
+  #weapons{display:flex;flex-wrap:wrap;gap:4px;max-width:42%}
+  .chip{background:rgba(0,0,0,.55);border:1px solid #444;border-radius:4px;padding:2px 6px;font-size:12px;white-space:nowrap}
+  .chip b{color:#ffd36a}
+  #timer{font-size:30px;font-weight:800;letter-spacing:2px;line-height:1} #timer canvas{image-rendering:pixelated;filter:drop-shadow(0 2px 2px #000)}
+  #kills{font-size:18px;font-weight:700;text-align:right;min-width:120px} #right{text-align:right} #deliv{font-size:14px;font-weight:700;margin-top:4px}
+  #mid{text-align:center} #pizza{font-size:15px;font-weight:700;margin-top:4px;color:#ffd36a} #pizza b{color:#fff} #msg{font-size:14px;color:#9fd0ff;margin-top:2px;min-height:18px}
+  #hpwrap{position:absolute;left:12px;bottom:14px;width:220px;height:16px;background:rgba(0,0,0,.6);border:1px solid #555;border-radius:4px;overflow:hidden}
+  #hpfill{height:100%;width:100%;background:linear-gradient(90deg,#c62828,#ff5252)}
+  #hptxt{position:absolute;left:0;right:0;top:0;text-align:center;font-size:11px;line-height:16px;font-weight:700}
+  #debug{position:absolute;left:12px;bottom:36px;color:#9aa;font-size:11px;white-space:pre}
+  #status{position:fixed;right:12px;bottom:10px;color:#9aa;font:12px ui-monospace,Menlo,monospace;text-shadow:0 1px 2px #000}
+  #overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(4,6,14,.74);color:#fff;text-align:center;z-index:5}
+  #overlay .box{max-width:960px;padding:24px}
+  #overlay h1{font-size:54px;margin:0 0 8px;letter-spacing:5px;text-transform:uppercase;color:#ffd36a;text-shadow:0 0 18px #ff9f1a,0 2px 0 #000} #overlay h1 canvas{image-rendering:pixelated;filter:drop-shadow(0 0 12px #ff9f1a) drop-shadow(0 3px 0 #000)}
+  #overlay h2{font-size:26px;margin:0 0 14px;color:#9fd0ff}
+  #overlay p{margin:6px 0;color:#cfd6e0;font-size:15px}
+  .cards{display:flex;gap:14px;justify-content:center;margin-top:16px}
+  .card{pointer-events:auto;cursor:pointer;width:290px;background:#141a2a;border:2px solid #3a4a7a;border-radius:10px;padding:16px;text-align:left;transition:transform .08s,border-color .08s}
+  .card:hover,.card.sel{border-color:#ffd36a;transform:translateY(-3px)}
+  .card .ic{font-size:34px} .card .nm{font-weight:800;font-size:16px;margin-top:4px} .card .lv{color:#ffd36a;font-size:12px} .card .ds{color:#d2d8e4;font-size:12px;margin-top:10px} .card .key{float:right;color:#667;font-size:12px}
+  .stats{display:inline-grid;grid-template-columns:auto auto;gap:4px 18px;text-align:left;margin:10px 0;font-size:16px} .stats b{color:#ffd36a}
+  .hint{color:#8893a8;font-size:13px;margin-top:14px}
+  .gi{display:inline-block;width:18px;height:18px;vertical-align:-4px;margin-right:3px;background-repeat:no-repeat;image-rendering:pixelated;border-radius:3px}
+  .bf{image-rendering:pixelated;vertical-align:middle;filter:drop-shadow(0 1px 0 #000) drop-shadow(0 0 3px rgba(0,0,0,.8))} canvas.bf{display:inline-block}
+  .chip .bf{vertical-align:-2px} .card .nm .bf,.card .lv .bf,.card .ds .bf{display:block} .stats .bf{vertical-align:middle}
+  .card .ic .gi{width:56px;height:56px;margin:0;border-radius:8px;box-shadow:0 0 0 2px #223,0 0 10px #000}
+  .stats .gi{width:22px;height:22px}
+  #overlay.title .box{background:rgba(4,6,14,.6);border-radius:14px} #overlay .logo{display:block;margin:0 auto 2px;image-rendering:pixelated;filter:drop-shadow(0 0 16px #ff9f1a) drop-shadow(0 3px 0 #000)}
+  #overlay .logo{display:block;margin:0 auto 6px;width:420px;image-rendering:pixelated;filter:drop-shadow(0 2px 0 #000)}
+  /* title how-to-play: three step tiles built from the HUD's own parts */
+  #overlay.title .box{max-height:100vh;overflow:auto;box-sizing:border-box;padding:20px} .goal{margin:4px 0 10px} .goal .bf{filter:drop-shadow(0 1px 0 #000) drop-shadow(0 0 6px rgba(255,160,40,.45))}
+  .howto{display:flex;gap:14px;justify-content:center;align-items:stretch} .step{width:296px;box-sizing:border-box;background:#141a2a;border:2px solid #3a4a7a;border-radius:10px;padding:12px 12px 14px;text-align:center}
+  .step .sh{margin-bottom:8px} .step .sv{min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px} .step .st{margin-top:8px} .step .st .bf{display:block;margin:0 auto}
+  .wasd{display:grid;grid-template-columns:repeat(3,36px);gap:4px;justify-content:center} .keyrow{display:flex;align-items:center;gap:8px;margin-top:4px}
+  .kcap{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;background:#1b2238;border:2px solid #7f8db0;border-bottom-width:5px;border-radius:6px;box-shadow:0 0 0 1px #000,inset 0 1px 0 rgba(255,255,255,.15)} .kcap.wide{width:120px} .kcap .bf{filter:none}
+  .sticks{display:flex;gap:18px} .sticks>span{display:flex;flex-direction:column;align-items:center;gap:3px} .mstick{position:relative;display:block;width:46px;height:46px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(0,0,0,.25)} .mstick i{position:absolute;left:12px;top:12px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 8px #000}
+  .dial{position:relative;display:block;width:64px;height:64px;background:url(/public/ui/i_map_compass.png) center/100% 100% no-repeat;image-rendering:pixelated;filter:drop-shadow(0 2px 0 #000)} .chev{position:absolute;left:20px;top:17px;width:24px;height:30px;transform-origin:50% 58%;animation:sway 2.4s ease-in-out infinite;filter:drop-shadow(0 1px 1px #000)}
+  @keyframes sway{0%,100%{transform:rotate(28deg)}50%{transform:rotate(46deg)}} .pz .gi{width:56px;height:56px;margin:0;border-radius:8px;box-shadow:0 0 0 2px #223,0 0 10px #000} .dist{line-height:0}
+  .go{animation:pulse 1.3s ease-in-out infinite} @keyframes pulse{50%{opacity:.35}}
+  body.touch .howto{gap:8px} body.touch .step{width:250px;padding:4px 8px 4px} body.touch .step .sv{min-height:48px;gap:2px} body.touch .step .sh{margin-bottom:2px} body.touch .step .st{margin-top:2px} body.touch .goal{margin:0 0 4px} body.touch .dial{width:44px;height:44px} body.touch .chev{left:14px;top:11px;width:16px;height:21px} body.touch .pz .gi{width:40px;height:40px} body.touch .mstick{width:40px;height:40px} body.touch .mstick i{left:10px;top:10px;width:18px;height:18px} body.touch #overlay.title .box{padding:4px} body.touch #overlay.title h2{margin:0 0 2px} body.touch #overlay.title .hint{margin-top:3px}
+  #dbg{position:fixed;right:12px;top:40px;width:340px;max-height:calc(100vh - 60px);overflow:auto;background:rgba(6,8,16,.9);border:1px solid #3a4a7a;border-radius:8px;padding:8px 10px 10px;font:12px/1.4 ui-monospace,Menlo,monospace;color:#cfd6e0;z-index:6;pointer-events:auto;user-select:none}
+  #dbg.hidden{display:none} #dbg h4{margin:8px 0 3px;color:#9fd0ff;font-size:11px;letter-spacing:1px;text-transform:uppercase} #dbg h4:first-child{margin-top:0}
+  #dbg button{background:#1b2440;color:#fff;border:1px solid #3a4a7a;border-radius:4px;padding:1px 7px;margin:1px 2px 1px 0;font:inherit;cursor:pointer} #dbg button:hover{border-color:#ffd36a} #dbg button.on{background:#ffd36a;color:#000;border-color:#ffd36a}
+  #dbg .row{display:flex;align-items:center;gap:3px;flex-wrap:wrap;margin:1px 0} #dbg .nm{width:112px;color:#fff;flex:none} #dbg .v{width:26px;text-align:right;color:#ffd36a;flex:none} #dbg .ro{white-space:pre;color:#9aa;margin-top:6px} #dbg .hint{color:#667;font-size:11px;margin:0 0 4px}
+</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<div id="hud">
+  <div id="xpbar"><div id="xpfill"></div><span id="lvl">LV 1</span></div>
+  <div id="toprow"><div id="weapons" style="width:136px"></div><div id="mid"><div id="timer">00:00</div><div id="pizza"><span id="pzicon"></span><span id="pztxt"></span></div><div id="msg"></div></div><div id="right"><div id="kills"></div><div id="deliv"><span id="dvicon"></span><span id="dvtxt"></span></div></div></div>
+  <div id="compass"><div id="cdist">–</div></div>
+  <div id="wings"></div>
+  <div id="combo"><span id="combotxt"></span><div id="combobar"><i></i></div></div>
+  <div id="debug"></div>
+</div>
+<div id="touch" class="hidden"><div id="stickL" class="stick"><i></i></div><div id="stickR" class="stick"><i></i></div><button id="btnJump" class="tbtn">FLAP</button><button id="btnDive" class="tbtn">DIVE</button><button id="btnPause" class="tbtn">II</button></div>
+<div id="rotate">ROTATE YOUR PHONE<br>LANDSCAPE, PLEASE</div>
+<div id="overlay" class="hidden"><div class="box" id="obox"></div></div>
+<div id="cutwrap" class="hidden"><video id="cut" playsinline preload="none"></video><div id="cutskip"></div></div>
+<div id="status">loading…</div>
+<script src="/public/js/vendor/qrcode.js"></script>   <!-- QR Code Generator for JavaScript, Kazuhiko Arase, MIT: the scorecard's QR code -->
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { clone as cloneRig } from 'three/addons/utils/SkeletonUtils.js';
+import { makeLoader, loadPCLevel, setPCLightRig, buildColliders } from '/public/js/pclevel.js';
+import { loadXboxLevel, setLightRig, toCharacterMaterials, defaultSkin } from '/public/js/xblevel.js';
+import { BitmapFont } from '/public/js/bitmapfont.js';
+import { logoGeometry } from '/public/js/logo_shape.js';
+
+// ---------------------------------------------------------------------------------------------------------------------------
+// Pizza Night in America: Birdie's Adventure.  A 90-second delivery run built on Birdie Survivors (survivors.html, left as it is): the same
+// city patch around F&F, the same hero rig and controller, the same Joe's / customer / beacon / compass pieces.  The horde, weapons, levels
+// and health are gone; movement is the game.  Birdie jumps, FLAPS in the air on a small stock of wing pips (refilled on the ground and by
+// emblems), GLIDES while the button is held and DIVES for speed, which a glide turns back into height.  Three pizzas go out in any order and
+// he has to be back at the shop before the clock runs out.  Goons wait on the street and big pigeons circle in the air; a hit costs a wing, speed and points.  The Blackbird emblems score points: a line of them marks the street route to each
+// stop, gold ones sit on low rooftops along the straight line (the shortcut).  window.__sm2 drives it headless.
+// ---------------------------------------------------------------------------------------------------------------------------
+const q = new URLSearchParams(location.search); const $ = (id) => document.getElementById(id);
+const WORLD = q.get('world') || 'xbox';   /* xbox = the city around Joe's Pizza (walk.html's patch, the game's hulls); pc = the UE2 Wall Street map */
+const MAP = q.get('map') || 'WallStreet_CityStreet'; const RADIUS = +(q.get('radius') || (WORLD === 'xbox' ? 400 : 190));   /* twice the Survivors patch: 90 s of flying covers a lot more street than 10 minutes of fighting on one corner */
+// ---- ?spot=: where in the Xbox city F&F lives.  'joes' is the real Joe's Pizza on the waterfront; every other spot HIDES one of the city's flat shop-front
+// pieces (host: a 20-25 m 'iNNfront' lego piece whose street side was read off the road cells) and places the pizzeria unit (the F48 facade with the F&F
+// skin + the XB_PIZZERIA interior) over it: F&F's front-face centre A (-255, 0, 735.2), outward -z, is carried to the host's front-face centre B, outward
+// rotY(yaw)*(0,0,side).  Everything tied to Joe's (spawn, the pickup ring, Aziz, the bag) goes through toSpot().
+const SPOTS = {
+  joes:     { name: "Joe's on the waterfront" },
+  midtown:  { name: 'Midtown, by the Empire State', host: '/public/models/xbox/static/E39__e39_i02front.glb', pos: [427.5, 10.1], yaw: 0, side: -1, face: -0.9 },
+  park:     { name: 'South of the park', host: '/public/models/xbox/static/G68__g68_i02front.glb', pos: [-987.6, -278.1], yaw: 90, side: 1, face: 1.4 },
+  downtown: { name: 'Downtown', host: '/public/models/xbox/static/A04__a04_i03front.glb', pos: [2455, -285], yaw: -180, side: 1, face: 1.6 },
+  west:     { name: 'West side', host: '/public/models/xbox/static/H77__h77_i02front.glb', pos: [-1540, 430], yaw: 0, side: 1, face: 1.4 },
+};
+const SPOT = SPOTS[q.get('spot')] || SPOTS.joes; const FF_A = new THREE.Vector3(-255, 0, 735.2); let FF_B = FF_A.clone(), FF_PHI = 0;
+if (SPOT.host) { const yaw = SPOT.yaw * Math.PI / 180; FF_B = new THREE.Vector3(Math.sin(yaw) * SPOT.face, 0, Math.cos(yaw) * SPOT.face).add(new THREE.Vector3(SPOT.pos[0], 0, SPOT.pos[1])); FF_PHI = SPOT.side < 0 ? yaw : yaw + Math.PI; }
+const toSpot = (x, y, z) => new THREE.Vector3(x, y, z).sub(FF_A).applyAxisAngle(new THREE.Vector3(0, 1, 0), FF_PHI).add(FF_B);   // a point at Joe's -> the same point at the chosen spot
+const spotXZ = (x, z) => { const v = toSpot(x, 0, z); return [v.x, v.z]; }; const ARENA = RADIUS - (WORLD === 'xbox' ? 20 : 45); const UNIT = 0.02;
+const TOUCH = q.get('touch') === '1' || (q.get('touch') !== '0' && matchMedia('(pointer: coarse)').matches); const NS = TOUCH ? 0.6 : 1;   /* HUD digit scale: phones get half-size digits */   /* phones / tablets: on-screen sticks, smaller HUD */ const NIGHT = q.get('night') === '1'; const CAM = q.get('cam') || 'chase';   /* chase = the game's third-person camera (default); top = the survivors-style high angle */ const DEBUG = q.get('debug') === '1'; const RUN_LEN = +(q.get('len') || 90); const MAX_ENEMIES = +(q.get('max') || 120);
+const HERO_URL = q.get('hero') || '/public/models/characters/birdman_v2.glb';   // v2: the civilian's own rig (natural hands and shoulders, its own idle/walk/run) + the Spider-Man move clips merged in by rotation, bulked up
+let seed = (+(q.get('seed') || 1337)) >>> 0;   // seeded RNG so headless runs repeat
+const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); renderer.setSize(innerWidth, innerHeight); renderer.setPixelRatio(Math.min(devicePixelRatio, TOUCH ? 1.5 : 2)); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.domElement.className = 'gl'; document.body.prepend(renderer.domElement);
+const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(CAM === 'top' ? 45 : +(q.get('fov') || 50), innerWidth / innerHeight, 0.1, 2000);
+function fitCanvas() { if (renderer.domElement.clientWidth === innerWidth && renderer.domElement.clientHeight === innerHeight) return; camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); }
+addEventListener('resize', fitCanvas); addEventListener('orientationchange', () => setTimeout(fitCanvas, 300)); if (window.visualViewport) visualViewport.addEventListener('resize', fitCanvas);
+let heroLamp = null;
+if (NIGHT) { const rig = new THREE.Group(); rig.name = 'night_rig'; scene.add(rig); rig.add(new THREE.HemisphereLight(0x5570b0, 0x1c1812, 1.0)); const moon = new THREE.DirectionalLight(0xa9bcff, 0.75); moon.position.set(-40, 70, -25); rig.add(moon); scene.background = new THREE.Color(0x070a14); scene.fog = new THREE.Fog(0x070a14, 90, 320); heroLamp = new THREE.PointLight(0xffd9a8, 140, 40, 1.7); rig.add(heroLamp); }
+else if (WORLD !== 'xbox') setPCLightRig(scene, { background: 0xb9cde6, fog: new THREE.Fog(0xb9cde6, 250, 900) });
+const loader = new GLTFLoader(); const loadGLTF = makeLoader(loader); const T0 = performance.now();
+const status = (m) => { $('status').textContent = m; };
+
+const S = { t: 0, frame: 0, phase: 'title', player: null, colliders: [], near: [], nearBsp: [], nearAt: -1, chunkView: null, showChunks: false, fps: 0, override: null,
+  cam: { yaw: 0, yawT: 0, pitch: +(q.get('pitch') || (CAM === 'top' ? 0.95 : 0.26)), dist: +(q.get('dist') || (CAM === 'top' ? 24 : 6.2)), pos: null, manualAt: -9 }, rt: 0, enemies: [], free: {}, grid: new Map(), projs: [], puddles: [], pigeons: [], gems: null, nums: [],
+  weapons: [], passives: {}, hp: 120, maxhp: 120, input: { x: 0, y: 0, walk: false, sprint: false, jump: false }, xp: 0, level: 1, pending: 0, offer: null, sel: 0, kills: 0, spawnAcc: 0, nextSurge: 25, elites: [300, 450, 570], invT: 0, lowAt: 0, autoPick: false, god: false,
+  muted: q.get('mute') === '1', wall: null, invV: 0, timing: {} };
+const M = { speed: 1, magnet: +(q.get('magnet') || 3.0) };   // run-speed multiplier and the emblem pickup radius (m, 3D)
+S.score = 0; S.emblems = 0; const SEED0 = seed;
+const wrap = (a) => ((a + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+
+// ---- audio: the game's own wavs (tools/export_sounds.py -> intermediate/audio/sfx) + the PC chase music ---------------------
+const SFX_NAMES = { swish: ['swish_light1', 'swish_light2', 'swish_light3'], pick: ['click1'], levelup: ['success2_synth1'], over: ['Fail1'], win: ['success1_strat'], coo: ['menu_rollover1'], pain: ['sp_pain1', 'sp_pain2', 'sp_pain3'], punch: ['punch_head1', 'punch_jab1'] };
+const AUD = { ctx: null, buf: new Map(), last: new Map(), master: null };
+const music = new Audio('/source/pc/Music/Chase.ogg'); music.loop = true; music.volume = 0.35;
+async function unlockAudio() {
+  if (AUD.ctx) { if (AUD.ctx.state === 'suspended') AUD.ctx.resume(); return; }
+  try { AUD.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch { return; }
+  AUD.master = AUD.ctx.createGain(); AUD.master.gain.value = S.muted ? 0 : 0.8; AUD.master.connect(AUD.ctx.destination);
+  const all = [...new Set(Object.values(SFX_NAMES).flat())];
+  await Promise.all(all.map(async (n) => { try { const ab = await (await fetch(`/intermediate/audio/sfx/${n}.wav`)).arrayBuffer(); AUD.buf.set(n, await AUD.ctx.decodeAudioData(ab)); } catch {} }));
+}
+function sfx(group, vol = 1, rate = 1) {
+  if (!AUD.ctx || S.muted) return; const names = SFX_NAMES[group]; if (!names) return; const now = AUD.ctx.currentTime; if (now - (AUD.last.get(group) || -1) < 0.06) return; AUD.last.set(group, now);
+  const b = AUD.buf.get(names[Math.floor(Math.random() * names.length)]); if (!b) return;
+  const src = AUD.ctx.createBufferSource(); src.buffer = b; src.playbackRate.value = rate * (0.94 + Math.random() * 0.12); const g = AUD.ctx.createGain(); g.gain.value = vol; src.connect(g); g.connect(AUD.master); src.start();
+}
+function toggleMute() { S.muted = !S.muted; music.muted = S.muted; $('cut').muted = S.muted; if (AUD.master) AUD.master.gain.value = S.muted ? 0 : 0.8; if (!S.muted && S.phase === 'play') music.play().catch(() => {}); }
+
+// ---- fonts: the game's bitmap fonts for the timer and headings (public/ui/fonts) ---------------------------------------------
+const FONT = { zeroes: null, serp: null, neue: null };
+try { [FONT.zeroes, FONT.serp, FONT.neue] = await Promise.all([BitmapFont.load('i_zeroes'), BitmapFont.load('i_serpentine'), BitmapFont.load('i_neue')]); } catch (e) { console.warn('bitmap fonts unavailable', e); }
+// text in the game's fonts: segs = [{ f: font, t: text, s: scale, c: colour }], composed left to right on one baseline.  bmp() returns an <img>
+// for static markup (cards, overlays), setBmp() redraws a persistent canvas inside an element when its text changes (HUD counters).
+const TEXT_R = Math.min(devicePixelRatio || 1, 2);   // bitmap text is rasterised at the device ratio with INTEGER glyph scales and shown at logical size: crisp pixels, never a blurred upscale
+// instruction text (the title's how-to-play): the PC game's antialiased Neuzeit (WebheadFonts.utx, exported by tools/export_fonts.py with lower case), the size nearest 14 px (12 on phones) x the device ratio, drawn 1:1 (dev = R, so scale 1 never pixel-doubles); the Xbox i_neue (caps only) is the fallback and stays the face of the HUD, chips, cards and end screen
+const BODY_PX = [12, 14, 17, 21, 24, 29]; const BODY_WANT = (TOUCH ? 12 : 14) * TEXT_R; const BODY_FONT = 'FontNeuzeit' + BODY_PX.reduce((a, b) => Math.abs(b - BODY_WANT) < Math.abs(a - BODY_WANT) ? b : a);
+try { FONT.body = await BitmapFont.load(BODY_FONT); FONT.body.dev = TEXT_R; } catch (e) { console.warn('PC font unavailable, using i_neue', e); FONT.body = FONT.neue; }
+function drawSegs(c, segs, maxW = 0) {
+  const R = TEXT_R; const lines = [[]]; let w = 0; maxW *= R;   // wrap on spaces when maxW is given (logical px)
+  for (const sg of segs) { sg.k = sg.k ?? (sg.f === FONT.neue ? 1.5 : sg.f === FONT.serp ? 1 : sg.f === FONT.zeroes ? 0.5 : 0); const S = Math.max(1, Math.round(sg.s * R / (sg.f.dev || 1))); const words = maxW ? sg.t.split(' ') : [sg.t]; for (let i = 0; i < words.length; i++) { const t = (i ? ' ' : '') + words[i]; const tw = sg.f.width(t, S, sg.k); if (maxW && w + tw > maxW && lines[lines.length - 1].length) { lines.push([]); w = 0; } lines[lines.length - 1].push({ ...sg, S, t: lines[lines.length - 1].length ? t : t.replace(/^ /, '') }); w += tw; } }
+  const lineH = (ln) => Math.max(...ln.map((sg) => sg.f.f.cellheight * sg.S)); const lineW = (ln) => ln.reduce((a, sg) => a + sg.f.width(sg.t, sg.S, sg.k), 0); const gap = segs.every((sg) => sg.f.dev) ? R : 2 * R;   /* the PC face carries its own leading */
+  c.width = Math.ceil(Math.max(...lines.map(lineW))) + 2 * gap; c.height = Math.ceil(lines.reduce((a, ln) => a + lineH(ln) + gap, 0)) + 2 * gap; const g = c.getContext('2d'); g.imageSmoothingEnabled = false;
+  let y = gap; for (const ln of lines) { const lh = lineH(ln); let x = gap; for (const sg of ln) { const sw = Math.ceil(sg.f.width(sg.t, sg.S, sg.k)) + 2, sh = Math.ceil(sg.f.f.cellheight * sg.S) + 2; if (sw > 2 && sg.t.length) { const t = document.createElement('canvas'); t.width = sw; t.height = sh; const tg = t.getContext('2d'); tg.imageSmoothingEnabled = false; sg.f.draw(tg, sg.t, 0, 0, sg.S, 'left', sg.k); tg.globalCompositeOperation = 'source-in'; tg.fillStyle = sg.c || '#fff'; tg.fillRect(0, 0, sw, sh); g.drawImage(t, x, y + lh - sh + 2); } x += sw - 2; } y += lh + gap; }
+  c.style.width = (c.width / R) + 'px'; c.style.height = (c.height / R) + 'px'; return c;
+}
+const BF = (f) => FONT[f]; const NEUE = () => FONT.neue, ZER = () => FONT.zeroes, SERP = () => FONT.serp;
+function bmp(segs, maxW = 0, cls = 'bf') { if (!FONT.neue) return segs.map((sg) => sg.t).join(''); const c = drawSegs(document.createElement('canvas'), segs, maxW); return `<img class="${cls}" src="${c.toDataURL()}" width="${c.width / TEXT_R}" height="${c.height / TEXT_R}" alt="${segs.map((sg) => sg.t).join('')}">`; }
+function setBmp(el, segs, maxW = 0) { const key = segs.map((sg) => sg.t + '|' + (sg.c || '')).join('\u0001'); if (el.dataset.t === key) return; el.dataset.t = key; if (!FONT.neue) { el.textContent = segs.map((sg) => sg.t).join(''); return; } let c = el.querySelector(':scope > canvas.bf'); if (!c) { el.textContent = ''; c = document.createElement('canvas'); c.className = 'bf'; el.appendChild(c); } drawSegs(c, segs, maxW); }
+const NORM = (t) => String(t).replace(/→/g, 'to').replace(/[·•]/g, '-').replace(/[’‘]/g, "'").replace(/—/g, '-'); const T = (t, c = '#fff', s = 1) => ({ f: FONT.neue, t: NORM(t).toUpperCase(), s, c });   /* the game's HUD face (i_neue, capitals only): HUD, chips, cards, end screen */ const PT = (t, c = '#fff', s = 1) => FONT.body && FONT.body.f.lower ? { f: FONT.body, t: NORM(t), s, c } : T(t, c, s); const PU = (t, c = '#fff', s = 1) => FONT.body && FONT.body.f.lower ? { f: FONT.body, t: NORM(t).toUpperCase(), s, c } : T(t, c, s);   /* the PC Neuzeit, mixed / upper case: the title's instructions only (P is the player) */ const N = (t, c = '#fff', s = 1) => ({ f: FONT.zeroes, t: String(t), s, c }); const HD = (t, c = '#9fd0ff', s = 1) => ({ f: FONT.serp, t, s, c });
+function fontCanvas(font, text, scale, color = '#ffd36a') {
+  const S = Math.max(1, Math.round(scale * TEXT_R)); const c = document.createElement('canvas'); c.width = Math.ceil(font.width(text, S)) + 4; c.height = Math.ceil(font.f.cellheight * S) + 4; const g = c.getContext('2d'); g.imageSmoothingEnabled = false;
+  font.draw(g, text, 2, 2, S); g.globalCompositeOperation = 'source-in'; g.fillStyle = color; g.fillRect(0, 0, c.width, c.height); c.style.width = (c.width / TEXT_R) + 'px'; c.style.height = (c.height / TEXT_R) + 'px'; return c;
+}
+
+// ---- spawn: the map's PlayerStart (as walk_pc.html), ?x=&z=&heading= override ------------------------------------------------
+const ueVec = (v) => new THREE.Vector3(v[1], v[2], -v[0]).multiplyScalar(UNIT);
+const ROAD = { cs: 4, set: new Set() }; const rkey = (cx, cz) => (cx + 4096) * 8192 + (cz + 4096);   // the road cells inside the patch, for the emblem routes and the stuck check
+let SPAWN = { pos: [-43.5, 1.7, -5.1], heading: Math.PI / 2 }; let NODES = [];
+if (WORLD === 'xbox') { const sp = toSpot(-247.5, 0, 722); SPAWN = { pos: [sp.x, 0, sp.z], heading: FF_PHI }; const rd = await (await fetch('/public/pizza/roads.json')).json(); const cs = Array.isArray(rd.cs) ? rd.cs[0] : rd.cs; for (const [cx, cz] of rd.cells) { const x = cx * cs + cs / 2, z = cz * cs + cs / 2; if (Math.hypot(x - sp.x, z - sp.z) < RADIUS - 10) { NODES.push(new THREE.Vector3(x, 0, z)); ROAD.set.add(rkey(cx, cz)); } } ROAD.cs = cs; }   // the city's road cells (tools/pizza_roads.py) stand in for PathNodes
+else try { const cs = await (await fetch(`/public/cutscenes/${MAP}.json`)).json(); const pts = Object.values(cs.points || {});
+  NODES = pts.filter((p) => p.class === 'PathNode' && p.Location).map((p) => ueVec(p.Location)).filter((v) => v.y < 3);
+  const ps = pts.find((p) => p.class === 'PlayerStart' && p.Location);
+  if (ps) { const v = ueVec(ps.Location); const yaw = ((ps.Rotation && ps.Rotation[1]) || 0) / 65536 * Math.PI * 2; SPAWN = { pos: [v.x, v.y, v.z], heading: Math.PI / 2 - yaw }; }
+  else if (NODES.length) { const c = NODES.reduce((a, v) => a.add(v), new THREE.Vector3()).multiplyScalar(1 / NODES.length); let best = null; for (const v of NODES) { const d = v.distanceTo(c); if (!best || d < best.d) best = { v, d }; } SPAWN = { pos: [best.v.x, best.v.y, best.v.z], heading: 0 }; } } catch {}
+if (WORLD !== 'xbox' && MAP === 'WallStreet_CityStreet' && q.get('x') === null && q.get('z') === null) { SPAWN.pos[0] = -37.5; SPAWN.pos[2] = -2; SPAWN.heading = 0; }   // start on the open road rather than the PlayerStart's sidewalk corner (pole + facade)
+if (q.get('x') !== null) SPAWN.pos[0] = +q.get('x'); if (q.get('z') !== null) SPAWN.pos[2] = +q.get('z'); if (q.get('heading') !== null) SPAWN.heading = +q.get('heading');
+const CENTER = new THREE.Vector3(SPAWN.pos[0], 0, SPAWN.pos[2]);
+
+// ---- world + colliders (pclevel.js) ----------------------------------------------------------------------------------------
+let level, col, nPlaced = 0; S.hulls = [];
+if (WORLD === 'xbox') {   // walk.html's patch of the Xbox city: cells near Joe's, the game's COLL hulls as extra surfaces, rendered streets/walls as the rest
+  status('loading city…'); const cityStage = await (await fetch('/public/levels/XB_CITY/stage.json')).json();
+  const nearXZ = (p) => Math.hypot(p.pos[0] - CENTER.x, p.pos[2] - CENTER.z) < RADIUS; const cellOf = (p) => (p.cell || p.url.split('/').pop().split('__')[0]).toUpperCase();
+  const cellsNear = new Set(cityStage.statics.filter((p) => !(Math.abs(p.pos[0]) < 1e-6 && Math.abs(p.pos[2]) < 1e-6) && Math.hypot(p.pos[0] - CENTER.x, p.pos[2] - CENTER.z) < RADIUS + 160).map(cellOf));
+  const isHost = (p) => SPOT.host && p.url === SPOT.host && Math.hypot(p.pos[0] - SPOT.pos[0], p.pos[2] - SPOT.pos[1]) < 2;
+  // stage patches: placements the export leaves broken around Joe's, all from the CITY_STRIP_F pack (two shop fronts turned 90 deg so they stand across the pavement like fins, a lone shop door in the
+  // waterfront park, a roof vent and a skylight hanging 10 m over the park plaza with no building under them); keyed by GLB basename + position and applied through loadXboxLevel's adjust hook, so the
+  // collision hulls (built from the placed object afterwards) follow the fix.  found with the camera sweep in shots/survivors/audit
+  const Q0 = [0, 0, 0, 1];
+  const PATCHES = [
+    { url: /__sf_ind10a\.glb$/i,     at: [-287.5, 707.45], drop: true },  // roller-shutter front standing across the pavement (turned to face the street it sat on the kerb, 8 m off its wall: no good spot for it)
+    { url: /__sf_stor_10d\.glb$/i,   at: [-340, 707.5],    drop: true },  // glass double door further west: same
+    { url: /__sf_stor_5a\.glb$/i,    at: [-175, 756.6],    drop: true },  // a single shop door standing in the park
+    { url: /__sf_rfventg\.glb$/i,    at: [-166.5, 769.6],  drop: true },  // roof vent floating over the plaza
+    { url: /__sf_rfskylight\.glb$/i, at: [-180.4, 768.4],  drop: true },  // skylight floating over the plaza
+    { url: /__roof15\.glb$/i,        at: [-163.85, 655.85], drop: true }, // a 15 m roof slab hanging 6.6 m over the park east of Joe's, no building under it
+    { url: /__sf_lampflag_k\.glb$/i, at: [-163.85, 655.81], drop: true }, // the flag that stood on that slab
+  ];
+  const adjust = (p) => { for (const f of PATCHES) if (f.url.test(p.url) && Math.hypot(p.pos[0] - f.at[0], p.pos[2] - f.at[1]) < 1.5) return f.drop ? null : { ...p, quat: f.quat || p.quat, pos: f.pos || p.pos }; return p; };
+  level = await loadXboxLevel(scene, 'XB_CITY', { loadGLTF, rig: true, onStatus: status, adjust, filter: (p) => { if (/city_traffic/i.test(p.url) || isHost(p)) return false; const ident = Math.abs(p.pos[0]) < 1e-6 && Math.abs(p.pos[2]) < 1e-6; return ident ? (cellsNear.has(cellOf(p)) || /city_ground|s_oceana|s_animclouds/i.test(p.url)) : nearXZ(p); } });
+  let unitParent = scene, facade = null;
+  if (SPOT.host) { const unit = new THREE.Group(); unit.name = 'ff_unit'; unit.position.copy(FF_B); unit.rotation.y = FF_PHI; unitParent = new THREE.Group(); unitParent.position.copy(FF_A).negate(); unit.add(unitParent); scene.add(unit); scene.updateMatrixWorld(true);
+    status('moving the pizzeria…'); facade = await loadXboxLevel(unitParent, 'XB_CITY', { loadGLTF, rig: false, filter: (p) => (/f48_i01front/i.test(p.url) && Math.hypot(p.pos[0] + 255, p.pos[2] - 745) < 40) || /\/FF__/.test(p.url) }); }   // the F&F facade (+ the skin's sign pieces), re-based at the spot
+  status('loading pizzeria…'); const pizzeria = await loadXboxLevel(unitParent, 'XB_PIZZERIA', { loadGLTF, rig: false, filter: (p) => !/ped_|tableb/i.test(p.url) });   // Joe's interior: a separate set behind the facade (walk.html)
+  S.timing.level = performance.now() - T0; status('building colliders…');
+  const collIndex = await (await fetch('/public/models/xbox/coll/index.json')).json(); const sph = new THREE.Sphere(); const hullMat = new THREE.MeshBasicMaterial({ color: 0x3cff6a, wireframe: true, transparent: true, opacity: 0.8 });
+  const add = (mesh, kind) => { if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere(); mesh.updateWorldMatrix(true, false); sph.copy(mesh.geometry.boundingSphere).applyMatrix4(mesh.matrixWorld); if (sph.radius > 2500) return false; S.colliders.push({ o: mesh, c: sph.center.clone(), r: sph.radius, kind }); return true; };
+  for (const lvl of [level, pizzeria, facade].filter(Boolean)) for (const o of [...lvl.group.children]) { const p = o.userData.placement; if (!p) continue; nPlaced++; const url = collIndex[p.mesh.replace('.', '/').toUpperCase()];
+    if (url) { try { const g = await loadGLTF(url); const h = g.scene.clone(true); h.position.copy(o.position); h.quaternion.copy(o.quaternion); h.scale.copy(o.scale); h.name = 'hull:' + p.mesh; h.traverse((m) => { if (m.isMesh) { m.material = hullMat; m.visible = false; m.userData.hull = true; } }); lvl.group.parent.add(h); h.updateWorldMatrix(true, true); h.traverse((m) => { if (m.isMesh) add(m, 'hull'); }); S.hulls.push(h); } catch (e) { console.warn('hull failed', url, e); } }
+    o.traverse((m) => { if (!m.isMesh || !m.visible || m.isSkinnedMesh || !m.material) return; const mat = m.material; if (mat.transparent || mat.blending === THREE.AdditiveBlending) return; const n = ((m.parent && m.parent.name) || '').toLowerCase(); if (n.includes('ocean') || n.includes('lod_') || n.includes('citylod') || n.includes('animclouds')) return; add(m, 'render'); }); }
+  for (const c of S.colliders) c.world = c.kind === 'render' && c.r > 6;   // streets, ground and building shells: what the camera and spawn line-of-sight treat as the world
+  // the city's ground mesh is too big to be a collider and the street pieces leave gaps (walk.html lets you fall through them): an invisible floor at
+  // Joe's street level catches every ray where the real ground is missing; real geometry above it still wins because the probes keep the highest hit
+  { const floor = new THREE.Mesh(new THREE.PlaneGeometry(RADIUS * 3, RADIUS * 3), new THREE.MeshBasicMaterial({ visible: false })); floor.rotation.x = -Math.PI / 2; floor.position.set(CENTER.x, -0.22, CENTER.z); floor.name = 'safety_floor'; floor.updateMatrixWorld(true); scene.add(floor); S.colliders.push({ o: floor, c: CENTER.clone(), r: RADIUS * 2.2, kind: 'floor', world: true }); }
+  col = { chunks: [] };
+} else {
+  status(`loading ${MAP}…`);
+  level = await loadPCLevel(scene, MAP, { loadGLTF, onStatus: status, filter: (p) => Math.hypot(p.pos[0] - CENTER.x, p.pos[2] - CENTER.z) < RADIUS || /skyline|backdrop/i.test(p.mesh) }); nPlaced = level.placed.length;
+  S.timing.level = performance.now() - T0; status('building colliders…');
+  col = buildColliders(level.group, { cell: 24, splitAbove: 40, skip: (m) => /beacon|skyline|backdrop/i.test((m.parent && m.parent.name) || '') });
+  S.colliders = col.list; for (const c of S.colliders) c.world = c.kind === 'bsp';
+}
+S.timing.colliders = performance.now() - T0;
+{ const bb = new THREE.Box3(), sz = new THREE.Vector3(); for (const c of S.colliders) { if (c.world) { c.thin = false; continue; } const g = c.o.geometry; if (!g.boundingBox) g.computeBoundingBox(); bb.copy(g.boundingBox).applyMatrix4(c.o.matrixWorld); bb.getSize(sz); c.thin = Math.min(sz.x, sz.z) < 0.7; } }
+function setChunkView(on) { S.showChunks = on; if (WORLD === 'xbox') { for (const h of S.hulls) h.traverse((m) => { if (m.isMesh) m.visible = on; }); return; } if (!S.chunkView) { S.chunkView = new THREE.Group(); for (const ch of col.chunks) S.chunkView.add(new THREE.Mesh(ch.geometry, ch.material)); scene.add(S.chunkView); } S.chunkView.visible = on; }
+const bbTmp = new THREE.Box3(); const rc = new THREE.Raycaster(); const _v = new THREE.Vector3(), _w = new THREE.Vector3(), _fp = new THREE.Vector3(); const DOWN = new THREE.Vector3(0, -1, 0);
+function refreshNear() { S.near = []; S.nearBsp = []; S.nearStatic = []; S.nearCam = []; S.nearThin = []; S.nearBulky = []; const c0 = S.player ? S.player.feet : CENTER; for (const c of S.colliders) if (!c.dead && c.c.distanceTo(c0) < c.r + 48) { S.near.push(c.o); if (c.world) { S.nearBsp.push(c.o); S.nearCam.push(c.o); } else { S.nearStatic.push(c.o); if (c.thin) S.nearThin.push(c.o); else { S.nearCam.push(c.o); S.nearBulky.push(c); } } } }
+function groundBelow(x, y, z, up = 1.4, down = 3.0) { rc.set(_v.set(x, y + up, z), DOWN); rc.near = 0; rc.far = up + down; const h = rc.intersectObjects(S.near, false); return h.length ? h[0] : null; }
+function wallHit(from, dir, len, set = S.near) { rc.set(from, dir); rc.near = 0; rc.far = len; const h = rc.intersectObjects(set, false); return h.length ? h[0] : null; }
+const nameOf = (o) => (o.userData.bsp ? 'bsp ' : o.userData.hull ? 'hull ' : '') + ((o.parent && o.parent.name) || o.name || '-');
+
+// ---- rigs: shared clip setup + measurement (foot contact tables, gait cycle, rig forward) for the hero and every enemy type ----
+const LOWER = /^(.*_root|RootParent|hip|.*_leg|.*_ankle|.*_ball|.*_toe|.*_RF|.*hip_auto.*|Coat_tail)$/;
+function upperBody(clip) { return new THREE.AnimationClip(clip.name + '_ub', clip.duration, clip.tracks.filter((t) => !LOWER.test(t.name.split('.')[0]))); }   // a clip trimmed to the torso/arms/head: layered over the gait without touching the legs
+function setupRig(root, animations, names, { once = [] } = {}) {
+  const mixer = new THREE.AnimationMixer(root); const A = {}, DUR = {};
+  for (const role in names) { const spec = typeof names[role] === 'string' ? { clip: names[role] } : names[role]; let c = THREE.AnimationClip.findByName(animations, spec.clip); if (!c) { console.warn('missing clip', spec.clip); continue; } if (spec.upper) c = upperBody(c);
+    const a = mixer.clipAction(c); a.setLoop(once.includes(role) ? THREE.LoopOnce : THREE.LoopRepeat); a.clampWhenFinished = true; a.setEffectiveWeight(0); a.play(); A[role] = a; DUR[role] = c.duration; }
+  return { mixer, A, DUR };
+}
+function measureRig(root, mixer, A, DUR, gaitRoles) {
+  const FEET = ['L_ankle', 'R_ankle', 'L_toe', 'R_toe'].map((n) => root.getObjectByName(n)).filter(Boolean); const LT = root.getObjectByName('L_toe'), RT = root.getObjectByName('R_toe');
+  const skinned = []; root.traverse((o) => { if (o.isSkinnedMesh) skinned.push(o); });
+  const solo = (n) => { for (const m in A) A[m].setEffectiveWeight(m === n ? 1 : 0); }; const pose = (n, t) => { A[n].time = Math.min(DUR[n] - 1e-4, Math.max(0, t)); mixer.update(0); root.updateMatrixWorld(true); };
+  const minFootY = () => { let y = Infinity; for (const b of FEET) { b.getWorldPosition(_fp); y = Math.min(y, _fp.y); } return y; };
+  root.position.set(0, 0, 0); root.rotation.set(0, 0, 0); root.updateMatrixWorld(true);
+  const first = Object.keys(A)[0]; let SOLE = 0;
+  if (first && skinned.length && FEET.length) { solo(first); pose(first, 0); for (const sm of skinned) sm.skeleton.update(); const box = new THREE.Box3(); for (const sm of skinned) { sm.computeBoundingBox(); box.union(sm.boundingBox.clone().applyMatrix4(sm.matrixWorld)); } SOLE = Math.max(0, Math.min(0.15, minFootY() - box.min.y)); }
+  const CONTACT = {}; for (const n in A) { const frames = Math.max(1, Math.round(DUR[n] * 30)); const arr = new Float32Array(frames + 1); solo(n); for (let f = 0; f <= frames; f++) { pose(n, f / 30); arr[f] = FEET.length ? -(minFootY() - SOLE) : 1.0; } CONTACT[n] = arr; }
+  const CYC = {}, NAT = {}, OFF = {}; let FWD = new THREE.Vector3(0, 0, -1);
+  function measureGait(n, fwdHint) {
+    const N = Math.max(8, Math.round(DUR[n] * 60)); const pts = []; solo(n);
+    for (let f = 0; f < N; f++) { pose(n, f / 60); const l = LT.getWorldPosition(new THREE.Vector3()), r = RT.getWorldPosition(new THREE.Vector3()); pts.push({ l, r, min: Math.min(l.y, r.y) }); }
+    const lowest = Math.min(...pts.map((p) => p.min)); const vel = [];
+    for (let f = 0; f < N; f++) { const a = pts[f], b = pts[(f + 1) % N]; const planted = a.l.y <= a.r.y ? 'l' : 'r'; if (a[planted].y > lowest + 0.06) continue; const v = b[planted].clone().sub(a[planted]).multiplyScalar(60); v.y = 0; if (v.length() < 12) vel.push(v); }
+    let dir = fwdHint ? fwdHint.clone().negate() : new THREE.Vector3(); if (!fwdHint) { for (const v of vel) dir.add(v); if (dir.lengthSq() < 1e-6) dir.set(0, 0, 1); dir.normalize(); }
+    const sp = vel.map((v) => v.dot(dir)).filter((x) => x > 0).sort((a, b) => a - b); const med = sp.length ? sp[Math.floor(sp.length / 2)] : 1;
+    let best = -Infinity, bf = 0; const fw = dir.clone().negate(); for (let f = 0; f < N; f++) { const d = pts[f].l.clone().sub(pts[f].r).dot(fw); if (d > best) { best = d; bf = f; } }
+    NAT[n] = med; CYC[n] = med * DUR[n]; OFF[n] = bf / N; return fw;
+  }
+  if (LT && RT) { let firstGait = true; for (const n of gaitRoles) if (A[n]) { const fw = measureGait(n, firstGait ? null : FWD); if (firstGait) FWD = fw; firstGait = false; } }
+  for (const n in A) { A[n].setEffectiveWeight(0); A[n].time = 0; }
+  return { FEET, SOLE, CONTACT, CYC, NAT, OFF, FWD, FWD_A: Math.atan2(FWD.x, FWD.z), contactAt: (n, t) => { const c = CONTACT[n]; if (!c) return 1.0; const k = Math.min(c.length - 1, Math.max(0, Math.round(t * 30))); return c[k]; } };
+}
+
+// ---- hero: Birdman on the PC Spider-Man rig (158 clips, no root motion).  Gait by distance as in walk_pc.html; hit and throw
+// clips are trimmed to the upper body so they layer over the run.
+status('loading Birdman…');
+const gl = await loadGLTF(HERO_URL); const hero = gl.scene; const heroMats = []; hero.traverse((o) => { if (o.isMesh) { o.frustumCulled = false; o.material = o.material.clone(); heroMats.push(o.material); } });
+const hasClip = (n) => !!THREE.AnimationClip.findByName(gl.animations, n);
+const HC = { idle: 'IdleRest', walk: hasClip('WalkForwards') ? 'WalkForwards' : 'Walk', run: hasClip(q.get('run_clip') || 'RunForwards_thug') ? (q.get('run_clip') || 'RunForwards_thug') : 'RunForwards',   /* the thug rigs share the civilian skeleton exactly: their run (upright, arms pumping) reads far better than the civilian jog, which leans back */ takeoff: 'JumpStandingTakeoff', air: 'JumpStandingMid', airRun: 'JumpRunningMid', fall: 'Fall', land: 'JumpStandingLand', landRun: 'FromFallToRun', fidget: 'Fidget1', hit: { clip: 'HitFromFront', upper: true }, throw: { clip: 'LightPickupThrow', upper: true }, die: 'Dieforwards' };
+const { mixer, A, DUR } = setupRig(hero, gl.animations, HC, { once: ['takeoff', 'land', 'landRun', 'fidget', 'hit', 'throw', 'die'] }); const UB = new Set(['hit', 'throw']);
+for (const n of ['walk', 'run']) if (A[n]) A[n].timeScale = 0;     // driven by the shared foot phase
+const V = { walk: 2.0, run: +(q.get('run') || 6.4), sprint: +(q.get('sprint') || 11.0) };   // walk.html's gameplay speeds (x the Wings passive)
+status('measuring Birdman…'); const H = measureRig(hero, mixer, A, DUR, ['walk', 'run']); scene.add(hero); S.timing.hero = performance.now() - T0;
+const P = S.player = { feet: new THREE.Vector3().fromArray(SPAWN.pos), visY: 0, vy: 0, groundY: 0, heading: SPAWN.heading, speed: 0, animSpeed: 0, phase: 0, grounded: false, state: 'air', stateT: 0, airT: 0, jumpHold: 0, jumpWasDown: false, landSpeedCap: 99, runJump: false, falling: false, clip: null, clipDur: 0.4, fidgetAt: 12, hitT: 9, throwT: 9, flashT: 0, dead: false };
+S.cam.yaw = S.cam.yawT = P.heading + Math.PI;
+const W = {}; for (const n in A) W[n] = 0;
+const shadow = (() => { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d'); const r = g.createRadialGradient(64, 64, 8, 64, 64, 64); r.addColorStop(0, 'rgba(0,0,0,0.6)'); r.addColorStop(0.55, 'rgba(0,0,0,0.35)'); r.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = r; g.fillRect(0, 0, 128, 128);
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 1.1), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false })); m.rotation.x = -Math.PI / 2; m.renderOrder = 2; scene.add(m); return m; })();
+
+
+// ---- damage numbers (pooled sprites, one cached texture per value) ------------------------------------------------------------
+const texCache = new Map();
+function numTex(text, color) { const key = text + color; if (texCache.has(key)) return texCache.get(key); const c = document.createElement('canvas'); c.width = 128; c.height = 64; const g = c.getContext('2d'); if (FONT.zeroes) { g.imageSmoothingEnabled = false; const sc = 2; const w = FONT.zeroes.width(text, sc); FONT.zeroes.draw(g, text, 64 - w / 2, 4, sc); g.globalCompositeOperation = 'source-in'; g.fillStyle = color; g.fillRect(0, 0, 128, 64); } else { g.font = 'bold 44px system-ui, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 7; g.strokeStyle = '#000'; g.strokeText(text, 64, 32); g.fillStyle = color; g.fillText(text, 64, 32); } const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; texCache.set(key, t); return t; }
+function number(x, y, z, text, color = '#fff') { let s = S.nums.find((n) => !n.active); if (!s) { if (S.nums.length >= 48) return; s = { sprite: new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthTest: false })), active: false, t: 0 }; s.sprite.renderOrder = 10; s.sprite.scale.set(1.3, 0.65, 1); scene.add(s.sprite); S.nums.push(s); }
+  s.active = true; s.t = 0; s.sprite.material.map = numTex(String(text), color); s.sprite.material.opacity = 1; s.sprite.position.set(x + (rnd() - 0.5) * 0.4, y, z); s.sprite.visible = true; }
+function tickNums(dt) { for (const s of S.nums) { if (!s.active) continue; s.t += dt; s.sprite.position.y += 1.6 * dt; const k = 0.055 * s.sprite.position.distanceTo(camera.position); s.sprite.scale.set(1.3 * k, 0.65 * k, 1); if (s.t > 0.75) { s.active = false; s.sprite.visible = false; } else s.sprite.material.opacity = 1 - Math.max(0, (s.t - 0.4) / 0.35); } }
+
+// ---- XP gems: one InstancedMesh, swap-remove arrays ---------------------------------------------------------------------------
+const GEM_MAX = 600; const _o = new THREE.Object3D(); const _c = new THREE.Color();
+// XP gems are the Blackbird logo, traced from public/blackbird_logo.jpg and extruded 0.14 m thick (public/js/logo_shape.js); they spin on the spot
+const GEM_TRACE = (q.get('gem') || '2.5,0,0').split(',').map(Number);   // ?gem=simplify px,smoothing passes,jitter px: 2.5,0,0 = low-poly facets like the Xbox models (1.2,1,0 = the old rounded look, 4,0,2 = hand-cut)
+let gemGeo = new THREE.OctahedronGeometry(0.2, 0); try { gemGeo = await logoGeometry('/public/blackbird_logo.jpg', { height: 0.55, depth: 0.14, simplify: GEM_TRACE[0], smooth: GEM_TRACE[1], jitter: GEM_TRACE[2] }); } catch (e) { console.warn('logo gems unavailable, octahedra instead', e); }
+const gems = S.gems = { n: 0, x: new Float32Array(GEM_MAX), y: new Float32Array(GEM_MAX), z: new Float32Array(GEM_MAX), v: new Float32Array(GEM_MAX), pull: new Uint8Array(GEM_MAX),
+  mesh: new THREE.InstancedMesh(gemGeo, new THREE.MeshPhongMaterial({ color: 0xffffff, specular: 0xcfd8ff, shininess: 90, emissive: 0x1a2440 }), GEM_MAX) };   // the Xbox game's shiny-shader look: hard specular on flat colour, no PBR
+gems.mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage); gems.mesh.count = 0; gems.mesh.frustumCulled = false; scene.add(gems.mesh);
+const glowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const r = g.createRadialGradient(32, 32, 2, 32, 32, 32); r.addColorStop(0, 'rgba(255,255,255,0.9)'); r.addColorStop(0.4, 'rgba(255,255,255,0.35)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
+gems.glow = new THREE.InstancedMesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: glowTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0.38 }), GEM_MAX); gems.glow.instanceMatrix.setUsage(THREE.DynamicDrawUsage); gems.glow.count = 0; gems.glow.frustumCulled = false; gems.glow.renderOrder = 3; scene.add(gems.glow);
+for (let i = 0; i < GEM_MAX; i++) { gems.mesh.setColorAt(i, _c.set(0x2f5fe0)); gems.glow.setColorAt(i, _c); }
+const GEM_COL = (v) => v >= 50 ? 0xf2f2f2 : v >= 8 ? 0xffc02e : v >= 3 ? 0xd0262a : 0x3f7dff;   // Spider-Man blue, red, gold, silver
+function dropGem(x, y, z, v) { if (gems.n >= GEM_MAX) { gems.v[Math.floor(rnd() * gems.n)] += v; return; } const i = gems.n++; gems.x[i] = x + (rnd() - 0.5) * 0.6; gems.y[i] = y; gems.z[i] = z + (rnd() - 0.5) * 0.6; gems.v[i] = v; gems.pull[i] = 0; gems.mesh.setColorAt(i, _c.set(GEM_COL(v))); gems.glow.setColorAt(i, _c); gems.mesh.instanceColor.needsUpdate = true; gems.glow.instanceColor.needsUpdate = true; }
+function tickGems(dt) {
+  const py = P.feet.y + 0.9;
+  for (let i = 0; i < gems.n; i++) {
+    const dx = P.feet.x - gems.x[i], dz = P.feet.z - gems.z[i], dy = py - (gems.y[i] + 0.45); const d = Math.hypot(dx, dy, dz) || 1e-3;
+    if (gems.pull[i] || d < M.magnet) { gems.pull[i] = 1; const sp = Math.max(P.speed + 6, 14) + (1 - Math.min(1, d / 6)) * 14; const st = Math.min(d, sp * dt); gems.x[i] += dx / d * st; gems.y[i] += dy / d * st; gems.z[i] += dz / d * st;   // always faster than he is, so a dive never outruns one
+      if (d < 0.9) { const gold = gems.v[i] >= 8; S.emblems++; addCombo(gold ? 2 : 1); S.score += (gold ? PTS.gold : PTS.emblem) * S.mult; FL.stamina = Math.min(FL.max, FL.stamina + (gold ? 1 : 0.34)); sfx('pick', 0.25, gold ? 1.9 : 1.4); if (gold) number(P.feet.x, P.feet.y + 2.2, P.feet.z, String(PTS.gold * S.mult), '#ffd36a');
+        const l = --gems.n; gems.x[i] = gems.x[l]; gems.y[i] = gems.y[l]; gems.z[i] = gems.z[l]; gems.v[i] = gems.v[l]; gems.pull[i] = gems.pull[l]; gems.mesh.getColorAt(l, _c); gems.mesh.setColorAt(i, _c); gems.glow.setColorAt(i, _c); gems.mesh.instanceColor.needsUpdate = true; gems.glow.instanceColor.needsUpdate = true; i--; continue; } }
+    _o.position.set(gems.x[i], gems.y[i] + 0.45 + Math.sin(S.rt * 4 + i) * 0.08, gems.z[i]); _o.rotation.set(0, S.rt * 2.5 + i, 0); _o.scale.setScalar(gems.v[i] >= 8 ? 1.5 : 1); _o.updateMatrix(); gems.mesh.setMatrixAt(i, _o.matrix);
+    _o.position.set(gems.x[i], gems.y[i] + 0.72 + Math.sin(S.rt * 4 + i) * 0.08, gems.z[i]); _o.quaternion.copy(camera.quaternion); _o.scale.setScalar((gems.v[i] >= 8 ? 2.3 : 1.5) * (0.92 + Math.sin(S.rt * 5 + i) * 0.08)); _o.updateMatrix(); gems.glow.setMatrixAt(i, _o.matrix);   // the halo: a soft additive disc in the emblem's colour, turned to the camera, pulsing
+  }
+  gems.mesh.count = gems.n; gems.mesh.instanceMatrix.needsUpdate = true; gems.glow.count = gems.n; gems.glow.instanceMatrix.needsUpdate = true;
+}
+
+
+// ---- icons: the game's own HUD / upgrade-store textures (public/ui, Xbox packs); sheet = [cellX, cellY, cellW, cellH, sheetW, sheetH]
+const UI = (name, sheet = null) => { const bg = `background-image:url(/public/ui/${name}.png);`; if (!sheet) return `<i class="gi" style="${bg}background-size:100% 100%"></i>`; const [cx, cy, cw, ch, sw, sh] = sheet; return `<i class="gi" style="${bg}background-size:${100 * sw / cw}% ${100 * sh / ch}%;background-position:${100 * cx / (sw / cw - 1)}% ${100 * cy / (sh / ch - 1)}%"></i>`; };
+const ICON = { card: UI('flycard_art'), seed: UI('i_us_sm2grapweb'), paper: UI('i_3d_bonus_icons', [3, 0, 64, 64, 256, 128]), pigeons: UI('i_us_multi_web_3'), bottle: UI('i_us_sm2humanmissile'), coo: UI('i_3d_bonus_icons', [0, 1, 64, 64, 256, 128]), web: UI('i_us_yankback'),
+  crust: UI('i_us_gv_health_purchase'), wings: UI('i_us_air_speed_b'), sauce: UI('i_us_strengthupgrade'), watch: UI('i_us_cur_swing_speed'), hat: UI('i_us_gv_minimap_purchase'), crumbs: UI('i_us_slingshot'), coffee: UI('i_us_wallsprint_dur'), twins: UI('i_us_sm2webhanger'), heal: UI('i_pizza_counter_icon') };
+
+
+// ---- hero: walk.html's controller on the PC rig — Alt walk / run / Shift sprint, Space jump (hold = higher), wall slide, steps, landings ----
+const STEP = 0.55, HR = 0.4, ACC = 30, DEC = 38, G = 26.0, JUMP_V = 8.8;
+// flight: wing pips (one per flap), refilled on the ground and by emblems.  Hold the jump button in the air to glide (slow sink, speed held at
+// GLIDE_V; any speed above that is traded for height); hold dive to fall hard and gain speed up to DIVE_MAX.  Numbers are first-pass and tunable from the URL.
+const FL = S.fl = { max: +(q.get('pips') || 4), stamina: 0, gliding: false, diving: false, flapT: 9, inf: q.get('wings') === 'inf', tilt: 0, bank: 0 }; FL.stamina = FL.max;
+const FLAP_V = +(q.get('flap') || 9.5), GLIDE_V = +(q.get('glide') || 13), GLIDE_SINK = +(q.get('sink') || 2.2), DIVE_MAX = +(q.get('dive') || 26), COYOTE = 0.12, BUFFER = 0.12;
+const PTS = { emblem: 10, gold: 100, delivery: 500, second: 25, close: 50, hit: 100, ring: 50 };
+// combo: emblems (+1, gold +2), close calls, rings and deliveries (+3) build a chain; every COMBO_STEP links raises the multiplier (to x5) on everything but the
+// time bonus.  COMBO_T seconds without a link, or any hit, drops it.  A boost ring holds him at BOOST_V for BOOST_T seconds.
+const COMBO_T = 4, COMBO_STEP = 6, BOOST_V = +(q.get('boost') || 30), BOOST_T = 1.6; S.combo = 0; S.comboT = 0; S.mult = 1; S.best = 0; S.rings = 0; FL.boostT = 0;
+function addCombo(n) { S.combo += n; S.comboT = COMBO_T; S.best = Math.max(S.best, S.combo); const m = 1 + Math.min(4, Math.floor(S.combo / COMBO_STEP)); if (m > S.mult) { sfx('levelup', 0.35, 1.3 + 0.15 * m); PZ.msg = 'COMBO X' + m + '.'; PZ.msgT = 1.5; } S.mult = m; }
+function dropCombo() { S.combo = 0; S.comboT = 0; S.mult = 1; }   // score: emblems, rooftop emblems, each pizza, each second left on the clock at the shop door
+// the pizzeria interior is a separate set that does not line up with the street door (entering is a scripted move in the game): walk.html's zones
+const DOORS = [];   // walk.html's teleport zones ({ zone, to, heading, inside }) would go here; the game keeps the pickup on the pavement because the jump inside is jarring (the interior set is still loaded and shows through the windows)
+function doors() { if (!P.grounded) return; for (const d of DOORS) { const z = d.zone; if (P.feet.x > z[0] && P.feet.x < z[1] && P.feet.z > z[2] && P.feet.z < z[3]) { P.feet.fromArray(d.to); P.visY = P.feet.y; P.groundY = P.feet.y; P.heading = d.heading; S.cam.yaw = S.cam.yawT = d.heading + Math.PI; S.cam.pos = null; P.vy = 0; P.speed = 0; S.nearAt = -1; S.inside = d.inside; setLightRig(scene, { interior: d.inside }); for (const pg of S.pigeons) pg.root.visible = !d.inside; sfx('pick', 0.4, 0.6); return; } } }
+function one(n) { const a = A[n]; if (!a) return false; a.reset(); a.time = 0; a.setEffectiveWeight(0); a.play(); P.clip = n; P.clipDur = DUR[n]; return true; }
+function restart(n) { const a = A[n]; if (a) { const w = a.getEffectiveWeight(); a.reset(); a.setEffectiveWeight(w); a.play(); } }
+function tickHero(dt, live) {
+  const i = S.input; const fwd = _v.set(-Math.sin(S.cam.yaw), 0, -Math.cos(S.cam.yaw)); const right = _w.set(Math.cos(S.cam.yaw), 0, -Math.sin(S.cam.yaw));
+  const wish = new THREE.Vector3().addScaledVector(fwd, i.y).addScaledVector(right, i.x); const mag = Math.min(1, wish.length()); if (mag > 1e-3) wish.normalize();
+  const moving = live && !P.dead && mag > 0.08; const wantYaw = moving ? Math.atan2(wish.x, wish.z) : P.heading; const d = wrap(wantYaw - P.heading);
+  let target = !moving ? 0 : ((i.walk || mag <= 0.45) ? V.walk : mag <= 0.8 ? V.run : V.sprint) * M.speed;   // stick / key magnitude picks walk, run or (full push) sprint
+  P.stateT += dt; const st = P.state; if (st === 'land') target = Math.min(target, P.landSpeedCap);
+  // jump: press = jump now; holding for up to 0.25 s keeps the ascent lighter (higher jump).  Airborne, the thugs' punches miss.
+  const pressed = live && !P.dead && i.jump && !P.jumpWasDown; P.jumpWasDown = i.jump; P.jumpBuf = pressed ? BUFFER : (P.jumpBuf || 0) - dt; P.coyote = P.grounded ? COYOTE : (P.coyote || 0) - dt; FL.flapT += dt;   // a press just before landing still jumps; a press just after running off an edge still jumps
+  if (P.jumpBuf > 0 && (P.grounded || P.coyote > 0) && st !== 'launch') { P.jumpBuf = 0; P.coyote = 0; P.vy = JUMP_V; P.grounded = false; P.state = 'launch'; P.stateT = 0; P.airT = 0; P.jumpHold = 0; P.runJump = P.speed > V.walk * 1.5; P.falling = false; one('takeoff'); restart(P.runJump && A.airRun ? 'airRun' : 'air'); }
+  else if (pressed && !P.grounded && P.airT > 0.1 && (FL.stamina >= 1 || FL.inf)) { P.jumpBuf = 0; if (!FL.inf) FL.stamina -= 1; FL.flapT = 0; P.vy = Math.max(P.vy, FLAP_V);   /* flaps do not stack: mashing the button gains nothing over spacing them */ P.speed = Math.min(DIVE_MAX, Math.max(P.speed, V.run) + 1.5); P.state = 'air'; P.falling = false; P.runJump = true; restart(A.airRun ? 'airRun' : 'air'); sfx('swish', 0.7, 0.7); }   // flap: one pip, a kick upward
+  FL.diving = live && !P.grounded && !!i.dive; FL.gliding = live && !P.grounded && !FL.diving && i.jump && P.airT > 0.22;
+  if (P.grounded) { FL.stamina = Math.min(FL.max, FL.stamina + 4 * dt); const a = target > P.speed ? ACC : (moving && P.speed > target ? 7 : DEC);   /* speed carried out of a dive bleeds off slowly while he keeps running */ P.speed += Math.max(-a * dt, Math.min(a * dt, target - P.speed)); if (P.speed < 0.02) P.speed = 0; if (moving) { const rate = (P.speed > V.run + 1 ? 6.5 : 13) * dt; P.heading += Math.max(-rate, Math.min(rate, d)); } }
+  else { const rate = (FL.diving ? 1.6 : FL.gliding ? 2.4 : 4.0) * dt; if (moving) P.heading += Math.max(-rate, Math.min(rate, d));
+    if (FL.diving) P.speed = Math.min(DIVE_MAX, P.speed + 13 * dt);
+    else if (FL.gliding) { if (FL.boostT > 0) { /* a boost is held as speed, not traded for height */ } else if (P.speed < GLIDE_V) P.speed = Math.min(GLIDE_V, P.speed + 7 * dt); else { const dv = Math.min(P.speed - GLIDE_V, 11 * dt); P.speed -= dv; P.vy += dv * 0.85; } }   // pull-up: dive speed back into height
+    else if (moving) P.speed += Math.max(-8 * dt, Math.min(8 * dt, Math.max(target, Math.min(P.speed, GLIDE_V)) - P.speed));
+    P.airT += dt; if (i.jump && P.airT < 0.25 && P.vy > 0) P.jumpHold += dt; }
+  if (P.grounded && st === 'ground' && !moving && P.speed === 0 && S.rt > P.fidgetAt && A.fidget) { one('fidget'); P.state = 'fidget'; P.stateT = 0; P.fidgetAt = S.rt + 25 + Math.random() * 10; }
+  if ((st === 'fidget' && (P.stateT > P.clipDur - 0.05 || moving)) || (st === 'land' && P.stateT > P.clipDur * 0.6)) P.state = 'ground';
+  if (st === 'launch' && P.stateT > Math.max(0.1, DUR.takeoff || 0.13)) P.state = 'air';
+  // horizontal move + wall slide along the nearest wall only (rays start above the step height so kerbs are stepped on)
+  if (FL.boostT > 0) { FL.boostT -= dt; if (live) P.speed = Math.max(P.speed, BOOST_V); }
+  const dir = new THREE.Vector3(Math.sin(P.heading), 0, Math.cos(P.heading)); const move = dir.clone().multiplyScalar(P.speed * dt); S.wall = null;
+  for (let pass = 0; pass < 3 && move.lengthSq() > 1e-8; pass++) {
+    let best = null;
+    for (const h of [STEP + 0.1, 1.0, 1.45]) for (const ang of [0, 0.75, -0.75]) { const d2 = move.clone().normalize().applyAxisAngle(THREE.Object3D.DEFAULT_UP, ang); const from = P.feet.clone(); from.y += h; const hit = wallHit(from, d2, HR + move.length()); if (!hit || !hit.face) continue;
+      const n = hit.face.normal.clone().transformDirection(hit.object.matrixWorld); n.y = 0; if (n.lengthSq() < 1e-4) continue; n.normalize(); if (n.dot(d2) > 0) n.negate(); if (!best || hit.distance < best.dist) best = { dist: hit.distance, n, name: nameOf(hit.object) }; }
+    if (!best) break; S.wall = best.name; const into = move.dot(best.n); if (into < 0) move.addScaledVector(best.n, -into); else break;
+  }
+  const nx = P.feet.x + move.x - CENTER.x, nz = P.feet.z + move.z - CENTER.z; const ad = Math.hypot(nx, nz); if (ad > ARENA) { move.x = CENTER.x + nx * ARENA / ad - P.feet.x; move.z = CENTER.z + nz * ARENA / ad - P.feet.z; }
+  if (WORLD === 'xbox' && !DOORS.length && P.feet.x + move.x > -251 && P.feet.x + move.x < -244 && P.feet.z + move.z > 733.2) move.z = Math.min(move.z, 733.2 - P.feet.z);   // Joe's doorway stays shut: the interior set does not line up with the door
+  P.feet.add(move); const achieved = move.length() / dt; if (!P.grounded && achieved < P.speed * 0.5) P.speed += (achieved - P.speed) * Math.min(1, 6 * dt);   /* flying into a wall kills the speed */ P.animSpeed += (Math.min(P.speed, achieved) - P.animSpeed) * Math.min(1, 14 * dt);
+  // vertical: gravity (lighter while the jump button is held during the ascent), ground snap with steps, landing
+  const wasGrounded = P.grounded; const launching = P.state === 'launch';
+  if (!P.grounded) { let gg = (i.jump && P.vy > 0 && P.airT < 0.25) ? G * 0.45 : G; if (FL.diving) gg = G * 1.7; else if (FL.gliding) gg = P.vy > 0 ? G * 0.65 : G * 0.35;   /* a jump and four flaps top out near 15 m (was 24): rooftops of three or four storeys, not the skyline */ P.vy -= gg * dt;
+    if (FL.gliding && P.vy < -GLIDE_SINK) P.vy += (-GLIDE_SINK - P.vy) * Math.min(1, 8 * dt); if (P.vy < -32) P.vy = -32; } P.feet.y += P.vy * dt;
+  let g = null; for (const [ox, oz] of [[0, 0], [0.22, 0], [-0.22, 0], [0, 0.22], [0, -0.22]]) { const h = groundBelow(P.feet.x + ox, P.feet.y, P.feet.z + oz, STEP + 0.2, wasGrounded ? 2.5 : 1.2); if (h && (!g || h.point.y > g.point.y)) g = h; }
+  S.groundName = g ? nameOf(g.object) : '-'; if (g) P.groundY = g.point.y; const deep = g ? null : groundBelow(P.feet.x, P.feet.y, P.feet.z, STEP + 0.2, 120); if (deep) P.groundY = deep.point.y;   /* nothing within reach: look all the way down, so a ledge is a drop (not a hole in the collision) and the shadow sits on the real ground while he flies */
+  const snap = g && P.vy <= 0 && g.point.y >= P.feet.y - (wasGrounded ? 1.2 : 0.25) && g.point.y <= P.feet.y + STEP + 0.01;
+  if (snap && !launching) { const impact = -P.vy; P.feet.y = g.point.y; P.vy = 0; P.grounded = true; P.falling = false; if (!wasGrounded) { P.landSpeedCap = 99; P.state = 'land'; P.stateT = 0; one(moving && A.landRun ? 'landRun' : 'land'); } }
+  else if (!g && !deep && !launching && P.feet.y <= P.groundY) { P.feet.y = P.groundY; P.vy = 0; P.grounded = true; P.falling = false; if (!wasGrounded) { P.state = 'land'; P.stateT = 0; one(moving && A.landRun ? 'landRun' : 'land'); } }   // no surface at all under him (a hole in the collision): stand on the last ground height
+  else if (!launching) { P.grounded = false; if (P.state !== 'air' && P.vy < -3) { P.state = 'air'; P.airT = 0.3; } }
+  if (P.feet.y < -60) { P.feet.fromArray(SPAWN.pos); P.visY = P.feet.y; P.vy = 0; S.cam.pos = null; }
+  if (live) doors();
+  P.visY = P.grounded ? P.visY + (P.feet.y - P.visY) * Math.min(1, 16 * dt) : P.feet.y;
+  P.hitT += dt; P.throwT += dt; P.flashT -= dt; if (P.flashT <= 0 && P.flashT > -1) { for (const m of heroMats) m.emissive.setRGB(0, 0, 0); P.flashT = -2; }
+}
+const _qt = new THREE.Quaternion();
+function animateHero(dt) {
+  const s = P.animSpeed; const f = s < V.walk ? s / V.walk : Math.min(1, (s - V.walk) / (V.run - V.walk)); const cyc = s < V.walk ? H.CYC.walk : THREE.MathUtils.lerp(H.CYC.walk, H.CYC.run, f);
+  if (s > 0.05 && cyc > 0.05) P.phase = (P.phase + dt * s / cyc) % 1;   // walk and run share one foot phase advanced by distance: the loops never skate, a sprint just plays the run cycle faster
+  for (const n of ['walk', 'run']) if (A[n]) A[n].time = ((P.phase + (H.OFF[n] || 0)) % 1) * DUR[n];
+  for (const n in W) W[n] = 0; const ps = P.state;
+  if (P.dead) W.die = 1;
+  else {
+    if (ps === 'ground') { if (s < V.walk) { W.idle = 1 - f; W.walk = f; } else { W.walk = 1 - f; W.run = f; } }
+    else if (ps === 'air') { const fall = P.airT > 0.7 && P.vy < -5 && A.fall; if (fall && !P.falling) { P.falling = true; restart('fall'); } W[fall ? 'fall' : (P.runJump && A.airRun ? 'airRun' : 'air')] = 1; }
+    else if (P.clip && A[P.clip]) W[P.clip] = 1;                                     // launch / land / fidget
+    else W.idle = 1;
+    if (A.hit && P.hitT < Math.min(0.45, DUR.hit / 1.2)) W.hit = 1; if (A.throw && P.throwT < Math.min(0.42, DUR.throw / 1.8)) W.throw = 1;
+  }
+  let rootY = 0, wsum = 0; const fade = ps === 'ground' ? 9 : 16;
+  for (const n in A) { const a = A[n]; const cur = a.getEffectiveWeight(); const w = cur + Math.max(-fade * dt, Math.min(fade * dt, W[n] - cur)); a.setEffectiveWeight(w); if (w > 1e-3 && !UB.has(n)) { rootY += w * H.contactAt(n, a.time); wsum += w; } }
+  mixer.update(dt);
+  hero.position.set(P.feet.x, P.visY + (wsum > 0 ? rootY / wsum : 1.0), P.feet.z); { const tiltT = P.grounded ? 0 : FL.diving ? 1.3 : FL.gliding ? 0.95 : 0; FL.tilt += (tiltT - FL.tilt) * Math.min(1, 7 * dt); hero.quaternion.setFromAxisAngle(THREE.Object3D.DEFAULT_UP, P.heading - H.FWD_A); if (FL.tilt > 1e-3) hero.quaternion.premultiply(_qt.setFromAxisAngle(_w.set(Math.cos(P.heading), 0, -Math.sin(P.heading)), FL.tilt)); }   // gliding and diving lean him forward, head first
+  const h = Math.max(0, P.feet.y - P.groundY); shadow.position.set(P.feet.x, P.groundY + 0.02, P.feet.z); shadow.scale.setScalar(Math.max(0.5, 1 - h * 0.06)); shadow.material.opacity = Math.max(0.15, 1 - h * 0.08);
+  if (heroLamp) heroLamp.position.set(P.feet.x, P.feet.y + 6, P.feet.z);
+}
+const FOV0 = camera.fov;
+function tickCamera(dt) {
+  const s = P.animSpeed; let focus, cdir, cd, ch;
+  if (CAM === 'top') {
+    S.cam.yaw += wrap(S.cam.yawT - S.cam.yaw) * Math.min(1, 6 * dt);
+    const lead = Math.min(1, s / V.run); focus = new THREE.Vector3(P.feet.x + Math.sin(P.heading) * 0.8 * lead, P.visY + 1.0, P.feet.z + Math.cos(P.heading) * 0.8 * lead);
+    cdir = new THREE.Vector3(Math.sin(S.cam.yaw) * Math.cos(S.cam.pitch), Math.sin(S.cam.pitch), Math.cos(S.cam.yaw) * Math.cos(S.cam.pitch));
+    cd = S.cam.dist; ch = wallHit(focus, cdir, cd + 0.5, S.nearBsp); if (ch) cd = Math.max(3, ch.distance - 0.5);
+  } else {   // the game's chase cam (walk_pc.html): gently settles behind the hero while he moves unless the player is steering it
+    const manual = S.rt - S.cam.manualAt < 1.2;
+    if (!manual && s > V.walk) { const back = wrap((P.heading + Math.PI) - S.cam.yaw); if (Math.abs(back) > 0.25) { const rate = (P.grounded ? 0.9 : 2.0) * Math.min(1, s / V.run) * dt; S.cam.yaw += Math.max(-rate, Math.min(rate, back)); } }
+    if (!manual) S.cam.pitch += ((P.grounded ? 0.26 : 0.4) - S.cam.pitch) * Math.min(1, 0.8 * dt);
+    const fast = THREE.MathUtils.clamp((P.speed - V.sprint) / (DIVE_MAX - V.sprint), 0, 1.4); const wantDist = 6.2 + 1.2 * Math.min(1, s / V.sprint) + 2.5 * fast; { const fovT = FOV0 + 14 * fast; if (Math.abs(camera.fov - fovT) > 0.05) { camera.fov += (fovT - camera.fov) * Math.min(1, 3 * dt); camera.updateProjectionMatrix(); } } S.cam.dist += (wantDist - S.cam.dist) * Math.min(1, 2 * dt);
+    focus = new THREE.Vector3(P.feet.x, P.visY + 1.4, P.feet.z); focus.x += Math.sin(P.heading) * 0.5 * Math.min(1, s / V.sprint); focus.z += Math.cos(P.heading) * 0.5 * Math.min(1, s / V.sprint);
+    cdir = new THREE.Vector3(Math.sin(S.cam.yaw) * Math.cos(S.cam.pitch), Math.sin(S.cam.pitch), Math.cos(S.cam.yaw) * Math.cos(S.cam.pitch));
+    cd = S.cam.dist; ch = wallHit(focus, cdir, cd + 0.3, S.nearCam); if (ch) cd = Math.max(0.6, ch.distance - 0.3);   // buildings, cars and bins pull the camera in; thin props (poles, signs) between camera and hero are hidden instead
+  }
+  const want = focus.clone().addScaledVector(cdir, cd); if (!S.cam.pos) S.cam.pos = want.clone(); else S.cam.pos.lerp(want, Math.min(1, (CAM === 'top' ? 9 : ch ? 18 : 10) * dt));
+  camera.position.copy(S.cam.pos); camera.lookAt(focus);
+  for (const o of S.hidden || []) o.visible = true; S.hidden = [];   // thin statics between the camera and the hero (lamp posts, signs, trees) are hidden for the frame
+  _v.subVectors(focus, camera.position); const len = _v.length(); _v.normalize(); rc.set(camera.position, _v); rc.near = 0; rc.far = Math.max(0, len - 0.4); for (const h of rc.intersectObjects(S.nearThin || [], false)) { if (h.object.visible) { h.object.visible = false; S.hidden.push(h.object); } }
+  for (const c of S.nearBulky || []) if (c.o.visible && c.c.distanceTo(camera.position) < c.r + 0.3) { bbTmp.setFromObject(c.o); const h = bbTmp.max.y - bbTmp.min.y, fw = Math.max(bbTmp.max.x - bbTmp.min.x, bbTmp.max.z - bbTmp.min.z); if (h < 3.5 && fw < 9 && bbTmp.expandByScalar(0.2).containsPoint(camera.position)) { c.o.visible = false; S.hidden.push(c.o); } }   // and a prop the camera has ended up inside of (a parked car, a bin) — never a facade piece
+}
+
+// ---- the run: Aziz hands over three pizzas at the door; three customers (the game's pizza customer ped) wait around the patch, each under
+// the blue race beacon; deliver in any order (walking or flying past within reach), then back to the door.  The compass follows the nearest
+// stop still open.  Emblems are laid when the run starts: along the road route from the shop to each stop and between stops, and on low roofs.
+const JOE = WORLD === 'xbox' ? { ring: spotXZ(-247.5, 730.6), door: spotXZ(-247.5, 730.6), exit: spotXZ(-255.0, 739.2), aziz: toSpot(-250.0, 0, 731.6).toArray(), bag: toSpot(-245.3, 0, 732.0).toArray(), face: Math.PI + FF_PHI, interior: false } : { ring: [-43.5, -3.8], door: [-43.5, -3.8], aziz: [-44.9, 0, -3.3], bag: [-42.0, 0, -3.4], face: Math.PI / 2, interior: false };   // ring = where the pizzas are handed over (the counter, Peter's spot in pizza.html); door = the street-side marker
+const N_STOPS = 3, STOP_R = RADIUS >= 380 ? [100, 180] : RADIUS >= 250 ? [90, 170] : [45, 110], STOP_SEP = RADIUS >= 380 ? 120 : RADIUS >= 250 ? 110 : 60;   /* how far from the shop a customer stands, and how far apart they are */ const PZ = S.pz = { phase: 'idle', carrying: 0, delivered: 0, target: null, dist: 0, bearing: 0, msg: '', msgT: 0 };
+async function loadXboxNpc(url) { const g = await loadGLTF(url); const obj = cloneRig(g.scene); toCharacterMaterials(obj); obj.traverse((o) => { if (o.isMesh) o.frustumCulled = false; }); const mixer = new THREE.AnimationMixer(obj); const act = {}; for (const c of g.animations) { const a = mixer.clipAction(c); a.setLoop(THREE.LoopRepeat); a.setEffectiveWeight(0); a.play(); act[c.name] = a; } const skinned = []; obj.traverse((o) => { if (o.isSkinnedMesh) skinned.push(o); }); scene.add(obj); return { obj, mixer, act, skinned, cur: null, ground: 0, t: 0 }; }
+function npcPlay(n, name, once = false) { if (n.cur === name && !once) return; for (const k in n.act) n.act[k].setEffectiveWeight(k === name ? 1 : 0); const a = n.act[name]; if (!a) return; a.reset(); a.setLoop(once ? THREE.LoopOnce : THREE.LoopRepeat, Infinity); a.clampWhenFinished = true; a.play(); n.cur = name; }
+function npcTick(n, dt) { if (!n.obj.visible) return; n.mixer.update(dt); n.t += dt; if ((S.frame & 7) === 0) { n.obj.updateMatrixWorld(true); let minY = Infinity; for (const sm of n.skinned) { sm.computeBoundingBox(); _bb2.copy(sm.boundingBox).applyMatrix4(sm.matrixWorld); minY = Math.min(minY, _bb2.min.y); } if (isFinite(minY)) n.obj.position.y += n.ground - minY; } }   // the Xbox clips keep the feet under the pelvis: the skinned bounds put them on the ground
+const _bb2 = new THREE.Box3();
+function groundAt(x, z, yHint = 0, strict = false, real = false) { const set = []; for (const c of S.colliders) if (!c.dead && (!real || c.kind !== 'floor') && Math.hypot(c.c.x - x, c.c.z - z) < c.r + 6) set.push(c.o); rc.set(_v.set(x, yHint + 6, z), DOWN); rc.near = 0; rc.far = 14; const h = rc.intersectObjects(set, false); return h.length ? h[0].point.y : (strict ? null : yHint); }   // real: ignore the invisible safety floor (inside a hollow block there is no street under you)
+// a customer stands on the pavement with their back to a building: random spots 45-110 m from the hero, on the ground (a roof or a shell above
+// street level is rejected), with a wall (building shell / BSP, never a prop) 0.8-7 m away in one of 8 directions; placed 0.9 m off that wall
+function findCustomerSpot() {
+  const tmp = new THREE.Vector3(), dir = new THREE.Vector3();
+  for (let i = 0; i < 80; i++) {
+    const a = rnd() * Math.PI * 2, r = STOP_R[0] + rnd() * (STOP_R[1] - STOP_R[0]); const x = P.feet.x + Math.sin(a) * r, z = P.feet.z + Math.cos(a) * r;
+    if (Math.hypot(x - CENTER.x, z - CENTER.z) > ARENA - 8) continue;
+    const gy = groundAt(x, z, P.feet.y, true, true); if (gy === null || Math.abs(gy - P.feet.y) > 2.5) continue;
+    let nearRoad = false; for (const v of NODES) if (Math.abs(v.x - x) < 8 && Math.abs(v.z - z) < 8 && Math.hypot(v.x - x, v.z - z) < 8) { nearRoad = true; break; } if (NODES.length && !nearRoad) continue;   // within 8 m of a road cell / path node: on the street side of the walls, not inside a hollow block
+    const set = []; for (const c of S.colliders) if (c.world && c.kind !== 'floor' && Math.hypot(c.c.x - x, c.c.z - z) < c.r + 10) set.push(c.o);
+    let best = null, blocked = false;
+    for (let k = 0; k < 8; k++) { const b = k / 8 * Math.PI * 2; dir.set(Math.sin(b), 0, Math.cos(b)); rc.set(tmp.set(x, gy + 1.2, z), dir); rc.near = 0; rc.far = 7; const h = rc.intersectObjects(set, false)[0]; if (!h || !h.face) continue;
+      const n = h.face.normal.clone().transformDirection(h.object.matrixWorld); if (Math.abs(n.y) > 0.5) continue; if (n.dot(dir) > 0) n.negate(); if (h.distance < 0.8) { blocked = true; break; } if (!best || h.distance < best.d) best = { d: h.distance, p: h.point.clone(), n }; }
+    if (blocked || !best) continue;
+    const sx = best.p.x + best.n.x * 0.9, sz = best.p.z + best.n.z * 0.9; const sy = groundAt(sx, sz, gy, true, true); if (sy === null || Math.abs(sy - gy) > 0.6) continue;
+    const solid = []; for (const c of S.colliders) if (!c.thin && c.kind !== 'floor' && Math.hypot(c.c.x - sx, c.c.z - sz) < c.r + 4) solid.push(c.o);   // standing room: nothing within 0.55 m at knee or chest height, for him and for the beacon in front of him
+    let clear = true; for (const [px, pz] of [[sx, sz], [sx + best.n.x * 1.5, sz + best.n.z * 1.5]]) for (const hy of [0.4, 1.2]) for (let k = 0; k < 8 && clear; k++) { const b = k / 8 * Math.PI * 2; dir.set(Math.sin(b), 0, Math.cos(b)); rc.set(tmp.set(px, sy + hy, pz), dir); rc.near = 0; rc.far = 0.55; if (rc.intersectObjects(solid, false).length) clear = false; }
+    if (!clear) continue;
+    return { x: sx, y: sy, z: sz, face: Math.atan2(best.n.x, best.n.z), wall: best.d };
+  }
+  return null;
+}
+status('loading Joe\'s…');
+const aziz = await loadXboxNpc('/public/models/xbox/anim/aziz.glb'); aziz.obj.position.set(JOE.aziz[0], 0, JOE.aziz[2]); aziz.ground = JOE.interior ? JOE.aziz[1] : groundAt(JOE.aziz[0], JOE.aziz[2], JOE.aziz[1]); aziz.obj.position.y = aziz.ground; aziz.obj.rotation.y = JOE.face; npcPlay(aziz, 'CIVSWAITIDL');
+const FFSKIN = await defaultSkin(); const propUrl = (u) => (FFSKIN && FFSKIN.props && FFSKIN.props[u]) || u;   // F&F-branded box / bag when the default skin is on
+const pizzaBag = (await loadGLTF(propUrl('/public/models/xbox/props/itm_pizzabag.glb'))).scene.clone(true); toCharacterMaterials(pizzaBag); pizzaBag.position.set(JOE.bag[0], JOE.interior ? JOE.bag[1] : groundAt(JOE.bag[0], JOE.bag[2], JOE.bag[1]), JOE.bag[2]); scene.add(pizzaBag);   // on the counter inside
+const pizzaProto = (await loadGLTF(propUrl('/public/models/xbox/props/itm_pizzaboxflat.glb'))).scene; toCharacterMaterials(pizzaProto);
+const pizzaHand = pizzaProto.clone(true); { const g = (q.get('pizza') || '0.02,0.03,0,0,1.57,0,0.8').split(',').map(Number); pizzaHand.position.set(g[0], g[1], g[2]); pizzaHand.rotation.set(g[3], g[4], g[5]); pizzaHand.scale.setScalar(g[6]); pizzaHand.visible = false; const hand = hero.getObjectByName('L_hand'); (hand || hero).add(pizzaHand); }
+const beacon = (await loadGLTF('/public/models/static/GameplayMeshes__BeaconBlue.glb')).scene.clone(true); beacon.scale.set(2, 1.5, 2); beacon.traverse((o) => { if (o.isMesh) { o.frustumCulled = false; o.material.depthWrite = false; } }); scene.add(beacon);
+const column = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 90, 12, 1, true), new THREE.MeshBasicMaterial({ color: 0x66aaff, transparent: true, opacity: 0.35, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide })); column.position.y = 45; beacon.add(column);   // a column of light so the target shows over the rooftops
+const HOME = { x: JOE.door[0], y: groundAt(JOE.door[0], JOE.door[1], P.feet.y), z: JOE.door[1] }; beacon.position.set(HOME.x, HOME.y, HOME.z); beacon.visible = false;   // the shop door: lit for the run home
+const STOPS = [];
+// customers call him over and celebrate: a bubble of text above the head (the PC body font on a dark plate, kept the same size on screen) and a hop,
+// done on a holder group so the clip's own grounding is left alone.  The praise lines are the ones approved for the Pizza Rush film.
+const CALLS = ['Over here!', 'Pizza! Pizza!', 'Hey, Birdie!'], PRAISE = ['That was fast! I love this bird!', 'Free pizza AND a bird? Best night ever.', 'Birdie! Birdie! Birdie!'];
+function makeBubble() { const c = document.createElement('canvas'); c.width = c.height = 4; const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false })); sp.renderOrder = 11; sp.visible = false; scene.add(sp); return { c, tex, sp, text: '', aspect: 1 }; }
+function setBubble(b, text, col = '#fff') {
+  if (b.text === text) return; b.text = text; if (!text) { b.sp.visible = false; return; }
+  const t = drawSegs(document.createElement('canvas'), [PT(text, col, 1)]); const pad = 8 * TEXT_R; b.c.width = t.width + 2 * pad; b.c.height = t.height + 2 * pad; const g = b.c.getContext('2d'); g.fillStyle = 'rgba(4,6,14,.82)'; if (g.roundRect) { g.beginPath(); g.roundRect(0, 0, b.c.width, b.c.height, pad); g.fill(); } else g.fillRect(0, 0, b.c.width, b.c.height); g.imageSmoothingEnabled = false; g.drawImage(t, pad, pad);
+  b.aspect = b.c.width / b.c.height; b.tex.dispose(); b.tex.needsUpdate = true; b.sp.visible = true;
+}
+for (let k = 0; k < N_STOPS; k++) { const npc = await loadXboxNpc('/public/models/xbox/anim/ped_pizza_customer.glb'); npc.obj.visible = false; npcPlay(npc, 'CIVSPIZZAIDL');
+  const box = pizzaProto.clone(true); box.position.set(0, 0.03, 0.03); box.scale.setScalar(0.8); box.visible = false; (npc.obj.getObjectByName('bip01_r_hand') || npc.obj).add(box);
+  const mark = beacon.clone(true); mark.visible = false; scene.add(mark); const holder = new THREE.Group(); scene.add(holder); holder.add(npc.obj); STOPS.push({ npc, box, mark, col: mark.children[mark.children.length - 1], holder, bub: makeBubble(), gy: 0, at: null, done: false }); }
+// the shortest chain of road cells between two points (breadth-first over the 4 m road grid, straight steps before diagonal ones)
+const N8 = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]];
+function roadPath(ax, az, bx, bz) {
+  const cs = ROAD.cs; const cell = (x, z) => { let best = null, bd = Infinity; for (const v of NODES) { const d = (v.x - x) ** 2 + (v.z - z) ** 2; if (d < bd) { bd = d; best = v; } } return best ? [Math.floor(best.x / cs), Math.floor(best.z / cs)] : null; };
+  const a = cell(ax, az), b = cell(bx, bz); if (!a || !b || !ROAD.set.size) return [];
+  const goal = rkey(b[0], b[1]); const prev = new Map([[rkey(a[0], a[1]), null]]); const queue = [a];
+  for (let h = 0; h < queue.length && !prev.has(goal); h++) { const [cx, cz] = queue[h]; for (const [dx, dz] of N8) { const k = rkey(cx + dx, cz + dz); if (!ROAD.set.has(k) || prev.has(k)) continue; prev.set(k, [cx, cz]); queue.push([cx + dx, cz + dz]); } }
+  if (!prev.has(goal)) return []; const cells = []; for (let c = b; c; c = prev.get(rkey(c[0], c[1]))) cells.push(c); cells.reverse(); const road = (x, z) => ROAD.set.has(rkey(Math.round(x), Math.round(z)));
+  return cells.map((c, i) => { const p = cells[Math.max(0, i - 2)], n = cells[Math.min(cells.length - 1, i + 2)]; const dx = n[0] - p[0], dz = n[1] - p[1], l = Math.hypot(dx, dz) || 1, px = -dz / l, pz = dx / l; let a = 0, o = 0; while (a < 12 && road(c[0] + px * (a + 1), c[1] + pz * (a + 1))) a++; while (o < 12 && road(c[0] - px * (o + 1), c[1] - pz * (o + 1))) o++;
+    const sh = (a - o) / 2; return [(c[0] + px * sh) * cs + cs / 2, (c[1] + pz * sh) * cs + cs / 2]; }).map((pt, i, all) => { let x = 0, z = 0, n = 0; for (let j = Math.max(0, i - 3); j <= Math.min(all.length - 1, i + 3); j++) { x += all[j][0]; z += all[j][1]; n++; } return i === 0 || i === all.length - 1 ? pt : [x / n, z / n]; });   // then averaged over 7 points, which takes the kinks out and rounds the corners   // the search hugs one kerb: each point is slid across the street to the middle of the road cells either side of it
+}
+// the top of the world's own geometry (streets and building shells, not props or the safety floor) under a point, looking down from 80 m above the street
+function topAt(x, z, base) { const set = []; for (const c of S.colliders) if (c.world && c.kind !== 'floor' && Math.hypot(c.c.x - x, c.c.z - z) < c.r + 2) set.push(c.o); rc.set(_v.set(x, base + 80, z), DOWN); rc.near = 0; rc.far = 90; const h = rc.intersectObjects(set, false); return h.length ? h[0].point.y : null; }
+function pickStop(picked) {
+  const apart = (x, z) => picked.every((p) => Math.hypot(p.x - x, p.z - z) > STOP_SEP);
+  for (let k = 0; k < 14; k++) { const c = findCustomerSpot(); if (c && apart(c.x, c.z)) return c; }
+  const c = NODES.filter((v) => { const d = Math.hypot(v.x - P.feet.x, v.z - P.feet.z); return d > STOP_R[0] && d < STOP_R[1] && Math.hypot(v.x - CENTER.x, v.z - CENTER.z) < ARENA - 8 && apart(v.x, v.z); });   // no wall found: a road cell
+  const v = c.length ? c[Math.floor(rnd() * c.length)] : new THREE.Vector3(CENTER.x + 40 + 30 * picked.length, 0, CENTER.z); return { x: v.x, y: groundAt(v.x, v.z, P.feet.y), z: v.z, face: 0 };
+}
+function layoutRun() {
+  const base = P.feet.y; const picked = [];
+  for (const s of STOPS) { const spot = pickStop(picked); picked.push(spot); const n = s.npc; n.obj.position.set(spot.x, spot.y, spot.z); n.ground = spot.y; n.obj.rotation.set(0, spot.face, 0); n.obj.visible = true; n.t = 0; npcPlay(n, 'CIVSPIZZAIDL'); s.box.visible = false; s.done = false; s.gy = spot.y; s.holder.position.y = 0; setBubble(s.bub, '');
+    const bx = spot.x + Math.sin(spot.face) * 1.5, bz = spot.z + Math.cos(spot.face) * 1.5; s.at = { x: bx, y: groundAt(bx, bz, spot.y), z: bz }; s.mark.position.set(bx, s.at.y, bz); s.mark.visible = true; dropGem(bx, s.at.y + 0.9, bz, 8); }   // the beacon stands in front of the customer, toward the street
+  // one circuit, not a web: the three stops are put in the order that makes the shortest loop by road (shop, 1, 2, 3, shop) and the emblem line is laid along
+  // that loop only.  The compass and the tall beacon column follow the next stop in that order; any stop still takes its pizza if he gets there first.
+  const plen = (a, b) => { const p = roadPath(a.x, a.z, b.x, b.z); let L = 0; for (let i = 1; i < p.length; i++) L += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]); return p.length ? L : Math.hypot(b.x - a.x, b.z - a.z) * 1.4; };
+  { const ats = STOPS.map((s) => s.at); let bestO = null, bestL = Infinity; for (const o of [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]]) { const seq = [HOME, ...o.map((i) => ats[i]), HOME]; let L = 0; for (let i = 0; i < seq.length - 1; i++) L += plen(seq[i], seq[i + 1]); if (L < bestL - 1) { bestL = L; bestO = o; } }
+    const ordered = bestO.map((i) => STOPS[i]); STOPS.length = 0; STOPS.push(...ordered); S.routeLen = Math.round(bestL); }
+  const seq = [HOME, ...STOPS.map((s) => s.at), HOME], legs = seq.slice(0, -1).map((a, i) => [a, seq[i + 1]]); const seen = new Set();
+  const paths = [];
+  for (const [a, b] of legs) {
+    const path = roadPath(a.x, a.z, b.x, b.z); paths.push(path); for (let k = 2; k < path.length; k += 2) { const [x, z] = path[k]; const key = rkey(Math.floor(x / ROAD.cs), Math.floor(z / ROAD.cs)); if (seen.has(key)) continue; seen.add(key); dropGem(x, groundAt(x, z, base) + 1 + 5.5 * (0.5 - 0.5 * Math.cos(k * ROAD.cs / 44 * 2 * Math.PI)), z, 1); }   // the street route: one emblem every 8 m, the line rising to 6.5 m and falling back every 44 m: a runner gets the low ones, a flier who rides the wave gets them all (and the wings they refill)
+    if (path.length > 1) for (const [end, k, to] of [[path[0], 0, a], [path[path.length - 1], path.length - 1, b]]) {   // off the road and up to the person: the line leaves the last road cell, drops to chest height and ends at the beacon (a gold emblem waits there)
+      const L = Math.hypot(to.x - end[0], to.z - end[1]), h0 = 1 + 5.5 * (0.5 - 0.5 * Math.cos(k * ROAD.cs / 44 * 2 * Math.PI)); for (let d = 0; d < L - 1.5; d += 3.2) { const f = d / L, x = end[0] + (to.x - end[0]) * f, z = end[1] + (to.z - end[1]) * f; const key = 'lead' + Math.round(x / 2) + ',' + Math.round(z / 2); if (seen.has(key)) continue; seen.add(key); dropGem(x, groundAt(x, z, base) + h0 + (1 - h0) * f, z, 1); } }
+    const len = Math.hypot(b.x - a.x, b.z - a.z); for (let d = 8; d < len - 8; d += 6) { const x = a.x + (b.x - a.x) * d / len, z = a.z + (b.z - a.z) * d / len; const top = topAt(x, z, base); if (top !== null && top - base > 3 && top - base < 15) dropGem(x, top, z, 8); }   // the straight line: gold emblems on roofs he can reach
+  }
+  S.paths = paths; clearRoute(paths); layoutHazards(paths, legs);
+}
+function deliver(s) {
+  s.done = true; s.mark.visible = false; PZ.delivered++; PZ.carrying--; pizzaHand.visible = PZ.carrying > 0; npcPlay(s.npc, 'CIVSGRABPIZZA', true); s.box.visible = true; s.npc.obj.lookAt(P.feet.x, s.npc.obj.position.y, P.feet.z); s.npc.t = 0;
+  addCombo(3); S.score += PTS.delivery * S.mult; number(s.at.x, s.at.y + 2.4, s.at.z, String(PTS.delivery * S.mult), '#9fd0ff'); sfx('levelup', 0.6); for (let j = 0; j < 6; j++) { const a = j / 6 * Math.PI * 2; dropGem(s.npc.obj.position.x + Math.sin(a) * 1.4, s.gy + 1.8, s.npc.obj.position.z + Math.cos(a) * 1.4, 1); gems.pull[gems.n - 1] = 1; }   /* the tip: six emblems burst from the customer and fly to him */
+  if (PZ.carrying > 0) PZ.msg = `DELIVERED. ${PZ.carrying} TO GO.`; else { PZ.phase = 'return'; beacon.visible = true; PZ.msg = 'ALL DELIVERED. BACK TO F&F.'; } PZ.msgT = 3;
+}
+function finishRun(won) {
+  if (S.phase !== 'play') return; const left = Math.max(0, RUN_LEN - S.t); S.bonus = won ? Math.ceil(left) * PTS.second : 0; S.score += S.bonus; S.shot = grabFrame(); S.phase = won ? 'won' : 'over'; music.pause(); const card = () => { S.endAt = S.rt; sfx(won ? 'win' : 'over', 0.8); S.card = makeCard(won); showOverlay(endHtml(won)); }; if (won && CUT.on) { S.endAt = Infinity; playCut(CUT.outro, card); } else card();   // a win: the closing scene, then the card
+}
+// the compass gadget: a Knicks-blue badge with a chunky orange 3D arrow, in its own scene, drawn into the top-left corner after the main frame.
+// The arrow turns by the target bearing relative to the camera's forward, so pointing away from you = straight ahead.
+const gad = { scene: new THREE.Scene(), cam: new THREE.PerspectiveCamera(26, 1, 0.1, 30), size: TOUCH ? 72 : 136 };
+gad.cam.position.set(0, 4.6, 4.9); gad.cam.lookAt(0, 0.0, 0); gad.scene.add(new THREE.HemisphereLight(0xffffff, 0x223355, 1.3)); { const dl = new THREE.DirectionalLight(0xffffff, 1.8); dl.position.set(1.5, 3, 2.5); gad.scene.add(dl); }
+const dialTex = new THREE.TextureLoader().load('/public/ui/i_map_compass.png'); dialTex.colorSpace = THREE.SRGBColorSpace;   // the game's minimap compass dial (steel ring, star, N)
+const dial = new THREE.Group(); { const d = new THREE.Mesh(new THREE.PlaneGeometry(2.9, 2.9), new THREE.MeshBasicMaterial({ map: dialTex, transparent: true, depthWrite: false })); d.rotation.x = -Math.PI / 2; d.position.y = -0.16; dial.add(d); } gad.scene.add(dial);
+// the arrow is the game's red map-marker chevron, extruded: red top, dark red sides, a white outline plate underneath
+const gShape = new THREE.Shape([[0, 0.62], [-0.46, -0.5], [0, -0.26], [0.46, -0.5]].map(([x, y]) => new THREE.Vector2(x * 1.25, y * 1.25)));
+const gGeo = new THREE.ExtrudeGeometry(gShape, { depth: 0.22, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 1 }); gGeo.rotateX(-Math.PI / 2);   // shape +Y -> -Z (away from the gadget camera = ahead); thickness along +Y
+const gArrow = new THREE.Group(); { const red = new THREE.Mesh(gGeo, [new THREE.MeshStandardMaterial({ color: 0xe0352f, roughness: 0.5 }), new THREE.MeshStandardMaterial({ color: 0x5a0f0c, roughness: 0.7 })]); red.position.y = 0.06; gArrow.add(red);
+  const rimGeo = new THREE.ExtrudeGeometry(gShape, { depth: 0.08, bevelEnabled: false }); rimGeo.rotateX(-Math.PI / 2); const rim = new THREE.Mesh(rimGeo, new THREE.MeshBasicMaterial({ color: 0xffffff })); rim.scale.set(1.2, 1, 1.2); rim.position.y = -0.03; gArrow.add(rim); } gad.scene.add(gArrow);
+function renderGadget() {
+  if (!PZ.target || S.phase === 'title' || $('hud').classList.contains('hidden')) return;
+  gArrow.rotation.y = wrap((PZ.bearing || 0) - (S.cam.yaw + Math.PI)); gArrow.position.y = Math.sin(S.rt * 3) * 0.03; dial.rotation.y = wrap(-(S.cam.yaw + Math.PI));   // the dial turns with the camera so its N keeps pointing north (+Z)
+  const W = innerWidth, H = innerHeight; const x = Math.round(W / 2 - gad.size / 2) - (TOUCH ? 108 : 0), y = TOUCH ? 52 : 122;   /* bottom centre, above the wing meter; on a phone, beside it, so it never covers him (viewport y counts up from the bottom) */ renderer.autoClear = false; renderer.setScissorTest(true); renderer.setViewport(x, y, gad.size, gad.size); renderer.setScissor(x, y, gad.size, gad.size); renderer.clearDepth();
+  renderer.render(gad.scene, gad.cam); renderer.setScissorTest(false); renderer.setViewport(0, 0, W, H); renderer.autoClear = true;
+}
+function tickPizza(dt) {
+  if (PZ.msgT > 0) PZ.msgT -= dt; let best = null, bd = Infinity;
+  if (PZ.phase === 'carry') for (const s of STOPS) { if (s.done) continue; const d = Math.hypot(P.feet.x - s.at.x, P.feet.z - s.at.z); if (d < 2.8 && P.feet.y - s.at.y > -2 && P.feet.y - s.at.y < 7) { deliver(s); continue; }   /* a fly-past or a ledge above the customer still counts: the box is dropped */ if (!best) best = s.at; }   /* the next stop on the loop, not the nearest */
+  for (const s of STOPS) s.col.visible = !s.done && s.at === best;
+  if (PZ.phase === 'return') { best = HOME; if (Math.hypot(P.feet.x - HOME.x, P.feet.z - HOME.z) < 3 && Math.abs(P.feet.y - HOME.y) < 5) { finishRun(true); return; } }
+  PZ.target = best; if (best) { const dx = best.x - P.feet.x, dz = best.z - P.feet.z; PZ.dist = Math.hypot(dx, dz); PZ.bearing = Math.atan2(dx, dz); }   // the HUD compass points straight at it, relative to the camera's forward
+}
+function tickNpcs(dt) {
+  if (aziz.cur === 'CIVSWAVE1' && aziz.t > 2.5) npcPlay(aziz, 'CIVSWAITIDL'); npcTick(aziz, dt); beacon.rotation.y += dt * 0.8;
+  STOPS.forEach((s, k) => { const n = s.npc; if (!n.obj.visible) return; const d = Math.hypot(P.feet.x - n.obj.position.x, P.feet.z - n.obj.position.z); let hop = 0, say = '';
+    if (!s.done) { const call = d < 55 && S.phase === 'play'; if (call) { if (n.cur !== 'CIVSWAVE1') npcPlay(n, 'CIVSWAVE1'); hop = Math.abs(Math.sin(S.rt * 7 + k)) * 0.22; say = CALLS[k % CALLS.length]; } else if (n.cur !== 'CIVSPIZZAIDL') npcPlay(n, 'CIVSPIZZAIDL'); }   // sees him coming: waves, hops, shouts
+    else { if (n.cur === 'CIVSGRABPIZZA' && n.t > n.act.CIVSGRABPIZZA.getClip().duration - 0.1) npcPlay(n, 'CIVSCHEERFIGHT2'); if (n.cur === 'CIVSCHEERFIGHT2') hop = Math.abs(Math.sin(S.rt * 9 + k)) * 0.35; if (n.t < 6) say = PRAISE[k % PRAISE.length]; }   // got the pizza: takes it, then cheers and jumps with the box
+    s.holder.position.y = hop; n.ground = s.gy + hop; if (d < 55) n.obj.lookAt(P.feet.x, n.obj.position.y + hop, P.feet.z); npcTick(n, dt); s.mark.rotation.y += dt * 0.8;
+    setBubble(s.bub, d < 70 ? say : '', s.done ? '#7dff9a' : '#ffd36a'); if (s.bub.sp.visible) { s.bub.sp.position.set(n.obj.position.x, s.gy + 2.5 + hop, n.obj.position.z); const h = 0.034 * Math.max(6, s.bub.sp.position.distanceTo(camera.position)); s.bub.sp.scale.set(h * s.bub.aspect, h, 1); } });
+}
+// flying over a block with no roof drops him inside its shell, onto the invisible safety floor with walls all round: a second of that, away from
+// any road cell, puts him back at the last street spot he stood on
+const SAFE = { pos: new THREE.Vector3(), at: -9, stuck: 0 };
+function nearRoad(x, z, r) { const cs = ROAD.cs, n = Math.ceil(r / cs), cx = Math.floor(x / cs), cz = Math.floor(z / cs); for (let dx = -n; dx <= n; dx++) for (let dz = -n; dz <= n; dz++) if (ROAD.set.has(rkey(cx + dx, cz + dz))) return true; return false; }
+function rescue(dt) {
+  if (!P.grounded || !ROAD.set.size) { SAFE.stuck = 0; return; } const lost = String(S.groundName).includes('safety_floor') && !nearRoad(P.feet.x, P.feet.z, 9);
+  if (!lost) { SAFE.stuck = 0; if (S.rt - SAFE.at > 0.5 && nearRoad(P.feet.x, P.feet.z, 4)) { SAFE.pos.copy(P.feet); SAFE.at = S.rt; } return; }
+  SAFE.stuck += dt; if (SAFE.stuck > 1 && SAFE.at > 0) { P.feet.copy(SAFE.pos); P.visY = P.feet.y; P.vy = 0; P.speed = 0; S.cam.pos = null; S.nearAt = -1; SAFE.stuck = 0; PZ.msg = 'NO ROOF THERE. BACK ON THE STREET.'; PZ.msgT = 3; }
+}
+
+// ---- hazards: goons on the street, big pigeons in the air --------------------------------------------------------------------------
+// The emblem line dips to the street and rises to 6.5 m every 44 m.  A pair of goons (the game's thug rig) waits at every dip; a big pigeon
+// (the game's pigeon, Fly clip, scaled up) circles every crest.  Goons run at him when he comes within GOON_SEE and give up if he gets away
+// or leaves the ground; jumping clears them.  Nothing here ends the run: a hit costs a wing, most of his speed and PTS.hit, then he blinks for
+// 1.8 s and cannot be hit again.  Skimming past either kind without touching it is a close call: PTS.close and half a wing back.
+status('loading the neighbourhood…');
+const goonGl = await loadGLTF('/public/models/characters/thug01mesh.glb'); const GOON_CLIPS = { idle: 'IdleRest', run: 'RunForwards', atk: 'PunchHeadRightHand' };
+const goonRig = (() => { const r = setupRig(goonGl.scene, goonGl.animations, GOON_CLIPS, { once: ['atk'] }); return measureRig(goonGl.scene, r.mixer, r.A, r.DUR, ['run']); })();
+const pigeonGl = await loadGLTF('/public/models/characters/pidgeonairmesh.glb'); pigeonGl.scene.traverse((o) => { if (o.isMesh) for (const m of [].concat(o.material)) if (m.emissive) m.emissive.setRGB(0.42, 0.36, 0.34); });   // grey birds against grey brick: lift them
+const HAZ = S.haz = { goons: [], pigeons: [], on: q.get('hazards') !== '0' }; const GOON_V = +(q.get('goonv') || 8.2), GOON_SEE = 24, PIG_SIZE = +(q.get('pig') || 4.2), PIG_R = 5.5;   /* big: a wingspan over twice his height, so they read from down the street */ S.hits = 0; S.close = 0; const _n3 = new THREE.Vector3();
+function makeGoon() { const root = cloneRig(goonGl.scene); const { mixer, A, DUR } = setupRig(root, goonGl.animations, GOON_CLIPS, { once: ['atk'] }); root.traverse((o) => { if (o.isMesh) o.frustumCulled = false; }); scene.add(root);
+  return { root, mixer, A, DUR, id: HAZ.goons.length, on: false, pos: new THREE.Vector3(), home: new THREE.Vector3(), y: 0, gy: 0, heading: 0, stun: 0, atk: 0, close: false, moveSpeed: 0 }; }
+function makePigeon() { const root = cloneRig(pigeonGl.scene); const r = setupRig(root, pigeonGl.animations, { fly: 'Fly' }); r.A.fly.setEffectiveWeight(1); r.A.fly.time = (HAZ.pigeons.length * 0.37) % r.DUR.fly; const box = new THREE.Box3().setFromObject(root); root.scale.setScalar(PIG_SIZE / Math.max(...box.getSize(new THREE.Vector3()).toArray())); root.traverse((o) => { if (o.isMesh) o.frustumCulled = false; }); scene.add(root); const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: 0xff5a1f, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0.85 })); halo.renderOrder = 3; halo.visible = false; scene.add(halo);
+  return { root, halo, mixer: r.mixer, on: false, cx: 0, cy: 0, cz: 0, a: 0, w: 1, close: false }; }
+// boost rings: gold hoops in a measured chain round the loop (see layoutHazards).  Through one = BOOST_V for BOOST_T seconds, a wing and three links of combo.
+const RING_R = 2.3; const ringGeo = new THREE.TorusGeometry(RING_R, 0.2, 5, 12), bandGeo = new THREE.CylinderGeometry(RING_R - 0.14, RING_R - 0.14, 1.2, 12, 1, true).rotateX(Math.PI / 2);   // twelve flat sides, like the game's own props
+const bandTex = (() => { const c = document.createElement('canvas'); c.width = 8; c.height = 32; const g = c.getContext('2d'); for (let y = 0; y < 32; y++) { const e = Math.abs(y - 15.5) / 15.5; g.fillStyle = `rgba(255,255,255,${(Math.pow(e, 2.2) * (y % 4 < 2 ? 0.9 : 0.5)).toFixed(3)})`; g.fillRect(0, y, 8, 1); } const tx = new THREE.CanvasTexture(c); tx.magFilter = tx.minFilter = THREE.NearestFilter; tx.generateMipmaps = false; return tx; })();   // bright at both rims, clear in the middle, in chunky texels
+function makeRing() { const g = new THREE.Group(); const torus = new THREE.Mesh(ringGeo, new THREE.MeshPhongMaterial({ color: 0xf0b429, specular: 0xfff0c0, shininess: 60, emissive: 0x5a3a08, flatShading: true, transparent: true }));   // the emblems' shiny flat-colour look, in gold
+  const band = new THREE.Mesh(bandGeo, new THREE.MeshBasicMaterial({ map: bandTex, color: 0xffc850, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide })); band.renderOrder = 3; g.add(torus, band); scene.add(g); return { g, torus, band, on: false, fade: 0 }; }   // and the delivery beacon's translucent additive shell, as a hoop
+function boost(pos) { FL.boostT = BOOST_T; P.vy = Math.max(P.vy, 3); FL.stamina = Math.min(FL.max, FL.stamina + 1); S.rings++; addCombo(3); S.score += PTS.ring * S.mult; number(pos.x, pos.y + 1.6, pos.z, String(PTS.ring * S.mult), '#ffd36a'); sfx('levelup', 0.5, 1.8); sfx('swish', 0.8, 0.5); PZ.msg = 'BOOST.'; PZ.msgT = 1.2; }
+// traffic: the game's yellow cab (assembled from the first seven parts of the city-car pack plus its two axles) and its box truck, driving on the right
+// along the streets the emblem line uses, turning round at each end.  A cab can be jumped; a truck needs wings.  Touching one below roof height is a hit.
+const cabGl = await loadGLTF('/public/models/xbox/static/CITY__v_citycara.glb'), truckGl = await loadGLTF('/public/models/xbox/static/F48__f_boxtruck.glb');
+const cabProto = (() => { const src = []; cabGl.scene.traverse((o) => { if (o.isMesh) src.push(o); }); const g = new THREE.Group(), body = new THREE.Group(); body.position.z = 0.3; g.add(body); for (const i of [0, 1, 2, 3, 5, 6]) if (src[i]) body.add(src[i].clone());   /* part 4 is the pack's blob shadow: it draws as a white slab here */
+  const axle = (q.get('axles') || '-2.1,1.55').split(',').map(Number); for (let i = 0; i < 2; i++) if (src[27 + i]) { const w = src[27 + i].clone(); w.position.set(0, 0.4, axle[i]); body.add(w); } toCharacterMaterials(g); return g; })();
+const truckProto = truckGl.scene.clone(true); { const m = []; truckProto.traverse((o) => { if (o.isMesh) m.push(o); }); if (m[6]) m[6].visible = false; } toCharacterMaterials(truckProto);   // its last part is the same kind of shadow slab
+const CAR_V = +(q.get('carv') || 9), LANE = 4.2, CAR_YAW = +(q.get('caryaw') || Math.PI);   /* both models have their nose at -z */ const _la = { x: 0, y: 0, z: 0 }, _lb = { x: 0, y: 0, z: 0 }; HAZ.cars = []; HAZ.rings = [];
+function makeCar(kind) { const root = (kind === 'truck' ? truckProto : cabProto).clone(true); root.traverse((o) => { if (o.isMesh) o.frustumCulled = false; }); scene.add(root); return { root, kind, hw: kind === 'truck' ? 1.7 : 1.35, hl: kind === 'truck' ? 4.7 : 3.0, top: kind === 'truck' ? 4.6 : 1.7, on: false, lane: null, s: 0, dir: 1, x: 0, y: 0, z: 0, h: 0, snap: true, close: false }; }
+function makeLane(pts) { const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return { pts, cum, L: cum[cum.length - 1], y: pts.map(([x, z]) => groundAt(x, z, P.feet.y)) }; }
+function lanePoint(ln, s, out) { s = Math.max(0, Math.min(ln.L, s)); let i = 0; while (i < ln.cum.length - 2 && ln.cum[i + 1] < s) i++; const f = (s - ln.cum[i]) / ((ln.cum[i + 1] - ln.cum[i]) || 1); out.x = ln.pts[i][0] + (ln.pts[i + 1][0] - ln.pts[i][0]) * f; out.z = ln.pts[i][1] + (ln.pts[i + 1][1] - ln.pts[i][1]) * f; out.y = ln.y[i] + (ln.y[i + 1] - ln.y[i]) * f; return out; }
+// the city export leaves some CITY_STRIP_F shop-front slabs standing in the roadway (Survivors patched the few near Joe's by hand; the larger patch has
+// more).  Any of them within 6.5 m of the route's centre line is in the street, not on a building: hidden, and its colliders switched off.
+function clearRoute(paths) {
+  if (S.cleared) return; S.cleared = []; const pts = paths.flat(), box = new THREE.Box3();
+  scene.traverse((o) => { const pl = o.userData && o.userData.placement; if (!pl || !/CITY_STRIP_F__sf_(stor|ind)/i.test(pl.url) || !o.visible) return; box.setFromObject(o); let near = false;
+    for (const [x, z] of pts) { const dx = Math.max(box.min.x - x, 0, x - box.max.x), dz = Math.max(box.min.z - z, 0, z - box.max.z); if (dx * dx + dz * dz < 6.5 * 6.5) { near = true; break; } } if (!near) return;
+    o.visible = false; S.cleared.push(pl.url.split('/').pop()); const own = new Set(); o.traverse((m) => own.add(m)); box.expandByScalar(0.6); for (const c of S.colliders) if (own.has(c.o) || (!c.world && box.containsPoint(c.c))) c.dead = true; });   // its own meshes whatever their size (a 20 m slab counts as 'world' and was left solid: an invisible wall), plus the hull that sits in the same place
+  S.nearAt = -1;
+}
+// street furniture on the line: under every other rise, where no ring hangs, stands something from the game's own street set, solid like the rest of
+// the city: a hot dog stand across the line, a cargo container or a dumpster along it.  The emblems pass over the top, so the line is flown; on foot he goes round.
+const BLOCKS = [{ url: '/public/models/xbox/static/CITY_STRIP_A__a_hotdogstanda.glb', turn: Math.PI / 2 }, { url: '/public/models/xbox/static/E37__e37_cargoconta.glb', turn: Math.PI / 2 }, { url: '/public/models/xbox/static/A05__a_dumpster.glb', turn: 0 }];
+for (const b of BLOCKS) { b.proto = (await loadGLTF(b.url)).scene.clone(true); toCharacterMaterials(b.proto); b.minY = new THREE.Box3().setFromObject(b.proto).min.y; } HAZ.blocks = []; const _sph = new THREE.Sphere();
+function makeBlock(i) { const def = BLOCKS[i % BLOCKS.length]; const root = def.proto.clone(true); scene.add(root); const cols = []; root.traverse((m) => { if (!m.isMesh) return; m.frustumCulled = false; if (m.material.blending === THREE.AdditiveBlending) return; const c = { o: m, c: new THREE.Vector3(), r: 1, kind: 'prop', world: false, thin: false, dead: true }; cols.push(c); S.colliders.push(c); }); return { root, cols, def, on: false }; }
+function placeBlock(b, x, y, z, yaw) { b.on = true; b.root.visible = true; b.root.position.set(x, y - b.def.minY, z); b.root.rotation.set(0, yaw + b.def.turn, 0); b.root.updateMatrixWorld(true); for (const c of b.cols) { if (!c.o.geometry.boundingSphere) c.o.geometry.computeBoundingSphere(); _sph.copy(c.o.geometry.boundingSphere).applyMatrix4(c.o.matrixWorld); c.c.copy(_sph.center); c.r = _sph.radius; c.dead = false; } }
+function layoutHazards(paths, legs) {
+  let ng = 0, np = 0, nc = 0, nr = 0, nb = 0; const spots = [], rspots = [], bspots = [], used = new Set(); const off = (x, z, r) => Math.hypot(x - HOME.x, z - HOME.z) > r && STOPS.every((s) => Math.hypot(x - s.at.x, z - s.at.z) > r);
+  const free = (x, z) => off(x, z, 26) && spots.every((p) => Math.hypot(p[0] - x, p[1] - z) > 16); const cellOf = (x, z) => [Math.floor(x / ROAD.cs), Math.floor(z / ROAD.cs)];
+  // the ring chain: measured, not scattered.  A boost lasts BOOST_T at BOOST_V (48 m); rings sit along the loop at equal steps of at most 42 m, all at 4.2 m,
+  // so a clean pass through one reaches the next with about a tenth of a second of boost left.  Each leg's step is its length divided evenly, so the chain
+  // also lands on a ring at each customer's beacon (through it = delivered without slowing) and starts 14 m from the shop door.
+  const RING_D = BOOST_V * BOOST_T * 0.875; const putRing = (x, y, z, yaw) => { const r = HAZ.rings[nr] || (HAZ.rings[nr] = makeRing()); nr++; r.on = true; r.g.visible = true; r.fade = 0; r.g.scale.setScalar(1); r.torus.material.opacity = 1; r.g.position.set(x, y, z); r.g.rotation.set(0, yaw, 0); rspots.push([x, z]); };
+  if (HAZ.on) legs.forEach(([a, b], li) => { const path = paths[li]; if (path.length < 6) return; const pts = [[a.x, a.z], ...path, [b.x, b.z]], cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    const L = cum[cum.length - 1], s0 = li === 0 ? 14 : 0, n = Math.max(1, Math.ceil((L - s0) / RING_D)), step = (L - s0) / n; let i = 0;
+    for (let j = li === 0 ? 0 : 1; j < n; j++) { const s = s0 + j * step; while (i < cum.length - 2 && cum[i + 1] < s) i++; const f = (s - cum[i]) / ((cum[i + 1] - cum[i]) || 1), x = pts[i][0] + (pts[i + 1][0] - pts[i][0]) * f, z = pts[i][1] + (pts[i + 1][1] - pts[i][1]) * f; const p0 = pts[Math.max(0, i - 1)], p1 = pts[Math.min(pts.length - 1, i + 2)]; putRing(x, groundAt(x, z, P.feet.y) + 4.2, z, Math.atan2(p1[0] - p0[0], p1[1] - p0[1])); }
+    if (li < legs.length - 1) { const p0 = path[Math.max(0, path.length - 4)], p1 = path[path.length - 1]; putRing(b.x, b.y + 3.1, b.z, Math.atan2(p1[0] - p0[0], p1[1] - p0[1])); } });   // the delivery ring, turned along the street
+  if (HAZ.on) for (const path of paths) {
+    for (let j = 2; ; j++) { const goon = j % 2 === 0; const k = Math.round(5.5 * j); if (k > path.length - 6) break;   // the line's dips are at every 11th cell, its crests half way between
+      const [x, z] = path[k]; if (!free(x, z)) continue; spots.push([x, z]); const a = path[k - 2], b = path[k + 2]; const dx = b[0] - a[0], dz = b[1] - a[1], l = Math.hypot(dx, dz) || 1, px = -dz / l, pz = dx / l; const gy = groundAt(x, z, P.feet.y);
+      if (goon) for (const side of [-1, 1]) { const e = HAZ.goons[ng] || (HAZ.goons[ng] = makeGoon()); ng++; e.on = true; e.root.visible = true; e.pos.set(x + px * 1.7 * side, gy, z + pz * 1.7 * side); e.home.copy(e.pos); e.y = e.gy = gy; e.heading = Math.atan2(-dx, -dz); e.stun = 0; e.atk = 0; e.close = false; e.moveSpeed = 0; for (const n in e.A) e.A[n].setEffectiveWeight(n === 'idle' ? 1 : 0); }
+      else { const g = HAZ.pigeons[np] || (HAZ.pigeons[np] = makePigeon()); np++; g.on = true; g.root.visible = true; g.cx = x; g.cy = gy + 6.9; g.cz = z; g.a = np * 1.7; g.w = np % 2 ? 1.15 : -1.15; g.close = false; } }
+    for (let m = 2; ; m += 2) { const k = Math.round(11 * m + 2.75); if (k > path.length - 4) break; const [x, z] = path[k]; if (!off(x, z, 22) || !bspots.every((p) => Math.hypot(p[0] - x, p[1] - z) > 30) || !rspots.every((p) => Math.hypot(p[0] - x, p[1] - z) > 10)) continue; bspots.push([x, z]);   /* and never under a ring */   // street furniture: under the rises that have no ring
+      const a = path[k - 2], b = path[k + 2]; const blk = HAZ.blocks[nb] || (HAZ.blocks[nb] = makeBlock(nb)); nb++; placeBlock(blk, x, groundAt(x, z, P.feet.y), z, Math.atan2(b[0] - a[0], b[1] - a[1])); }
+    let i0 = -1; for (let i = 0; i <= path.length; i++) { const fresh = i < path.length && !used.has(rkey(...cellOf(path[i][0], path[i][1]))) && off(path[i][0], path[i][1], 14); if (fresh && i0 < 0) i0 = i;   // traffic: only on stretches no earlier leg already put cars on
+      if (!fresh && i0 >= 0) { if (i - i0 >= 16) { const ln = makeLane(path.slice(i0, i)); const n = Math.max(1, Math.round(ln.L / 90)); for (const dir of [1, -1]) for (let c = 0; c < n; c++) { const car = HAZ.cars[nc] || (HAZ.cars[nc] = makeCar(nc % 4 === 3 ? 'truck' : 'cab')); nc++; car.on = true; car.root.visible = true; car.lane = ln; car.dir = dir; car.s = ln.L * (c + (dir > 0 ? 0.25 : 0.75)) / n; car.snap = true; car.close = false; } } i0 = -1; } }
+    for (const [x, z] of path) { const [cx, cz] = cellOf(x, z); for (let dx = -1; dx <= 1; dx++) for (let dz = -1; dz <= 1; dz++) used.add(rkey(cx + dx, cz + dz)); }
+  }
+  for (const [list, n, vis] of [[HAZ.goons, ng, (e) => e.root], [HAZ.pigeons, np, (e) => e.root], [HAZ.cars, nc, (e) => e.root], [HAZ.rings, nr, (e) => e.g]]) for (let i = n; i < list.length; i++) { list[i].on = false; vis(list[i]).visible = false; }
+  for (let i = nb; i < HAZ.blocks.length; i++) { const b = HAZ.blocks[i]; b.on = false; b.root.visible = false; for (const c of b.cols) c.dead = true; } S.nearAt = -1;
+}
+function tickTraffic(dt) {
+  for (const c of HAZ.cars) { if (!c.on) continue; const ln = c.lane; c.s += c.dir * CAR_V * dt; if (c.s > ln.L - 5) { c.s = ln.L - 5; c.dir = -1; } else if (c.s < 5) { c.s = 5; c.dir = 1; }
+    lanePoint(ln, c.s - 2.5 * c.dir, _la); lanePoint(ln, c.s + 2.5 * c.dir, _lb); let tx = _lb.x - _la.x, tz = _lb.z - _la.z; const tl = Math.hypot(tx, tz) || 1; tx /= tl; tz /= tl; const gx = (_la.x + _lb.x) / 2 - tz * LANE, gz = (_la.z + _lb.z) / 2 + tx * LANE, gy = (_la.y + _lb.y) / 2;   // the right-hand side of the way it is going
+    if (c.snap) { c.snap = false; c.x = gx; c.z = gz; c.y = gy; c.h = Math.atan2(tx, tz); } else { const k = Math.min(1, 3.5 * dt), mx = (gx - c.x) * k, mz = (gz - c.z) * k; c.x += mx; c.z += mz; c.y += (gy - c.y) * k; if (Math.hypot(mx, mz) > 0.02) c.h += wrap(Math.atan2(mx, mz) - c.h) * Math.min(1, 6 * dt); }   // it follows its lane point loosely, so the turn at the end of the street is a U-turn across the road
+    c.root.position.set(c.x, c.y, c.z); c.root.rotation.y = c.h + CAR_YAW;
+    const dx = P.feet.x - c.x, dz = P.feet.z - c.z; if (Math.abs(dx) + Math.abs(dz) > 24) { c.close = false; continue; } const sh = Math.sin(c.h), ch = Math.cos(c.h), lz = dx * sh + dz * ch, lx = dx * ch - dz * sh, dy = P.feet.y - c.y, ax = Math.abs(lx) - c.hw, az = Math.abs(lz) - c.hl, low = dy < c.top - 0.2 && dy > -1.5;
+    if (low && ax < 0.4 && az < 0.4) { if (hitHero('car')) { const sg = lx >= 0 ? 1 : -1, out = 0.9 - Math.min(0.4, ax); P.feet.x += ch * sg * out; P.feet.z -= sh * sg * out; } c.close = false; }   // shoved out sideways
+    else if (S.invT <= 0) { if (low && ax < 1.5 && az < 1.5 && P.speed > 8) c.close = true; else if (c.close && (ax > 2.6 || az > 2.6)) { c.close = false; closeCall(c.x, c.y + c.top + 0.8, c.z); } } else c.close = false; }
+  const py = P.feet.y + 0.9; for (const r of HAZ.rings) { if (!r.on) continue; r.torus.rotation.z += dt * 1.2;
+    if (r.fade > 0) { r.fade -= dt / 0.6; const f = Math.max(0, r.fade); r.g.scale.setScalar(1 + (1 - f) * 0.9); r.torus.material.opacity = f; r.band.material.opacity = f; if (f <= 0) { r.on = false; r.g.visible = false; } continue; }   // used: swells and fades out over 0.6 s, then it is gone for the run
+    r.band.material.opacity = 0.7 + 0.3 * Math.sin(S.rt * 5 + r.g.position.x); if (Math.hypot(P.feet.x - r.g.position.x, py - r.g.position.y, P.feet.z - r.g.position.z) < RING_R + 0.4) { r.fade = 1; boost(r.g.position); } }
+}
+function hitHero(kind) {
+  if (S.invT > 0 || S.phase !== 'play') return false; S.invT = 1.8; S.hits++; dropCombo(); FL.boostT = 0; S.score = Math.max(0, S.score - PTS.hit); FL.stamina = Math.max(0, FL.stamina - 1); P.speed *= 0.45; if (!P.grounded) P.vy = Math.min(P.vy, -3);
+  P.hitT = 0; if (A.hit) { A.hit.reset(); A.hit.timeScale = 1.2; } for (const m of heroMats) m.emissive.setRGB(0.8, 0.1, 0.1); P.flashT = 0.25; sfx('pain', 0.8); sfx('punch', 0.6); number(P.feet.x, P.feet.y + 2.3, P.feet.z, String(PTS.hit), '#ff5a5a');
+  PZ.msg = (kind === 'goon' ? 'TACKLED.' : kind === 'car' ? 'HIT BY TRAFFIC.' : 'PIGEON STRIKE.') + ' COMBO, A WING AND 100 GONE.'; PZ.msgT = 2; return true;
+}
+function closeCall(x, y, z) { S.close++; addCombo(3); S.score += PTS.close * S.mult; FL.stamina = Math.min(FL.max, FL.stamina + 0.5); number(x, y, z, String(PTS.close * S.mult), '#7dff9a'); sfx('coo', 0.5, 1.7); if (PZ.msgT <= 0) { PZ.msg = 'CLOSE CALL.'; PZ.msgT = 1.2; } }
+function tickHazards(dt) {
+  const R = goonRig; const py = P.feet.y + 0.9;
+  for (const e of HAZ.goons) { if (!e.on) continue; const dx = P.feet.x - e.pos.x, dz = P.feet.z - e.pos.z, dist = Math.hypot(dx, dz), dy = P.feet.y - e.y; if (dist > 150) continue; e.stun -= dt; e.atk -= dt; let tx = 0, tz = 0, v = 0;
+    if (e.stun <= 0 && e.atk <= 0) { const hd = Math.hypot(e.pos.x - e.home.x, e.pos.z - e.home.z);
+      if (dist < GOON_SEE && dy < 5 && hd < 45) { tx = dx / (dist || 1); tz = dz / (dist || 1); v = GOON_V; if (dist < 1.15 && dy > -1.5 && dy < 1.7 && hitHero('goon')) { e.atk = e.DUR.atk || 0.6; e.A.atk.reset(); v = 0; for (const o of HAZ.goons) if (o.on && Math.hypot(o.pos.x - e.pos.x, o.pos.z - e.pos.z) < 16) o.stun = Math.max(o.stun, 3.2); }   /* one tackle, then the whole pair stands down for 3 s: his partner used to land a second one the moment the blink ended, and a third, so he never got moving */ }   // in reach and not above head height: tackled
+      else if (hd > 1.5) { tx = (e.home.x - e.pos.x) / hd; tz = (e.home.z - e.pos.z) / hd; v = 4; } }
+    if (S.invT <= 0 && e.stun <= 0) { if (dist < 2.6 && Math.abs(dy) < 3 && P.speed > 8) e.close = true; else if (e.close && dist > 3.6) { e.close = false; closeCall(e.pos.x, e.y + 2.2, e.pos.z); } } else e.close = false;
+    let mx = tx * v * dt, mz = tz * v * dt; const ml = Math.hypot(mx, mz);
+    if (ml > 1e-6) { _v.set(e.pos.x, e.y + 1.0, e.pos.z); _w.set(mx / ml, 0, mz / ml); const h = wallHit(_v, _w, 0.45 + ml); if (h && h.face) { const n = h.face.normal.clone().transformDirection(h.object.matrixWorld); n.y = 0; if (n.lengthSq() > 1e-4) { n.normalize(); if (n.dot(_w) > 0) n.negate(); const into = mx * n.x + mz * n.z; if (into < 0) { mx -= n.x * into; mz -= n.z * into; } } }
+      e.pos.x += mx; e.pos.z += mz; e.heading = Math.atan2(mx, mz); } else if (dist < GOON_SEE) e.heading = Math.atan2(dx, dz);
+    e.moveSpeed = Math.hypot(mx, mz) / dt; if (((S.frame + e.id) & 3) === 0) { const g = groundBelow(e.pos.x, e.y, e.pos.z, 1.2, 2.0); if (g) e.gy = g.point.y; } e.y += (e.gy - e.y) * Math.min(1, 12 * dt);
+    const want = e.atk > 0 ? 'atk' : e.moveSpeed > 0.5 ? 'run' : 'idle'; e.A.run.timeScale = THREE.MathUtils.clamp(e.moveSpeed / (R.NAT.run || 3), 0.25, 2.5);
+    let rootY = 0, wsum = 0; for (const n in e.A) { const a = e.A[n]; const cur = a.getEffectiveWeight(); const wv = cur + Math.max(-10 * dt, Math.min(10 * dt, (n === want ? 1 : 0) - cur)); a.setEffectiveWeight(wv); if (wv > 1e-3) { rootY += wv * R.contactAt(n, a.time); wsum += wv; } }
+    e.mixer.update(dt); e.root.position.set(e.pos.x, e.y + (wsum > 0 ? rootY / wsum : 1.0), e.pos.z); e.root.rotation.set(0, e.heading - R.FWD_A, 0); }
+  for (const g of HAZ.pigeons) { g.halo.visible = g.on; if (!g.on) continue; g.a += g.w * dt; const x = g.cx + Math.cos(g.a) * PIG_R, z = g.cz + Math.sin(g.a) * PIG_R, y = g.cy + Math.sin(g.a * 2) * 0.7; const la = g.a + 0.25 * Math.sign(g.w);
+    g.root.position.set(x, y, z); g.root.lookAt(_n3.set(g.cx + Math.cos(la) * PIG_R, y, g.cz + Math.sin(la) * PIG_R)); g.mixer.update(dt); g.halo.position.set(x, y + 0.3, z); g.halo.scale.setScalar(PIG_SIZE * (1.5 + Math.sin(S.rt * 6 + g.cx) * 0.2));   /* orange = danger, blue = emblems */ const d = Math.hypot(P.feet.x - x, py - y, P.feet.z - z);
+    if (d < 1.9) { hitHero('pigeon'); g.close = false; } else if (S.invT <= 0) { if (d < 3.6 && !P.grounded) g.close = true; else if (g.close && d > 4.8) { g.close = false; closeCall(x, y + 1, z); } } else g.close = false; }
+}
+
+// ---- overlays -------------------------------------------------------------------------------------------------------------
+function showOverlay(html, cls = '') { $('obox').innerHTML = html; $('overlay').className = cls; }
+function hideOverlay() { $('overlay').classList.add('hidden'); }
+function h1(text, scale = 3) { if (!FONT.serp) return `<h1>${text}</h1>`; const c = fontCanvas(FONT.serp, text, scale); const d = document.createElement('div'); d.appendChild(c); return `<h1>${d.innerHTML.replace('<canvas', `<img src="${c.toDataURL()}" width="${c.width / TEXT_R}" height="${c.height / TEXT_R}"`).replace('</canvas>', '')}</h1>`; }
+const mmss = (t) => `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+// title: a how-to-play card in the game's UI — WASD keycaps (sticks on touch), the goal, and the HUD compass (i_map_compass + the red marker) to follow
+function keycap(k, cls = '') { return `<span class="kcap ${cls}">${bmp([PU(k, '#fff', 1)])}</span>`; }
+function titleHtml() {
+  const W = TOUCH ? 226 : 262;
+  const move = TOUCH
+    ? `<div class="sticks"><span><span class="mstick"><i></i></span>${bmp([PU('MOVE', '#8893a8', 1)])}</span><span><span class="mstick"><i></i></span>${bmp([PU('LOOK', '#8893a8', 1)])}</span></div>`
+    : `<div class="wasd"><span></span>${keycap('W')}<span></span>${keycap('A')}${keycap('S')}${keycap('D')}</div>`;
+  const fly = TOUCH
+    ? `<div class="keyrow">${keycap('FLAP', 'wide')}</div><div class="keyrow">${keycap('DIVE', 'wide')}</div>`
+    : `<div class="keyrow">${keycap('SPACE', 'wide')}${bmp([PU('FLAP / GLIDE', '#8893a8', 1)])}</div><div class="keyrow">${keycap('SHIFT', 'wide')}${bmp([PU('DIVE', '#8893a8', 1)])}</div>`;
+  const moveTxt = TOUCH ? 'Left stick runs, right stick looks.' : 'W A S D (or the arrows) to run. Drag the mouse to look around. A gamepad works too.';
+  const flyTxt = TOUCH ? 'Flap jumps. Tap again in the air to flap, hold to glide. Dive for speed.' : 'Space jumps. Press it again in the air to flap (each flap costs a wing), hold it to glide. Shift dives for speed; glide out of a dive to climb.';
+  const deliverTxt = TOUCH ? 'Follow the emblem line to three customers, then back to F&F. Chain emblems for a combo. Rings boost.' : 'Follow the emblem line to three customers, then back to F&F before the clock hits zero. Emblems refill your wings; chain them for a combo. Gold rings boost. Dodge goons, traffic and the big pigeons; fly over what is parked on the line.';
+  const step = (n, title, vis, txt) => `<div class="step"><div class="sh">${bmp([N(n, '#ffd36a', 1), HD('  ' + title, '#ffd36a', 1)], W + 10)}</div><div class="sv">${vis}</div><div class="st">${bmp([PT(txt, '#cfd6e0', 1)], W)}</div></div>`;
+  const pizza = `<span class="pz">${UI('i_pizza_counter_icon')}</span><div class="dist">${bmp([N('x3', '#fff', 0.8), PU('  ', '#fff', 1), N(mmss(RUN_LEN), '#ffd36a', 0.8)])}</div>`;
+  return `${TOUCH ? `<h2>${bmp([HD('PIZZA NIGHT IN AMERICA', '#ffd36a', 1.5)])}</h2>` : h1('PIZZA NIGHT IN AMERICA', 2)}<h2>${bmp([PU("Birdie's Adventure", '#9fd0ff', TOUCH ? 1 : 1.3)])}</h2>
+<div class="goal">${bmp([PU('YOUR GOAL  ', '#ffd36a', 1), PT(`Deliver ${N_STOPS} pizzas and get back to F&F in ${RUN_LEN} seconds`, '#fff', 1)], TOUCH ? 820 : 920)}</div>
+<div class="howto">
+${step('1', 'MOVE', move, moveTxt)}
+${step('2', 'FLY', fly, flyTxt)}
+${step('3', 'DELIVER', pizza, deliverTxt)}
+</div>
+<p class="hint go">${bmp([PU(TOUCH ? 'TAP TO CLOCK IN' : 'PRESS ANY KEY TO CLOCK IN', '#ffd36a', TOUCH ? 1 : 1.3)])}</p>`;
+}
+// ---- the scorecard: a 1200 x 675 image built when a run ends (the last frame of the run behind a dark wash, the title, the score and three stats in the
+// game's fonts, Paul's end-card lines, the Blackbird mark and a QR code to SHARE_URL).  It is what the end screen shows, what SAVE IMAGE downloads and
+// what SHARE hands to the phone's share sheet; where a browser cannot share a file, SHARE copies the image to the clipboard and opens a post with the text and link.
+const SHARE_URL = q.get('share') || (location.origin + '/');   // where the QR code and the shared link point: change this one line (or ?share=) when the final address is known
+function grabFrame() { const c = document.createElement('canvas'); c.width = 1200; c.height = 675; const g = c.getContext('2d'), src = renderer.domElement, k = Math.max(c.width / src.width, c.height / src.height); try { hero.visible = true;   /* never caught mid-blink after a hit */ renderer.render(scene, camera);   /* the world only: the compass is drawn into the same canvas afterwards and would be baked into the card */ g.drawImage(src, (c.width - src.width * k) / 2, (c.height - src.height * k) / 2, src.width * k, src.height * k); } catch {} return c; }
+function qrCanvas(text, px) { const qr = qrcode(0, 'M'); qr.addData(text); qr.make(); const n = qr.getModuleCount(), quiet = 4, m = Math.max(1, Math.floor(px / (n + 2 * quiet))); const c = document.createElement('canvas'); c.width = c.height = m * (n + 2 * quiet); const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.fillStyle = '#000'; for (let r = 0; r < n; r++) for (let col = 0; col < n; col++) if (qr.isDark(r, col)) g.fillRect((col + quiet) * m, (r + quiet) * m, m, m); return c; }
+function makeCard(won) {
+  const W = 1200, H = 675, c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.fillStyle = '#0b0e18'; g.fillRect(0, 0, W, H); if (S.shot) g.drawImage(S.shot, 0, 0);
+  const wash = g.createLinearGradient(0, 0, W, 0); wash.addColorStop(0, 'rgba(6,8,16,.9)'); wash.addColorStop(0.62, 'rgba(6,8,16,.72)'); wash.addColorStop(1, 'rgba(6,8,16,.55)'); g.fillStyle = wash; g.fillRect(0, 0, W, H);
+  const put = (segs, x, y, h, align = 'left', crisp = true) => { const s = drawSegs(document.createElement('canvas'), segs); const w = s.width * h / s.height; g.imageSmoothingEnabled = !crisp; g.drawImage(s, align === 'center' ? x - w / 2 : align === 'right' ? x - w : x, y, w, h); return w; };
+  put([HD('PIZZA NIGHT IN AMERICA', '#ffd36a', 2)], 56, 40, 58); put([PU("Birdie's Adventure", '#9fd0ff', 1)], 58, 106, 28, 'left', false);
+  put([T('SCORE', '#cfd6e0', 1)], 58, 164, 27); put([N(S.score, '#ffd36a', 2)], 54, 198, 128);
+  const left = Math.max(0, Math.ceil(RUN_LEN - S.t)); const stats = [['PIZZAS', [N(PZ.delivered, '#fff', 1), T(' OF ' + N_STOPS, '#fff', 1)]], ['BEST COMBO', [N(S.best, '#fff', 1)]], won ? ['TIME LEFT', [N(left, '#fff', 1), T(' S', '#fff', 1)]] : ['CLOSE CALLS', [N(S.close, '#fff', 1)]]];
+  stats.forEach(([k, v], i) => { const x = 58 + i * 250; put([T(k, '#8fa0c0', 1)], x, 356, 25); put(v, x, 392, 44); });
+  put([HD(won ? 'SHIFT COMPLETE' : 'OUT OF TIME', '#9fd0ff', 1)], 58, 476, 30); put([PT('Great work out there, Birdie.', '#fff', 1)], 58, 548, 30, 'left', false); put([PT('Now grab yourself a pizza with FlyCard. You earned it.', '#fff', 1)], 58, 590, 30, 'left', false);
+  const qr = qrCanvas(SHARE_URL, 264), qx = W - 56 - 264, qy = 232; g.imageSmoothingEnabled = false; g.fillStyle = '#fff'; g.fillRect(qx - 10, qy - 10, 284, 284); g.drawImage(qr, qx, qy, 264, 264);
+  put([T('PLAY IT', '#ffd36a', 1)], qx + 132, qy - 50, 28, 'center'); put([PT(SHARE_URL.replace(/^https?:\/\//, '').replace(/\/$/, ''), '#cfd6e0', 1)], qx + 132, qy + 290, 22, 'center', false);
+  if (S.logo) { g.imageSmoothingEnabled = true; const h = 78, w = S.logo.width * h / S.logo.height; g.drawImage(S.logo, W - 56 - w, 36, w, h); }
+  return c;
+}
+const shareText = () => `I delivered ${PZ.delivered} of ${N_STOPS} pizzas and scored ${S.score} in Pizza Night in America: Birdie's Adventure. Beat my shift:`;
+const cardBlob = () => new Promise((res) => S.card.toBlob(res, 'image/png'));
+function toast(m) { const el = $('toast'); if (el) setBmp(el, [T(m, '#7dff9a', 1)]); }
+async function shareCard() {
+  if (!S.card) return; const blob = await cardBlob(), file = new File([blob], 'pizza-night-score.png', { type: 'image/png' }), text = shareText();
+  try { if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text, url: SHARE_URL }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }   // phones (and Safari): the system share sheet, image attached
+  let copied = false; try { await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]); copied = true; } catch {}   // desktop: a post cannot be pre-filled with an image, so it goes on the clipboard
+  toast(copied ? 'SCORECARD COPIED. PASTE IT INTO YOUR POST.' : 'USE SAVE IMAGE, THEN ATTACH IT TO YOUR POST.'); window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(SHARE_URL), '_blank', 'noopener');
+}
+async function saveCard() { if (!S.card) return; const a = document.createElement('a'); a.href = URL.createObjectURL(await cardBlob()); a.download = 'pizza-night-score.png'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); toast('SCORECARD SAVED.'); }
+function endHtml(won) {   // the end screen: the scorecard itself, then Paul's three buttons (his Exit is left out: there is nowhere to exit to on a web page yet)
+  const btn = (act, label, cls = '') => `<span class="btn ${cls}" data-act="${act}">${bmp([T(label, '#fff', TOUCH ? 1 : 1.3)])}</span>`;
+  return `${TOUCH ? '' : h1('GAME OVER', 2)}<img id="sharecard" alt="Your scorecard" src="${S.card.toDataURL('image/jpeg', 0.86)}"><div class="btns">${btn('again', 'PLAY AGAIN', 'main')}${btn('share', 'SHARE')}${btn('save', 'SAVE IMAGE')}</div><p id="toast" class="hint"></p>`;
+}
+// ---- the films: the Dollhouse intro plays after the opening splash and before the how-to-play card, the outro between a win and the end card (a loss goes
+// straight to the card).  Any key, click, tap or pad A skips one after its first 0.6 s; ?nocut=1 turns them off; a film that cannot play is skipped.
+const CUT = { el: $('cut'), wrap: $('cutwrap'), done: null, t0: 0, on: q.get('nocut') !== '1', intro: '/public/video/pna_intro.mp4', outro: '/public/video/pna_outro.mp4', seen: false };
+function endCut() { if (!CUT.done) return; const d = CUT.done; CUT.done = null; CUT.el.pause(); CUT.wrap.classList.add('hidden'); d(); }
+function skipCut() { if (CUT.done && performance.now() - CUT.t0 > 600) endCut(); }
+function playCut(src, done) { const v = CUT.el; CUT.done = done; CUT.t0 = performance.now(); music.pause(); setBmp($('cutskip'), [T(TOUCH ? 'TAP TO SKIP' : 'ANY KEY TO SKIP', '#cfd6e0', 1)]); v.src = src; v.muted = S.muted; CUT.wrap.classList.remove('hidden'); try { const pr = v.play(); if (pr && pr.catch) pr.catch(() => endCut()); } catch { endCut(); } }
+CUT.el.addEventListener('ended', endCut); CUT.el.addEventListener('error', endCut); CUT.wrap.addEventListener('click', skipCut);
+// the order of a visit: splash (title + press to start: a film with sound needs a key or a tap first) -> intro film -> the how-to-play card -> run.
+function splashHtml() { return `${TOUCH ? `<h2>${bmp([HD('PIZZA NIGHT IN AMERICA', '#ffd36a', 1.5)])}</h2>` : h1('PIZZA NIGHT IN AMERICA', 2)}<h2>${bmp([PU("Birdie's Adventure", '#9fd0ff', TOUCH ? 1 : 1.3)])}</h2><p class="hint go" style="margin-top:18px">${bmp([PU(TOUCH ? 'TAP TO START' : 'PRESS ANY KEY TO START', '#ffd36a', TOUCH ? 1 : 1.3)])}</p>`; }
+function openIntro() { if (S.phase !== 'splash') return; S.phase = 'cut'; hideOverlay(); playCut(CUT.intro, () => { S.phase = 'title'; S.titleAt = performance.now(); showOverlay(titleHtml(), 'title'); }); }   // the instructions come up when the film ends or is skipped
+function begin() { if (S.phase !== 'title' || performance.now() - (S.titleAt || 0) < 600) return; startRun(); }   // the key that skipped the film does not also start the run
+function toSpawn() { P.feet.fromArray(SPAWN.pos); refreshNear(); const g0 = groundBelow(P.feet.x, P.feet.y + 1, P.feet.z, 1, 40); if (g0) P.feet.y = g0.point.y; P.visY = P.feet.y; P.vy = 0; P.speed = 0; P.heading = SPAWN.heading + (WORLD === 'xbox' ? Math.PI : 0); S.cam.yaw = S.cam.yawT = P.heading + Math.PI; S.cam.pos = null; S.nearAt = -1; SAFE.at = -9; }
+function startRun() {
+  if (S.phase !== 'title') return; S.phase = 'play'; hideOverlay(); seed = SEED0;   // the same seed every run: the same three stops, so a route can be learned
+  S.t = 0; S.score = 0; S.bonus = 0; S.emblems = 0; S.hits = 0; S.close = 0; S.invT = 0; S.best = 0; S.rings = 0; dropCombo(); FL.boostT = 0; gems.n = 0; FL.stamina = FL.max; PZ.carrying = N_STOPS; PZ.delivered = 0; PZ.phase = 'carry'; pizzaHand.visible = true; beacon.visible = false; layoutRun();
+  { let near = null, nd = Infinity; near = STOPS[0].at; const path = near ? roadPath(P.feet.x, P.feet.z, near.x, near.z) : []; if (path.length > 5) { P.heading = Math.atan2(path[5][0] - P.feet.x, path[5][1] - P.feet.z); S.cam.yaw = S.cam.yawT = P.heading + Math.PI; S.cam.pos = null; } }   // he starts looking down the street toward the nearest stop, not at the building across the road
+  npcPlay(aziz, 'CIVSWAVE1', true); aziz.t = 0; PZ.msg = `${N_STOPS} PIZZAS. FOLLOW THE LINE.`; PZ.msgT = 3; if (!S.muted) { music.currentTime = 0; music.play().catch(() => {}); }
+}
+function restartRun() { if (S.phase === 'title' || S.phase === 'splash' || S.phase === 'cut') return; toSpawn(); S.phase = 'title'; startRun(); }   // no reload: the city stays loaded
+$('overlay').addEventListener('click', (e) => { unlockAudio(); const act = e.target.closest && e.target.closest('[data-act]'); if (act) { const a = act.dataset.act; if (a === 'again') { if (S.rt - S.endAt > 0.8) restartRun(); } else if (a === 'share') shareCard(); else if (a === 'save') saveCard(); return; } if (S.phase === 'title' || S.phase === 'splash') { if (TOUCH) { try { const p = document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); if (p && p.catch) p.catch(() => {}); } catch {} } if (S.phase === 'splash') openIntro(); else begin(); } else if (S.phase === 'paused') { S.phase = 'play'; hideOverlay(); } });
+
+// ---- input ----------------------------------------------------------------------------------------------------------------
+// ---- touch controls (phones / tablets, or ?touch=1): a floating stick appears where the left half is touched (move) and where the right half is touched
+// (camera); JUMP is held for a higher jump, SPRINT toggles, II pauses.  Synthetic PointerEvents on #touch drive the same code headless.
+const TS = { move: { x: 0, y: 0 }, look: { x: 0, y: 0 }, jump: false, dive: false };
+if (TOUCH) {
+  document.body.classList.add('touch'); $('touch').classList.remove('hidden');
+  const R = 52, zone = $('touch'); const sticks = { L: { el: $('stickL'), knob: $('stickL').firstElementChild, vec: TS.move }, R: { el: $('stickR'), knob: $('stickR').firstElementChild, vec: TS.look } };
+  const place = (st, x, y) => { st.ox = x; st.oy = y; st.el.style.left = (x - 60) + 'px'; st.el.style.top = (y - 60) + 'px'; st.el.classList.add('on'); st.knob.style.transform = 'translate(0,0)'; };
+  const drag = (st, x, y) => { let dx = x - st.ox, dy = y - st.oy; const l = Math.hypot(dx, dy); if (l > R) { dx *= R / l; dy *= R / l; } st.knob.style.transform = `translate(${dx}px,${dy}px)`; const nx = dx / R, ny = dy / R, m = Math.hypot(nx, ny), dz = 0.12; const k = m < dz ? 0 : (m - dz) / (1 - dz) / m; st.vec.x = nx * k; st.vec.y = -ny * k; };
+  const release = (st) => { st.el.classList.remove('on'); st.vec.x = st.vec.y = 0; st.id = undefined; };
+  zone.addEventListener('pointerdown', (e) => { if (e.target.closest('button')) return; unlockAudio(); const st = sticks[e.clientX < innerWidth / 2 ? 'L' : 'R']; if (st.id !== undefined) return; st.id = e.pointerId; try { zone.setPointerCapture(e.pointerId); } catch {} place(st, e.clientX, e.clientY); e.preventDefault(); });
+  zone.addEventListener('pointermove', (e) => { for (const st of Object.values(sticks)) if (st.id === e.pointerId) drag(st, e.clientX, e.clientY); });
+  const up = (e) => { for (const st of Object.values(sticks)) if (st.id === e.pointerId) release(st); }; zone.addEventListener('pointerup', up); zone.addEventListener('pointercancel', up);
+  const btn = (id, down, upFn) => { const b = $(id); b.addEventListener('pointerdown', (e) => { e.stopPropagation(); e.preventDefault(); unlockAudio(); down(b); }); const u = (e) => { e.stopPropagation(); if (upFn) upFn(b); }; b.addEventListener('pointerup', u); b.addEventListener('pointercancel', u); };
+  btn('btnJump', () => { TS.jump = true; }, () => { TS.jump = false; });
+  btn('btnDive', () => { TS.dive = true; }, () => { TS.dive = false; });
+  btn('btnPause', () => { if (S.phase === 'play') { S.phase = 'paused'; showOverlay(`<h2>${bmp([HD('PAUSED', '#9fd0ff', 1.4)])}</h2><p class="hint">${bmp([T('TAP TO RESUME', '#8893a8', 1)])}</p>`); } else if (S.phase === 'paused') { S.phase = 'play'; hideOverlay(); } });
+}
+const keys = new Set(); let padPrev = {};
+addEventListener('keydown', (e) => {
+  keys.add(e.code); if (e.code === 'Space' || e.code.startsWith('Arrow')) e.preventDefault(); unlockAudio();
+  if (CUT.done) { if (!e.repeat) skipCut(); return; }
+  if (e.code === 'Backquote') { if (!e.repeat) dbgToggle(); return; }
+  if (S.phase === 'splash') { if (!e.repeat) openIntro(); return; }
+  if (S.phase === 'title') { if (!e.repeat) begin(); return; }
+  if (e.code === 'KeyR' && !e.repeat && (S.phase === 'play' || ((S.phase === 'over' || S.phase === 'won') && S.rt - S.endAt > 0.8))) { restartRun(); return; }   // R: straight back to the door
+  if (e.code === 'KeyQ' || e.code === 'KeyE') { const d = (e.code === 'KeyQ' ? 1 : -1) * (CAM === 'top' ? Math.PI / 2 : Math.PI / 4); S.cam.yawT += d; if (CAM !== 'top') { S.cam.yaw += d; S.cam.manualAt = S.rt; } } if (e.code === 'KeyM') toggleMute(); if (e.code === 'KeyH') $('hud').classList.toggle('hidden'); if (e.code === 'KeyG') setChunkView(!S.showChunks);
+});
+addEventListener('keyup', (e) => keys.delete(e.code));
+let drag = false; renderer.domElement.addEventListener('mousedown', () => { drag = true; }); addEventListener('mouseup', () => { drag = false; });
+addEventListener('mousemove', (e) => { if (drag && CAM !== 'top') { S.cam.yaw -= e.movementX * 0.0045; S.cam.pitch = Math.max(-0.4, Math.min(0.9, S.cam.pitch + e.movementY * 0.004)); S.cam.manualAt = S.rt; } });
+function readInput(dt) {
+  const i = S.input; i.x = (keys.has('KeyD') || keys.has('ArrowRight') ? 1 : 0) - (keys.has('KeyA') || keys.has('ArrowLeft') ? 1 : 0); i.y = (keys.has('KeyW') || keys.has('ArrowUp') ? 1 : 0) - (keys.has('KeyS') || keys.has('ArrowDown') ? 1 : 0);
+  i.walk = keys.has('AltLeft') || keys.has('AltRight'); i.sprint = !i.walk; i.jump = keys.has('Space') && S.phase === 'play'; i.dive = (keys.has('ShiftLeft') || keys.has('ShiftRight')) && S.phase === 'play';   // sprint is the default speed (user's call); Alt walks
+  const gp = navigator.getGamepads && navigator.getGamepads()[0];
+  if (gp) { const dz = (v) => Math.abs(v) < 0.18 ? 0 : v; i.x += dz(gp.axes[0] || 0); i.y -= dz(gp.axes[1] || 0); const b = (n) => !!gp.buttons[n]?.pressed; const edge = (n) => { const v = b(n); const r = v && !padPrev[n]; padPrev[n] = v; return r; };
+    if (edge(0)) { unlockAudio(); if (CUT.done) skipCut(); else if (S.phase === 'splash') openIntro(); else if (S.phase === 'title') begin(); else if ((S.phase === 'over' || S.phase === 'won') && S.rt - S.endAt > 0.8) restartRun(); }
+    i.jump = i.jump || (S.phase === 'play' && b(0)); i.dive = i.dive || (S.phase === 'play' && (b(1) || b(7))); if (edge(4)) S.cam.yawT += Math.PI / 2;
+    if (CAM !== 'top') { const rx = dz(gp.axes[2] || 0), ry = dz(gp.axes[3] || 0); if (rx || ry) { S.cam.yaw -= rx * 2.6 * dt; S.cam.pitch = Math.max(-0.4, Math.min(0.9, S.cam.pitch + ry * 1.6 * dt)); S.cam.manualAt = S.rt; } } }
+  if (TOUCH) { i.x += TS.move.x; i.y += TS.move.y; i.jump = i.jump || (TS.jump && S.phase === 'play'); i.dive = i.dive || (TS.dive && S.phase === 'play');
+    if (TS.look.x || TS.look.y) { if (CAM === 'top') S.cam.yawT -= TS.look.x * 2.4 * dt; else { S.cam.yaw -= TS.look.x * 2.6 * dt; S.cam.pitch = Math.max(-0.4, Math.min(0.9, S.cam.pitch - TS.look.y * 1.6 * dt)); S.cam.manualAt = S.rt; } } }
+  if (S.override) Object.assign(i, S.override);
+  const l = Math.hypot(i.x, i.y); if (l > 1) { i.x /= l; i.y /= l; }
+}
+
+// ---- HUD ------------------------------------------------------------------------------------------------------------------
+const timerCv = document.createElement('canvas'); let lastTime = ''; if (FONT.zeroes) { $('timer').textContent = ''; $('timer').appendChild(timerCv); }
+// the wing pips: the white-on-black logo jpg turned into a white shape with its brightness as alpha, cropped to the mark
+{ let url = '/public/ui/i_us_air_speed_b.png'; try { const im = new Image(); im.src = '/public/blackbird_logo.jpg'; await im.decode(); const sx = im.width * 0.22, sy = im.height * 0.24, sw = im.width * 0.5, sh = im.height * 0.4; const c = document.createElement('canvas'); c.width = 140; c.height = Math.round(140 * sh / sw); const g = c.getContext('2d'); g.drawImage(im, sx, sy, sw, sh, 0, 0, c.width, c.height);
+    const d = g.getImageData(0, 0, c.width, c.height); for (let i = 0; i < d.data.length; i += 4) { const l = d.data[i]; d.data[i] = d.data[i + 1] = d.data[i + 2] = 255; d.data[i + 3] = l; } g.putImageData(d, 0, 0); url = c.toDataURL(); S.logo = c; } catch (e) { console.warn('logo pips unavailable', e); } document.documentElement.style.setProperty('--wing', `url(${url})`);
+  // the frame: the texture holds the top half of the counter (rows 0-15 carry the rounded corners)
+  try { const im = new Image(); im.src = '/public/ui/i_pizza_counter.png'; await im.decode(); const c = document.createElement('canvas'); c.width = 78; c.height = 32; const g = c.getContext('2d'); g.imageSmoothingEnabled = false; for (const flipY of [0, 1]) for (const flipX of [0, 1]) { g.setTransform(flipX ? -1 : 1, 0, 0, flipY ? -1 : 1, flipX ? 39 : 39, flipY ? 32 : 0); g.drawImage(im, 89, 0, 39, 16, 0, 0, 39, 16); }   /* only the wide cell: its right half (x 89-127), mirrored left and down, so the icon cell is gone and the frame is symmetric */ document.documentElement.style.setProperty('--wframe', `url(${c.toDataURL()})`); } catch (e) { console.warn('counter frame unavailable', e); } }
+function hud(scripted) {
+  if (scripted && S.frame % 10) return;
+  { const el = $('wings'); if (!S.hudInit) { S.hudInit = true; el.innerHTML = '<span class="wp">' + '<span class="wing"><i class="off"></i><i class="on"></i></span>'.repeat(FL.max) + '</span>'; }
+    const key = Math.round(FL.stamina * 25) + (S.invT > 0 ? 1000 : 0); if (key !== S.hudWings) { S.hudWings = key; el.querySelectorAll('.wing').forEach((w, k) => { const f = Math.max(0, Math.min(1, FL.stamina - k)); w.lastElementChild.style.clipPath = `inset(${((1 - f) * 100).toFixed(0)}% 0 0 0)`; w.classList.toggle('full', f >= 1); }); el.classList.toggle('out', FL.stamina < 1 && S.phase === 'play'); el.classList.toggle('hit', S.invT > 0); } }
+  $('combo').classList.toggle('on', S.combo > 0); if (S.combo > 0) { setBmp($('combotxt'), [T('COMBO ', '#cfd6e0', 1), N(S.combo, '#fff', 0.8 * NS), T('    X', '#ffd36a', TOUCH ? 1 : 1.5), N(S.mult, '#ffd36a', (TOUCH ? 1 : 1.5) * NS)]); $('combobar').firstElementChild.style.width = (100 * S.comboT / COMBO_T).toFixed(0) + '%'; }
+  const ts = mmss(Math.ceil(Math.max(0, RUN_LEN - S.t))); if (ts !== lastTime) { lastTime = ts; if (FONT.zeroes) { const sc = 2; timerCv.width = Math.ceil(FONT.zeroes.width(ts, sc)) + 4; timerCv.height = FONT.zeroes.f.cellheight * sc + 4; const g = timerCv.getContext('2d'); g.imageSmoothingEnabled = false; FONT.zeroes.draw(g, ts, 2, 2, sc); } else $('timer').textContent = ts; }
+  setBmp($('kills'), [T('SCORE ', '#cfd6e0', 1), N(S.score, '#fff', 0.75 * NS)]);
+  if (PZ.target) setBmp($('cdist'), [N(Math.round(PZ.dist || 0), '#fff', 0.8 * NS), T(' M', '#cfd6e0', TOUCH ? 1 : 1.2)]);
+  if (!$('pzicon').innerHTML) { $('pzicon').innerHTML = ICON.heal; $('dvicon').innerHTML = ICON.heal; }
+  setBmp($('pztxt'), PZ.phase === 'return' ? [T('BACK TO F&F  ', '#ffd36a', 1), N(Math.round(PZ.dist || 0), '#fff', 0.7 * NS), T(' M', '#ffd36a', 1)] : [T(PZ.carrying + (PZ.carrying === 1 ? ' PIZZA  ' : ' PIZZAS  '), '#ffd36a', 1), N(Math.round(PZ.dist || 0), '#fff', 0.7 * NS), T(' M', '#ffd36a', 1)]);
+  setBmp($('msg'), [T(PZ.msgT > 0 ? PZ.msg.toUpperCase() : '', '#9fd0ff', 1)]); setBmp($('dvtxt'), [N(PZ.delivered, '#fff', 0.7 * NS), T(' OF ' + N_STOPS + (TOUCH ? '  ' : ' DELIVERED  '), '#cfd6e0', 1), N(S.emblems, '#fff', 0.7 * NS), T(' EMBLEMS', '#cfd6e0', 1)]);
+  if (DEBUG) $('debug').textContent = `${S.fps.toFixed(0)} fps  emblems ${gems.n}  near ${S.near.length}/${S.colliders.length}  pos ${P.feet.x.toFixed(1)},${P.feet.y.toFixed(2)},${P.feet.z.toFixed(1)}  ground ${S.groundName}${S.wall ? '  wall ' + S.wall : ''}  speed ${P.speed.toFixed(1)}  vy ${P.vy.toFixed(1)}  ${FL.diving ? 'DIVE' : FL.gliding ? 'GLIDE' : P.grounded ? 'ground' : 'air'}`;
+}
+
+// ---- main ------------------------------------------------------------------------------------------------------------------
+function tick(dt, scripted = false) {
+  S.frame++; S.rt += dt; readInput(dt); if (S.phase === 'play') S.t += dt;
+  if (S.nearAt < 0 || S.rt - S.nearAt > 0.25) { refreshNear(); S.nearAt = S.rt; }
+  const live = S.phase === 'play'; tickHero(dt, live);
+  if (live) { S.invT -= dt; if (S.comboT > 0 && (S.comboT -= dt) <= 0) dropCombo(); tickGems(dt); tickHazards(dt); tickTraffic(dt); tickPizza(dt); rescue(dt); if (S.phase === 'play' && S.t >= RUN_LEN) finishRun(false); }
+  tickNpcs(dt); tickNums(dt); animateHero(dt); hero.visible = !(S.invT > 0 && live && Math.floor(S.rt * 16) % 2); tickCamera(dt); hud(scripted);
+}
+// ---- debug menu (` toggles it, ?dbg=1 opens it at the title).  Plain buttons: a tester's panel, not game UI. ----------------------------
+const DBG = { el: null, open: false, ro: null };
+function dbgNext() { const t = PZ.target; if (t) { P.feet.set(t.x + 3.5, t.y, t.z); P.visY = t.y; P.vy = 0; S.cam.pos = null; S.nearAt = -1; } }
+function dbgToggle(open = !DBG.open) { if (!DBG.el) dbgBuild(); DBG.open = open; DBG.el.classList.toggle('hidden', !open); }
+function dbgBuild() {
+  const el = document.createElement('div'); el.id = 'dbg'; el.className = 'hidden'; document.body.appendChild(el); DBG.el = el;
+  const B = (label, fn) => { const b = document.createElement('button'); b.textContent = label; b.onclick = () => { fn(); b.blur(); }; return b; };
+  const row = (...kids) => { const r = document.createElement('div'); r.className = 'row'; for (const k of kids) r.appendChild(k); el.appendChild(r); };
+  const hint = document.createElement('div'); hint.className = 'hint'; hint.textContent = 'DEBUG  (` to close)'; el.appendChild(hint);
+  row(B('Pause', () => { S.phase = S.phase === 'play' ? 'paused' : S.phase === 'paused' ? 'play' : S.phase; }), B('Finish', () => finishRun(true)), B('Time out', () => { S.t = RUN_LEN; }), B('Restart', restartRun));
+  row(B('+10 s', () => { S.t = Math.max(0, S.t - 10); }), B('Refill wings', () => { FL.stamina = FL.max; }), B('Endless wings', () => { FL.inf = !FL.inf; }), B('To next stop', dbgNext));
+  DBG.ro = document.createElement('div'); DBG.ro.className = 'ro'; el.appendChild(DBG.ro);
+  setInterval(() => { if (DBG.open) DBG.ro.textContent = `phase ${S.phase}  pizza ${PZ.phase} x${PZ.carrying}  left ${(RUN_LEN - S.t).toFixed(1)}\nscore ${S.score}  emblems ${S.emblems} (${gems.n} out)\nwings ${FL.stamina.toFixed(2)}/${FL.max}${FL.inf ? ' endless' : ''}  speed ${P.speed.toFixed(1)}  vy ${P.vy.toFixed(1)}`; }, 250);
+}
+if (q.get('dbg') === '1') dbgToggle(true);
+window.__sm2 = { THREE, scene, camera, renderer, S, ready: false, debug: { toggle: dbgToggle, next: dbgNext, finish: finishRun }, setInput: (o) => { S.override = o; }, step: (sec) => { const n = Math.round(sec * 60); for (let i = 0; i < n; i++) tick(1 / 60, i < n - 1); renderer.render(scene, camera); renderGadget(); },
+  teleport: (x, y, z) => { P.feet.set(x, y, z); P.visY = y; P.vy = 0; S.cam.pos = null; S.nearAt = -1; }, start: () => { if (S.phase === 'splash') S.phase = 'title'; startRun(); }, restart: () => restartRun(), HOME, topAt, roadPath, NODES, ROAD, findCustomerSpot, CENTER, ARENA,
+  stats: () => ({ t: +S.t.toFixed(2), left: +(RUN_LEN - S.t).toFixed(2), phase: S.phase, cut: CUT.done ? { src: CUT.el.currentSrc.split('/').pop(), t: +CUT.el.currentTime.toFixed(1), paused: CUT.el.paused, err: CUT.el.error ? CUT.el.error.code : 0 } : null, card: !$('overlay').classList.contains('hidden'), score: S.score, bonus: S.bonus, hits: S.hits, close: S.close, combo: S.combo, mult: S.mult, best: S.best, ringsHit: S.rings, cleared: S.cleared, blocks: HAZ.blocks.filter((b) => b.on).map((b) => [...b.root.position.toArray().map((v) => +v.toFixed(1)), b.def.url.split('__').pop()]), boostT: +Math.max(0, FL.boostT).toFixed(2), cars: HAZ.cars.filter((c) => c.on).map((c) => [+c.x.toFixed(1), +c.y.toFixed(1), +c.z.toFixed(1), c.kind]), rings: HAZ.rings.filter((r) => r.on).map((r) => r.g.position.toArray().map((v) => +v.toFixed(1))), inv: +Math.max(0, S.invT).toFixed(2), goons: HAZ.goons.filter((e) => e.on).map((e) => [+e.pos.x.toFixed(1), +e.y.toFixed(1), +e.pos.z.toFixed(1)]), pigeons: HAZ.pigeons.filter((g) => g.on).map((g) => [+g.cx.toFixed(1), +g.cy.toFixed(1), +g.cz.toFixed(1)]), emblems: S.emblems, gems: gems.n, wings: +FL.stamina.toFixed(2), gliding: FL.gliding, diving: FL.diving, grounded: P.grounded, speed: +P.speed.toFixed(2), vy: +P.vy.toFixed(2), fov: +camera.fov.toFixed(1),
+    pizza: { phase: PZ.phase, carrying: PZ.carrying, delivered: PZ.delivered, dist: +(PZ.dist || 0).toFixed(1), target: PZ.target, home: HOME, stops: STOPS.map((s) => ({ at: s.at, done: s.done })) }, fps: +S.fps.toFixed(0), pos: P.feet.toArray().map((v) => +v.toFixed(2)), ground: S.groundName, wall: S.wall, timing: S.timing }) };
+let last = performance.now(); let fpsAcc = 0, fpsN = 0;
+function loop() { requestAnimationFrame(loop); fitCanvas(); if (S.override) { renderer.render(scene, camera); renderGadget(); return; } const now = performance.now(); const dt = Math.min(0.05, (now - last) / 1000); last = now; fpsAcc += dt; fpsN++; if (fpsAcc > 0.5) { S.fps = fpsN / fpsAcc; fpsAcc = 0; fpsN = 0; } tick(dt); renderer.render(scene, camera); renderGadget(); }
+toSpawn();
+S.timing.ready = performance.now() - T0; document.body.classList.add('ready');   // on a phone the load phases show centre-screen until here, then the status line hides
+status(`ready in ${(S.timing.ready / 1000).toFixed(1)} s — ${WORLD === 'xbox' ? 'XB_CITY · ' + SPOT.name : MAP}: ${nPlaced} placed, ${S.colliders.length} colliders · walk ${H.NAT.walk?.toFixed(2)} / run ${H.NAT.run?.toFixed(2)} m/s natural`);
+if (q.get('autostart') === '1') startRun(); else if (CUT.on) { S.phase = 'splash'; showOverlay(splashHtml(), 'title'); } else showOverlay(titleHtml(), 'title');
+window.__sm2.ready = true; loop();
+</script></body></html>

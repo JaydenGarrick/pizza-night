@@ -1,0 +1,2395 @@
+{
+  "root": "/Users/jaydengarrick/Desktop/sm2-office/source/pc",
+  "count": 338,
+  "extensions": {
+    ".utx": 99,
+    ".ogg": 48,
+    ".usx": 32,
+    ".ukx": 26,
+    ".bik": 20,
+    ".dll": 20,
+    ".whr": 17,
+    ".uax": 16,
+    ".int": 15,
+    ".htm": 14,
+    ".u": 12,
+    ".jpg": 5,
+    ".ini": 4,
+    ".css": 2,
+    ".txt": 2,
+    ".bmp": 1,
+    ".xml": 1,
+    ".png": 1,
+    ".scc": 1,
+    ".gif": 1,
+    ".md5": 1
+  },
+  "files": [
+    {
+      "path": "Animations/AuntMayAnimations.ukx",
+      "size": 523365,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e0001000100000059000000400000000400000020fc07000f000000",
+      "header_ascii": "..*.~.......Y...@....... ......."
+    },
+    {
+      "path": "Animations/CSPropsAnimations.ukx",
+      "size": 27532,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000001b00000040000000050000003b6b000009000000",
+      "header_ascii": "..*.~...........@.......;k......"
+    },
+    {
+      "path": "Animations/CharacterPropsAnimations.ukx",
+      "size": 236919,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000003d00000040000000200000007d9b030012000000",
+      "header_ascii": "..*.~.......=...@... ...}......."
+    },
+    {
+      "path": "Animations/Cop01Animations.ukx",
+      "size": 541197,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000006f00000040000000080000008a4108000f000000",
+      "header_ascii": "..*.~.......o...@........A......"
+    },
+    {
+      "path": "Animations/DocOcAnimations.ukx",
+      "size": 3516890,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000b102000040000000ff0000008e9835003f000000",
+      "header_ascii": "..*.~...........@.........5.?..."
+    },
+    {
+      "path": "Animations/FemaleScientistAnimations.ukx",
+      "size": 282927,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000005200000040000000020000000c5104000e000000",
+      "header_ascii": "..*.~.......R...@........Q......"
+    },
+    {
+      "path": "Animations/GenericFemaleAnimations.ukx",
+      "size": 1106574,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e0001000100000085000000400000000e0000009fe1100025000000",
+      "header_ascii": "..*.~...........@...........%..."
+    },
+    {
+      "path": "Animations/GenericMaleAnimations.ukx",
+      "size": 861272,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000007d000000400000000e00000069230d0020000000",
+      "header_ascii": "..*.~.......}...@.......i#.. ..."
+    },
+    {
+      "path": "Animations/GnPropsAnimations.ukx",
+      "size": 237121,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e0001000100000041000000400000000d000000719d030013000000",
+      "header_ascii": "..*.~.......A...@.......q......."
+    },
+    {
+      "path": "Animations/IDEnvAnimations.ukx",
+      "size": 678994,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000005a000000400000001c0000007e5a0a0012000000",
+      "header_ascii": "..*.~.......Z...@.......~Z......"
+    },
+    {
+      "path": "Animations/MaryJaneAnimations.ukx",
+      "size": 529521,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000006e00000040000000060000000a1408000f000000",
+      "header_ascii": "..*.~.......n...@..............."
+    },
+    {
+      "path": "Animations/MiniChallengeAnimations.ukx",
+      "size": 385971,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000008d000000400000004c000000efde050030000000",
+      "header_ascii": "..*.~...........@...L.......0..."
+    },
+    {
+      "path": "Animations/MysterioAnimations.ukx",
+      "size": 960950,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000fd000000400000003a00000005a60e0046000000",
+      "header_ascii": "..*.~...........@...:.......F..."
+    },
+    {
+      "path": "Animations/MysterioBotAnimations.ukx",
+      "size": 151418,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000770000004000000021000000744d020026000000",
+      "header_ascii": "..*.~.......w...@...!...tM..&..."
+    },
+    {
+      "path": "Animations/OLPropsAnimations.ukx",
+      "size": 158569,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e0001000100000035000000400000000c000000b06a020012000000",
+      "header_ascii": "..*.~.......5...@........j......"
+    },
+    {
+      "path": "Animations/PeterParkerAnimations.ukx",
+      "size": 441052,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e0001000100000059000000400000000600000075ba060010000000",
+      "header_ascii": "..*.~.......Y...@.......u......."
+    },
+    {
+      "path": "Animations/PidgeonAnimations.ukx",
+      "size": 39455,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000230000004000000004000000dd99000005000000",
+      "header_ascii": "..*.~.......#...@..............."
+    },
+    {
+      "path": "Animations/PumaAnimations.ukx",
+      "size": 822564,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000e60000004000000035000000e0890c0026000000",
+      "header_ascii": "..*.~...........@...5.......&..."
+    },
+    {
+      "path": "Animations/RhinoAnimations.ukx",
+      "size": 732787,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000ef000000400000003f000000922a0b0037000000",
+      "header_ascii": "..*.~...........@...?....*..7..."
+    },
+    {
+      "path": "Animations/ScientistAnimations.ukx",
+      "size": 199797,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000005f0000004000000004000000320c03000e000000",
+      "header_ascii": "..*.~......._...@.......2......."
+    },
+    {
+      "path": "Animations/SpideyAnimations.ukx",
+      "size": 2969685,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000870200004000000040010000a13b2d0039000000",
+      "header_ascii": "..*.~...........@...@....;-.9..."
+    },
+    {
+      "path": "Animations/SuperThugAnimations.ukx",
+      "size": 771571,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e0001000100000003010000400000004d0000003dc10b0032000000",
+      "header_ascii": "..*.~...........@...M...=...2..."
+    },
+    {
+      "path": "Animations/TSPropsAnimations.ukx",
+      "size": 334513,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000230000004000000009000000221a050009000000",
+      "header_ascii": "..*.~.......#...@.......\"......."
+    },
+    {
+      "path": "Animations/Thug01Animations.ukx",
+      "size": 976304,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e00010001000000ff000000400000004500000051e10e003e000000",
+      "header_ascii": "..*.~...........@...E...Q...>..."
+    },
+    {
+      "path": "Animations/VehicleAnimations.ukx",
+      "size": 849540,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7e000100010000004c000000400000001d000000b0f40c001d000000",
+      "header_ascii": "..*.~.......L...@..............."
+    },
+    {
+      "path": "Animations/WebShootAnimations.ukx",
+      "size": 5894,
+      "extension": ".ukx",
+      "header_hex": "c1832a9e7b00010001000000190000004000000002000000e816000005000000",
+      "header_ascii": "..*.{...........@..............."
+    },
+    {
+      "path": "Help/Logo.bmp",
+      "size": 308280,
+      "extension": ".bmp",
+      "header_hex": "424d38b4040000000000360400002800000080020000e0010000010008000000",
+      "header_ascii": "BM8.......6...(................."
+    },
+    {
+      "path": "Help/_borders/left.htm",
+      "size": 5969,
+      "extension": ".htm",
+      "header_hex": "3c21444f43545950452048544d4c3e0d0a3c68746d6c20786d6c6e733a763d22",
+      "header_ascii": "<!DOCTYPE HTML>..<html xmlns:v=\""
+    },
+    {
+      "path": "Help/_borders/side_ie.css",
+      "size": 1044,
+      "extension": ".css",
+      "header_hex": "626f64792020202020202020207b206261636b67726f756e642d636f6c6f723a",
+      "header_ascii": "body         { background-color:"
+    },
+    {
+      "path": "Help/_borders/style_ie.css",
+      "size": 641,
+      "extension": ".css",
+      "header_hex": "612020202020202020202020207b20666f6e742d66616d696c793a2041726961",
+      "header_ascii": "a            { font-family: Aria"
+    },
+    {
+      "path": "Help/_borders/top.htm",
+      "size": 4531,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/_borders/top_files/atvi.jpg",
+      "size": 33410,
+      "extension": ".jpg",
+      "header_hex": "ffd8ffe000104a46494600010201012c012c0000ffe109f04578696600004d4d",
+      "header_ascii": "......JFIF.....,.,......Exif..MM"
+    },
+    {
+      "path": "Help/_borders/top_files/filelist.xml",
+      "size": 193,
+      "extension": ".xml",
+      "header_hex": "3c786d6c20786d6c6e733a6f3d2275726e3a736368656d61732d6d6963726f73",
+      "header_ascii": "<xml xmlns:o=\"urn:schemas-micros"
+    },
+    {
+      "path": "Help/_borders/top_files/image001.png",
+      "size": 433419,
+      "extension": ".png",
+      "header_hex": "89504e470d0a1a0a0000000d494844520000024d00000115080200000072ad46",
+      "header_ascii": ".PNG........IHDR...M.........r.F"
+    },
+    {
+      "path": "Help/_borders/top_files/vssver.scc",
+      "size": 80,
+      "extension": ".scc",
+      "header_hex": "34120100f8f41d766bc3aa4b8f2a8ebc7656093a56628eac7979010000000000",
+      "header_ascii": "4......vk..K.*..vV.:Vb..yy......"
+    },
+    {
+      "path": "Help/compatibility/msr.htm",
+      "size": 10499,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a6f3d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:o=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/images/3by3.gif",
+      "size": 49,
+      "extension": ".gif",
+      "header_hex": "4749463839610a000a00800000ffffffffffff21f90401000001002c00000000",
+      "header_ascii": "GIF89a.............!.......,...."
+    },
+    {
+      "path": "Help/images/ATVIsmall.jpg",
+      "size": 6391,
+      "extension": ".jpg",
+      "header_hex": "ffd8ffe000104a46494600010201004800480000ffed086a50686f746f73686f",
+      "header_ascii": "......JFIF.....H.H.....jPhotosho"
+    },
+    {
+      "path": "Help/images/ATVIsmall_invert.jpg",
+      "size": 1357,
+      "extension": ".jpg",
+      "header_hex": "ffd8ffe000104a46494600010101004800480000ffdb00430005030404040305",
+      "header_ascii": "......JFIF.....H.H.....C........"
+    },
+    {
+      "path": "Help/images/Activision.jpg",
+      "size": 2441,
+      "extension": ".jpg",
+      "header_hex": "ffd8ffe000104a46494600010101006000600000fffe001c536f667477617265",
+      "header_ascii": "......JFIF.....`.`......Software"
+    },
+    {
+      "path": "Help/images/redstripe.jpg",
+      "size": 1954,
+      "extension": ".jpg",
+      "header_hex": "ffd8ffe000104a46494600010201004800480000ffed051450686f746f73686f",
+      "header_ascii": "......JFIF.....H.H......Photosho"
+    },
+    {
+      "path": "Help/index.htm",
+      "size": 7413,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/license/license.htm",
+      "size": 27826,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/readme/readme.htm",
+      "size": 29746,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/Default.htm",
+      "size": 5245,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/compatibility/msr.htm",
+      "size": 10499,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a6f3d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:o=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/customer support/Customer_support.htm",
+      "size": 191470,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/information/Audio_Problems.htm",
+      "size": 8036,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/information/DirectX.htm",
+      "size": 7332,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/information/Electronic_Registration.htm",
+      "size": 5108,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/information/Installing_the_game_to_a_compressed_hard_drive.htm",
+      "size": 4414,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Help/tech help/information/autoplay.htm",
+      "size": 8459,
+      "extension": ".htm",
+      "header_hex": "3c68746d6c20786d6c6e733a763d2275726e3a736368656d61732d6d6963726f",
+      "header_ascii": "<html xmlns:v=\"urn:schemas-micro"
+    },
+    {
+      "path": "Maps/CB3_CityStreet.whr",
+      "size": 16411951,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000d335000040000000392e00007332f70044030000",
+      "header_ascii": "..*.~........5..@...9...s2..D..."
+    },
+    {
+      "path": "Maps/Entry.whr",
+      "size": 336567,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000006f000000400000001e000000df20050010000000",
+      "header_ascii": "..*.~.......o...@........ ......"
+    },
+    {
+      "path": "Maps/HUD-Adrenometer.whr",
+      "size": 344374,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000990000004000000027000000bb3e05001b000000",
+      "header_ascii": "..*.~...........@...'....>......"
+    },
+    {
+      "path": "Maps/ParkAve_CityStreet.whr",
+      "size": 17077502,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000009e3a000040000000e732000029fa000191030000",
+      "header_ascii": "..*.~........:..@....2..)......."
+    },
+    {
+      "path": "Maps/ParkAve_ConstructionSite.whr",
+      "size": 9419112,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000000d2b0000400000000726000045158d004e020000",
+      "header_ascii": "..*.~........+..@....&..E...N..."
+    },
+    {
+      "path": "Maps/PreStartup.whr",
+      "size": 336860,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000780000004000000021000000db21050013000000",
+      "header_ascii": "..*.~.......x...@...!....!......"
+    },
+    {
+      "path": "Maps/TwistedCity_Part01.whr",
+      "size": 6212329,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000a614000040000000a410000093ad5d00b5010000",
+      "header_ascii": "..*.~...........@.........]....."
+    },
+    {
+      "path": "Maps/TwistedCity_Part02.whr",
+      "size": 14809422,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000c02a000040000000f82500006d4bdf0040020000",
+      "header_ascii": "..*.~........*..@....%..mK..@..."
+    },
+    {
+      "path": "Maps/TwistedCity_Part03.whr",
+      "size": 5587917,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000b210000040000000140d0000de645400b8010000",
+      "header_ascii": "..*.~...........@........dT....."
+    },
+    {
+      "path": "Maps/WallStreet_Bank.whr",
+      "size": 7993177,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000008d30000040000000c52a0000eff176007c020000",
+      "header_ascii": "..*.~........0..@....*....v.|..."
+    },
+    {
+      "path": "Maps/WallStreet_CityStreet.whr",
+      "size": 17492869,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000006429000040000000f9230000156c0801c7020000",
+      "header_ascii": "..*.~.......d)..@....#...l......"
+    },
+    {
+      "path": "Maps/WallStreet_OsCorpLab.whr",
+      "size": 7588355,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000002333000040000000012b00001cc97000cb020000",
+      "header_ascii": "..*.~.......#3..@....+....p....."
+    },
+    {
+      "path": "Maps/Wharf_Docks.whr",
+      "size": 13282025,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000c2310000400000001e2c0000be98c7004c020000",
+      "header_ascii": "..*.~........1..@....,......L..."
+    },
+    {
+      "path": "Maps/Wharf_Train.whr",
+      "size": 893319,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e000100010000009303000040000000e901000092810d0084000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Maps/Wharf_TrainStation.whr",
+      "size": 4378021,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000b31200004000000000100000b9b8410015010000",
+      "header_ascii": "..*.~...........@.........A....."
+    },
+    {
+      "path": "Maps/Wharf_Warehouse.whr",
+      "size": 7718315,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000111e000040000000e7180000d210740025020000",
+      "header_ascii": "..*.~...........@.........t.%..."
+    },
+    {
+      "path": "Maps/startup.whr",
+      "size": 336825,
+      "extension": ".whr",
+      "header_hex": "c1832a9e7e00010001000000750000004000000021000000b221050013000000",
+      "header_ascii": "..*.~.......u...@...!....!......"
+    },
+    {
+      "path": "Movies/ACTIVISN.bik",
+      "size": 2485980,
+      "extension": ".bik",
+      "header_hex": "42494b69d4ee25009c000000f47800009c00000000020000000200000f000000",
+      "header_ascii": "BIKi..%......x.................."
+    },
+    {
+      "path": "Movies/Breakout.bik",
+      "size": 2498452,
+      "extension": ".bik",
+      "header_hex": "42494b698c1f260067000000309400006700000000020000000200000f000000",
+      "header_ascii": "BIKi..&.g...0...g..............."
+    },
+    {
+      "path": "Movies/CB3-OpeningChase_anim.bik",
+      "size": 4202708,
+      "extension": ".bik",
+      "header_hex": "42494b69cc204000d600000090760000d600000000020000000200000f000000",
+      "header_ascii": "BIKi. @......v.................."
+    },
+    {
+      "path": "Movies/Credits.bik",
+      "size": 58136516,
+      "extension": ".bik",
+      "header_hex": "42494b69bc177703d3090000d0680000d309000000020000000200000f000000",
+      "header_ascii": "BIKi..w......h.................."
+    },
+    {
+      "path": "Movies/ESRB.bik",
+      "size": 323456,
+      "extension": ".bik",
+      "header_hex": "42494b6978ef04003c000000b07f00003c00000000020000000200000f000000",
+      "header_ascii": "BIKix...<.......<..............."
+    },
+    {
+      "path": "Movies/FIZZbumper.bik",
+      "size": 1977280,
+      "extension": ".bik",
+      "header_hex": "42494b69b82b1e00780000004c7400007800000000020000000200000f000000",
+      "header_ascii": "BIKi.+..x...Lt..x..............."
+    },
+    {
+      "path": "Movies/GasStation.bik",
+      "size": 7401732,
+      "extension": ".bik",
+      "header_hex": "42494b69fcf07000330100006c6f00003301000000020000000200000f000000",
+      "header_ascii": "BIKi..p.3...lo..3..............."
+    },
+    {
+      "path": "Movies/L2M1B_BankVaultIntro.bik",
+      "size": 3173772,
+      "extension": ".bik",
+      "header_hex": "42494b69846d300091000000a87800009100000000020000000200000f000000",
+      "header_ascii": "BIKi.m0......x.................."
+    },
+    {
+      "path": "Movies/L2M1BankLobbyAnimatic.bik",
+      "size": 6860200,
+      "extension": ".bik",
+      "header_hex": "42494b69a0ad68003c010000c07000003c01000000020000000200000f000000",
+      "header_ascii": "BIKi..h.<....p..<..............."
+    },
+    {
+      "path": "Movies/L2M2_DocEscapeAnimatic.bik",
+      "size": 1804680,
+      "extension": ".bik",
+      "header_hex": "42494b6980891b0069000000547d00006900000000020000000200000f000000",
+      "header_ascii": "BIKi....i...T}..i..............."
+    },
+    {
+      "path": "Movies/L3M1_PumaExitsGarageAnimatic.bik",
+      "size": 2643788,
+      "extension": ".bik",
+      "header_hex": "42494b694457280086000000a06c00008600000000020000000200000f000000",
+      "header_ascii": "BIKiDW(......l.................."
+    },
+    {
+      "path": "Movies/L3M2_PumaThrowsCarAnimatic.bik",
+      "size": 5030288,
+      "extension": ".bik",
+      "header_hex": "42494b6988c14c00d3000000007b0000d300000000020000000200000f000000",
+      "header_ascii": "BIKi..L......{.................."
+    },
+    {
+      "path": "Movies/L3M3_CatchPumaAnimatic.bik",
+      "size": 4380996,
+      "extension": ".bik",
+      "header_hex": "42494b693cd94200d4000000946e0000d400000000020000000200000f000000",
+      "header_ascii": "BIKi<.B......n.................."
+    },
+    {
+      "path": "Movies/L5M3_CannonBreakout.bik",
+      "size": 4651920,
+      "extension": ".bik",
+      "header_hex": "42494b6988fb4600c0000000646a0000c000000000020000000200000f000000",
+      "header_ascii": "BIKi..F.....dj.................."
+    },
+    {
+      "path": "Movies/L5M3_WorldTransition.bik",
+      "size": 6456968,
+      "extension": ".bik",
+      "header_hex": "42494b6980866200530100001c8000005301000000020000000200000f000000",
+      "header_ascii": "BIKi..b.S.......S..............."
+    },
+    {
+      "path": "Movies/L6M2_TrainCrashAnimatic.bik",
+      "size": 6129304,
+      "extension": ".bik",
+      "header_hex": "42494b6990865d00fb000000ac6e0000fb00000000020000000200000f000000",
+      "header_ascii": "BIKi..]......n.................."
+    },
+    {
+      "path": "Movies/L6_MomentOfClarity.bik",
+      "size": 10837580,
+      "extension": ".bik",
+      "header_hex": "42494b69445ea500ca010000d4700000ca01000000020000000200000f000000",
+      "header_ascii": "BIKiD^.......p.................."
+    },
+    {
+      "path": "Movies/Marvel.bik",
+      "size": 4250344,
+      "extension": ".bik",
+      "header_hex": "42494b69e0da4000c300000010720000c300000000020000000200000f000000",
+      "header_ascii": "BIKi..@......r.................."
+    },
+    {
+      "path": "Movies/StartGameIntro.bik",
+      "size": 35219340,
+      "extension": ".bik",
+      "header_hex": "42494b6984671902a9050000e8700000a905000000020000000200000f000000",
+      "header_ascii": "BIKi.g.......p.................."
+    },
+    {
+      "path": "Movies/StorySetUpBlurEdit01.bik",
+      "size": 15398324,
+      "extension": ".bik",
+      "header_hex": "42494b69acf5ea003e030000687100003e03000000020000000200000f000000",
+      "header_ascii": "BIKi....>...hq..>..............."
+    },
+    {
+      "path": "Music/Boss_Puma_fight_hideout.ogg",
+      "size": 819700,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000003e6800000000000012322ebc011e01766f72",
+      "header_ascii": "OggS..........>h.......2.....vor"
+    },
+    {
+      "path": "Music/CS3_Action1.ogg",
+      "size": 1041515,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000140600000000000030973ec0011e01766f72",
+      "header_ascii": "OggS..................0.>....vor"
+    },
+    {
+      "path": "Music/CS3_Action2.ogg",
+      "size": 1330560,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000006171000000000000ef2e08a3011e01766f72",
+      "header_ascii": "OggS..........aq.............vor"
+    },
+    {
+      "path": "Music/CS3_Action3.ogg",
+      "size": 894041,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000007569000000000000e380b07c011e01766f72",
+      "header_ascii": "OggS..........ui.........|...vor"
+    },
+    {
+      "path": "Music/Chase.ogg",
+      "size": 731138,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000005d3000000000000074c5f94f011e01766f72",
+      "header_ascii": "OggS..........]0......t..O...vor"
+    },
+    {
+      "path": "Music/Death.ogg",
+      "size": 61093,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000001e70000000000000f89f4a19011e01766f72",
+      "header_ascii": "OggS...........p........J....vor"
+    },
+    {
+      "path": "Music/Default/Bot_TwCity2.ogg",
+      "size": 2116607,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000002f39000000000000e15fdad5011e01766f72",
+      "header_ascii": "OggS........../9......._.....vor"
+    },
+    {
+      "path": "Music/Default/LowHealth3.ogg",
+      "size": 305785,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000c5530000000000004c269778011e01766f72",
+      "header_ascii": "OggS...........S......L&.x...vor"
+    },
+    {
+      "path": "Music/Default/Mysterio_default.ogg",
+      "size": 2553813,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000007c1d000000000000aa6e61b7011e01766f72",
+      "header_ascii": "OggS..........|........na....vor"
+    },
+    {
+      "path": "Music/Default/Ock_default.ogg",
+      "size": 2068395,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000523400000000000003b175c7011e01766f72",
+      "header_ascii": "OggS..........R4........u....vor"
+    },
+    {
+      "path": "Music/Default/Rhino_default.ogg",
+      "size": 2597910,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000052620000000000008ac8771c011e01766f72",
+      "header_ascii": "OggS..........Rb........w....vor"
+    },
+    {
+      "path": "Music/Default/Thug_1.ogg",
+      "size": 268719,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000068210000000000004143c5b9011e01766f72",
+      "header_ascii": "OggS..........h!......AC.....vor"
+    },
+    {
+      "path": "Music/Default/Thug_2.ogg",
+      "size": 253829,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000005269000000000000833bc596011e01766f72",
+      "header_ascii": "OggS..........Ri.......;.....vor"
+    },
+    {
+      "path": "Music/Default/Thug_3.ogg",
+      "size": 285808,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000001423000000000000dd2d61ff011e01766f72",
+      "header_ascii": "OggS...........#.......-a....vor"
+    },
+    {
+      "path": "Music/Default/Thug_4.ogg",
+      "size": 380002,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000051460000000000004fc28907011e01766f72",
+      "header_ascii": "OggS..........QF......O......vor"
+    },
+    {
+      "path": "Music/Default/Thug_5.ogg",
+      "size": 258999,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000ca6100000000000020b315f1011e01766f72",
+      "header_ascii": "OggS...........a...... ......vor"
+    },
+    {
+      "path": "Music/Default/Thug_6.ogg",
+      "size": 381112,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000009a0b0000000000003fdaad36011e01766f72",
+      "header_ascii": "OggS..................?..6...vor"
+    },
+    {
+      "path": "Music/Default/Thug_WallSt1.ogg",
+      "size": 254982,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000008d650000000000007bf84e4d011e01766f72",
+      "header_ascii": "OggS...........e......{.NM...vor"
+    },
+    {
+      "path": "Music/MJClaw.ogg",
+      "size": 299827,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000c53000000000000077e89f94011e01766f72",
+      "header_ascii": "OggS...........0......w......vor"
+    },
+    {
+      "path": "Music/Menu_drone.ogg",
+      "size": 175988,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000002f410000000000008c6f35bb011e01766f72",
+      "header_ascii": "OggS........../A.......o5....vor"
+    },
+    {
+      "path": "Music/Mysterio_default.ogg",
+      "size": 996473,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000007a59000000000000d9479dfd011e01766f72",
+      "header_ascii": "OggS..........zY.......G.....vor"
+    },
+    {
+      "path": "Music/Ock_Bank.ogg",
+      "size": 612592,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000004254000000000000c025da97011e01766f72",
+      "header_ascii": "OggS..........BT.......%.....vor"
+    },
+    {
+      "path": "Music/Ock_Bank2.ogg",
+      "size": 801423,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000006d3000000000000030ccddd4011e01766f72",
+      "header_ascii": "OggS..........m0......0......vor"
+    },
+    {
+      "path": "Music/Ock_default.ogg",
+      "size": 493987,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000064590000000000007d71e3f1011e01766f72",
+      "header_ascii": "OggS..........dY......}q.....vor"
+    },
+    {
+      "path": "Music/PAve_PumaChat.ogg",
+      "size": 424526,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000004809000000000000179f4fa1011e01766f72",
+      "header_ascii": "OggS..........H.........O....vor"
+    },
+    {
+      "path": "Music/PAve_VanChase.ogg",
+      "size": 607259,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000d51c00000000000061c29673011e01766f72",
+      "header_ascii": "OggS..................a..s...vor"
+    },
+    {
+      "path": "Music/Puma_ConstSite.ogg",
+      "size": 2582959,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000ed70000000000000e0019e2d011e01766f72",
+      "header_ascii": "OggS...........p.........-...vor"
+    },
+    {
+      "path": "Music/Puma_PAve_Chase2.ogg",
+      "size": 1745332,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000000b370000000000005165f325011e01766f72",
+      "header_ascii": "OggS...........7......Qe.%...vor"
+    },
+    {
+      "path": "Music/Rhino_default.ogg",
+      "size": 2597910,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000052620000000000008ac8771c011e01766f72",
+      "header_ascii": "OggS..........Rb........w....vor"
+    },
+    {
+      "path": "Music/Stealth.ogg",
+      "size": 776175,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000d33700000000000078429bdd011e01766f72",
+      "header_ascii": "OggS...........7......xB.....vor"
+    },
+    {
+      "path": "Music/Stinger1.ogg",
+      "size": 104835,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000061280000000000006b5b1f96011e01766f72",
+      "header_ascii": "OggS..........a(......k[.....vor"
+    },
+    {
+      "path": "Music/Stinger2.ogg",
+      "size": 80420,
+      "extension": ".ogg",
+      "header_hex": "4f6767530002000000000000000094540000000000001c386fe9011e01766f72",
+      "header_ascii": "OggS...........T.......8o....vor"
+    },
+    {
+      "path": "Music/Stinger3.ogg",
+      "size": 95671,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000c32d00000000000080b474eb011e01766f72",
+      "header_ascii": "OggS...........-........t....vor"
+    },
+    {
+      "path": "Music/TC1_IntroAmbient.ogg",
+      "size": 583688,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000903b00000000000021a68e3c011e01766f72",
+      "header_ascii": "OggS...........;......!..<...vor"
+    },
+    {
+      "path": "Music/TC2_IntroAmbient.ogg",
+      "size": 365186,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000d767000000000000f4a1815b011e01766f72",
+      "header_ascii": "OggS...........g.........[...vor"
+    },
+    {
+      "path": "Music/TC3_IntroAmbient.ogg",
+      "size": 397411,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000d44100000000000067f9d048011e01766f72",
+      "header_ascii": "OggS...........A......g..H...vor"
+    },
+    {
+      "path": "Music/Tutorial.ogg",
+      "size": 361887,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000008c5500000000000058a53bce011e01766f72",
+      "header_ascii": "OggS...........U......X.;....vor"
+    },
+    {
+      "path": "Music/TwistedCity_Part01/Bot_TwCity1.ogg",
+      "size": 2205011,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000c4550000000000006d0781ae011e01766f72",
+      "header_ascii": "OggS...........U......m......vor"
+    },
+    {
+      "path": "Music/TwistedCity_Part01/Bot_TwCity1b.ogg",
+      "size": 1780772,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000008d5b000000000000c0bcf6f0011e01766f72",
+      "header_ascii": "OggS...........[.............vor"
+    },
+    {
+      "path": "Music/TwistedCity_Part01/Bot_TwCity1c.ogg",
+      "size": 894102,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000e15800000000000007e7b2d2011e01766f72",
+      "header_ascii": "OggS...........X.............vor"
+    },
+    {
+      "path": "Music/TwistedCity_Part02/Bot_TwCity2.ogg",
+      "size": 2116607,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000002f39000000000000e15fdad5011e01766f72",
+      "header_ascii": "OggS........../9......._.....vor"
+    },
+    {
+      "path": "Music/TwistedCity_Part02/Bot_TwCity2b.ogg",
+      "size": 1778862,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000000519000000000000b52b2bc6011e01766f72",
+      "header_ascii": "OggS...................++....vor"
+    },
+    {
+      "path": "Music/TwistedCity_Part02/Bot_TwCity2c.ogg",
+      "size": 1252876,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000d37400000000000055cdc054011e01766f72",
+      "header_ascii": "OggS...........t......U..T...vor"
+    },
+    {
+      "path": "Music/WallStreet_OsCorpLab/Ock_OscorpLab.ogg",
+      "size": 2295393,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000009c030000000000006c701f1b011e01766f72",
+      "header_ascii": "OggS..................lp.....vor"
+    },
+    {
+      "path": "Music/WallStreet_OsCorpLab/Rhino_Lab.ogg",
+      "size": 2554233,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000d7550000000000001e82c0ee011e01766f72",
+      "header_ascii": "OggS...........U.............vor"
+    },
+    {
+      "path": "Music/Wharf_Train/Ock_Train.ogg",
+      "size": 952939,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000680e0000000000005a0e8332011e01766f72",
+      "header_ascii": "OggS..........h.......Z..2...vor"
+    },
+    {
+      "path": "Music/bank_walla.ogg",
+      "size": 183034,
+      "extension": ".ogg",
+      "header_hex": "4f676753000200000000000000002007000000000000dcada154011e01766f72",
+      "header_ascii": "OggS.......... ..........T...vor"
+    },
+    {
+      "path": "Music/title_short.ogg",
+      "size": 1385423,
+      "extension": ".ogg",
+      "header_hex": "4f67675300020000000000000000de7c00000000000022db49a4011e01766f72",
+      "header_ascii": "OggS...........|......\".I....vor"
+    },
+    {
+      "path": "README.txt",
+      "size": 10299,
+      "extension": ".txt",
+      "header_hex": "5370696465722d4d616e203228544d2920524541444d450d0a4c617374205570",
+      "header_ascii": "Spider-Man 2(TM) README..Last Up"
+    },
+    {
+      "path": "Sounds/Ambient.uax",
+      "size": 41366154,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e00010001000000df00000040000000d7000000d722770202000000",
+      "header_ascii": "..*.~...........@........\"w....."
+    },
+    {
+      "path": "Sounds/DoorsAudio.uax",
+      "size": 5078488,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e00010001000000d2000000400000008300000068754d005a000000",
+      "header_ascii": "..*.~...........@.......huM.Z..."
+    },
+    {
+      "path": "Sounds/Empty.uax",
+      "size": 730893,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e00010001000000a40000004000000056000000ef210b005a000000",
+      "header_ascii": "..*.~...........@...V....!..Z..."
+    },
+    {
+      "path": "Sounds/Events.uax",
+      "size": 20933611,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000007a0000004000000072000000b9633f0102000000",
+      "header_ascii": "..*.~.......z...@...r....c?....."
+    },
+    {
+      "path": "Sounds/Footsteps.uax",
+      "size": 2952679,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000009e00000040000000960000003e032d0002000000",
+      "header_ascii": "..*.~...........@.......>.-....."
+    },
+    {
+      "path": "Sounds/HiTechSounds.uax",
+      "size": 20941212,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e00010001000000ad00000040000000a5000000a07d3f0102000000",
+      "header_ascii": "..*.~...........@........}?....."
+    },
+    {
+      "path": "Sounds/Impacts.uax",
+      "size": 5176756,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000005c0000004000000054000000c8f74e0002000000",
+      "header_ascii": "..*.~.......\\...@...T.....N....."
+    },
+    {
+      "path": "Sounds/MusicFX.uax",
+      "size": 4017981,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000000e0000004000000006000000d34e3d0002000000",
+      "header_ascii": "..*.~...........@........N=....."
+    },
+    {
+      "path": "Sounds/People.uax",
+      "size": 4175014,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e0001000100000067000000400000005f000000f3ad3f0002000000",
+      "header_ascii": "..*.~.......g...@..._.....?....."
+    },
+    {
+      "path": "Sounds/RobotAudio.uax",
+      "size": 1193447,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000002000000040000000180000004e34120002000000",
+      "header_ascii": "..*.~....... ...@.......N4......"
+    },
+    {
+      "path": "Sounds/Spidey.uax",
+      "size": 1735498,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000002b0000004000000023000000f0781a0002000000",
+      "header_ascii": "..*.~.......+...@...#....x......"
+    },
+    {
+      "path": "Sounds/UISounds.uax",
+      "size": 678384,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000000f00000040000000070000007a590a0002000000",
+      "header_ascii": "..*.~...........@.......zY......"
+    },
+    {
+      "path": "Sounds/VOAudio.uax",
+      "size": 38458827,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e0001000100000033050000400000002a050000cf744a0202000000",
+      "header_ascii": "..*.~.......3...@...*....tJ....."
+    },
+    {
+      "path": "Sounds/Vehicle.uax",
+      "size": 15830146,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000005e00000040000000560000006286f10002000000",
+      "header_ascii": "..*.~.......^...@...V...b......."
+    },
+    {
+      "path": "Sounds/Walla.uax",
+      "size": 7000718,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e000100010000001d000000400000001500000018d16a0002000000",
+      "header_ascii": "..*.~...........@.........j....."
+    },
+    {
+      "path": "Sounds/combat.uax",
+      "size": 9449197,
+      "extension": ".uax",
+      "header_hex": "c1832a9e7e00010001000000a5000000400000009d0000009a23900002000000",
+      "header_ascii": "..*.~...........@........#......"
+    },
+    {
+      "path": "StaticMeshes/BkPropsMeshes.usx",
+      "size": 2380752,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000005d010000400000005a010000303c240081000000",
+      "header_ascii": "..*.~.......]...@...Z...0<$....."
+    },
+    {
+      "path": "StaticMeshes/CSPropsMeshes.usx",
+      "size": 789692,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000ac00000040000000a300000039020c003a000000",
+      "header_ascii": "..*.~...........@.......9...:..."
+    },
+    {
+      "path": "StaticMeshes/CombatMeshes.usx",
+      "size": 159079,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e0001000100000027000000400000000c000000ab6c020010000000",
+      "header_ascii": "..*.~.......'...@........l......"
+    },
+    {
+      "path": "StaticMeshes/EffectsMeshes.usx",
+      "size": 16380,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000100000004000000003000000cd3f000007000000",
+      "header_ascii": "..*.~...........@........?......"
+    },
+    {
+      "path": "StaticMeshes/EffectsMeshes_Test.usx",
+      "size": 4982,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000000c00000040000000020000005913000004000000",
+      "header_ascii": "..*.~...........@.......Y......."
+    },
+    {
+      "path": "StaticMeshes/GameplayMeshes.usx",
+      "size": 123303,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000003100000040000000190000001de001001c000000",
+      "header_ascii": "..*.~.......1...@..............."
+    },
+    {
+      "path": "StaticMeshes/GenGun_Effects.usx",
+      "size": 4750,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000150000004000000004000000541200000a000000",
+      "header_ascii": "..*.~...........@.......T......."
+    },
+    {
+      "path": "StaticMeshes/GnBldgOrnMeshes.usx",
+      "size": 461883,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000a500000040000000770000006e0407002f000000",
+      "header_ascii": "..*.~...........@...w...n.../..."
+    },
+    {
+      "path": "StaticMeshes/GnPropsMeshes.usx",
+      "size": 14206378,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000002904000040000000150400006b7bd80010010000",
+      "header_ascii": "..*.~.......)...@.......k{......"
+    },
+    {
+      "path": "StaticMeshes/IDPropsMeshes.usx",
+      "size": 591298,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000001801000040000000ac00000080fa08007f000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "StaticMeshes/IndustrialMeshes.usx",
+      "size": 35889,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000001b0000004000000006000000d38b00000e000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "StaticMeshes/LoadingScreenMeshes.usx",
+      "size": 1009531,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e0001000100000035000000400000000a000000d7660f0009000000",
+      "header_ascii": "..*.~.......5...@........f......"
+    },
+    {
+      "path": "StaticMeshes/MysterioEffectsMeshes.usx",
+      "size": 78413,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000001b000000400000000a000000b13101000b000000",
+      "header_ascii": "..*.~...........@........1......"
+    },
+    {
+      "path": "StaticMeshes/NvPropsMeshes.usx",
+      "size": 73157,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000001a0000004000000005000000771d01000e000000",
+      "header_ascii": "..*.~...........@.......w......."
+    },
+    {
+      "path": "StaticMeshes/OLPropsMeshes.usx",
+      "size": 2554521,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000008e01000040000000720100006be12600b2000000",
+      "header_ascii": "..*.~...........@...r...k.&....."
+    },
+    {
+      "path": "StaticMeshes/OpTestMeshes.usx",
+      "size": 1842505,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000c900000040000000b70000001d111c0022000000",
+      "header_ascii": "..*.~...........@...........\"..."
+    },
+    {
+      "path": "StaticMeshes/PAPropsMeshes.usx",
+      "size": 451696,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e0001000100000071000000400000004000000050e0060034000000",
+      "header_ascii": "..*.~.......q...@...@...P...4..."
+    },
+    {
+      "path": "StaticMeshes/ParkAvenueExteriorMeshes.usx",
+      "size": 254599,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000002b00000040000000110000007fe1030014000000",
+      "header_ascii": "..*.~.......+...@..............."
+    },
+    {
+      "path": "StaticMeshes/ParticleMeshes.usx",
+      "size": 23045,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000001e0000004000000006000000a95900000f000000",
+      "header_ascii": "..*.~...........@........Y......"
+    },
+    {
+      "path": "StaticMeshes/ShockWave_Mesh.usx",
+      "size": 28370,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000100000004000000003000000a26e000007000000",
+      "header_ascii": "..*.~...........@........n......"
+    },
+    {
+      "path": "StaticMeshes/TCPropsMeshes.usx",
+      "size": 1277062,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000b8000000400000005e0000002d76130058000000",
+      "header_ascii": "..*.~...........@...^...-v..X..."
+    },
+    {
+      "path": "StaticMeshes/TSPropsMeshes.usx",
+      "size": 1421925,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000dd00000040000000b600000020a615005f000000",
+      "header_ascii": "..*.~...........@....... ..._..."
+    },
+    {
+      "path": "StaticMeshes/TestMeshes.usx",
+      "size": 227722,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e0001000100000055000000400000001e0000009d77030031000000",
+      "header_ascii": "..*.~.......U...@........w..1..."
+    },
+    {
+      "path": "StaticMeshes/ThugDisappear_Mesh.usx",
+      "size": 379320,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e0001000100000012000000400000000400000079c9050007000000",
+      "header_ascii": "..*.~...........@.......y......."
+    },
+    {
+      "path": "StaticMeshes/TrainTestMeshes.usx",
+      "size": 299130,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e0001000100000044000000400000000a000000d28f040033000000",
+      "header_ascii": "..*.~.......D...@...........3..."
+    },
+    {
+      "path": "StaticMeshes/TrashMeshes.usx",
+      "size": 4056,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000000e0000004000000002000000bb0f000007000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "StaticMeshes/TwistedSky.usx",
+      "size": 881,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000000e00000040000000010000006203000004000000",
+      "header_ascii": "..*.~...........@.......b......."
+    },
+    {
+      "path": "StaticMeshes/VerminMeshes.usx",
+      "size": 43570,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000140000004000000007000000c5a9000007000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "StaticMeshes/WDPropsMeshes.usx",
+      "size": 859120,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000b400000040000000910000004a120d0042000000",
+      "header_ascii": "..*.~...........@.......J...B..."
+    },
+    {
+      "path": "StaticMeshes/WWPropsMeshes.usx",
+      "size": 919355,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e00010001000000d9000000400000009b000000f4fc0d005d000000",
+      "header_ascii": "..*.~...........@...........]..."
+    },
+    {
+      "path": "StaticMeshes/WallStreetExteriorMeshes.usx",
+      "size": 303681,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7e000100010000004a0000004000000017000000c5a004002e000000",
+      "header_ascii": "..*.~.......J...@..............."
+    },
+    {
+      "path": "StaticMeshes/WebheadMeshes.usx",
+      "size": 13487,
+      "extension": ".usx",
+      "header_hex": "c1832a9e7b000100010000000b00000040000000010000009f34000002000000",
+      "header_ascii": "..*.{...........@........4......"
+    },
+    {
+      "path": "System/ALAudio.dll",
+      "size": 118784,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/ALAudio.int",
+      "size": 261,
+      "extension": ".int",
+      "header_hex": "5b5075626c69635d0d0a4f626a6563743d284e616d653d4458417564696f2e44",
+      "header_ascii": "[Public]..Object=(Name=DXAudio.D"
+    },
+    {
+      "path": "System/CombatHelp.int",
+      "size": 9093,
+      "extension": ".int",
+      "header_hex": "5b5061636b616765735d0d0a4342335f436974795374726565742e7768723d44",
+      "header_ascii": "[Packages]..CB3_CityStreet.whr=D"
+    },
+    {
+      "path": "System/Core.dll",
+      "size": 897024,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Core.int",
+      "size": 3375,
+      "extension": ".int",
+      "header_hex": "5b4c616e67756167655d0d0a4c616e67756167653d456e676c6973682028496e",
+      "header_ascii": "[Language]..Language=English (In"
+    },
+    {
+      "path": "System/Core.u",
+      "size": 34085,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000007a010000400000000c0300000955000011000000",
+      "header_ascii": "..*.~.......z...@........U......"
+    },
+    {
+      "path": "System/D3DDrv.dll",
+      "size": 675840,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/D3DDrv.int",
+      "size": 374,
+      "extension": ".int",
+      "header_hex": "5b5075626c69635d0d0a4f626a6563743d284e616d653d4433444472762e4433",
+      "header_ascii": "[Public]..Object=(Name=D3DDrv.D3"
+    },
+    {
+      "path": "System/DefOpenAL32.dll",
+      "size": 159744,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/DefUser.ini",
+      "size": 3096,
+      "extension": ".ini",
+      "header_hex": "5b44656661756c74506c617965725d0d0a4e616d653d506c617965720d0a436c",
+      "header_ascii": "[DefaultPlayer]..Name=Player..Cl"
+    },
+    {
+      "path": "System/Default.ini",
+      "size": 8059,
+      "extension": ".ini",
+      "header_hex": "5b55524c5d0d0a50726f746f636f6c3d776562686561640d0a50726f746f636f",
+      "header_ascii": "[URL]..Protocol=webhead..Protoco"
+    },
+    {
+      "path": "System/Editor.dll",
+      "size": 1241088,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Editor.u",
+      "size": 484441,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000002c010000400000007d0100005e4d07002b000000",
+      "header_ascii": "..*.~.......,...@...}...^M..+..."
+    },
+    {
+      "path": "System/Engine.dll",
+      "size": 3846144,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Engine.int",
+      "size": 5536,
+      "extension": ".int",
+      "header_hex": "5b5075626c69635d0d0a3b4f626a6563743d284e616d653d456e67696e652e43",
+      "header_ascii": "[Public]..;Object=(Name=Engine.C"
+    },
+    {
+      "path": "System/Engine.u",
+      "size": 1580462,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000008816000040000000932300000fdd150058000000",
+      "header_ascii": "..*.~...........@....#......X..."
+    },
+    {
+      "path": "System/FXWebhead.u",
+      "size": 156853,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000004401000040000000d9000000b256020042000000",
+      "header_ascii": "..*.~.......D...@........V..B..."
+    },
+    {
+      "path": "System/Fire.dll",
+      "size": 131072,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Fire.u",
+      "size": 6784,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e00010001000000ad000000400000006e0000000f1400000f000000",
+      "header_ascii": "..*.~...........@...n..........."
+    },
+    {
+      "path": "System/GUI.dll",
+      "size": 344064,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/GUI.u",
+      "size": 134319,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000009404000040000000e30700006a8d010077000000",
+      "header_ascii": "..*.~...........@.......j...w..."
+    },
+    {
+      "path": "System/GamePlay.u",
+      "size": 108580,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000004a03000040000000d0040000fe590100ce000000",
+      "header_ascii": "..*.~.......J...@........Y......"
+    },
+    {
+      "path": "System/Gameplay.dll",
+      "size": 37376,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Maps.int",
+      "size": 1937,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a4342335f436974795374726565742e7768723d5261",
+      "header_ascii": "[General]..CB3_CityStreet.whr=Ra"
+    },
+    {
+      "path": "System/Objectives.int",
+      "size": 5816,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a4f424a5f436f6d706c6574653d4f626a6563746976",
+      "header_ascii": "[General]..OBJ_Complete=Objectiv"
+    },
+    {
+      "path": "System/Packages.md5",
+      "size": 2612,
+      "extension": ".md5",
+      "header_hex": "c1832a9e7e000000010000001c0000004000000015000000f908000002000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "System/Startup.int",
+      "size": 1721,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a52756e3d52756e210d0a466972737454696d653d55",
+      "header_ascii": "[General]..Run=Run!..FirstTime=U"
+    },
+    {
+      "path": "System/Subtitles.int",
+      "size": 18985,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a4342335f73637265616d5f66656d616c65313d4141",
+      "header_ascii": "[General]..CB3_scream_female1=AA"
+    },
+    {
+      "path": "System/Tutorial.int",
+      "size": 2903,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a5455545f5765627377696e673d41696d20796f7572",
+      "header_ascii": "[General]..TUT_Webswing=Aim your"
+    },
+    {
+      "path": "System/UDebugMenu.u",
+      "size": 245887,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100010000008302000040000000a10400006876030034010000",
+      "header_ascii": "..*.~...........@.......hv..4..."
+    },
+    {
+      "path": "System/UPreview.u",
+      "size": 726821,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e00010001000000a50000004000000057000000fa110b005a000000",
+      "header_ascii": "..*.~...........@...W.......Z..."
+    },
+    {
+      "path": "System/UWindow.u",
+      "size": 376961,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e000100050000007205000040000000830d000083e8040065000000",
+      "header_ascii": "..*.~.......r...@...........e..."
+    },
+    {
+      "path": "System/UnrealEd.u",
+      "size": 6135,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e00010001000000800000004000000069000000eb1100001f000000",
+      "header_ascii": "..*.~...........@...i..........."
+    },
+    {
+      "path": "System/Webhead.dll",
+      "size": 589824,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Webhead.int",
+      "size": 120,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a53746172743d5370696465722d4d616e2032202853",
+      "header_ascii": "[General]..Start=Spider-Man 2 (S"
+    },
+    {
+      "path": "System/Webhead.u",
+      "size": 939692,
+      "extension": ".u",
+      "header_hex": "c1832a9e7e00010001000000a61c000040000000ed2a0000209b0b0021070000",
+      "header_ascii": "..*.~...........@....*.. ...!..."
+    },
+    {
+      "path": "System/WebheadUI.int",
+      "size": 12708,
+      "extension": ".int",
+      "header_hex": "5b4c6f61642047616d655d0d0a47616d653d47616d650d0a4e65772047616d65",
+      "header_ascii": "[Load Game]..Game=Game..New Game"
+    },
+    {
+      "path": "System/WinDrv.dll",
+      "size": 401408,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/WinDrv.int",
+      "size": 681,
+      "extension": ".int",
+      "header_hex": "5b5075626c69635d0d0a436c6173733d28436c6173733d57696e4472762e5769",
+      "header_ascii": "[Public]..Class=(Class=WinDrv.Wi"
+    },
+    {
+      "path": "System/Window.dll",
+      "size": 507904,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/Window.int",
+      "size": 2239,
+      "extension": ".int",
+      "header_hex": "5b4572726f72735d0d0a437269746963616c3d437269746963616c204572726f",
+      "header_ascii": "[Errors]..Critical=Critical Erro"
+    },
+    {
+      "path": "System/binkw32.dll",
+      "size": 350720,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/dialog.ini",
+      "size": 1720,
+      "extension": ".ini",
+      "header_hex": "5b564f417564696f2e52685f49445f455f636861726765315d0d0a4e65787453",
+      "header_ascii": "[VOAudio.Rh_ID_E_charge1]..NextS"
+    },
+    {
+      "path": "System/dinterface.dll",
+      "size": 1378816,
+      "extension": ".dll",
+      "header_hex": "4d5a50000200000004000f00ffff0000b80000000000000040001a0000000000",
+      "header_ascii": "MZP.....................@......."
+    },
+    {
+      "path": "System/gamestate.ini",
+      "size": 8534,
+      "extension": ".ini",
+      "header_hex": "2f2f20416c6c2067616d657374617465207661726961626c6573206172652069",
+      "header_ascii": "// All gamestate variables are i"
+    },
+    {
+      "path": "System/libexpat.dll",
+      "size": 143360,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/msvcp71.dll",
+      "size": 499712,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/msvcr71.dll",
+      "size": 348160,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/ogg.dll",
+      "size": 11264,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/uw.int",
+      "size": 123,
+      "extension": ".int",
+      "header_hex": "5b47656e6572616c5d0d0a53746172743d556e7265616c20456e67696e652028",
+      "header_ascii": "[General]..Start=Unreal Engine ("
+    },
+    {
+      "path": "System/vorbis.dll",
+      "size": 126976,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "System/vorbisfile.dll",
+      "size": 17408,
+      "extension": ".dll",
+      "header_hex": "4d5a90000300000004000000ffff0000b8000000000000004000000000000000",
+      "header_ascii": "MZ......................@......."
+    },
+    {
+      "path": "Textures/AdrenalMtrTextures.utx",
+      "size": 176817,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000038000000400000000a00000014b2020006000000",
+      "header_ascii": "..*.~.......8...@..............."
+    },
+    {
+      "path": "Textures/AuntMayTextures.utx",
+      "size": 77561,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000180000004000000004000000b82e010003000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/BKIntTextures.utx",
+      "size": 3578424,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000730100004000000013010000ca8636001c000000",
+      "header_ascii": "..*.~.......s...@.........6....."
+    },
+    {
+      "path": "Textures/BKScriptedTextures.utx",
+      "size": 671,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001500000040000000070000003d02000005000000",
+      "header_ascii": "..*.~...........@.......=......."
+    },
+    {
+      "path": "Textures/BotsEffects_Test.utx",
+      "size": 2777983,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000002400000040000000120000004b622a0004000000",
+      "header_ascii": "..*.~.......$...@.......Kb*....."
+    },
+    {
+      "path": "Textures/CSEnvTextures.utx",
+      "size": 1060781,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000005c0000004000000029000000ed2c10000d000000",
+      "header_ascii": "..*.~.......\\...@...)....,......"
+    },
+    {
+      "path": "Textures/CSPropsTextures.utx",
+      "size": 1516356,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000009a0000004000000068000000171c17000b000000",
+      "header_ascii": "..*.~...........@...h..........."
+    },
+    {
+      "path": "Textures/CharacterPropsTextures.utx",
+      "size": 169478,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000002200000040000000100000000295020002000000",
+      "header_ascii": "..*.~.......\"...@..............."
+    },
+    {
+      "path": "Textures/Cinematics.utx",
+      "size": 17828515,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000002300000040000000120000005409100104000000",
+      "header_ascii": "..*.~.......#...@.......T......."
+    },
+    {
+      "path": "Textures/CitySky.utx",
+      "size": 525651,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000002400000040000000040000001205080003000000",
+      "header_ascii": "..*.~.......$...@..............."
+    },
+    {
+      "path": "Textures/CombatTextures.utx",
+      "size": 895209,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000036000000400000001a00000038a70d0007000000",
+      "header_ascii": "..*.~.......6...@.......8......."
+    },
+    {
+      "path": "Textures/Const_Effects.utx",
+      "size": 44490,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001300000040000000030000009aad000004000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/Cop01Textures.utx",
+      "size": 111367,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000017000000400000000800000080b2010002000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/Diagrams_CB3.utx",
+      "size": 3200597,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000003f00000040000000290000008bd3300004000000",
+      "header_ascii": "..*.~.......?...@...).....0....."
+    },
+    {
+      "path": "Textures/Diagrams_PACitySt.utx",
+      "size": 1085699,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000024000000400000000f0000000890100004000000",
+      "header_ascii": "..*.~.......$...@..............."
+    },
+    {
+      "path": "Textures/Diagrams_Train.utx",
+      "size": 1085733,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000024000000400000000f0000002a90100004000000",
+      "header_ascii": "..*.~.......$...@.......*......."
+    },
+    {
+      "path": "Textures/Diagrams_TwistedCity2.utx",
+      "size": 1096803,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000024000000400000000f00000068bb100004000000",
+      "header_ascii": "..*.~.......$...@.......h......."
+    },
+    {
+      "path": "Textures/Diagrams_TwistedCity3.utx",
+      "size": 2137726,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000031000000400000001c0000009d9c200004000000",
+      "header_ascii": "..*.~.......1...@......... ....."
+    },
+    {
+      "path": "Textures/Diagrams_WSCitySt.utx",
+      "size": 1085675,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000024000000400000000f000000ee8f100004000000",
+      "header_ascii": "..*.~.......$...@..............."
+    },
+    {
+      "path": "Textures/Diagrams_WallStBank.utx",
+      "size": 1085740,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000024000000400000000f0000002f90100004000000",
+      "header_ascii": "..*.~.......$...@......./......."
+    },
+    {
+      "path": "Textures/Diagrams_WallStOscorp.utx",
+      "size": 2137594,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000031000000400000001c000000189c200004000000",
+      "header_ascii": "..*.~.......1...@......... ....."
+    },
+    {
+      "path": "Textures/Diagrams_WharfFactory.utx",
+      "size": 1085742,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000024000000400000000f0000003390100004000000",
+      "header_ascii": "..*.~.......$...@.......3......."
+    },
+    {
+      "path": "Textures/DocOcTextures.utx",
+      "size": 482744,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000240000004000000008000000375d070006000000",
+      "header_ascii": "..*.~.......$...@.......7]......"
+    },
+    {
+      "path": "Textures/Earth.utx",
+      "size": 266219,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000038000000400000000c0000002e0f040008000000",
+      "header_ascii": "..*.~.......8...@..............."
+    },
+    {
+      "path": "Textures/EnergyBall.utx",
+      "size": 22385,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001100000040000000020000005257000004000000",
+      "header_ascii": "..*.~...........@.......RW......"
+    },
+    {
+      "path": "Textures/FizzFonts.utx",
+      "size": 276755,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000190000004000000007000000a038040003000000",
+      "header_ascii": "..*.~...........@........8......"
+    },
+    {
+      "path": "Textures/FlameEffect.utx",
+      "size": 1487269,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000035000000400000000800000022b1160008000000",
+      "header_ascii": "..*.~.......5...@.......\"......."
+    },
+    {
+      "path": "Textures/GUIContent.utx",
+      "size": 34696753,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000003a0100004000000013010000685a110207000000",
+      "header_ascii": "..*.~.......:...@.......hZ......"
+    },
+    {
+      "path": "Textures/GUIFONTS.utx",
+      "size": 70348,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7a00000001000000140000004000000002000000ac12010003000000",
+      "header_ascii": "..*.z...........@..............."
+    },
+    {
+      "path": "Textures/GameplayTextures.utx",
+      "size": 588993,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000008500000040000000440000003ff808000a000000",
+      "header_ascii": "..*.~...........@...D...?......."
+    },
+    {
+      "path": "Textures/GenericEnviroObjects.utx",
+      "size": 8908,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001200000040000000030000009f22000004000000",
+      "header_ascii": "..*.~...........@........\"......"
+    },
+    {
+      "path": "Textures/GenericExterior.utx",
+      "size": 15115408,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001e01000040000000e9000000c893e6000c000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/GenericFemaleTextures.utx",
+      "size": 688618,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000004600000040000000340000007d7e0a0005000000",
+      "header_ascii": "..*.~.......F...@...4...}~......"
+    },
+    {
+      "path": "Textures/GenericMaleTextures.utx",
+      "size": 499082,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000320000004000000023000000439b070004000000",
+      "header_ascii": "..*.~.......2...@...#...C......."
+    },
+    {
+      "path": "Textures/GnBldgOrnTextures.utx",
+      "size": 638861,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000065000000400000003300000039bc09000b000000",
+      "header_ascii": "..*.~.......e...@...3...9......."
+    },
+    {
+      "path": "Textures/GnIntTextures.utx",
+      "size": 662028,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000005100000040000000290000006e170a0007000000",
+      "header_ascii": "..*.~.......Q...@...)...n......."
+    },
+    {
+      "path": "Textures/GnPropsTextures.utx",
+      "size": 9496767,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000bb0100004000000077010000e0cd900011000000",
+      "header_ascii": "..*.~...........@...w..........."
+    },
+    {
+      "path": "Textures/HeroPoints.utx",
+      "size": 497,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000110000004000000004000000b901000002000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/HudTest.utx",
+      "size": 176370,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000035000000400000000700000084b0020007000000",
+      "header_ascii": "..*.~.......5...@..............."
+    },
+    {
+      "path": "Textures/IDEnvTextures.utx",
+      "size": 4240618,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000046000000400000002f000000b4b1400005000000",
+      "header_ascii": "..*.~.......F...@.../.....@....."
+    },
+    {
+      "path": "Textures/IDPropsTextures.utx",
+      "size": 2747223,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000a2000000400000007200000050e3290007000000",
+      "header_ascii": "..*.~...........@...r...P.)....."
+    },
+    {
+      "path": "Textures/Lab_Effects.utx",
+      "size": 1503804,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000005500000040000000490000003aed160004000000",
+      "header_ascii": "..*.~.......U...@...I...:......."
+    },
+    {
+      "path": "Textures/LoadingScreens.utx",
+      "size": 833109,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000310000004000000008000000d2b50c0004000000",
+      "header_ascii": "..*.~.......1...@..............."
+    },
+    {
+      "path": "Textures/MaryJaneTextures.utx",
+      "size": 175765,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000013000000400000000300000063ae020002000000",
+      "header_ascii": "..*.~...........@.......c......."
+    },
+    {
+      "path": "Textures/MiniChallengeTextures.utx",
+      "size": 132998,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000023000000400000000c000000c906020007000000",
+      "header_ascii": "..*.~.......#...@..............."
+    },
+    {
+      "path": "Textures/MoviePicsOverlay.utx",
+      "size": 7643907,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000940000004000000080000000109a740002000000",
+      "header_ascii": "..*.~...........@.........t....."
+    },
+    {
+      "path": "Textures/MovieTextures.utx",
+      "size": 4195115,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000150000004000000004000000e102400002000000",
+      "header_ascii": "..*.~...........@.........@....."
+    },
+    {
+      "path": "Textures/MysterioBotTextures.utx",
+      "size": 152354,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000002100000040000000090000009352020006000000",
+      "header_ascii": "..*.~.......!...@........R......"
+    },
+    {
+      "path": "Textures/MysterioTextures.utx",
+      "size": 364467,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000002d000000400000000d000000e48e050007000000",
+      "header_ascii": "..*.~.......-...@..............."
+    },
+    {
+      "path": "Textures/Mysterio_Attacks.utx",
+      "size": 724862,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000280000004000000014000000350e0b0004000000",
+      "header_ascii": "..*.~.......(...@.......5......."
+    },
+    {
+      "path": "Textures/NvPropsTextures.utx",
+      "size": 249304,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001e000000400000000f000000e2cc030004000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/OLIntTextures.utx",
+      "size": 3404184,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000ad000000400000006e000000f1e933000e000000",
+      "header_ascii": "..*.~...........@...n.....3....."
+    },
+    {
+      "path": "Textures/OLPropsTextures.utx",
+      "size": 3921090,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000006d010000400000001d010000d1c03b000f000000",
+      "header_ascii": "..*.~.......m...@.........;....."
+    },
+    {
+      "path": "Textures/OLScriptedTextures.utx",
+      "size": 911,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000018000000400000000a0000000303000005000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/OpTestTextures.utx",
+      "size": 3414124,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000036000000400000001f0000005a16340008000000",
+      "header_ascii": "..*.~.......6...@.......Z.4....."
+    },
+    {
+      "path": "Textures/PAEnvTextures.utx",
+      "size": 6744532,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000a40000004000000070000000c4e166000a000000",
+      "header_ascii": "..*.~...........@...p.....f....."
+    },
+    {
+      "path": "Textures/PAPropsTextures.utx",
+      "size": 879474,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000005f0000004000000039000000bc670d000c000000",
+      "header_ascii": "..*.~......._...@...9....g......"
+    },
+    {
+      "path": "Textures/Particle.utx",
+      "size": 695939,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000007a0000004000000049000000b2990a0009000000",
+      "header_ascii": "..*.~.......z...@...I..........."
+    },
+    {
+      "path": "Textures/PeterParkerTextures.utx",
+      "size": 197476,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001600000040000000030000003403030003000000",
+      "header_ascii": "..*.~...........@.......4......."
+    },
+    {
+      "path": "Textures/PidgeonTextures.utx",
+      "size": 110724,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000016000000400000000500000030b0010002000000",
+      "header_ascii": "..*.~...........@.......0......."
+    },
+    {
+      "path": "Textures/PumaTextures.utx",
+      "size": 110768,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001700000040000000040000006db0010002000000",
+      "header_ascii": "..*.~...........@.......m......."
+    },
+    {
+      "path": "Textures/ReticuleTextures.utx",
+      "size": 189705,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000020000000400000000f0000000be4020002000000",
+      "header_ascii": "..*.~....... ...@..............."
+    },
+    {
+      "path": "Textures/RhinoTextures.utx",
+      "size": 187696,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000210000004000000007000000bedc020004000000",
+      "header_ascii": "..*.~.......!...@..............."
+    },
+    {
+      "path": "Textures/RhinoTrans_Textures.utx",
+      "size": 594888,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000004800000040000000180000003a12090007000000",
+      "header_ascii": "..*.~.......H...@.......:......."
+    },
+    {
+      "path": "Textures/S_ThugShockWave.utx",
+      "size": 22413,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001200000040000000020000006f57000004000000",
+      "header_ascii": "..*.~...........@.......oW......"
+    },
+    {
+      "path": "Textures/ScientistTextures.utx",
+      "size": 276043,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000021000000400000000f0000005735040003000000",
+      "header_ascii": "..*.~.......!...@.......W5......"
+    },
+    {
+      "path": "Textures/SpecialFX.utx",
+      "size": 1615135,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000590000004000000032000000c0a1180004000000",
+      "header_ascii": "..*.~.......Y...@...2..........."
+    },
+    {
+      "path": "Textures/SpideyHUD.utx",
+      "size": 5431230,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000008b000000400000005800000098d9520008000000",
+      "header_ascii": "..*.~...........@...X.....R....."
+    },
+    {
+      "path": "Textures/SpideyHUD2.utx",
+      "size": 849842,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000026000000400000001300000071f60c0002000000",
+      "header_ascii": "..*.~.......&...@.......q......."
+    },
+    {
+      "path": "Textures/SpideyTextures.utx",
+      "size": 878979,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000033000000400000000a000000e3680d0005000000",
+      "header_ascii": "..*.~.......3...@........h......"
+    },
+    {
+      "path": "Textures/Spidey_Power.utx",
+      "size": 307457,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001800000040000000070000008fb0040004000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/Subway.utx",
+      "size": 699880,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7b00010001000000150000004000000004000000aaad0a0004000000",
+      "header_ascii": "..*.{...........@..............."
+    },
+    {
+      "path": "Textures/SuperThugTextures.utx",
+      "size": 307613,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000015000000400000000600000038b1040002000000",
+      "header_ascii": "..*.~...........@.......8......."
+    },
+    {
+      "path": "Textures/TCEnvTextures.utx",
+      "size": 1419626,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000006e0000004000000028000000bea6150023000000",
+      "header_ascii": "..*.~.......n...@...(.......#..."
+    },
+    {
+      "path": "Textures/TCPropsTextures.utx",
+      "size": 3454790,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000b000000040000000610000008db0340013000000",
+      "header_ascii": "..*.~...........@...a.....4....."
+    },
+    {
+      "path": "Textures/TSEnvTextures.utx",
+      "size": 975662,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000005e000000400000002b00000056e00e000c000000",
+      "header_ascii": "..*.~.......^...@...+...V......."
+    },
+    {
+      "path": "Textures/TSPropsTextures.utx",
+      "size": 1529613,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000008b00000040000000640000003850170012000000",
+      "header_ascii": "..*.~...........@...d...8P......"
+    },
+    {
+      "path": "Textures/TestTextures.utx",
+      "size": 3184136,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000006d000000400000003a0000001292300009000000",
+      "header_ascii": "..*.~.......m...@...:.....0....."
+    },
+    {
+      "path": "Textures/Thug01Textures.utx",
+      "size": 188604,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001a000000400000000b00000002e0020002000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/ThugDisappear.utx",
+      "size": 17372,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001500000040000000040000009f43000004000000",
+      "header_ascii": "..*.~...........@........C......"
+    },
+    {
+      "path": "Textures/TrainTestTextures.utx",
+      "size": 9669599,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000004a00000040000000210000009f8993000a000000",
+      "header_ascii": "..*.~.......J...@...!..........."
+    },
+    {
+      "path": "Textures/UDN_BuildTex.utx",
+      "size": 700361,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7b000100010000002c00000040000000050000007aaf0a0006000000",
+      "header_ascii": "..*.{.......,...@.......z......."
+    },
+    {
+      "path": "Textures/UDN_Terrain_T.utx",
+      "size": 4414501,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7b000100010000001b00000040000000090000008c5b430004000000",
+      "header_ascii": "..*.{...........@........[C....."
+    },
+    {
+      "path": "Textures/UWindowFonts.utx",
+      "size": 1755531,
+      "extension": ".utx",
+      "header_hex": "c1832a9e630000000100000046000000400000003500000005c61a0004000000",
+      "header_ascii": "..*.c.......F...@...5..........."
+    },
+    {
+      "path": "Textures/VariedEffectsTextures.utx",
+      "size": 25132,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001a0000004000000006000000d261000004000000",
+      "header_ascii": "..*.~...........@........a......"
+    },
+    {
+      "path": "Textures/VerminTextures.utx",
+      "size": 14440,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000001400000040000000040000002b38000004000000",
+      "header_ascii": "..*.~...........@.......+8......"
+    },
+    {
+      "path": "Textures/WDEnvTextures.utx",
+      "size": 1212165,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000700000004000000034000000907b120012000000",
+      "header_ascii": "..*.~.......p...@...4....{......"
+    },
+    {
+      "path": "Textures/WDPropsTextures.utx",
+      "size": 1513407,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000a50000004000000057000000d31117002a000000",
+      "header_ascii": "..*.~...........@...W.......*..."
+    },
+    {
+      "path": "Textures/WSEnvTextures.utx",
+      "size": 3710479,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000007f0000004000000056000000fb97380006000000",
+      "header_ascii": "..*.~...........@...V.....8....."
+    },
+    {
+      "path": "Textures/WWEnvTextures.utx",
+      "size": 1367056,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000074000000400000003400000085d8140011000000",
+      "header_ascii": "..*.~.......t...@...4..........."
+    },
+    {
+      "path": "Textures/WWPropsTextures.utx",
+      "size": 4275213,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000008300000040000000400000009137410013000000",
+      "header_ascii": "..*.~...........@...@....7A....."
+    },
+    {
+      "path": "Textures/WWScriptedTextures.utx",
+      "size": 556,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000130000004000000005000000e601000005000000",
+      "header_ascii": "..*.~...........@..............."
+    },
+    {
+      "path": "Textures/WallStreetExterior.utx",
+      "size": 7624583,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000006f000000400000004c0000005b52740007000000",
+      "header_ascii": "..*.~.......o...@...L...[Rt....."
+    },
+    {
+      "path": "Textures/Watertest.utx",
+      "size": 2469012,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000060000000400000002c00000085a9250009000000",
+      "header_ascii": "..*.~.......`...@...,.....%....."
+    },
+    {
+      "path": "Textures/WebShootTexture.utx",
+      "size": 25047,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000190000004000000003000000a961000003000000",
+      "header_ascii": "..*.~...........@........a......"
+    },
+    {
+      "path": "Textures/Web_Effects.utx",
+      "size": 3498097,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e0001000100000022000000400000000c000000a15f350004000000",
+      "header_ascii": "..*.~.......\"...@........_5....."
+    },
+    {
+      "path": "Textures/WebheadEditorTextures.utx",
+      "size": 11357,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e00010001000000190000004000000007000000f32b000002000000",
+      "header_ascii": "..*.~...........@........+......"
+    },
+    {
+      "path": "Textures/WebheadFonts.utx",
+      "size": 6011023,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7e000100010000006f000000400000008500000086af5b0006000000",
+      "header_ascii": "..*.~.......o...@.........[....."
+    },
+    {
+      "path": "Textures/WebheadTextures.utx",
+      "size": 2938,
+      "extension": ".utx",
+      "header_hex": "c1832a9e7b000100010000001500000040000000020000005c0b000003000000",
+      "header_ascii": "..*.{...........@.......\\......."
+    },
+    {
+      "path": "license.txt",
+      "size": 12253,
+      "extension": ".txt",
+      "header_hex": "534f465457415245204c4943454e53452041475245454d454e540d0a494d504f",
+      "header_ascii": "SOFTWARE LICENSE AGREEMENT..IMPO"
+    }
+  ]
+}

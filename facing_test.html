@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#303238}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head><body>
+<script type="module">
+import * as THREE from 'three'; import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); renderer.setSize(innerWidth, innerHeight); document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x303238); scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.2)); const sun = new THREE.DirectionalLight(0xffffff, 1.5); sun.position.set(3, 6, 4); scene.add(sun);
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 100);
+const q = new URLSearchParams(location.search); const clip = q.get('clip') || 'SM2IDL'; const t = +(q.get('t') || 0);
+const gl = await new GLTFLoader().loadAsync(q.get('glb') || '/public/models/xbox/anim/spidey_loco.glb'); const hero = gl.scene; scene.add(hero);
+hero.traverse((o) => { if (o.isMesh) { o.material = new THREE.MeshLambertMaterial({ map: o.material.map, color: new THREE.Color(2, 2, 2), side: THREE.DoubleSide }); } });
+const mixer = new THREE.AnimationMixer(hero); const c = gl.animations.find((a) => a.name === clip); if (c) { const a = mixer.clipAction(c); a.play(); a.time = t; mixer.update(0); }
+hero.updateMatrixWorld(true);
+// axes: red +X, green +Y, blue +Z (2 m), plus a big arrow along +Z on the ground
+scene.add(new THREE.AxesHelper(2)); const arrow = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0.05, 0), 3, 0x00aaff, 0.6, 0.4); scene.add(arrow);
+const grid = new THREE.GridHelper(8, 8, 0x666666, 0x444444); scene.add(grid);
+const head = hero.getObjectByName('bip01_head'), pel = hero.getObjectByName('bip01_pelvis'), lf = hero.getObjectByName('bip01_l_foot'), rf = hero.getObjectByName('bip01_r_foot'), lt = hero.getObjectByName('bip01_l_toe0'), rt = hero.getObjectByName('bip01_r_toe0'), traj = hero.getObjectByName('trajectory');
+const wp = (o) => { const v = new THREE.Vector3(); o.getWorldPosition(v); return v; };
+const toeDir = lt && lf ? wp(lt).sub(wp(lf)).setY(0).normalize() : null; const toeDirR = rt && rf ? wp(rt).sub(wp(rf)).setY(0).normalize() : null;
+const trajQ = traj ? traj.getWorldQuaternion(new THREE.Quaternion()) : null; const trajFwd = trajQ ? new THREE.Vector3(0, 0, 1).applyQuaternion(trajQ) : null;
+window.__info = JSON.stringify({ clip, t, leftToeDirXZ: toeDir && toeDir.toArray().map((v) => +v.toFixed(2)), rightToeDirXZ: toeDirR && toeDirR.toArray().map((v) => +v.toFixed(2)), trajFwd: trajFwd && trajFwd.toArray().map((v) => +v.toFixed(2)), headPos: head && wp(head).toArray().map((v) => +v.toFixed(2)), pelvisPos: pel && wp(pel).toArray().map((v) => +v.toFixed(2)) });
+camera.position.set(3.2, 2.6, 4.0); camera.lookAt(0, 1.0, 0);
+window.__sm2 = { ready: true }; (function tick() { requestAnimationFrame(tick); renderer.render(scene, camera); })();
+</script></body></html>
+<script type="module">
+// ?scan=1: for every clip, min pelvis-up.y (flip detector), mean yaw of the trajectory node (authored body twist) -> window.__scan
+if (new URLSearchParams(location.search).get('scan')) {
+  const THREE = await import('three'); const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
+  const gl = await new GLTFLoader().loadAsync('/public/models/xbox/anim/spidey_loco.glb'); const hero = gl.scene; const mixer = new THREE.AnimationMixer(hero);
+  const pel = hero.getObjectByName('bip01_pelvis'), traj = hero.getObjectByName('trajectory'), head = hero.getObjectByName('bip01_head'); const out = {};
+  for (const c of gl.animations) {
+    const a = mixer.clipAction(c); a.play(); let minUp = 9, sx = 0, sz = 0, n = 0, minHead = 9;
+    for (let t = 0; t < c.duration; t += 1 / 30) { a.time = t; mixer.update(0); hero.updateMatrixWorld(true);
+      const up = new THREE.Vector3(0, 1, 0).applyQuaternion(pel.getWorldQuaternion(new THREE.Quaternion())); minUp = Math.min(minUp, up.y);
+      const f = new THREE.Vector3(0, 0, 1).applyQuaternion(traj.getWorldQuaternion(new THREE.Quaternion())); sx += f.x; sz += f.z; n++;
+      const hp = head.getWorldPosition(new THREE.Vector3()), pp = pel.getWorldPosition(new THREE.Vector3()); minHead = Math.min(minHead, hp.y - pp.y); }
+    a.stop(); out[c.name] = { minPelvisUp: +minUp.toFixed(2), headAbovePelvisMin: +minHead.toFixed(2), meanYawDeg: +(Math.atan2(sx / n, sz / n) * 180 / Math.PI).toFixed(1), dur: +c.duration.toFixed(2) };
+  }
+  window.__scan = JSON.stringify(out); window.__sm2 = { ready: true };
+}
+</script>

@@ -1,0 +1,7547 @@
+{
+ "map": "TwistedCity_Part02",
+ "scenes": [
+  {
+   "name": "SceneManager0",
+   "bCinematicView": true,
+   "Tag": "L5M2_IntoPortal",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11952.1923828125,
+    -15072.0380859375,
+    3214.224609375
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera0",
+     "IntPoint": "InterpolationPoint0",
+     "PathLength": 432.2549133300781,
+     "IntPointData": {
+      "name": "InterpolationPoint0",
+      "Group": "None,ExitIsland",
+      "Location": [
+       11647.74609375,
+       -14976.1083984375,
+       3104.074951171875
+      ],
+      "Rotation": [
+       -55,
+       -23,
+       -71
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera1",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "Spidey Runs into The Portal",
+     "Duration": 5.0,
+     "PathLength": 432.2549133300781,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Group": "None,ExitIsland",
+      "Location": [
+       12079.9609375,
+       -14975.7685546875,
+       3104.022705078125
+      ],
+      "Rotation": [
+       -3,
+       -3,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause0",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "Spidey Vanishes",
+     "Duration": 5.0,
+     "SubActions": [
+      {
+       "class": "SubActionTrigger",
+       "EventName": "SpideyGoneToPart3",
+       "Delay": 4.0
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Group": "None,ExitIsland",
+      "Location": [
+       12079.9609375,
+       -14975.7685546875,
+       3104.022705078125
+      ],
+      "Rotation": [
+       -3,
+       -3,
+       0
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "sequences": [
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger40",
+   "Tag": "Gen01GamestateSaveTrigger",
+   "Location": [
+    1607.704345703125,
+    -38255.9140625,
+    3151.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent50",
+     "ExternalEvent": "Generator02Finished"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify0",
+     "stateName": "L5M2_Generator02Destroyed",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify1",
+     "stateName": "L5M2_FloatingHigher"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave0"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence13",
+   "PawnTag": "SpideyPawn",
+   "Tag": "L5M2_IntoPortal",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11903.759765625,
+    -15039.912109375,
+    3136.3408203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent94",
+     "ExternalEvent": "L5M2_IntoPortal"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face20",
+     "DestinationTag": "LookAtPortal"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint14",
+     "DestinationTag": "ReadyToLeave"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer12",
+     "PauseTime": 1.5
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM0",
+     "BaseAnim": "RunForwards",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint0",
+     "DestinationTag": "InPortal"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face21",
+     "DestinationTag": "LookOutPortal"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM1",
+     "BaseAnim": "IdleRest",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer1",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent15",
+     "Event": "ExitFlash"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint1",
+     "DestinationTag": "SpideyStartsOver"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger3",
+   "Tag": "ExitObjectiveTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12639.8212890625,
+    -15103.990234375,
+    3200.576171875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent4",
+     "ExternalEvent": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify18",
+     "stateName": "L5M2_ExitOpen",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify19",
+     "stateName": "L5M2_FloatingHigher"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave6"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger19",
+   "Tag": "DestroyTurretTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    1607.869873046875,
+    -38239.890625,
+    3151.77294921875
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent36",
+     "ExternalEvent": "DestroyTurretGen2"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent9",
+     "Event": "TurretGen2Activates"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent96",
+     "Event": "NextTurretGenerator"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer59",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent91",
+     "Event": "L5M2_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent37",
+     "ExternalEvent": "JoBoo"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger22",
+   "Tag": "ArrowTwoGen01Generator",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    1623.985595703125,
+    -38208.47265625,
+    3151.77294921875
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent9",
+     "ExternalEvent": "DestroyTurretGen2"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition3",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent12",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection3"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd3",
+     "MessageID": "L5M2_TurretsDestroyed",
+     "stateName": "L5M2_TurretsDestroyed",
+     "isPrimary": true,
+     "ActorTag": "TurretGen01Look"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger15",
+   "Tag": "ActivateTurretTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    2463.947021484375,
+    -40064.28515625,
+    3103.775146484375
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent34",
+     "ExternalEvent": "SpideyIsAtTurretGen2"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition24",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent72",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection24"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition16",
+     "TriggeredConditionTag": "L5M2_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent78",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection16"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent19",
+     "Event": "TurretGen2On"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent20",
+     "Event": "TurretGen2Activates"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger14",
+   "Tag": "01FallingIslandTrigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    12672.0322265625,
+    -15103.9345703125,
+    3199.98828125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent33",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition25",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent137",
+     "Event": "FirstTimeTurret"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent122",
+     "Event": "TurretGen1Beam"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent123",
+     "Event": "Gen1BeamSound"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor2",
+     "ActorTag": "TG1Rock5"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor3",
+     "ActorTag": "TG1Rock3"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor8",
+     "DestroyTag": "TG1CDestroyed"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor4",
+     "ActorTag": "TG1Lift"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor10",
+     "DestroyTag": "TG1Destroyed"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor5",
+     "ActorTag": "TG1Rock8"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor6",
+     "ActorTag": "TG1Rock4"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor7",
+     "ActorTag": "TG1Rock6"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor8",
+     "ActorTag": "TG1Rock1"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor11",
+     "DestroyTag": "TG1LDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor12",
+     "DestroyTag": "TG1TurretL"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor9",
+     "ActorTag": "TG1Rock2"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor13",
+     "DestroyTag": "TG1RDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor14",
+     "DestroyTag": "TG1TurretR"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor10",
+     "ActorTag": "TG1Rock7"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection25"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction18"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger20",
+   "Tag": "DestroyGeneratorsObjectiveTrigger",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14624.1376953125,
+    -13679.931640625,
+    1322.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent76",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable4"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable5",
+     "Upgrade": 1
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable6",
+     "Upgrade": 2
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger17",
+   "Tag": "SpideyVOTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    2464.0986328125,
+    -40047.94140625,
+    3103.9072265625
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent38",
+     "ExternalEvent": "SpideyIsAtTurretGen2"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition27",
+     "TriggeredConditionTag": "L5M2_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent98",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection27"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition4",
+     "TriggeredConditionTag": "L5M2_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent74",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection6"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say3",
+     "dlgName": "Sp_Fl_E_seesturret",
+     "subtitle": "Hmmm... New and improved generators.  Now with turrets."
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer23",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_CombatHelp",
+     "name": "ACTION_CombatHelp1",
+     "CombatIndex": 15
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger10",
+   "Tag": "02FallingIslandTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    12672.1494140625,
+    -15087.990234375,
+    3200.462646484375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent10",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition26",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent37",
+     "Event": "TurretGen2Beam"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent38",
+     "Event": "Gen2BeamSound"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor11",
+     "ActorTag": "TG2Rock5"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor12",
+     "ActorTag": "TG2Rock3"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor4",
+     "DestroyTag": "TG2CDestroyed"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor13",
+     "ActorTag": "TG2Lift"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor5",
+     "DestroyTag": "TG2Destroyed"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor14",
+     "ActorTag": "TG2Rock8"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor15",
+     "ActorTag": "TG2Rock4"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor16",
+     "ActorTag": "TG2Rock6"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor17",
+     "ActorTag": "TG2Rock1"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor2",
+     "DestroyTag": "TG2LDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor3",
+     "DestroyTag": "TG2TurretL"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor18",
+     "ActorTag": "TG2Rock2"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor0",
+     "DestroyTag": "TG2RDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor1",
+     "DestroyTag": "TG2TurretR"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor19",
+     "ActorTag": "TG2Rock7"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection26"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction19"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence5",
+   "PawnTag": "SpideyPawn",
+   "Tag": "MTHDeath",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -11486.884765625,
+    -10078.71875,
+    1370.955322265625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent20",
+     "ExternalEvent": "MTHDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint6",
+     "DestinationTag": "MTHStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face5",
+     "DestinationTag": "MTHLook"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence12",
+   "PawnTag": "SpideyPawn",
+   "Tag": "ApartmentDeath",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    2624.071044921875,
+    9407.921875,
+    7464.064453125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent65",
+     "ExternalEvent": "ApartmentDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint9",
+     "DestinationTag": "ApartmentStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face18",
+     "DestinationTag": "ApartmentLook"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence0",
+   "PawnTag": "SpideyPawn",
+   "Tag": "Exit02Death",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7586.361328125,
+    -17500.984375,
+    2780.37158203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent15",
+     "ExternalEvent": "Exit02Death"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint0",
+     "DestinationTag": "Exit02Start",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face0",
+     "DestinationTag": "Exit02Look"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger13",
+   "Tag": "FallingRoidsTrigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    -1023.8624877929688,
+    9344.037109375,
+    6506.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent31",
+     "ExternalEvent": "SpideyIsAtTurretGen1"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer33",
+     "PauseTime": 5.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent24",
+     "Event": "TG1Roids"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition6",
+     "TriggeredConditionTag": "DestroyTurretGen1"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent32",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection5"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction5"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger4",
+   "Tag": "SpideyVOTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    159.971923828125,
+    9888.2880859375,
+    6447.9345703125
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent35",
+     "ExternalEvent": "SpideyIsAtTurretGen1"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition2",
+     "TriggeredConditionTag": "L5M2_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent41",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection2"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition8",
+     "TriggeredConditionTag": "L5M2_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent51",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection9"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say5",
+     "dlgName": "Sp_Fl_E_seesturret",
+     "subtitle": "Hmmm... New and improved generators.  Now with turrets."
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer4",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_CombatHelp",
+     "name": "ACTION_CombatHelp0",
+     "CombatIndex": 15
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence14",
+   "PawnTag": "SpideyPawn",
+   "Tag": "LibraryDeath",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    383.6778564453125,
+    -38975.55859375,
+    2140.396728515625
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent27",
+     "ExternalEvent": "LibraryDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint15",
+     "DestinationTag": "LibraryStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face12",
+     "DestinationTag": "LibraryLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger18",
+   "Tag": "SpideyVOTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    160.01739501953125,
+    9904.083984375,
+    6447.9345703125
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent40",
+     "ExternalEvent": "NextTurretGenerator"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition11",
+     "TriggeredConditionTag": "L5M2_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent53",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection11"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition12",
+     "TriggeredConditionTag": "L5M2_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent56",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection12"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say4",
+     "dlgName": "Sp_Fl_E_gendestroyed",
+     "subtitle": "Gotta pull the plug on all of these generators."
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger47",
+   "Tag": "ExitObjectiveTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12463.6220703125,
+    -15007.8759765625,
+    3146.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent67",
+     "ExternalEvent": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent112",
+     "Event": "ExitBeamOn"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent115",
+     "Event": "ExitField"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor23",
+     "ActorTag": "ExitField"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete3",
+     "stateName": "L5M2_TurretsDestroyed"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound5",
+     "Sound": "Events.ObjectiveComplete"
+    },
+    {
+     "class": "ACTION_HeroPointsAdd",
+     "name": "ACTION_HeroPointsAdd3",
+     "Points": 1000
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd4",
+     "MessageID": "L5M2_ExitPart02",
+     "Message": "Exit Through The Portal.",
+     "stateName": "L5M2_ExitPart02",
+     "isPrimary": true,
+     "ActorTag": "ExitGate"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence11",
+   "PawnTag": "SpideyPawn",
+   "Tag": "CTPDeath",
+   "Group": "None,CB3ChurchToPrisonIslands",
+   "Location": [
+    -2718.187744140625,
+    -21855.89453125,
+    1227.9658203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent26",
+     "ExternalEvent": "CTPDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint13",
+     "DestinationTag": "CTPStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face11",
+     "DestinationTag": "CTPLook"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence8",
+   "PawnTag": "SpideyPawn",
+   "Tag": "StartDeath",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -15039.748046875,
+    -13950.84765625,
+    1312.0341796875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent23",
+     "ExternalEvent": "StartDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint10",
+     "DestinationTag": "SpideyStartsOver",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face8",
+     "DestinationTag": "LookHereSpidey"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence9",
+   "PawnTag": "SpideyPawn",
+   "Tag": "ChurchDeath",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -8256.3955078125,
+    -26816.0625,
+    4584.15185546875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent24",
+     "ExternalEvent": "ChurchDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint11",
+     "DestinationTag": "ChurchStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face9",
+     "DestinationTag": "ChurchLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger53",
+   "Tag": "CityFlashTrigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    223.86105346679688,
+    9903.9296875,
+    6479.8935546875
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent77",
+     "ExternalEvent": "Gen01Explosion"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent87",
+     "Event": "CityFlash01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer41",
+     "PauseTime": 6.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent88",
+     "Event": "CityFlash01"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger52",
+   "Tag": "DestroyTurretTrigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    239.9195556640625,
+    9919.982421875,
+    6479.8935546875
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent70",
+     "ExternalEvent": "DestroyTurretGen1"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition15",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent75",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection15"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd0",
+     "MessageID": "L5M2_TurretsDestroyed",
+     "stateName": "L5M2_TurretsDestroyed",
+     "isPrimary": true,
+     "ActorTag": "TurretGen02Look"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger42",
+   "Tag": "Gen01GamestateSaveTrigger",
+   "Location": [
+    224.18972778320312,
+    9855.9140625,
+    6479.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent57",
+     "ExternalEvent": "Generator01Finished"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify2",
+     "stateName": "L5M2_Generator01Destroyed",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify5",
+     "stateName": "L5M2_FloatingHigher"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave1"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence1",
+   "PawnTag": "SpideyPawn",
+   "Tag": "MTADeath",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -10206.423828125,
+    1824.877197265625,
+    859.8416137695312
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent16",
+     "ExternalEvent": "MTADeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint2",
+     "DestinationTag": "MTAStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face1",
+     "DestinationTag": "MTALook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger0",
+   "Tag": "DestroyGeneratorsObjectiveTrigger",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14624.232421875,
+    -13695.814453125,
+    1322.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent0",
+     "ExternalEvent": "L5M2_FloatingHigher"
+    },
+    {
+     "class": "ACTION_LevelSetCurrent",
+     "name": "ACTION_LevelSetCurrent1",
+     "CurrentLevel": 5
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify10",
+     "stateName": "L5M1_TwistedCity",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify11",
+     "stateName": "L5M1_GeneratorsDestroyed"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify12",
+     "stateName": "L5M1_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify13",
+     "stateName": "L5M1_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify14",
+     "stateName": "L5M1_Generator03Destroyed"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify15",
+     "stateName": "L5M1_ExitPart01"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify16",
+     "stateName": "L5M1_IntoPortal"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify17",
+     "stateName": "L5M2_FloatingHigher",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave3"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence3",
+   "PawnTag": "SpideyPawn",
+   "Tag": "ATHDeath",
+   "Group": "None,PAApartmentToHotelIslands",
+   "Location": [
+    5025.6513671875,
+    7646.9189453125,
+    4828.47998046875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent18",
+     "ExternalEvent": "ATHDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint4",
+     "DestinationTag": "ATHStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face3",
+     "DestinationTag": "ATHLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger2",
+   "Tag": "ExitObjectiveTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11968.044921875,
+    -15023.79296875,
+    3146.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent1",
+     "ExternalEvent": "L5M2_IntoPortal"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete1",
+     "stateName": "L5M2_ExitPart02"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound2",
+     "Sound": "Events.ObjectiveComplete"
+    },
+    {
+     "class": "ACTION_HeroPointsAdd",
+     "name": "ACTION_HeroPointsAdd0",
+     "Points": 1000
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger6",
+   "Tag": "FallingRoidsTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    2179.616455078125,
+    -37916.0859375,
+    3136.14453125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent5",
+     "ExternalEvent": "SpideyIsAtTurretGen2"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer32",
+     "PauseTime": 5.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent27",
+     "Event": "TG2Roids"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition5",
+     "TriggeredConditionTag": "DestroyTurretGen2"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent30",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection4"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction4"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger5",
+   "Tag": "ExitCinematicTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11952.025390625,
+    -15040.0390625,
+    3087.99658203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent7",
+     "ExternalEvent": "SpideyTeleport"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition1",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent29",
+     "Event": "L5M2_IntoPortal"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection1"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction1"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence6",
+   "PawnTag": "SpideyPawn",
+   "Tag": "PrisonDeath",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    6592.267578125,
+    -23135.736328125,
+    3942.743896484375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent21",
+     "ExternalEvent": "PrisonDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint7",
+     "DestinationTag": "PrisonStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face6",
+     "DestinationTag": "PrisonLook"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence2",
+   "PawnTag": "SpideyPawn",
+   "Tag": "HotelDeath",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4350.82861328125,
+    -4095.76953125,
+    3495.88427734375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent17",
+     "ExternalEvent": "HotelDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint3",
+     "DestinationTag": "HotelStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face2",
+     "DestinationTag": "HotelLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger54",
+   "Tag": "ChangeLevelTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11951.9873046875,
+    -15023.90234375,
+    3087.99658203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent117",
+     "ExternalEvent": "SpideyGoneToPart3"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave5"
+    },
+    {
+     "class": "ACTION_ChangeLevel",
+     "name": "ACTION_ChangeLevel1",
+     "URL": "TwistedCity_Part03.whr",
+     "bShowLoadingMessage": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger11",
+   "Tag": "CityFlashTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    1607.9549560546875,
+    -38208.17578125,
+    3151.77294921875
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent2",
+     "ExternalEvent": "Gen02Explosion"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent7",
+     "Event": "CityFlash01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer15",
+     "PauseTime": 6.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent12",
+     "Event": "CityFlash01"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence4",
+   "PawnTag": "SpideyPawn",
+   "Tag": "MuseumDeath",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -7231.54541015625,
+    -1407.349609375,
+    2695.704833984375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent19",
+     "ExternalEvent": "MuseumDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint5",
+     "DestinationTag": "MuseumStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face4",
+     "DestinationTag": "MuseumLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger1",
+   "Tag": "MysterioVOTrigger",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14576.3740234375,
+    -13727.96875,
+    1322.0
+   ],
+   "Texture": "Engine.S_Note",
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent14",
+     "ExternalEvent": "L5M2_FloatingHigher"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer11",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_PlayMusic",
+     "name": "ACTION_PlayMusic0",
+     "Song": "TC3_IntroAmbient",
+     "Transition": 0
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say0",
+     "dlgName": "My_Fl_thinair",
+     "subtitle": "You may have passed the first test, but you won't survive this one."
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer0",
+     "PauseTime": 19.0
+    },
+    {
+     "class": "ACTION_PlayMusic",
+     "name": "ACTION_PlayMusic1",
+     "Song": "silence",
+     "Transition": 0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger12",
+   "Tag": "Prisoner20HelpVO",
+   "Location": [
+    8959.80078125,
+    -4351.99609375,
+    8298.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent6",
+     "ExternalEvent": "Prisoner20VO"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent0",
+     "Event": "Prisoner20Help"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger45",
+   "Tag": "DestroyTurret01Trigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    223.91246032714844,
+    9872.0419921875,
+    6479.8935546875
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent62",
+     "ExternalEvent": "DestroyTurretGen1"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent64",
+     "Event": "TurretGen1Activates"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent95",
+     "Event": "NextTurretGenerator"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer56",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent65",
+     "Event": "L5M2_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent63",
+     "ExternalEvent": "JoBoo"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence15",
+   "PawnTag": "SpideyPawn",
+   "Tag": "LTPDeath",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    9633.2294921875,
+    -35295.44921875,
+    2764.141357421875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent28",
+     "ExternalEvent": "LTPDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint16",
+     "DestinationTag": "LTPStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face13",
+     "DestinationTag": "LTPLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger50",
+   "Tag": "FallingIslandTrigger",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    1623.8311767578125,
+    -38239.94140625,
+    3151.50732421875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent71",
+     "ExternalEvent": "L5M2_Generator02Destroyed"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent94",
+     "Event": "TurretGeneratorDestroyed"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent92",
+     "Event": "TurretGen2Destroyed"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent89",
+     "Event": "TurretGen2Beam"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent90",
+     "Event": "Gen2BeamSound"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent4",
+     "Event": "Gen02Explosion"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor0",
+     "ActorTag": "TG2Lift"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor26",
+     "DestroyTag": "TG2CDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor25",
+     "DestroyTag": "TG2Destroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor24",
+     "DestroyTag": "TG2LDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor27",
+     "DestroyTag": "TG2TurretL"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor28",
+     "DestroyTag": "TG2RDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor29",
+     "DestroyTag": "TG2TurretR"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent97",
+     "Event": "Generator02Finished"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer14",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent126",
+     "Event": "TG2Rock5"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer18",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent127",
+     "Event": "TG2Rock3"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden36",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock5"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer19",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent128",
+     "Event": "TG2Rock8"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden37",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock3"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer20",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent129",
+     "Event": "TG2Rock4"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden38",
+     "bHidden": true,
+     "HideActorTag": "TG2Lift"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden39",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock8"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer21",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden40",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock4"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent130",
+     "Event": "TG2Rock6"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer24",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden41",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock6"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent131",
+     "Event": "TG2Rock1"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer25",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden42",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock1"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent132",
+     "Event": "TG2Rock2"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer26",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden43",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock2"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent133",
+     "Event": "TG2Rock7"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer58",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden44",
+     "bHidden": true,
+     "HideActorTag": "TG2Rock7"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger16",
+   "Tag": "Prisoner19HelpVO",
+   "Location": [
+    -7808.19970703125,
+    -21119.99609375,
+    7562.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent29",
+     "ExternalEvent": "Prisoner19VO"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent1",
+     "Event": "Prisoner19Help"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger9",
+   "Tag": "ChangeLevelTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11952.0966796875,
+    -15007.8974609375,
+    3087.99658203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent13",
+     "ExternalEvent": "ExitFlash"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound32",
+     "Sound": "Events.teleporter_Activate"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger49",
+   "Tag": "FallingIslandTrigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    239.92027282714844,
+    9872.02734375,
+    6479.82421875
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent64",
+     "ExternalEvent": "L5M2_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent66",
+     "Event": "TurretGeneratorDestroyed"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent67",
+     "Event": "TurretGen1Destroyed"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent68",
+     "Event": "TurretGen1Beam"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent69",
+     "Event": "Gen1BeamSound"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent70",
+     "Event": "Gen01Explosion"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor1",
+     "ActorTag": "TG1Lift"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor9",
+     "DestroyTag": "TG1CDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor15",
+     "DestroyTag": "TG1Destroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor16",
+     "DestroyTag": "TG1LDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor17",
+     "DestroyTag": "TG1TurretL"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor18",
+     "DestroyTag": "TG1RDestroyed"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor19",
+     "DestroyTag": "TG1TurretR"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent71",
+     "Event": "Generator01Finished"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer28",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent72",
+     "Event": "TG1Rock5"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer29",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent73",
+     "Event": "TG1Rock3"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden25",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock5"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer34",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent75",
+     "Event": "TG1Rock8"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden26",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock3"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer35",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent76",
+     "Event": "TG1Rock4"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden27",
+     "bHidden": true,
+     "HideActorTag": "TG1Lift"
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden28",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock8"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer36",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden29",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock4"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent77",
+     "Event": "TG1Rock6"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer37",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden30",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock6"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent78",
+     "Event": "TG1Rock1"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer38",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden31",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock1"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent79",
+     "Event": "TG1Rock2"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer39",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden32",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock2"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent80",
+     "Event": "TG1Rock7"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer40",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_SetHidden",
+     "name": "ACTION_SetHidden33",
+     "bHidden": true,
+     "HideActorTag": "TG1Rock7"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger51",
+   "Tag": "ExitObjectiveTrigger",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12496.2509765625,
+    -15007.9365234375,
+    3146.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent73",
+     "ExternalEvent": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent135",
+     "Event": "CityFlash01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer57",
+     "PauseTime": 8.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent136",
+     "Event": "CityFlash01"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence10",
+   "PawnTag": "SpideyPawn",
+   "Tag": "CTLDeath",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -8608.25,
+    -37728.4609375,
+    3660.93115234375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent25",
+     "ExternalEvent": "CTLDeath"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint12",
+     "DestinationTag": "CTLStart",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face10",
+     "DestinationTag": "CTLLook"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger44",
+   "Tag": "ActivateTurretTrigger",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    223.98370361328125,
+    9919.853515625,
+    6479.8876953125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent58",
+     "ExternalEvent": "SpideyIsAtTurretGen1"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition13",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent59",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection13"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition14",
+     "TriggeredConditionTag": "L5M2_Generator01Destroyed"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent61",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection14"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent55",
+     "Event": "TurretGen1On"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent63",
+     "Event": "TurretGen1Activates"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger39",
+   "Tag": "DestroyGeneratorsObjectiveTrigger",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14591.982421875,
+    -13728.00390625,
+    1322.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent49",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition18",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent80",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection18"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd2",
+     "MessageID": "L5M2_TurretsDestroyed",
+     "Message": "Destroy the Generators.",
+     "stateName": "L5M2_TurretsDestroyed",
+     "isPrimary": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger75",
+   "Tag": "UnHideRockBridge",
+   "Group": "None,ExitIsland",
+   "Location": [
+    9104.169921875,
+    -13151.76953125,
+    2719.751708984375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent152",
+     "ExternalEvent": "ExitRocks"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition28",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent116",
+     "Event": "ExitRock01"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound33",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor33",
+     "Visible": true,
+     "ActorTag": "ExitRock01"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer69",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent117",
+     "Event": "ExitRock02"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound34",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor34",
+     "Visible": true,
+     "ActorTag": "ExitRock02"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer70",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent118",
+     "Event": "ExitRock03"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound35",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor35",
+     "Visible": true,
+     "ActorTag": "ExitRock03"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer71",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent119",
+     "Event": "ExitRock04"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound36",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor36",
+     "Visible": true,
+     "ActorTag": "ExitRock04"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer72",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent120",
+     "Event": "ExitRock05"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound37",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor37",
+     "Visible": true,
+     "ActorTag": "ExitRock05"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer73",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent121",
+     "Event": "ExitRock06"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound38",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor38",
+     "Visible": true,
+     "ActorTag": "ExitRock06"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer74",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent124",
+     "Event": "ExitRock07"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound39",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor39",
+     "Visible": true,
+     "ActorTag": "ExitRock07"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer75",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent125",
+     "Event": "ExitRock08"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound40",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor40",
+     "Visible": true,
+     "ActorTag": "ExitRock08"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer76",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent134",
+     "Event": "ExitRock09"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound41",
+     "Sound": "Events.teleporter_Activate_2ndLayer"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor41",
+     "Visible": true,
+     "ActorTag": "ExitRock09"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent153",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection31"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction28"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger8",
+   "Tag": "HideRockBridge",
+   "Group": "None,ExitIsland",
+   "Location": [
+    9120.044921875,
+    -13151.89453125,
+    2719.751708984375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent11",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition0",
+     "TriggeredConditionTag": "L5M2_ExitOpen"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer77",
+     "PauseTime": 5.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction29"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection32"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor24",
+     "ActorTag": "ExitRock01"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor25",
+     "ActorTag": "ExitRock02"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor26",
+     "ActorTag": "ExitRock03"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor27",
+     "ActorTag": "ExitRock04"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor28",
+     "ActorTag": "ExitRock05"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor29",
+     "ActorTag": "ExitRock06"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor30",
+     "ActorTag": "ExitRock07"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor31",
+     "ActorTag": "ExitRock08"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor32",
+     "ActorTag": "ExitRock09"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer78",
+     "PauseTime": 5.0
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction0"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence7",
+   "PawnTag": "SpideyPawn",
+   "Tag": "Exit01Death",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7841.521484375,
+    -11936.2275390625,
+    2780.37158203125
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent22",
+     "ExternalEvent": "Exit01Death"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint8",
+     "DestinationTag": "Exit01Start",
+     "bPlaySpawnEffect": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face7",
+     "DestinationTag": "Exit01Look"
+    }
+   ]
+  }
+ ],
+ "pawns": [
+  {
+   "class": "PrisonerCollectiblePawn",
+   "name": "PrisonerCollectiblePawn4",
+   "HeroPointValue": 0,
+   "GuardRadius": 256,
+   "Tag": "Prisoner19",
+   "Touching": [
+    "Volume18"
+   ],
+   "Location": [
+    -7807.75146484375,
+    -21247.6875,
+    7504.0
+   ]
+  },
+  {
+   "class": "PrisonerCollectiblePawn",
+   "name": "PrisonerCollectiblePawn5",
+   "HeroPointValue": 0,
+   "GuardRadius": 128,
+   "Tag": "Prisoner20",
+   "Touching": [
+    "Volume9"
+   ],
+   "Location": [
+    9280.5283203125,
+    -4448.30615234375,
+    8240.0
+   ]
+  }
+ ],
+ "points": {
+  "Spawner39": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "Spawner38",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group6Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    -2563.33154296875,
+    -21744.138671875,
+    1240.0
+   ],
+   "Rotation": [
+    0,
+    -6647,
+    0
+   ]
+  },
+  "Spawner7": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "Spawner0",
+   "Base": "LevelInfo0",
+   "Tag": "MTA01Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -9826.025390625,
+    2264.56884765625,
+    872.0
+   ]
+  },
+  "Spawner13": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "Spawner5",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup5Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    10011.4443359375,
+    3585.0498046875,
+    4056.0
+   ]
+  },
+  "Teleporter7": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode0",
+   "Base": "LevelInfo0",
+   "Tag": "MTHStart",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -11391.826171875,
+    -9983.646484375,
+    1364.0
+   ],
+   "Rotation": [
+    0,
+    8199,
+    0
+   ]
+  },
+  "Spawner2": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "Spawner1",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup1Arrives",
+   "Group": "None,PAMuseumToHotelRobots",
+   "Location": [
+    -11263.04296875,
+    -9343.474609375,
+    1384.0
+   ],
+   "Rotation": [
+    0,
+    -16263,
+    0
+   ]
+  },
+  "Spawner38": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "Spawner27",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group6Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    -2320.94677734375,
+    -22403.6796875,
+    1256.0
+   ],
+   "Rotation": [
+    0,
+    -22359,
+    0
+   ]
+  },
+  "Spawner37": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner40",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group6Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    -2111.920166015625,
+    -21503.98828125,
+    1240.0
+   ],
+   "Rotation": [
+    0,
+    -16255,
+    0
+   ]
+  },
+  "Spawner16": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner14",
+   "Base": "LevelInfo0",
+   "Tag": "MTA02Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -10047.75,
+    5823.1708984375,
+    1112.0
+   ]
+  },
+  "Spawner18": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner16",
+   "Base": "LevelInfo0",
+   "Tag": "MTA02Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -10751.6376953125,
+    5252.935546875,
+    1112.0
+   ]
+  },
+  "Spawner0": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner2",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup1Arrives",
+   "Group": "None,PAMuseumToHotelRobots",
+   "Location": [
+    -10623.18359375,
+    -9856.5234375,
+    1384.0
+   ],
+   "Rotation": [
+    0,
+    -26431,
+    0
+   ]
+  },
+  "Spawner47": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner46",
+   "Base": "LevelInfo0",
+   "Tag": "MTA03Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -9605.0439453125,
+    12669.52734375,
+    1896.0
+   ]
+  },
+  "Spawner55": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner54",
+   "Base": "LevelInfo0",
+   "Tag": "CTL2Arrives",
+   "Group": "None,CB3ChurchToLibraryRobots",
+   "Location": [
+    -12254.322265625,
+    -38997.3359375,
+    4200.0
+   ]
+  },
+  "PlayerStart1": {
+   "class": "PlayerStart",
+   "PathList": {
+    "_array": 1
+   },
+   "Base": "LevelInfo0",
+   "Tag": "PlayerStart",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14207.4619140625,
+    -13695.4853515625,
+    1300.0
+   ]
+  },
+  "Spawner36": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner44",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group5Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    0.11742991209030151,
+    -23552.080078125,
+    1320.0
+   ],
+   "Rotation": [
+    0,
+    1640,
+    0
+   ]
+  },
+  "PathNode0": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter1",
+   "Base": "LevelInfo0",
+   "Tag": "InPortal",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12287.9404296875,
+    -14975.8623046875,
+    3144.0
+   ]
+  },
+  "Teleporter3": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter6",
+   "Base": "LevelInfo0",
+   "Tag": "MTAStart",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -10112.0048828125,
+    1919.94921875,
+    852.0
+   ],
+   "Rotation": [
+    0,
+    8192,
+    0
+   ]
+  },
+  "Teleporter13": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter12",
+   "Base": "LevelInfo0",
+   "Tag": "CTPStart",
+   "Group": "None,CB3ChurchToPrisonIslands",
+   "Location": [
+    -2688.15234375,
+    -21759.810546875,
+    1220.0
+   ],
+   "Rotation": [
+    0,
+    -47,
+    0
+   ]
+  },
+  "Teleporter1": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner22",
+   "Base": "LevelInfo0",
+   "Tag": "ReadyToLeave",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11904.0400390625,
+    -14975.9990234375,
+    3124.0
+   ]
+  },
+  "Spawner21": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner18",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup6Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    9329.541015625,
+    -555.0571899414062,
+    3176.0
+   ]
+  },
+  "Spawner19": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner47",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup6Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    8314.0771484375,
+    -637.8755493164062,
+    3176.0
+   ]
+  },
+  "Spawner1": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "PlayerStart1",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup1Arrives",
+   "Group": "None,PAMuseumToHotelRobots",
+   "Location": [
+    -10623.171875,
+    -8703.7900390625,
+    1384.0
+   ],
+   "Rotation": [
+    0,
+    -22399,
+    0
+   ]
+  },
+  "Spawner5": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner6",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup5Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    10410.953125,
+    2849.67626953125,
+    4072.0
+   ]
+  },
+  "Spawner46": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner50",
+   "Base": "LevelInfo0",
+   "Tag": "MTA04Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -7168.310546875,
+    10495.3681640625,
+    2408.0
+   ]
+  },
+  "Spawner44": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner37",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group5Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    1149.3101806640625,
+    -23810.33203125,
+    1320.0
+   ],
+   "Rotation": [
+    0,
+    28304,
+    0
+   ]
+  },
+  "Spawner51": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Teleporter10",
+   "Base": "LevelInfo0",
+   "Tag": "MTA03Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -9981.9775390625,
+    11776.49609375,
+    1896.0
+   ]
+  },
+  "Spawner50": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner51",
+   "Base": "LevelInfo0",
+   "Tag": "MTA04Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -6648.65576171875,
+    9479.4775390625,
+    2408.0
+   ]
+  },
+  "Teleporter10": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner36",
+   "Base": "LevelInfo0",
+   "Tag": "SpideyStartsOver",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14079.94921875,
+    -13695.498046875,
+    1300.0
+   ]
+  },
+  "Spawner6": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner7",
+   "Base": "LevelInfo0",
+   "Tag": "MTA01Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -9473.720703125,
+    3363.1533203125,
+    872.0
+   ]
+  },
+  "Spawner14": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner13",
+   "Base": "LevelInfo0",
+   "Tag": "PAGroup5Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    10512.13671875,
+    4238.88623046875,
+    4056.0
+   ]
+  },
+  "Spawner54": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner21",
+   "Base": "LevelInfo0",
+   "Tag": "CTL2Arrives",
+   "Group": "None,CB3ChurchToLibraryRobots",
+   "Location": [
+    -11318.53515625,
+    -38765.36328125,
+    4200.0
+   ]
+  },
+  "InterpolationPoint1": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12079.9609375,
+    -14975.7685546875,
+    3104.022705078125
+   ],
+   "Rotation": [
+    -3,
+    -3,
+    0
+   ]
+  },
+  "LookTarget50": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -10238.9560546875,
+    -26591.5,
+    1536.0657958984375
+   ]
+  },
+  "LookTarget35": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -11006.478515625,
+    -2815.1875,
+    1024.0
+   ]
+  },
+  "LookTarget32": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -10750.560546875,
+    -2045.1251220703125,
+    1024.0
+   ]
+  },
+  "LookTarget34": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -11389.830078125,
+    -2177.303466796875,
+    1024.0
+   ]
+  },
+  "LookTarget33": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -10238.5419921875,
+    -2175.87646484375,
+    1024.0
+   ]
+  },
+  "LookTarget31": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -11260.740234375,
+    -2560.19189453125,
+    1024.0
+   ]
+  },
+  "LookTarget49": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -7813.89501953125,
+    -25604.525390625,
+    1104.0
+   ]
+  },
+  "LookTarget37": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6257.822265625,
+    -4980.0654296875,
+    2560.0
+   ]
+  },
+  "LookTarget39": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6785.89599609375,
+    -4735.060546875,
+    2304.0
+   ]
+  },
+  "LookTarget38": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6293.30712890625,
+    -4039.76953125,
+    2560.0
+   ]
+  },
+  "Teleporter15": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter14",
+   "Base": "LevelInfo0",
+   "Tag": "LTPStart",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    9727.5859375,
+    -35328.203125,
+    2756.0
+   ],
+   "Rotation": [
+    0,
+    16396,
+    0
+   ]
+  },
+  "LookTarget105": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1793.347900390625,
+    -34303.52734375,
+    2176.04443359375
+   ]
+  },
+  "LookTarget111": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -255.85397338867188,
+    -33536.421875,
+    2432.145751953125
+   ]
+  },
+  "LookTarget99": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    4609.470703125,
+    10752.32421875,
+    1408.03369140625
+   ]
+  },
+  "LookTarget98": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    2815.2255859375,
+    11392.7880859375,
+    1408.03369140625
+   ]
+  },
+  "Spawner24": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "nextNavigationPoint": "Spawner19",
+   "Tag": "CTL1Arrives",
+   "Group": "None,CB3ChurchToLibraryRobots",
+   "Location": [
+    -9334.53515625,
+    -30573.36328125,
+    4712.0
+   ]
+  },
+  "Trigger65": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "CTLRoid1Falls",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Touching": [
+    "StaticMeshActor455"
+   ],
+   "Location": [
+    -8183.46923828125,
+    -38090.66796875,
+    3647.739990234375
+   ],
+   "CollisionRadius": 1000.0,
+   "CollisionHeight": 80.0
+  },
+  "LookTarget106": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1794.7696533203125,
+    -34558.78515625,
+    2303.292724609375
+   ]
+  },
+  "LookTarget100": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    3326.31005859375,
+    11520.6669921875,
+    1280.65234375
+   ]
+  },
+  "LookTarget94": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    4351.423828125,
+    10881.0537109375,
+    1151.70703125
+   ]
+  },
+  "LookTarget110": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1532.650634765625,
+    -34302.38671875,
+    2432.145751953125
+   ]
+  },
+  "LookTarget103": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    1.3982361555099487,
+    -33155.28515625,
+    2176.04443359375
+   ]
+  },
+  "LookTarget107": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    0.8978016376495361,
+    -33406.203125,
+    2303.292724609375
+   ]
+  },
+  "LookTarget95": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    3585.717041015625,
+    11650.1435546875,
+    1151.70703125
+   ]
+  },
+  "LookTarget93": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    4738.03271484375,
+    10495.12109375,
+    1151.70703125
+   ]
+  },
+  "LookTarget92": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    4352.5107421875,
+    11262.8173828125,
+    1280.65234375
+   ]
+  },
+  "Spawner40": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "nextNavigationPoint": "Spawner39",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group6Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    -1541.9095458984375,
+    -21169.095703125,
+    1256.0
+   ],
+   "Rotation": [
+    0,
+    -12959,
+    0
+   ]
+  },
+  "LookTarget96": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    3073.225830078125,
+    11392.078125,
+    1280.65234375
+   ]
+  },
+  "LookTarget108": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1278.8421630859375,
+    -34046.546875,
+    2303.292724609375
+   ]
+  },
+  "LookTarget109": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -385.26507568359375,
+    -33280.328125,
+    2303.292724609375
+   ]
+  },
+  "LookTarget101": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    2943.130126953125,
+    11648.794921875,
+    1151.70703125
+   ]
+  },
+  "LookTarget102": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1536.795654296875,
+    -34046.4453125,
+    2176.04443359375
+   ]
+  },
+  "LookTarget104": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -635.4248657226562,
+    -33534.8515625,
+    2176.04443359375
+   ]
+  },
+  "LookTarget97": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    4736.158203125,
+    10881.4462890625,
+    1280.65234375
+   ]
+  },
+  "Spawner22": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "nextNavigationPoint": "Spawner24",
+   "Tag": "CTL1Arrives",
+   "Group": "None,CB3ChurchToLibraryRobots",
+   "Location": [
+    -10270.322265625,
+    -30805.3359375,
+    4712.0
+   ]
+  },
+  "Teleporter14": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter13",
+   "Base": "StaticMeshActor1667",
+   "Tag": "LibraryStart",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    448.1763610839844,
+    -38976.19921875,
+    2121.56103515625
+   ],
+   "Rotation": [
+    0,
+    16396,
+    0
+   ]
+  },
+  "LookTarget51": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -8574.1787109375,
+    -26495.30859375,
+    1104.0
+   ]
+  },
+  "LookTarget36": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6782.9345703125,
+    -4228.564453125,
+    2304.0
+   ]
+  },
+  "LookTarget45": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    7168.1484375,
+    -21762.076171875,
+    1612.0
+   ]
+  },
+  "LookTarget52": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -11008.6962890625,
+    -25712.26171875,
+    1104.0
+   ]
+  },
+  "Teleporter6": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter4",
+   "Base": "LevelInfo0",
+   "Tag": "MuseumStart",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -7296.09423828125,
+    -1408.411376953125,
+    2644.0
+   ],
+   "Rotation": [
+    0,
+    32752,
+    0
+   ]
+  },
+  "LookTarget29": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -10880.6767578125,
+    -2432.2490234375,
+    1024.0
+   ]
+  },
+  "LookTarget28": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -10495.0283203125,
+    -2557.93896484375,
+    1024.0
+   ]
+  },
+  "LookTarget30": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -10624.9892578125,
+    -2818.587158203125,
+    1024.0
+   ]
+  },
+  "LookTarget43": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    7039.29541015625,
+    -22528.033203125,
+    1612.0
+   ]
+  },
+  "Trigger22": {
+   "class": "Trigger",
+   "Tag": "MTA03ArrivesTrigger",
+   "Event": "MTA03Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Touching": [
+    "Volume15"
+   ],
+   "Location": [
+    -9408.13671875,
+    12031.8359375,
+    1840.0
+   ]
+  },
+  "LookTarget44": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6527.47412109375,
+    -21378.005859375,
+    1612.0
+   ]
+  },
+  "LookTarget42": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6268.77197265625,
+    -22528.435546875,
+    1612.0
+   ]
+  },
+  "LookTarget41": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6015.09765625,
+    -22016.3671875,
+    1612.0
+   ]
+  },
+  "LookTarget40": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    6251.14697265625,
+    -4492.71533203125,
+    2560.0
+   ]
+  },
+  "LookTarget47": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -11004.6552734375,
+    -23297.11328125,
+    1104.0
+   ]
+  },
+  "LookTarget48": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -9210.1513671875,
+    -24908.4375,
+    1488.3414306640625
+   ]
+  },
+  "Teleporter12": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter11",
+   "Base": "LevelInfo0",
+   "Tag": "CTLStart",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -8575.451171875,
+    -37631.40234375,
+    3652.0
+   ],
+   "Rotation": [
+    0,
+    -8135,
+    0
+   ]
+  },
+  "Teleporter5": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter0",
+   "Base": "LevelInfo0",
+   "Tag": "ATHStart",
+   "Group": "None,PAApartmentToHotelIslands",
+   "Location": [
+    5119.48095703125,
+    7552.10693359375,
+    4820.0
+   ],
+   "Rotation": [
+    0,
+    -8156,
+    0
+   ]
+  },
+  "InterpolationPoint0": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,ExitIsland",
+   "Location": [
+    11647.74609375,
+    -14976.1083984375,
+    3104.074951171875
+   ],
+   "Rotation": [
+    -55,
+    -23,
+    -71
+   ]
+  },
+  "Teleporter0": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter3",
+   "Base": "LevelInfo0",
+   "Tag": "ApartmentStart",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    2688.916259765625,
+    9407.8671875,
+    7444.0
+   ],
+   "Rotation": [
+    0,
+    -16368,
+    0
+   ]
+  },
+  "Teleporter8": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter15",
+   "Base": "LevelInfo0",
+   "Tag": "PrisonStart",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    6656.1962890625,
+    -23135.80078125,
+    3924.0
+   ],
+   "Rotation": [
+    0,
+    16396,
+    0
+   ]
+  },
+  "Teleporter11": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter2",
+   "Base": "LevelInfo0",
+   "Tag": "ChurchStart",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -8191.751953125,
+    -26816.08203125,
+    4564.0
+   ],
+   "Rotation": [
+    0,
+    16400,
+    0
+   ]
+  },
+  "Trigger17": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "EndOfLevelTrigger",
+   "Event": "SpideyTeleport",
+   "Group": "None,ExitIsland",
+   "Touching": [
+    "TriggeredCondition4"
+   ],
+   "Location": [
+    12435.001953125,
+    -14975.45703125,
+    2947.77978515625
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Teleporter2": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter9",
+   "Base": "LevelInfo0",
+   "Tag": "Exit02Start",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7679.94873046875,
+    -17407.978515625,
+    2772.0
+   ]
+  },
+  "Teleporter9": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter5",
+   "Base": "LevelInfo0",
+   "Tag": "Exit01Start",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7935.8203125,
+    -12031.9951171875,
+    2772.0
+   ]
+  },
+  "Spawner27": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "nextNavigationPoint": "Spawner26",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group2Arrives",
+   "Group": "None,CB3LibraryToPrisonRobots",
+   "Location": [
+    5076.85302734375,
+    -32930.63671875,
+    2344.0
+   ]
+  },
+  "Spawner26": {
+   "class": "Spawner",
+   "GuardRadius": 1024,
+   "SpawnRadius": 32,
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "bPlaySpawnEffect": true,
+   "PeripheralVision": -1.0,
+   "nextNavigationPoint": "Spawner55",
+   "Base": "LevelInfo0",
+   "Tag": "CB3Group2Arrives",
+   "Group": "None,CB3LibraryToPrisonRobots",
+   "Location": [
+    3930.694580078125,
+    -32203.666015625,
+    2344.0
+   ]
+  },
+  "Trigger19": {
+   "class": "Trigger",
+   "Tag": "MTA04ArrivesTrigger",
+   "Event": "MTA04Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Touching": [
+    "Volume14"
+   ],
+   "Location": [
+    -6976.13671875,
+    9855.8359375,
+    2352.0
+   ]
+  },
+  "Teleporter4": {
+   "class": "Teleporter",
+   "nextNavigationPoint": "Teleporter7",
+   "Base": "LevelInfo0",
+   "Tag": "HotelStart",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4415.57763671875,
+    -4096.23828125,
+    3508.0
+   ],
+   "Rotation": [
+    0,
+    -24,
+    0
+   ]
+  },
+  "Counter0": {
+   "class": "Counter",
+   "Tag": "TurretGeneratorDestroyed",
+   "Event": "L5M2_ExitOpen",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12431.3662109375,
+    -15040.052734375,
+    3088.0
+   ]
+  },
+  "Trigger28": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "MuseumRoid5Falls",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -10128.4736328125,
+    767.7574462890625,
+    575.94091796875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger39": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid8Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    5599.662109375,
+    -3440.17578125,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger26": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "Exit02DeathTrigger",
+   "Event": "Exit02Death",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7744.3486328125,
+    -17471.44921875,
+    2604.01123046875
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger16": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "ExitRocksTrigger",
+   "Event": "ExitRocks",
+   "Group": "None,ExitIsland",
+   "Location": [
+    8447.0703125,
+    -12544.087890625,
+    2574.0
+   ]
+  },
+  "Trigger14": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "TurretGenerator2Trigger",
+   "Event": "SpideyIsAtTurretGen2",
+   "Group": "None,TurretGenerator2",
+   "Location": [
+    2431.91455078125,
+    -40063.56640625,
+    3110.72265625
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ]
+  },
+  "Trigger30": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HTARoid1Falls",
+   "Group": "None,PAApartmentToHotelIslands",
+   "Location": [
+    6015.037109375,
+    6783.7998046875,
+    4816.11474609375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger29": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid9Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    6879.33544921875,
+    -2944.462646484375,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger8": {
+   "class": "Trigger",
+   "Tag": "Prisoner19VOTrigger",
+   "Event": "Prisoner19VO",
+   "Location": [
+    -7807.50341796875,
+    -21248.94921875,
+    7376.001953125
+   ]
+  },
+  "Trigger15": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid2Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    6272.04736328125,
+    -10416.123046875,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger32": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ApartmentRoid3Falls",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    -1074.483154296875,
+    7075.26171875,
+    1087.8294677734375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger5": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "PAGroup6ArrivesTrigger",
+   "Event": "PAGroup6Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    8863.1953125,
+    -127.9032974243164,
+    3120.0
+   ]
+  },
+  "Trigger31": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ApartmentRoid2Falls",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    -276.348388671875,
+    5382.62646484375,
+    1087.8294677734375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger11": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "CB3Group6ArrivesTrigger",
+   "Event": "CB3Group6Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    -2208.099609375,
+    -21824.068359375,
+    1184.0
+   ]
+  },
+  "LookTarget16": {
+   "class": "LookTarget",
+   "Tag": "LTPLook",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    9728.234375,
+    -35199.96875,
+    2748.164794921875
+   ]
+  },
+  "Trigger35": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ApartmentRoid5Falls",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    2913.45751953125,
+    10658.34765625,
+    1087.8294677734375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger1": {
+   "class": "Trigger",
+   "Tag": "MTA01ArrivesTrigger",
+   "Event": "MTA01Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -9472.0693359375,
+    2752.239013671875,
+    816.0
+   ]
+  },
+  "Trigger37": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid6Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    7279.65185546875,
+    -6528.22998046875,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger34": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ApartmentRoid1Falls",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    -3265.312255859375,
+    7840.16796875,
+    1087.8294677734375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger12": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "CB3Group5ArrivesTrigger",
+   "Event": "CB3Group5Arrives",
+   "Group": "None,CB3ChurchToPrisonRobots",
+   "Location": [
+    511.146728515625,
+    -23423.23828125,
+    1264.0
+   ]
+  },
+  "Trigger7": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "CB3Group2ArrivesTrigger",
+   "Event": "CB3Group2Arrives",
+   "Group": "None,CB3LibraryToPrisonRobots",
+   "Location": [
+    4479.875,
+    -32640.634765625,
+    2352.0
+   ]
+  },
+  "Trigger21": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid4Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    7663.46484375,
+    -9088.18359375,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger18": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid3Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4848.12255859375,
+    -9471.9404296875,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger27": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "MuseumRoid1Falls",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -12208.6357421875,
+    -3564.7744140625,
+    575.94091796875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger25": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "MuseumRoid3Falls",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -11007.3466796875,
+    -1922.255859375,
+    575.94091796875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger6": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "CTL1ArrivesTrigger",
+   "Event": "CTL1Arrives",
+   "Group": "None,CB3ChurchToLibraryRobots",
+   "Location": [
+    -9856.3544921875,
+    -30464.62890625,
+    4656.0
+   ]
+  },
+  "Trigger36": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid5Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4848.0947265625,
+    -8192.037109375,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger10": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "TurretGenerator1Trigger",
+   "Event": "SpideyIsAtTurretGen1",
+   "Group": "None,TurretGenerator1",
+   "Location": [
+    191.95046997070312,
+    9918.6044921875,
+    6448.0
+   ]
+  },
+  "WebSwingPoint76": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -8416.8232421875,
+    -28673.80859375,
+    6448.0
+   ],
+   "Rotation": [
+    0,
+    -159,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint118": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    3329.77734375,
+    10238.4248046875,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint112": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -12655.9697265625,
+    6416.2109375,
+    1966.525634765625
+   ],
+   "Rotation": [
+    0,
+    8583,
+    0
+   ]
+  },
+  "WebSwingPoint83": {
+   "class": "WebSwingPoint",
+   "bHidden": true,
+   "Tag": "Challenge03Swings",
+   "Location": [
+    -1024.1258544921875,
+    -35968.1875,
+    6784.9453125
+   ],
+   "Rotation": [
+    0,
+    16368,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint111": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -11519.97265625,
+    9984.208984375,
+    3134.525634765625
+   ],
+   "Rotation": [
+    0,
+    -8251,
+    0
+   ]
+  },
+  "WebSwingPoint114": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    8208.03125,
+    6800.20703125,
+    5934.525390625
+   ],
+   "Rotation": [
+    0,
+    16364,
+    0
+   ]
+  },
+  "WebSwingPoint115": {
+   "class": "WebSwingPoint",
+   "SwingLength": 832.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2240.621337890625,
+    10270.00390625,
+    5472.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint85": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,ExitIsland",
+   "Location": [
+    5888.02587890625,
+    -15739.79296875,
+    3246.525390625
+   ],
+   "Rotation": [
+    0,
+    -4,
+    0
+   ]
+  },
+  "WebSwingPoint61": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -14207.296875,
+    -3200.994873046875,
+    2559.11865234375
+   ],
+   "Rotation": [
+    0,
+    9384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint51": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -6400.0263671875,
+    -39039.7734375,
+    4111.7548828125
+   ],
+   "Rotation": [
+    0,
+    5688,
+    0
+   ]
+  },
+  "WebSwingPoint50": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1280.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -2379.93603515625,
+    7891.43359375,
+    5440.0
+   ],
+   "Rotation": [
+    0,
+    5116,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint53": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    -8702.8837890625,
+    -30208.07421875,
+    4448.0
+   ],
+   "Rotation": [
+    0,
+    8284,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint49": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    255.9130859375,
+    10240.509765625,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint52": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    2688.76904296875,
+    -35202.21484375,
+    5344.23828125
+   ],
+   "Rotation": [
+    0,
+    9880,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint54": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -12927.982421875,
+    -8063.796875,
+    2462.525634765625
+   ],
+   "Rotation": [
+    0,
+    3324,
+    0
+   ]
+  },
+  "WebSwingPoint60": {
+   "class": "WebSwingPoint",
+   "SwingLength": 320.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6301.384765625,
+    -1421.3697509765625,
+    2048.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint62": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    73.0035400390625,
+    7883.4423828125,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    -5119,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint56": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1280.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -2553.405029296875,
+    10241.60546875,
+    5440.0
+   ],
+   "Rotation": [
+    0,
+    -8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint63": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    5525.4765625,
+    -10148.892578125,
+    6464.0
+   ],
+   "Rotation": [
+    0,
+    8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint43": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    1693.18896484375,
+    10235.625,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint48": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -2554.892578125,
+    10236.53125,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint67": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    15120.0341796875,
+    -32747.7890625,
+    3502.525390625
+   ],
+   "Rotation": [
+    0,
+    19,
+    0
+   ]
+  },
+  "WebSwingPoint70": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    5522.35009765625,
+    -10154.9443359375,
+    3584.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint113": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -4479.96923828125,
+    8960.20703125,
+    3134.525634765625
+   ],
+   "Rotation": [
+    0,
+    16364,
+    0
+   ]
+  },
+  "WebSwingPoint71": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    7209.46484375,
+    -7708.76318359375,
+    6464.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint68": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -2382.67041015625,
+    7886.259765625,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    5116,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint77": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6402.6005859375,
+    -27007.048828125,
+    3024.0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint100": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    6656.27294921875,
+    -22655.955078125,
+    3512.0
+   ],
+   "Rotation": [
+    0,
+    16212,
+    0
+   ]
+  },
+  "WebSwingPoint96": {
+   "class": "WebSwingPoint",
+   "SwingLength": 784.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    8829.443359375,
+    -5503.548828125,
+    7295.54150390625
+   ],
+   "Rotation": [
+    0,
+    16456,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint44": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1280.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    256.185791015625,
+    10242.41796875,
+    5440.0
+   ],
+   "Rotation": [
+    0,
+    8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint94": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    7167.162109375,
+    -25727.798828125,
+    4273.0
+   ],
+   "Rotation": [
+    0,
+    -23243,
+    0
+   ]
+  },
+  "WebSwingPoint28": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -9291.2109375,
+    -23625.1796875,
+    3792.0
+   ],
+   "Rotation": [
+    0,
+    -16655,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint40": {
+   "class": "WebSwingPoint",
+   "SwingLength": 920.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -1154.937744140625,
+    7374.3720703125,
+    3520.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint41": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    4736.45849609375,
+    7935.4619140625,
+    4992.81201171875
+   ],
+   "Rotation": [
+    0,
+    -6127,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint87": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -11518.693359375,
+    -3071.428955078125,
+    2559.11865234375
+   ],
+   "Rotation": [
+    0,
+    23988,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint104": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    13712.0185546875,
+    -34411.77734375,
+    3502.525390625
+   ],
+   "Rotation": [
+    0,
+    23276,
+    0
+   ]
+  },
+  "WebSwingPoint98": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    11648.5859375,
+    -24447.78125,
+    4816.0
+   ],
+   "Rotation": [
+    0,
+    -32660,
+    0
+   ]
+  },
+  "WebSwingPoint95": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    4224.67138671875,
+    -24575.966796875,
+    3512.0
+   ],
+   "Rotation": [
+    0,
+    -23243,
+    0
+   ]
+  },
+  "WebSwingPoint93": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    10752.296875,
+    -25856.326171875,
+    3512.0
+   ],
+   "Rotation": [
+    0,
+    23895,
+    0
+   ]
+  },
+  "WebSwingPoint86": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -13039.97265625,
+    8592.212890625,
+    2606.525634765625
+   ],
+   "Rotation": [
+    0,
+    -7824,
+    0
+   ]
+  },
+  "WebSwingPoint101": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    -8703.0869140625,
+    -20480.525390625,
+    4817.23828125
+   ],
+   "Rotation": [
+    0,
+    -9763,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "Trigger4": {
+   "class": "Trigger",
+   "Tag": "MTA02ArrivesTrigger",
+   "Event": "MTA02Arrives",
+   "Group": "None,PAMuseumToApartmentRobots",
+   "Location": [
+    -10112.1904296875,
+    5759.90771484375,
+    1056.0
+   ]
+  },
+  "WebSwingPoint97": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    9024.890625,
+    -26431.529296875,
+    4273.0
+   ],
+   "Rotation": [
+    0,
+    16548,
+    0
+   ]
+  },
+  "WebSwingPoint105": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -12800.0400390625,
+    -15871.7890625,
+    2463.755126953125
+   ],
+   "Rotation": [
+    0,
+    8080,
+    0
+   ]
+  },
+  "WebSwingPoint103": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -2288.028076171875,
+    -39919.78515625,
+    3343.7548828125
+   ],
+   "Rotation": [
+    0,
+    16411,
+    0
+   ]
+  },
+  "WebSwingPoint102": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    2559.261474609375,
+    -37631.50390625,
+    6233.23828125
+   ],
+   "Rotation": [
+    0,
+    24675,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint99": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -8258.068359375,
+    -3163.19140625,
+    2048.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint89": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    8575.7744140625,
+    -9088.1845703125,
+    4544.0
+   ],
+   "Rotation": [
+    0,
+    -1279,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint91": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2336.98486328125,
+    4782.28857421875,
+    5440.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint88": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    4734.40478515625,
+    10238.67578125,
+    3520.0
+   ],
+   "Rotation": [
+    0,
+    -21463,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint92": {
+   "class": "WebSwingPoint",
+   "SwingLength": 760.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    8705.7001953125,
+    -7808.1513671875,
+    6018.0
+   ],
+   "Rotation": [
+    0,
+    -2560,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint69": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    5249.3779296875,
+    -3327.656005859375,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    9391,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint27": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -1023.2992553710938,
+    -37759.81640625,
+    3972.238525390625
+   ],
+   "Rotation": [
+    0,
+    16288,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint37": {
+   "class": "WebSwingPoint",
+   "bHidden": true,
+   "Tag": "Challenge03Swings",
+   "Location": [
+    -127.57550811767578,
+    -36480.2265625,
+    5802.23828125
+   ],
+   "Rotation": [
+    0,
+    720,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint82": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,ExitIsland",
+   "Location": [
+    6400.02587890625,
+    -13819.79296875,
+    3374.525390625
+   ],
+   "Rotation": [
+    0,
+    -4,
+    0
+   ]
+  },
+  "WebSwingPoint116": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,ExitIsland",
+   "Location": [
+    6800.02587890625,
+    -12139.79296875,
+    2734.525390625
+   ],
+   "Rotation": [
+    0,
+    -4,
+    0
+   ]
+  },
+  "WebSwingPoint117": {
+   "class": "WebSwingPoint",
+   "SwingLength": 832.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    4861.7255859375,
+    9025.880859375,
+    5440.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint110": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -5631.9794921875,
+    -7919.79345703125,
+    2094.525634765625
+   ],
+   "Rotation": [
+    0,
+    20612,
+    0
+   ]
+  },
+  "WebSwingPoint84": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -12160.02734375,
+    -33535.7734375,
+    5647.7548828125
+   ],
+   "Rotation": [
+    0,
+    3096,
+    0
+   ]
+  },
+  "WebSwingPoint106": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -12543.97265625,
+    -11647.791015625,
+    2462.525634765625
+   ],
+   "Rotation": [
+    0,
+    -8251,
+    0
+   ]
+  },
+  "WebSwingPoint107": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -3951.9794921875,
+    -6895.79345703125,
+    2606.525634765625
+   ],
+   "Rotation": [
+    0,
+    20612,
+    0
+   ]
+  },
+  "WebSwingPoint108": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -14335.263671875,
+    -1406.8095703125,
+    2559.11865234375
+   ],
+   "Rotation": [
+    0,
+    19,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint109": {
+   "class": "WebSwingPoint",
+   "SwingLength": 512.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -12677.361328125,
+    -1451.7216796875,
+    4352.0
+   ],
+   "Rotation": [
+    0,
+    -2560,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "Trigger20": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "Roid01Falls",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -7936.0,
+    -8720.0,
+    1056.0
+   ],
+   "CollisionRadius": 640.0
+  },
+  "LookTarget11": {
+   "class": "LookTarget",
+   "Tag": "LookHereSpidey",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -13824.1591796875,
+    -13696.0517578125,
+    1296.0574951171875
+   ]
+  },
+  "LookTarget15": {
+   "class": "LookTarget",
+   "Tag": "LibraryLook",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    448.06134033203125,
+    -38911.9375,
+    2124.419921875
+   ]
+  },
+  "LookTarget14": {
+   "class": "LookTarget",
+   "Tag": "CTPLook",
+   "Group": "None,CB3ChurchToPrisonIslands",
+   "Location": [
+    -2560.049072265625,
+    -21760.00390625,
+    1211.989013671875
+   ]
+  },
+  "LookTarget13": {
+   "class": "LookTarget",
+   "Tag": "CTLLook",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -8448.41015625,
+    -37760.3046875,
+    3644.954345703125
+   ]
+  },
+  "WebSwingPoint9": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -880.028076171875,
+    -39151.78515625,
+    2575.7548828125
+   ],
+   "Rotation": [
+    0,
+    16411,
+    0
+   ]
+  },
+  "Trigger38": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid7Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    5599.95703125,
+    -5376.33740234375,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger40": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "HotelRoid1Falls",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4095.258056640625,
+    -10735.5234375,
+    2111.38232421875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger33": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ApartmentRoid4Falls",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    1104.6138916015625,
+    7838.25,
+    1087.8294677734375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "WebSwingPoint122": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -11520.0224609375,
+    -31871.775390625,
+    5135.7548828125
+   ],
+   "Rotation": [
+    0,
+    21936,
+    0
+   ]
+  },
+  "Trigger44": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid7Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    8832.54296875,
+    -19855.458984375,
+    1598.5084228515625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger49": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid6Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    4656.14697265625,
+    -19840.2421875,
+    1598.5084228515625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger48": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid5Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    6511.609375,
+    -20975.978515625,
+    1598.5084228515625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger43": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid2Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    5809.1865234375,
+    -23695.6015625,
+    3472.314208984375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger47": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid4Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    10479.5595703125,
+    -22016.25390625,
+    1598.5084228515625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "WebSwingPoint147": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    11135.193359375,
+    -23039.40234375,
+    3512.0
+   ],
+   "Rotation": [
+    0,
+    9516,
+    0
+   ]
+  },
+  "WebSwingPoint145": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    8959.50390625,
+    -21120.265625,
+    3512.0
+   ],
+   "Rotation": [
+    0,
+    16071,
+    0
+   ]
+  },
+  "WebSwingPoint146": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    4224.103515625,
+    -22783.552734375,
+    3512.0
+   ],
+   "Rotation": [
+    0,
+    22940,
+    0
+   ]
+  },
+  "WebSwingPoint133": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -14208.3984375,
+    256.7960205078125,
+    3008.0
+   ],
+   "Rotation": [
+    0,
+    -8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint135": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    7146.1435546875,
+    -10153.568359375,
+    3584.0
+   ],
+   "Rotation": [
+    0,
+    -8632,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint136": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    7211.564453125,
+    -7709.763671875,
+    3584.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint132": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    4353.53271484375,
+    -10367.71484375,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint130": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -11390.6728515625,
+    256.1502380371094,
+    2048.0
+   ],
+   "Rotation": [
+    0,
+    8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint121": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    11792.0185546875,
+    -35307.77734375,
+    3630.525390625
+   ],
+   "Rotation": [
+    0,
+    16324,
+    0
+   ]
+  },
+  "WebSwingPoint128": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -4273.30908203125,
+    -40011.8515625,
+    2407.89794921875
+   ],
+   "Rotation": [
+    -36,
+    16376,
+    -88
+   ]
+  },
+  "WebSwingPoint129": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -12678.271484375,
+    48.62890625,
+    4928.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint123": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6317.7529296875,
+    310.6256103515625,
+    2048.0
+   ],
+   "Rotation": [
+    0,
+    3840,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint127": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    1469.6923828125,
+    3302.9150390625,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint120": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    14336.0263671875,
+    -30715.787109375,
+    3374.525390625
+   ],
+   "Rotation": [
+    0,
+    10575,
+    0
+   ]
+  },
+  "WebSwingPoint134": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    7144.7705078125,
+    -10144.67578125,
+    6464.0
+   ],
+   "Rotation": [
+    0,
+    -8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint126": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    107.14697265625,
+    3466.423828125,
+    2560.0
+   ],
+   "Rotation": [
+    0,
+    8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "Trigger13": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "MuseumRoid4Falls",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -9744.0380859375,
+    -750.5003662109375,
+    575.94091796875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "WebSwingPoint1": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    3199.951416015625,
+    3201.816162109375,
+    3520.0
+   ],
+   "Rotation": [
+    0,
+    -12152,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint3": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -8050.2197265625,
+    322.560302734375,
+    2048.0
+   ],
+   "Rotation": [
+    0,
+    -16384,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "LookTarget8": {
+   "class": "LookTarget",
+   "Tag": "MTHLook",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -11264.251953125,
+    -9855.8056640625,
+    1354.9786376953125
+   ]
+  },
+  "LookTarget7": {
+   "class": "LookTarget",
+   "Tag": "MuseumLook",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -7424.29443359375,
+    -1408.3878173828125,
+    2679.727783203125
+   ]
+  },
+  "LookTarget5": {
+   "class": "LookTarget",
+   "Tag": "LookOutPortal",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12080.41796875,
+    -14975.767578125,
+    3135.5927734375
+   ]
+  },
+  "LookTarget4": {
+   "class": "LookTarget",
+   "Tag": "LookAtPortal",
+   "Group": "None,ExitIsland",
+   "Location": [
+    12591.87109375,
+    -14976.1123046875,
+    3135.4873046875
+   ]
+  },
+  "LookTarget10": {
+   "class": "LookTarget",
+   "Tag": "Exit01Look",
+   "Group": "None,ExitIsland",
+   "Location": [
+    8063.86669921875,
+    -12032.138671875,
+    2764.39501953125
+   ]
+  },
+  "LookTarget6": {
+   "class": "LookTarget",
+   "Tag": "ATHLook",
+   "Group": "None,PAApartmentToHotelIslands",
+   "Location": [
+    5248.0546875,
+    7423.990234375,
+    4812.50341796875
+   ]
+  },
+  "LookTarget2": {
+   "class": "LookTarget",
+   "Tag": "MTALook",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -9983.791015625,
+    2047.787353515625,
+    843.8649291992188
+   ]
+  },
+  "LookTarget3": {
+   "class": "LookTarget",
+   "Tag": "HotelLook",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4543.30322265625,
+    -4096.21240234375,
+    3479.907470703125
+   ]
+  },
+  "Trigger0": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "PAGroup1ArrivesTrigger",
+   "Event": "PAGroup1Arrives",
+   "Group": "None,PAMuseumToHotelRobots",
+   "Location": [
+    -10495.890625,
+    -8959.482421875,
+    1328.0
+   ]
+  },
+  "WebSwingPoint6": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    3584.91162109375,
+    4990.4697265625,
+    3520.0
+   ],
+   "Rotation": [
+    0,
+    -7607,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "Trigger3": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "PAGroup5ArrivesTrigger",
+   "Event": "PAGroup5Arrives",
+   "Group": "None,PAApartmentToHotelRobots",
+   "Location": [
+    10592.20703125,
+    3328.326904296875,
+    4000.0
+   ]
+  },
+  "WebSwingPoint0": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6334.146484375,
+    -3187.447265625,
+    2048.0
+   ],
+   "Rotation": [
+    0,
+    -8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "LookTarget9": {
+   "class": "LookTarget",
+   "Tag": "PrisonLook",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    6656.17724609375,
+    -23039.78515625,
+    3926.767333984375
+   ]
+  },
+  "Trigger70": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "PrisonDeathTrigger",
+   "Event": "PrisonDeath",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    6719.859375,
+    -23135.875,
+    3766.384033203125
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger77": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "LTPDeathTrigger",
+   "Event": "LTPDeath",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    9792.15234375,
+    -35265.24609375,
+    2587.781494140625
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger76": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "LibraryDeathTrigger",
+   "Event": "LibraryDeath",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    512.2455444335938,
+    -38975.83984375,
+    1964.036376953125
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger75": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "CTPDeathTrigger",
+   "Event": "CTPDeath",
+   "Group": "None,CB3ChurchToPrisonIslands",
+   "Location": [
+    -2659.031494140625,
+    -21843.3125,
+    1051.60546875
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger74": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "CTLDeathTrigger",
+   "Event": "CTLDeath",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -8549.09375,
+    -37715.87890625,
+    3484.57080078125
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger73": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "ChurchDeathTrigger",
+   "Event": "ChurchDeath",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -8128.4375,
+    -26816.505859375,
+    4407.791015625
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger71": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "Exit01DeathTrigger",
+   "Event": "Exit01Death",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7999.51416015625,
+    -11967.8857421875,
+    2604.01123046875
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger69": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "MTHDeathTrigger",
+   "Event": "MTHDeath",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -11328.4169921875,
+    -9920.5986328125,
+    1200.138671875
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger53": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "HotelDeathTrigger",
+   "Event": "HotelDeath",
+   "Group": "None,PAHotelIsland",
+   "Location": [
+    4350.8740234375,
+    -4160.01708984375,
+    3325.067626953125
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger68": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "MuseumDeathTrigger",
+   "Event": "MuseumDeath",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -7231.63818359375,
+    -1472.2218017578125,
+    2524.887939453125
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger45": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "MTADeathTrigger",
+   "Event": "MTADeath",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    -10047.9560546875,
+    1982.9969482421875,
+    689.0249633789062
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger60": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "ATHDeathTrigger",
+   "Event": "ATHDeath",
+   "Group": "None,PAApartmentToHotelIslands",
+   "Location": [
+    5183.72802734375,
+    7487.87451171875,
+    4657.6630859375
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "Trigger72": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "StartDeathTrigger",
+   "Event": "StartDeath",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -14990.8837890625,
+    -13919.8115234375,
+    1135.673828125
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "LookTarget54": {
+   "class": "LookTarget",
+   "Tag": "TurretGen01Look",
+   "Location": [
+    -1026.085205078125,
+    11199.9619140625,
+    6496.0
+   ]
+  },
+  "LookTarget12": {
+   "class": "LookTarget",
+   "Tag": "ChurchLook",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -8192.08984375,
+    -26687.9140625,
+    4576.12451171875
+   ]
+  },
+  "LookTarget46": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -13040.0,
+    -15952.0,
+    -6128.0
+   ]
+  },
+  "WebSwingPoint22": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -7551.55224609375,
+    -26113.265625,
+    3024.0
+   ],
+   "Rotation": [
+    0,
+    16599,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint15": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6527.28857421875,
+    -20096.48046875,
+    2528.0
+   ],
+   "Rotation": [
+    0,
+    10564,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint10": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -5872.02880859375,
+    -24047.775390625,
+    3359.755126953125
+   ],
+   "Rotation": [
+    0,
+    19,
+    0
+   ]
+  },
+  "WebSwingPoint17": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6398.67626953125,
+    -26111.76953125,
+    4448.0
+   ],
+   "Rotation": [
+    0,
+    9780,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint14": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6529.935546875,
+    -22400.041015625,
+    2528.0
+   ],
+   "Rotation": [
+    0,
+    71,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint12": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -12096.02734375,
+    -36607.7734375,
+    5263.7548828125
+   ],
+   "Rotation": [
+    0,
+    3096,
+    0
+   ]
+  },
+  "WebSwingPoint29": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -8703.607421875,
+    -27007.59765625,
+    3024.0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint35": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6656.06494140625,
+    -28673.623046875,
+    6448.0
+   ],
+   "Rotation": [
+    0,
+    -159,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint23": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -8702.6728515625,
+    -29312.52734375,
+    3024.0
+   ],
+   "Rotation": [
+    0,
+    -239,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint34": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    7295.86865234375,
+    -21760.490234375,
+    4273.0
+   ],
+   "Rotation": [
+    0,
+    24599,
+    0
+   ]
+  },
+  "WebSwingPoint32": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    -6912.0595703125,
+    -22015.1015625,
+    4817.23828125
+   ],
+   "Rotation": [
+    0,
+    -9763,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint33": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -10624.02734375,
+    -20735.775390625,
+    2463.755126953125
+   ],
+   "Rotation": [
+    0,
+    3096,
+    0
+   ]
+  },
+  "WebSwingPoint38": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -128.87350463867188,
+    -37247.921875,
+    3972.238525390625
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint31": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    -6911.1826171875,
+    -20480.15234375,
+    4817.23828125
+   ],
+   "Rotation": [
+    0,
+    -22755,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint11": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    753.9339599609375,
+    6656.08984375,
+    3520.0
+   ],
+   "Rotation": [
+    0,
+    -5120,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint18": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -8704.0224609375,
+    -26111.763671875,
+    4448.0
+   ],
+   "Rotation": [
+    0,
+    23496,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint21": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -6401.666015625,
+    -29311.978515625,
+    3024.0
+   ],
+   "Rotation": [
+    0,
+    -239,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint26": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -7552.4775390625,
+    -27424.107421875,
+    6448.0
+   ],
+   "Rotation": [
+    0,
+    16596,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint24": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -7552.49462890625,
+    -30334.77734375,
+    3024.0
+   ],
+   "Rotation": [
+    0,
+    16596,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint144": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2427.90087890625,
+    -3325.4873046875,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    24900,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint5": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1280.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    3713.27783203125,
+    6657.2841796875,
+    3710.1845703125
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint7": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToApartmentIslands",
+   "Location": [
+    9888.033203125,
+    5664.21044921875,
+    5294.525390625
+   ],
+   "Rotation": [
+    0,
+    8724,
+    0
+   ]
+  },
+  "WebSwingPoint19": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    -6399.138671875,
+    -30208.69140625,
+    4448.0
+   ],
+   "Rotation": [
+    0,
+    -7523,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint4": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    9473.51171875,
+    -3329.4951171875,
+    3584.0
+   ],
+   "Rotation": [
+    0,
+    9840,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint143": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2297.66455078125,
+    -4736.3662109375,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    32728,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint142": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2303.044921875,
+    -6910.5947265625,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    32728,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "LookTarget1": {
+   "class": "LookTarget",
+   "Tag": "Exit02Look",
+   "Group": "None,ExitIsland",
+   "Location": [
+    7807.99560546875,
+    -17407.728515625,
+    2764.39501953125
+   ]
+  },
+  "WebSwingPoint8": {
+   "class": "WebSwingPoint",
+   "SwingLength": 984.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    10115.5869140625,
+    -6784.22607421875,
+    6464.0
+   ],
+   "Rotation": [
+    0,
+    -5983,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint13": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,PAMuseumToHotelIslands",
+   "Location": [
+    -12799.9765625,
+    -5743.7900390625,
+    1952.0
+   ],
+   "Rotation": [
+    0,
+    -59,
+    0
+   ]
+  },
+  "WebSwingPoint20": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    1536.498779296875,
+    9023.875,
+    3520.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint59": {
+   "class": "WebSwingPoint",
+   "SwingLength": 864.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -13.6829833984375,
+    4996.96142578125,
+    2560.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint36": {
+   "class": "WebSwingPoint",
+   "bHidden": true,
+   "Tag": "Challenge03Swings",
+   "Location": [
+    -1919.857421875,
+    -36864.15625,
+    5802.23828125
+   ],
+   "Rotation": [
+    0,
+    52,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint119": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    7168.02490234375,
+    -33515.76953125,
+    3246.525390625
+   ],
+   "Rotation": [
+    0,
+    9355,
+    0
+   ]
+  },
+  "Trigger23": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "MuseumRoid2Falls",
+   "Group": "None,PAMuseumIsland",
+   "Location": [
+    -10369.5673828125,
+    -3327.51806640625,
+    575.94091796875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger24": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Tag": "ApartmentDeathTrigger",
+   "Event": "ApartmentDeath",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    2751.7978515625,
+    9408.080078125,
+    7293.248046875
+   ],
+   "CollisionRadius": 1.0,
+   "CollisionHeight": 1.0
+  },
+  "WebSwingPoint25": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -7551.01708984375,
+    -29825.111328125,
+    6448.0
+   ],
+   "Rotation": [
+    0,
+    16596,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint16": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -9599.6044921875,
+    -20095.267578125,
+    2528.0
+   ],
+   "Rotation": [
+    0,
+    24195,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint30": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1500.0,
+   "bHidden": true,
+   "Tag": "Challenge04Swing",
+   "Location": [
+    -8706.1962890625,
+    -22015.404296875,
+    4817.23828125
+   ],
+   "Rotation": [
+    0,
+    -22755,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "WebSwingPoint124": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -4336.02734375,
+    -40303.7734375,
+    4111.7548828125
+   ],
+   "Rotation": [
+    0,
+    15748,
+    0
+   ]
+  },
+  "WebSwingPoint138": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    7487.60888671875,
+    -5119.11083984375,
+    4544.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint139": {
+   "class": "WebSwingPoint",
+   "SwingLength": 784.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    9602.1171875,
+    -4478.63037109375,
+    7295.54150390625
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint131": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,EntranceIsland",
+   "Location": [
+    -11008.0390625,
+    -17919.787109375,
+    2463.755126953125
+   ],
+   "Rotation": [
+    0,
+    4756,
+    0
+   ]
+  },
+  "WebSwingPoint140": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2177.30419921875,
+    -10367.771484375,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    -23648,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint141": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    2175.543701171875,
+    -8448.53515625,
+    3965.90966796875
+   ],
+   "Rotation": [
+    0,
+    32731,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "LookTarget53": {
+   "class": "LookTarget",
+   "Tag": "TurretGen02Look",
+   "Location": [
+    2176.13134765625,
+    -39679.8046875,
+    3184.0
+   ]
+  },
+  "Trigger66": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "CTL2ArrivesTrigger",
+   "Event": "CTL2Arrives",
+   "Group": "None,CB3ChurchToLibraryRobots",
+   "Location": [
+    -11840.3544921875,
+    -38656.62890625,
+    4144.0
+   ]
+  },
+  "Trigger61": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ChurchRoid5Falls",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -7565.4052734375,
+    -26746.853515625,
+    1087.2484130859375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger51": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "CTPRoid1Falls",
+   "Group": "None,CB3ChurchToPrisonIslands",
+   "Location": [
+    -4400.3876953125,
+    -23551.771484375,
+    1167.2484130859375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "WebSwingPoint125": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    7491.2001953125,
+    -3461.42236328125,
+    4544.0
+   ],
+   "Rotation": [
+    0,
+    -8063,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint137": {
+   "class": "WebSwingPoint",
+   "SwingLength": 640.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    5421.36083984375,
+    -7679.783203125,
+    3584.0
+   ],
+   "Rotation": [
+    0,
+    -8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "Trigger59": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LibraryRoid1Falls",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    345.1607360839844,
+    -38766.66015625,
+    2126.492431640625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger58": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LibraryRoid2Falls",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    491.52410888671875,
+    -37263.0859375,
+    2126.492431640625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger57": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LibraryRoid3Falls",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    108.66156768798828,
+    -35697.7265625,
+    2126.492431640625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger56": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LibraryRoid4Falls",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    302.51043701171875,
+    -34049.22265625,
+    2126.492431640625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger55": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LibraryRoid5Falls",
+   "Group": "None,CB3LibraryIsland",
+   "Location": [
+    2671.99560546875,
+    -34080.234375,
+    2126.492431640625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger52": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LTPRoid2Falls",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    9715.3876953125,
+    -34372.28125,
+    2752.11669921875
+   ],
+   "CollisionRadius": 1000.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger67": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ChurchRoid4Falls",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -6032.3876953125,
+    -22159.771484375,
+    1087.2484130859375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger62": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ChurchRoid3Falls",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -6031.48486328125,
+    -25727.84765625,
+    1087.2484130859375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger63": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ChurchRoid2Falls",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -9104.7109375,
+    -25711.8515625,
+    1087.2484130859375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger64": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "ChurchRoid1Falls",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    -8976.888671875,
+    -28928.4296875,
+    1087.2484130859375
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger50": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid1Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    4352.0908203125,
+    -22128.947265625,
+    1598.5084228515625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger46": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "PrisonRoid3Falls",
+   "Group": "None,CB3PrisonIsland",
+   "Location": [
+    6975.9560546875,
+    -22144.580078125,
+    1598.5084228515625
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "Trigger54": {
+   "class": "Trigger",
+   "Tag": "Trigger",
+   "Event": "LTPRoid1Falls",
+   "Group": "None,CB3LibraryToPrisonIslands",
+   "Location": [
+    12175.8173828125,
+    -28415.763671875,
+    2511.80029296875
+   ],
+   "CollisionRadius": 640.0,
+   "CollisionHeight": 80.0
+  },
+  "LookTarget0": {
+   "class": "LookTarget",
+   "Tag": "ApartmentLook",
+   "Group": "None,PAApartmentIsland",
+   "Location": [
+    2688.5888671875,
+    9279.7998046875,
+    7448.087890625
+   ]
+  },
+  "WebSwingPoint78": {
+   "class": "WebSwingPoint",
+   "SwingLength": 864.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -3781.604248046875,
+    9218.693359375,
+    3520.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint80": {
+   "class": "WebSwingPoint",
+   "SwingLength": 1280.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    75.736328125,
+    7888.615234375,
+    5440.0
+   ],
+   "Rotation": [
+    0,
+    -5119,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint72": {
+   "class": "WebSwingPoint",
+   "SwingLength": 720.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    9601.31640625,
+    -4991.98779296875,
+    4544.0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint73": {
+   "class": "WebSwingPoint",
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    5425.4619140625,
+    -7681.8818359375,
+    6464.0
+   ],
+   "Rotation": [
+    0,
+    -8192,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint81": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,ExitIsland",
+   "Location": [
+    6672.02587890625,
+    -17643.79296875,
+    2734.525390625
+   ],
+   "Rotation": [
+    0,
+    -4,
+    0
+   ]
+  },
+  "WebSwingPoint65": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -11760.02734375,
+    -35311.7734375,
+    5519.7548828125
+   ],
+   "Rotation": [
+    0,
+    3096,
+    0
+   ]
+  },
+  "WebSwingPoint64": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchToLibraryIslands",
+   "Location": [
+    -6204.19970703125,
+    -39705.04296875,
+    2198.0
+   ],
+   "Rotation": [
+    -35,
+    16376,
+    -88
+   ]
+  },
+  "WebSwingPoint79": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Location": [
+    1195.8084716796875,
+    -34981.96484375,
+    3841.238525390625
+   ],
+   "Rotation": [
+    0,
+    16407,
+    0
+   ],
+   "CullDistance": 3500.0
+  },
+  "Trigger2": {
+   "class": "Trigger",
+   "Tag": "Prisoner20VOTrigger",
+   "Event": "Prisoner20VO",
+   "Location": [
+    8960.49609375,
+    -4480.94921875,
+    8112.001953125
+   ]
+  },
+  "WebSwingPoint58": {
+   "class": "WebSwingPoint",
+   "SwingLength": 864.0,
+   "TargetableRadius": 320.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    1643.505126953125,
+    7676.30859375,
+    5440.0
+   ],
+   "Rotation": [
+    0,
+    5228,
+    0
+   ],
+   "CullDistance": 2960.0
+  },
+  "WebSwingPoint2": {
+   "class": "WebSwingPoint",
+   "Tag": "WebSwingPoint",
+   "Group": "None,CB3ChurchIsland",
+   "Location": [
+    11008.1416015625,
+    -22016.107421875,
+    4816.0
+   ],
+   "Rotation": [
+    0,
+    9836,
+    0
+   ]
+  }
+ },
+ "movies": []
+}

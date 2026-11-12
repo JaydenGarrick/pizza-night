@@ -1,0 +1,252 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>SM2 PC walk test</title>
+<style>
+  body{margin:0;background:#000;overflow:hidden;font-family:system-ui,sans-serif} canvas{display:block}
+  #hud{position:fixed;left:12px;top:10px;color:#fff;font:13px/1.45 ui-monospace,Menlo,monospace;text-shadow:0 1px 2px #000,0 0 6px #000;pointer-events:none;white-space:pre}
+  #help{position:fixed;right:12px;top:10px;color:#dfe6ee;font:12px/1.5 ui-monospace,Menlo,monospace;text-shadow:0 1px 2px #000;pointer-events:none;white-space:pre;text-align:right;opacity:.9}
+  #status{position:fixed;left:12px;bottom:10px;color:#9aa;font:12px ui-monospace,Menlo,monospace;text-shadow:0 1px 2px #000}
+</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<div id="hud"></div>
+<div id="help">WASD / arrows  move (run)   Shift / Alt  walk
+Space  jump (hold = higher)
+mouse drag / right stick  camera
+G  collision chunks       R  reset
+gamepad: left stick move (half = walk), A jump</div>
+<div id="status">loading…</div>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { makeLoader, loadPCLevel, setPCLightRig, buildColliders } from '/public/js/pclevel.js';
+
+// ---------------------------------------------------------------------------------------------------------------------------
+// PC (UE2) sibling of walk.html: a street of a city map (default WallStreet_CityStreet) around the map's PlayerStart, with the
+// game's BSP as the primary collider plus every opaque static within RADIUS.  The PC Spider-Man clips are exported in place (no root
+// motion), so the gait speed of each loop is measured from how fast the planted foot slides back under the hips, and the loops are
+// advanced by distance travelled (speed / cycle distance) so the feet never skate at any speed.  Movement is direct: the stick drives
+// velocity and heading immediately; animation is layered on top and never gates input.
+// ---------------------------------------------------------------------------------------------------------------------------
+const q = new URLSearchParams(location.search); const $ = (id) => document.getElementById(id);
+const MAP = q.get('map') || 'WallStreet_CityStreet'; const RADIUS = +(q.get('radius') || 150); const UNIT = 0.02;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); renderer.setSize(innerWidth, innerHeight); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.outputColorSpace = THREE.SRGBColorSpace; document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 3000);
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+// cutscene.html's light rig and PBR materials; the BSP export drops the sky surfaces, so a pale sky + haze stands in for them (?sky=0 = cutscene's dark backdrop)
+setPCLightRig(scene, q.get('sky') === '0' ? { background: 0x0b0d10 } : { background: 0xb9cde6, fog: new THREE.Fog(0xb9cde6, 250, 900) });
+const loader = new GLTFLoader(); const loadGLTF = makeLoader(loader); const T0 = performance.now();
+const S = { t: 0, player: null, colliders: [], near: [], nearAt: -1, chunkView: null, showChunks: q.get('hulls') === '1', fps: 0, groundName: '', groundY: null, heroY: 0, footY: 0, gait: {}, timing: {}, feetW: { l: [0, 0, 0], r: [0, 0, 0] },
+  input: { x: 0, y: 0, walk: false, jump: false }, override: null, cam: { yaw: 0, pitch: 0.18, dist: 4.8, manualAt: -9, pos: null } };
+window.__sm2 = { scene, camera, renderer, S, ready: false, setInput: (o) => { S.override = o; }, step: (sec) => { const n = Math.round(sec * 60); for (let i = 0; i < n; i++) tick(1 / 60, i < n - 1); renderer.render(scene, camera); }, teleport: (x, y, z) => { S.player.feet.set(x, y, z); S.player.visY = y; S.player.vy = 0; S.cam.pos = null; S.nearAt = -1; } };
+const status = (m) => { $('status').textContent = m; };
+
+// ---- spawn: the map's PlayerStart (UE units -> metres, UE yaw -> heading), overridable with ?x=&z=&heading= -----------------
+const ueVec = (v) => new THREE.Vector3(v[1], v[2], -v[0]).multiplyScalar(UNIT);
+let SPAWN = { pos: [-43.5, 1.7, -5.1], heading: Math.PI / 2 };   // WallStreet_CityStreet PlayerStart0: the sidewalk in front of the granite office, street to +X
+try { const cs = await (await fetch(`/public/cutscenes/${MAP}.json`)).json(); const ps = Object.values(cs.points || {}).find((p) => p.class === 'PlayerStart' && p.Location);
+  if (ps) { const v = ueVec(ps.Location); const yaw = ((ps.Rotation && ps.Rotation[1]) || 0) / 65536 * Math.PI * 2; SPAWN = { pos: [v.x, v.y, v.z], heading: Math.PI / 2 - yaw }; }   // UE yaw 0 = +X_ue = -Z_three (heading 0 faces +Z here, pi/2 faces +X)
+  else { const nodes = Object.values(cs.points || {}).filter((p) => p.class === 'PathNode' && p.Location).map((p) => ueVec(p.Location)).filter((v) => v.y < 3);   // no PlayerStart (ParkAve, CB3): the street-level PathNode nearest the middle of the pedestrian network
+    if (nodes.length) { const c = nodes.reduce((a, v) => a.add(v), new THREE.Vector3()).multiplyScalar(1 / nodes.length); let best = null; for (const v of nodes) { const d = v.distanceTo(c); if (!best || d < best.d) best = { v, d }; } SPAWN = { pos: [best.v.x, best.v.y, best.v.z], heading: 0 }; } } } catch {}
+if (q.get('x') !== null) SPAWN.pos[0] = +q.get('x'); if (q.get('z') !== null) SPAWN.pos[2] = +q.get('z'); if (q.get('heading') !== null) SPAWN.heading = +q.get('heading');
+const CENTER = new THREE.Vector3(SPAWN.pos[0], 0, SPAWN.pos[2]);
+
+// ---- world -----------------------------------------------------------------------------------------------------------------
+status(`loading ${MAP}…`);
+const level = await loadPCLevel(scene, MAP, { loadGLTF, onStatus: status, filter: (p) => Math.hypot(p.pos[0] - CENTER.x, p.pos[2] - CENTER.z) < RADIUS || /skyline|backdrop/i.test(p.mesh) });
+S.timing.level = performance.now() - T0;
+
+// ---- collision set: BSP (chunked into 24 m cells) + every opaque static mesh ---------------------------------------------------
+status('building colliders…');
+const col = buildColliders(level.group, { cell: 24, splitAbove: 40, skip: (m) => /beacon|skyline|backdrop/i.test((m.parent && m.parent.name) || '') });
+S.colliders = col.list; const nBsp = col.nChunk; S.timing.colliders = performance.now() - T0;
+function setChunkView(on) { S.showChunks = on; if (!S.chunkView) { S.chunkView = new THREE.Group(); for (const ch of col.chunks) { const m = new THREE.Mesh(ch.geometry, ch.material); S.chunkView.add(m); } scene.add(S.chunkView); } S.chunkView.visible = on; }
+if (S.showChunks) setChunkView(true);
+
+// ---- hero + clips ----------------------------------------------------------------------------------------------------------
+const C = { idle: 'IdleRest', walk: 'Walk', run: 'RunForwards', takeoff: 'JumpStandingTakeoff', air: 'JumpStandingMid', airRun: 'JumpRunningMid', fall: 'Fall', land: 'JumpStandingLand', landRun: 'FromFallToRun', fidget: 'Fidget1' };
+const V = { walk: +(q.get('walk') || 2.0), run: +(q.get('run') || 6.4) };   // assumed gameplay speeds (the PC clips carry no root motion to measure them from)
+status('loading Spider-Man…');
+const gl = await loadGLTF('/public/models/characters/spideymesh.glb'); const hero = gl.scene; hero.traverse((o) => { if (o.isMesh) o.frustumCulled = false; }); S.timing.hero = performance.now() - T0;
+const mixer = new THREE.AnimationMixer(hero); const A = {}; const DUR = {};
+for (const key in C) { const c = THREE.AnimationClip.findByName(gl.animations, C[key]); if (!c) { console.warn('missing clip', C[key]); continue; } const a = mixer.clipAction(c); a.setLoop(THREE.LoopRepeat); a.setEffectiveWeight(0); a.play(); A[C[key]] = a; DUR[C[key]] = c.duration; }
+const GAITS = [C.walk, C.run]; for (const n of GAITS) if (A[n]) A[n].timeScale = 0;     // driven by the shared foot phase below
+const LOOPS = new Set([C.idle, C.air, C.airRun, C.fall, ...GAITS]);
+for (const n in A) if (!LOOPS.has(n)) { A[n].setLoop(THREE.LoopOnce); A[n].clampWhenFinished = true; }
+const has = (n) => !!A[n];
+const skinned = []; hero.traverse((o) => { if (o.isSkinnedMesh) skinned.push(o); });
+const FEET = ['L_ankle', 'R_ankle', 'L_toe', 'R_toe'].map((n) => hero.getObjectByName(n)).filter(Boolean);
+const LTOE = hero.getObjectByName('L_toe'), RTOE = hero.getObjectByName('R_toe');
+const _fp = new THREE.Vector3(); const _box = new THREE.Box3();
+function solo(n) { for (const m in A) A[m].setEffectiveWeight(m === n ? 1 : 0); }
+function pose(n, t) { A[n].time = Math.min(DUR[n] - 1e-4, Math.max(0, t)); mixer.update(0); hero.updateMatrixWorld(true); }
+const minFootY = () => { let y = Infinity; for (const b of FEET) { b.getWorldPosition(_fp); y = Math.min(y, _fp.y); } return y; };
+// sole offset: the toe bone sits a little above the skinned sole; measured once on the idle pose from the skinned bounding box
+status('measuring foot contact…');
+hero.position.set(0, 0, 0); hero.rotation.set(0, 0, 0); hero.updateMatrixWorld(true);
+let SOLE = 0;
+if (has(C.idle) && skinned.length) { solo(C.idle); pose(C.idle, 0); for (const sm of skinned) sm.skeleton.update(); _box.makeEmpty(); for (const sm of skinned) { sm.computeBoundingBox(); _box.union(sm.boundingBox.clone().applyMatrix4(sm.matrixWorld)); } SOLE = Math.max(0, Math.min(0.15, minFootY() - _box.min.y)); }
+// ground contact per clip frame: -(lowest foot) relative to the rig root, 30 fps, so the root can be placed so the feet touch the probed ground in every pose
+const CONTACT = {};
+for (const n in A) { const frames = Math.max(1, Math.round(DUR[n] * 30)); const arr = new Float32Array(frames + 1); solo(n); for (let f = 0; f <= frames; f++) { pose(n, f / 30); arr[f] = -(minFootY() - SOLE); } CONTACT[n] = arr; }
+const contactAt = (n, t) => { const c = CONTACT[n]; if (!c) return 1.0; const k = Math.min(c.length - 1, Math.max(0, Math.round(t * 30))); return c[k]; };
+// gait speed of an in-place loop: the planted (lowest) foot slides back under the hips at the ground speed.  Pass 1 finds the slide
+// direction (= -forward), pass 2 takes the median stance-phase slide speed; cycle distance = speed x duration.  OFF = phase of 'left foot
+// most forward' so walk and run stay in step when blended.
+const CYC = {}, NAT = {}, OFF = {}; let FWD = new THREE.Vector3(0, 0, 1);
+function measureGait(n, fwdHint) {
+  const N = Math.max(8, Math.round(DUR[n] * 60)); const pts = []; solo(n);
+  for (let f = 0; f < N; f++) { pose(n, f / 60); const l = LTOE.getWorldPosition(new THREE.Vector3()), r = RTOE.getWorldPosition(new THREE.Vector3()); pts.push({ l, r, min: Math.min(l.y, r.y) }); }
+  const lowest = Math.min(...pts.map((p) => p.min)); const vel = [];
+  for (let f = 0; f < N; f++) { const a = pts[f], b = pts[(f + 1) % N]; const planted = a.l.y <= a.r.y ? 'l' : 'r'; if (a[planted].y > lowest + 0.06) continue; const v = b[planted].clone().sub(a[planted]).multiplyScalar(60); v.y = 0; if (v.length() < 12) vel.push(v); }
+  let dir = fwdHint ? fwdHint.clone().negate() : new THREE.Vector3(); if (!fwdHint) { for (const v of vel) dir.add(v); dir.normalize(); }
+  const sp = vel.map((v) => v.dot(dir)).filter((x) => x > 0).sort((a, b) => a - b); const med = sp.length ? sp[Math.floor(sp.length / 2)] : 1;
+  let best = -Infinity, bf = 0; const fw = dir.clone().negate(); for (let f = 0; f < N; f++) { const d = pts[f].l.clone().sub(pts[f].r).dot(fw); if (d > best) { best = d; bf = f; } }
+  NAT[n] = med; CYC[n] = med * DUR[n]; OFF[n] = bf / N; return fw;
+}
+if (has(C.walk)) FWD = measureGait(C.walk, null); if (has(C.run)) measureGait(C.run, FWD);
+const FWD_A = Math.atan2(FWD.x, FWD.z);   // the rig's forward in its own space: cancelled so rotation.y = heading runs along the heading
+S.gait = { fwd: [FWD.x.toFixed(2), FWD.z.toFixed(2)], sole: SOLE, walk: { clip: C.walk, dur: DUR[C.walk], cycle: CYC[C.walk], natural: NAT[C.walk], rate: V.walk / NAT[C.walk] }, run: { clip: C.run, dur: DUR[C.run], cycle: CYC[C.run], natural: NAT[C.run], rate: V.run / NAT[C.run] } };
+for (const n in A) { A[n].setEffectiveWeight(0); A[n].time = 0; }
+scene.add(hero); S.timing.measured = performance.now() - T0;
+const P = S.player = { feet: new THREE.Vector3().fromArray(SPAWN.pos), visY: 0, vy: 0, heading: SPAWN.heading, speed: 0, grounded: false, state: 'air', stateT: 0, phase: 0,
+  clip: null, clipDur: 0.4, airT: 0, jumpHold: 0, jumpWasDown: false, landSpeedCap: 99, fidgetAt: 12 + Math.random() * 6, runJump: false, prevTarget: 0, animSpeed: 0 };
+S.cam.yaw = P.heading + Math.PI;
+const W = {}; for (const n in A) W[n] = 0;
+// soft blob shadow under the hero
+const shadow = (() => { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d'); const r = g.createRadialGradient(64, 64, 8, 64, 64, 64); r.addColorStop(0, 'rgba(0,0,0,0.6)'); r.addColorStop(0.55, 'rgba(0,0,0,0.35)'); r.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = r; g.fillRect(0, 0, 128, 128);
+  const tex = new THREE.CanvasTexture(c); const m = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 1.1), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false })); m.rotation.x = -Math.PI / 2; m.renderOrder = 2; scene.add(m); return m; })();
+
+// ---- raycast helpers ------------------------------------------------------------------------------------------------------
+const rc = new THREE.Raycaster(); const _v = new THREE.Vector3(), _w = new THREE.Vector3(); const DOWN = new THREE.Vector3(0, -1, 0);
+function refreshNear() { S.near = []; for (const c of S.colliders) { if (c.c.distanceTo(P.feet) < c.r + 45) S.near.push(c.o); } }
+function groundBelow(x, y, z, up = 1.4, down = 3.0) { rc.set(_v.set(x, y + up, z), DOWN); rc.near = 0; rc.far = up + down; const h = rc.intersectObjects(S.near, false); return h.length ? h[0] : null; }
+function wallHit(from, dir, len) { rc.set(from, dir); rc.near = 0; rc.far = len; const h = rc.intersectObjects(S.near, false); return h.length ? h[0] : null; }
+const nameOf = (o) => (o.userData.bsp ? 'bsp ' : '') + ((o.parent && o.parent.name) || o.name || '-');
+S.probe = (x, y, z, dx, dz, len = 30) => { refreshNear(); const h = wallHit(new THREE.Vector3(x, y, z), new THREE.Vector3(dx, 0, dz).normalize(), len); return h ? { distance: h.distance, name: nameOf(h.object), point: h.point.toArray() } : null; };   // debug: horizontal ray against the near colliders
+
+// ---- input ----------------------------------------------------------------------------------------------------------------
+const keys = new Set();
+addEventListener('keydown', (e) => { keys.add(e.code); if (e.code === 'KeyG') setChunkView(!S.showChunks); if (e.code === 'KeyR') respawn(); if (e.code === 'Space' || e.code.startsWith('Arrow')) e.preventDefault(); });
+addEventListener('keyup', (e) => keys.delete(e.code));
+let drag = false; renderer.domElement.addEventListener('mousedown', () => { drag = true; }); addEventListener('mouseup', () => { drag = false; });
+addEventListener('mousemove', (e) => { if (drag) { S.cam.yaw -= e.movementX * 0.0045; S.cam.pitch = Math.max(-0.4, Math.min(0.9, S.cam.pitch + e.movementY * 0.004)); S.cam.manualAt = S.t; } });
+function readInput(dt) {
+  const i = S.input; i.x = (keys.has('KeyD') || keys.has('ArrowRight') ? 1 : 0) - (keys.has('KeyA') || keys.has('ArrowLeft') ? 1 : 0); i.y = (keys.has('KeyW') || keys.has('ArrowUp') ? 1 : 0) - (keys.has('KeyS') || keys.has('ArrowDown') ? 1 : 0);
+  i.walk = keys.has('ShiftLeft') || keys.has('ShiftRight') || keys.has('AltLeft') || keys.has('AltRight'); i.jump = keys.has('Space');
+  const gp = navigator.getGamepads && navigator.getGamepads()[0];
+  if (gp) { const dz = (v) => Math.abs(v) < 0.15 ? 0 : v; i.x += dz(gp.axes[0] || 0); i.y -= dz(gp.axes[1] || 0); const rx = dz(gp.axes[2] || 0), ry = dz(gp.axes[3] || 0); if (rx || ry) { S.cam.yaw -= rx * 2.6 * dt; S.cam.pitch = Math.max(-0.4, Math.min(0.9, S.cam.pitch + ry * 1.6 * dt)); S.cam.manualAt = S.t; }
+    i.jump = i.jump || !!gp.buttons[0]?.pressed; }
+  if (S.override) Object.assign(i, S.override);
+  const l = Math.hypot(i.x, i.y); if (l > 1) { i.x /= l; i.y /= l; }
+}
+
+// ---- helpers --------------------------------------------------------------------------------------------------------------
+function one(n) { const a = A[n]; if (!a) return false; a.reset(); a.time = 0; a.setEffectiveWeight(0); a.play(); P.clip = n; P.clipDur = DUR[n]; return true; }
+function restart(n) { const a = A[n]; if (a) { const w = a.getEffectiveWeight(); a.reset(); a.setEffectiveWeight(w); a.play(); } }
+const wrap = (a) => ((a + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+function respawn() { P.feet.fromArray(SPAWN.pos); P.visY = P.feet.y; P.vy = 0; P.heading = SPAWN.heading; S.cam.yaw = P.heading + Math.PI; S.cam.pos = null; P.speed = 0; P.state = 'air'; P.grounded = false; P.airT = 0; P.clip = null; S.nearAt = -1; }
+
+// ---- simulation -----------------------------------------------------------------------------------------------------------
+const G = 26.0, R = 0.4, STEP = 0.55, JUMP_V = 8.8, ACC = 30, DEC = 38;
+function tick(dt, scripted = false) {
+  S.t += dt; readInput(dt); const i = S.input;
+  if (S.t - S.nearAt > 0.25) { refreshNear(); S.nearAt = S.t; }
+  // --- stick in camera space -> target speed and heading (responsive: no clip gates the input)
+  const fwd = _v.set(-Math.sin(S.cam.yaw), 0, -Math.cos(S.cam.yaw)); const right = _w.set(Math.cos(S.cam.yaw), 0, -Math.sin(S.cam.yaw));
+  const wish = new THREE.Vector3().addScaledVector(fwd, i.y).addScaledVector(right, i.x); const mag = Math.min(1, wish.length()); if (mag > 1e-3) wish.normalize();
+  const moving = mag > 0.08; const wantYaw = moving ? Math.atan2(wish.x, wish.z) : P.heading; const d = wrap(wantYaw - P.heading);
+  let target = !moving ? 0 : (i.walk || mag <= 0.6) ? V.walk : V.run;
+  P.stateT += dt; const st = P.state;
+  if (st === 'land') target = Math.min(target, P.landSpeedCap);
+  // --- jump: press = jump now; holding for up to 0.25 s keeps the ascent lighter (higher jump)
+  const pressed = i.jump && !P.jumpWasDown; P.jumpWasDown = i.jump;
+  if (pressed && P.grounded && st !== 'launch') { P.vy = JUMP_V; P.grounded = false; P.state = 'launch'; P.stateT = 0; P.airT = 0; P.jumpHold = 0; P.runJump = P.speed > V.walk * 1.5; P.falling = false;
+    one(C.takeoff); restart(P.runJump && has(C.airRun) ? C.airRun : C.air); }
+  // --- speed / heading
+  if (P.grounded) {
+    const a = target > P.speed ? ACC : DEC; P.speed += Math.max(-a * dt, Math.min(a * dt, target - P.speed)); if (P.speed < 0.02) P.speed = 0;
+    if (moving) { const rate = (P.speed > V.run * 0.8 ? 8 : 13) * dt; P.heading += Math.max(-rate, Math.min(rate, d)); }
+  } else {
+    if (moving) { const rate = 4.0 * dt; P.heading += Math.max(-rate, Math.min(rate, d)); P.speed += Math.max(-8 * dt, Math.min(8 * dt, (target || P.speed) - P.speed)); }
+    P.airT += dt; if (i.jump && P.airT < 0.25 && P.vy > 0) P.jumpHold += dt;
+  }
+  // animation-only transitions layered on the motion (the PC set has no start/stop/turn clips: idle<->walk<->run blend by speed)
+  if (P.grounded && st === 'ground' && !moving && P.speed === 0 && S.t > P.fidgetAt && has(C.fidget)) { one(C.fidget); P.state = 'fidget'; P.stateT = 0; P.fidgetAt = S.t + 25 + Math.random() * 10; }
+  if ((st === 'fidget' && (P.stateT > P.clipDur - 0.05 || moving)) || (st === 'land' && P.stateT > P.clipDur * 0.6)) P.state = 'ground';
+  if (st === 'launch' && P.stateT > Math.max(0.1, DUR[C.takeoff] || 0.13)) P.state = 'air';
+  P.prevTarget = target;
+  // --- horizontal move + wall slide along the nearest wall only
+  const dir = new THREE.Vector3(Math.sin(P.heading), 0, Math.cos(P.heading)); const move = dir.clone().multiplyScalar(P.speed * dt);
+  S.wall = null;
+  for (let pass = 0; pass < 3 && move.lengthSq() > 1e-8; pass++) {
+    let best = null;
+    for (const h of [STEP + 0.1, 1.0, 1.45]) for (const ang of [0, 0.75, -0.75]) {   // rays start above the step height, so kerbs (0.32 m here) are stepped onto instead of blocking
+      const d2 = move.clone().normalize().applyAxisAngle(THREE.Object3D.DEFAULT_UP, ang); const from = P.feet.clone(); from.y += h;
+      const hit = wallHit(from, d2, R + move.length()); if (!hit || !hit.face) continue;
+      const n = hit.face.normal.clone().transformDirection(hit.object.matrixWorld); n.y = 0; if (n.lengthSq() < 1e-4) continue; n.normalize(); if (n.dot(d2) > 0) n.negate();
+      if (!best || hit.distance < best.dist) best = { dist: hit.distance, n, name: nameOf(hit.object) };
+    }
+    if (!best) break; S.wall = best.name; const into = move.dot(best.n); if (into < 0) move.addScaledVector(best.n, -into); else break;
+  }
+  P.feet.add(move); const achieved = move.length() / dt; P.animSpeed += (Math.min(P.speed, achieved) - P.animSpeed) * Math.min(1, 14 * dt);   // the gait follows the distance actually covered, so pushing against a wall does not run in place
+  // --- vertical: gravity (lighter while the jump button is held during the ascent), ground snap with steps, landing
+  const wasGrounded = P.grounded; const launching = P.state === 'launch';
+  if (!P.grounded) { const g = (i.jump && P.vy > 0 && P.airT < 0.25) ? G * 0.45 : G; P.vy -= g * dt; } P.feet.y += P.vy * dt;
+  let g = null;   // five probes (centre + 0.22 m ring): the highest surface under the capsule, so a seam between BSP cells cannot swallow him
+  for (const [ox, oz] of [[0, 0], [0.22, 0], [-0.22, 0], [0, 0.22], [0, -0.22]]) { const h = groundBelow(P.feet.x + ox, P.feet.y, P.feet.z + oz, STEP + 0.2, wasGrounded ? 2.5 : 1.2); if (h && (!g || h.point.y > g.point.y)) g = h; }
+  S.groundName = g ? nameOf(g.object) : '-'; S.groundY = g ? g.point.y : null;
+  const snap = g && P.vy <= 0 && g.point.y >= P.feet.y - (wasGrounded ? 1.2 : 0.25) && g.point.y <= P.feet.y + STEP + 0.01;
+  if (snap && !launching) {
+    const impact = -P.vy; P.feet.y = g.point.y; P.vy = 0; P.grounded = true; P.falling = false;
+    if (!wasGrounded) { const hard = impact > 12 || P.airT > 1.2; P.landSpeedCap = hard ? V.run * 0.5 : 99; P.state = 'land'; P.stateT = 0;
+      one(moving && has(C.landRun) ? C.landRun : C.land); }
+  } else if (!launching) { P.grounded = false; if (P.state !== 'air' && P.vy < -3) { P.state = 'air'; P.airT = 0.3; } }
+  if (P.feet.y < -60) respawn();
+  // --- animation: gait loops share one foot phase advanced by distance travelled; everything else is a one-shot or air loop
+  const s = P.animSpeed; const f = s < V.walk ? s / V.walk : Math.min(1, (s - V.walk) / Math.max(0.1, V.run - V.walk));
+  const cyc = s < V.walk ? CYC[C.walk] : THREE.MathUtils.lerp(CYC[C.walk], CYC[C.run], f);
+  if (s > 0.05 && cyc > 0.05) P.phase = (P.phase + dt * s / cyc) % 1;
+  for (const n of GAITS) if (A[n]) A[n].time = ((P.phase + (OFF[n] || 0)) % 1) * DUR[n];
+  for (const n in W) W[n] = 0;
+  const ps = P.state;
+  if (ps === 'ground') { if (s < V.walk) { W[C.idle] = 1 - f; W[C.walk] = f; } else { W[C.walk] = 1 - f; W[C.run] = f; } }
+  else if (ps === 'air') { const fall = P.airT > 0.7 && P.vy < -5 && has(C.fall); if (fall && !P.falling) { P.falling = true; restart(C.fall); } W[fall ? C.fall : (P.runJump && has(C.airRun) ? C.airRun : C.air)] = 1; }
+  else if (P.clip) W[P.clip] = 1;                                     // launch / land / fidget
+  else W[C.idle] = 1;
+  let rootY = 0, wsum = 0; const fade = (ps === 'ground') ? 9 : 16;
+  for (const n in A) { const a = A[n]; const cur = a.getEffectiveWeight(); const w = cur + Math.max(-fade * dt, Math.min(fade * dt, W[n] - cur)); a.setEffectiveWeight(w); if (w > 1e-3) { rootY += w * contactAt(n, a.time); wsum += w; } }
+  mixer.update(dt);
+  // the rig root follows the measured foot contact of the blended pose; small steps are smoothed visually
+  P.visY = P.grounded ? P.visY + (P.feet.y - P.visY) * Math.min(1, 16 * dt) : P.feet.y;
+  hero.position.set(P.feet.x, P.visY + (wsum > 0 ? rootY / wsum : 1.0), P.feet.z); hero.rotation.set(0, P.heading - FWD_A, 0);
+  hero.updateMatrixWorld(true); S.heroY = hero.position.y; S.footY = minFootY() - SOLE; LTOE.getWorldPosition(_fp); S.feetW.l = _fp.toArray(); RTOE.getWorldPosition(_fp); S.feetW.r = _fp.toArray();
+  // --- shadow + camera (gently settles behind the hero while he moves, unless the player is steering it)
+  const sg = P.grounded ? g : groundBelow(P.feet.x, P.feet.y, P.feet.z, 0.2, 30);
+  if (sg) { shadow.visible = true; shadow.position.set(P.feet.x, sg.point.y + 0.02, P.feet.z); const h = Math.max(0, P.feet.y - sg.point.y); shadow.scale.setScalar(Math.max(0.5, 1 - h * 0.06)); shadow.material.opacity = Math.max(0.15, 1 - h * 0.08); } else shadow.visible = false;
+  const manual = S.t - S.cam.manualAt < 1.2;
+  if (!manual && s > V.walk) { const back = wrap((P.heading + Math.PI) - S.cam.yaw); if (Math.abs(back) > 0.25) { const rate = 0.9 * Math.min(1, s / V.run) * dt; S.cam.yaw += Math.max(-rate, Math.min(rate, back)); } }
+  if (!manual) S.cam.pitch += (0.18 - S.cam.pitch) * Math.min(1, 0.8 * dt);
+  const wantDist = 4.8 + 1.0 * Math.min(1, s / V.run); S.cam.dist += (wantDist - S.cam.dist) * Math.min(1, 2 * dt);
+  const focus = new THREE.Vector3(P.feet.x, P.visY + 1.4, P.feet.z); focus.addScaledVector(dir, 0.5 * Math.min(1, s / V.run));
+  const cdir = new THREE.Vector3(Math.sin(S.cam.yaw) * Math.cos(S.cam.pitch), Math.sin(S.cam.pitch), Math.cos(S.cam.yaw) * Math.cos(S.cam.pitch));
+  let cd = S.cam.dist; const ch = wallHit(focus, cdir, cd + 0.3); if (ch) cd = Math.max(0.6, ch.distance - 0.3);
+  const camWant = focus.clone().addScaledVector(cdir, cd);
+  if (!S.cam.pos) S.cam.pos = camWant.clone(); else S.cam.pos.lerp(camWant, Math.min(1, (ch ? 18 : 10) * dt));
+  camera.position.copy(S.cam.pos); camera.lookAt(focus);
+  const active = Object.keys(W).filter((n) => A[n].getEffectiveWeight() > 0.05).map((n) => `${n}:${A[n].getEffectiveWeight().toFixed(2)}`).join(' ');
+  const gw = S.gait.walk, gr = S.gait.run;
+  const hud = `state ${P.state}   speed ${P.animSpeed.toFixed(1)} m/s (stick ${P.speed.toFixed(1)})   ${P.grounded ? 'on ' + S.groundName : 'airborne vy ' + P.vy.toFixed(1)}${S.wall ? '   wall: ' + S.wall : ''}\npos ${P.feet.x.toFixed(1)}, ${P.feet.y.toFixed(2)}, ${P.feet.z.toFixed(1)}   feet ${S.footY.toFixed(2)} / ground ${S.groundY === null ? '-' : S.groundY.toFixed(2)}   colliders near ${S.near.length}/${S.colliders.length}   ${S.fps.toFixed(0)} fps\nclips ${active}\n${gw.clip}: cycle ${gw.cycle.toFixed(2)} m / ${gw.dur.toFixed(2)} s = ${gw.natural.toFixed(2)} m/s natural -> x${gw.rate.toFixed(2)} at ${V.walk.toFixed(1)} m/s     ${gr.clip}: cycle ${gr.cycle.toFixed(2)} m / ${gr.dur.toFixed(2)} s = ${gr.natural.toFixed(2)} m/s natural -> x${gr.rate.toFixed(2)} at ${V.run.toFixed(1)} m/s\nrig forward (${S.gait.fwd}), sole ${SOLE.toFixed(3)} m, phase ${P.phase.toFixed(2)}`;
+  if (!scripted || S.t % 0.5 < dt) $('hud').textContent = hud;
+  if (S.traceOn) (S.trace || (S.trace = [])).push({ t: S.t, x: P.feet.x, y: P.feet.y, z: P.feet.z, s: P.speed, st: P.state, g: S.groundY, hy: S.heroY, fy: S.footY, l: S.feetW.l, r: S.feetW.r, vy: P.vy, gr: P.grounded, clip: active, wall: S.wall });
+}
+
+// ---- main loop ------------------------------------------------------------------------------------------------------------
+let last = performance.now(); let fpsAcc = 0, fpsN = 0;
+function loop() { requestAnimationFrame(loop); if (S.override) { renderer.render(scene, camera); return; }   // scripted mode: advanced by __sm2.step()
+  const now = performance.now(); let dt = Math.min(0.05, (now - last) / 1000); last = now; fpsAcc += dt; fpsN++; if (fpsAcc > 0.5) { S.fps = fpsN / fpsAcc; fpsAcc = 0; fpsN = 0; }
+  tick(dt); renderer.render(scene, camera); }
+refreshNear(); const g0 = groundBelow(P.feet.x, P.feet.y + 1, P.feet.z, 1, 40); if (g0) { P.feet.y = g0.point.y + 1.0; P.visY = P.feet.y; }   // spawn 1 m above the probed street and drop in
+S.timing.ready = performance.now() - T0;
+status(`ready in ${(S.timing.ready / 1000).toFixed(1)} s — ${MAP}: ${level.placed.length} statics + BSP; ${S.colliders.length} colliders (${nBsp} BSP cells of 24 m from ${col.nBig} map-wide meshes, ${col.nMesh} static meshes, ${col.nSkip} skipped); ${Object.keys(A).length} clips; ${C.walk} ${NAT[C.walk]?.toFixed(2)} m/s natural -> ${V.walk} m/s, ${C.run} ${NAT[C.run]?.toFixed(2)} -> ${V.run} m/s`);
+window.__sm2.ready = true; loop();
+</script></body></html>

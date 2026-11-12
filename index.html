@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SM2 Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#14171c; --panel:#1e2229; --fg:#e6e6e6; --muted:#8a93a0; --accent:#d1323a; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:13px/1.4 ui-monospace, Menlo, monospace; overflow:hidden; }
+  canvas { display:block; }
+  #ui { position:fixed; top:12px; left:12px; width:300px; background:rgba(30,34,41,.92); border:1px solid #2c323b; border-radius:8px; padding:10px; display:flex; flex-direction:column; gap:8px; }
+  #ui label { color:var(--muted); display:block; margin-bottom:2px; }
+  select,input[type=range],button { width:100%; box-sizing:border-box; background:#0f1115; color:var(--fg); border:1px solid #2c323b; border-radius:5px; padding:5px; font:inherit; }
+  button { cursor:pointer; } button:hover { border-color:var(--accent); }
+  .row { display:flex; gap:6px; } .row > * { flex:1; }
+  #progress { position:fixed; bottom:12px; left:12px; color:var(--muted); }
+  #clipinfo { color:var(--muted); white-space:pre-wrap; }
+</style>
+</head>
+<body>
+<div id="ui">
+  <div><label>Model</label><select id="model"></select></div>
+  <div><label>Clip</label><select id="clip"></select></div>
+  <div class="row"><button id="play">Pause</button><button id="loop">Loop: on</button><button id="skel">Bones</button></div>
+  <div><label>Time <span id="tval">0.00</span>s</label><input id="time" type="range" min="0" max="1" step="0.001" value="0"></div>
+  <div><label>Speed <span id="sval">1.0</span></label><input id="speed" type="range" min="0" max="2" step="0.05" value="1"></div>
+  <div id="clipinfo"></div>
+</div>
+<div id="progress">loading…</div>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const $ = (id) => document.getElementById(id);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x14171c);
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.05, 500);
+camera.position.set(2.2, 1.6, 3.2);
+const controls = new OrbitControls(camera, renderer.domElement); controls.target.set(0, 1.0, 0); controls.update();
+scene.add(new THREE.HemisphereLight(0xdde4ff, 0x3a3328, 1.6));
+const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.position.set(3, 6, 4); scene.add(sun);
+scene.add(new THREE.GridHelper(10, 20, 0x3a4150, 0x262b33));
+scene.add(new THREE.AxesHelper(0.5));
+
+const state = { gltf: null, mixer: null, action: null, clip: null, loop: true, playing: true, skel: null, root: null };
+const clock = new THREE.Clock();
+const loader = new GLTFLoader();
+
+async function loadModel(url) {
+  $('progress').textContent = 'loading ' + url;
+  if (state.root) { scene.remove(state.root); state.root = null; }
+  if (state.skel) { scene.remove(state.skel); state.skel = null; }
+  const gltf = await loader.loadAsync(url);
+  state.gltf = gltf; state.root = gltf.scene; scene.add(gltf.scene);
+  gltf.scene.traverse((o) => { if (o.isMesh) { o.frustumCulled = false; o.castShadow = true; } });
+  // put feet on the grid
+  const box = new THREE.Box3().setFromObject(gltf.scene);
+  gltf.scene.position.y -= box.min.y;
+  state.mixer = new THREE.AnimationMixer(gltf.scene);
+  const sel = $('clip'); sel.innerHTML = '';
+  for (const c of gltf.animations) { const o = document.createElement('option'); o.value = c.name; o.textContent = `${c.name} (${c.duration.toFixed(2)}s)`; sel.appendChild(o); }
+  const def = gltf.animations.find((c) => /^idle$/i.test(c.name)) || gltf.animations.find((c) => /idle/i.test(c.name)) || gltf.animations[0];
+  if (def) play(def.name);
+  $('progress').textContent = `${url.split('/').pop()} · ${gltf.animations.length} clips · bones ${countBones(gltf.scene)}`;
+  window.__sm2.ready = true;
+}
+function countBones(o) { let n = 0; o.traverse((x) => { if (x.isBone) n++; }); return n; }
+function play(name) {
+  const clip = THREE.AnimationClip.findByName(state.gltf.animations, name); if (!clip) return;
+  if (state.action) state.action.stop();
+  state.clip = clip; state.action = state.mixer.clipAction(clip);
+  state.action.setLoop(state.loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity); state.action.clampWhenFinished = true;
+  state.action.reset().play(); state.mixer.setTime(0);
+  $('clip').value = name; $('time').max = clip.duration;
+  $('clipinfo').textContent = `${name}\nduration ${clip.duration.toFixed(3)}s · tracks ${clip.tracks.length}` + (clip.userData?.notifies ? `\nnotifies ${clip.userData.notifies.length}` : '');
+}
+function seek(t) { if (!state.action) return; state.mixer.setTime(0); state.mixer.update(t); }
+$('clip').onchange = (e) => play(e.target.value);
+$('play').onclick = () => { state.playing = !state.playing; $('play').textContent = state.playing ? 'Pause' : 'Play'; };
+$('loop').onclick = () => { state.loop = !state.loop; $('loop').textContent = 'Loop: ' + (state.loop ? 'on' : 'off'); if (state.clip) play(state.clip.name); };
+$('skel').onclick = () => { if (state.skel) { scene.remove(state.skel); state.skel = null; } else { state.skel = new THREE.SkeletonHelper(state.root); scene.add(state.skel); } };
+$('time').oninput = (e) => { state.playing = false; $('play').textContent = 'Play'; seek(parseFloat(e.target.value)); };
+$('speed').oninput = (e) => { $('sval').textContent = parseFloat(e.target.value).toFixed(2); };
+$('model').onchange = (e) => loadModel(e.target.value);
+
+window.__sm2 = { ready: false, scene, camera, controls, renderer, state, play, seek, loadModel,
+  clips: () => state.gltf ? state.gltf.animations.map((c) => c.name) : [],
+  lookAt: (x, y, z, tx, ty, tz) => { camera.position.set(x, y, z); controls.target.set(tx, ty, tz); controls.update(); },
+  renderFrame: () => renderer.render(scene, camera) };
+
+renderer.setAnimationLoop(() => {
+  const dt = clock.getDelta();
+  if (state.mixer && state.playing) { state.mixer.update(dt * parseFloat($('speed').value)); }
+  if (state.action) { const t = state.action.time; $('time').value = t; $('tval').textContent = t.toFixed(2); }
+  controls.update(); renderer.render(scene, camera);
+});
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+
+const list = await (await fetch('/api/models')).json();
+for (const m of list.models) { const o = document.createElement('option'); o.value = m; o.textContent = m.replace('/public/models/', ''); $('model').appendChild(o); }
+const start = new URL(location.href).searchParams.get('model') || list.models[0];
+if (start) { $('model').value = start; await loadModel(start); } else { $('progress').textContent = 'no models in public/models'; window.__sm2.ready = true; }
+</script>
+</body>
+</html>

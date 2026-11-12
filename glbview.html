@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>GLB viewer</title><style>body{margin:0;background:#303238}canvas{display:block}#lbl{position:fixed;left:8px;top:6px;color:#fff;font:12px monospace}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head><body><div id="lbl"></div>
+<script type="module">
+import * as THREE from 'three'; import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const q = new URLSearchParams(location.search); const urls = (q.get('glb') || '').split(',').filter(Boolean); const cols = +(q.get('cols') || 4);
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); renderer.setSize(innerWidth, innerHeight); document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x303238); scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.2)); const sun = new THREE.DirectionalLight(0xffffff, 1.5); sun.position.set(3, 6, 4); scene.add(sun);
+const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 500);
+const loader = new GLTFLoader(); const cell = 8; const group = new THREE.Group(); scene.add(group); const grid = new THREE.GridHelper(cell * cols, cell * cols, 0x666666, 0x444444); grid.position.set(cell * (cols - 1) / 2, 0, cell * (Math.ceil(urls.length / cols) - 1) / 2); scene.add(grid);
+let n = 0; const labels = [];
+for (const [i, u] of urls.entries()) loader.load(u, (g) => { const o = g.scene; o.traverse((m) => { if (m.isMesh) { m.material.vertexColors = false; m.material.side = THREE.DoubleSide; } }); const b = new THREE.Box3().setFromObject(o); o.position.set((i % cols) * cell, -b.min.y, Math.floor(i / cols) * cell); if (q.get('center')) { const c = b.getCenter(new THREE.Vector3()); o.position.x -= c.x; o.position.z -= c.z; } group.add(o); const ax = new THREE.AxesHelper(2); ax.position.copy(o.position); group.add(ax); n++; labels.push(`${i}: ${u.split('/').pop()} ${b.getSize(new THREE.Vector3()).toArray().map(v => v.toFixed(1)).join('x')}`); document.getElementById('lbl').textContent = labels.join(' | '); });
+const rows = Math.ceil(urls.length / cols); const H = +(q.get('h') || (9 + rows * 2)), D = +(q.get('d') || (cell * rows + 6)); camera.position.set(cell * (cols - 1) / 2 + 4, H, D); camera.lookAt(cell * (cols - 1) / 2, +(q.get('ly') || 0), cell * (rows - 1) / 2);
+window.__sm2 = { scene, camera, renderer, ready: false }; (function tick() { requestAnimationFrame(tick); renderer.render(scene, camera); if (n === urls.length) window.__sm2.ready = true; })();
+</script></body></html>

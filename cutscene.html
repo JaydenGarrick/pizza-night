@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SM2 Cutscene</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#0b0d10; --fg:#e6e6e6; --muted:#8a93a0; --accent:#d1323a; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:13px/1.4 ui-monospace, Menlo, monospace; overflow:hidden; }
+  canvas { display:block; }
+  #ui { position:fixed; z-index:10; top:12px; left:12px; width:330px; max-height:calc(100vh - 24px); overflow:auto; background:rgba(30,34,41,.92); border:1px solid #2c323b; border-radius:8px; padding:10px; display:flex; flex-direction:column; gap:8px; }
+  #ui.hidden { display:none; }
+  label { color:var(--muted); display:block; margin-bottom:2px; }
+  select,input[type=range],button { width:100%; box-sizing:border-box; background:#0f1115; color:var(--fg); border:1px solid #2c323b; border-radius:5px; padding:5px; font:inherit; }
+  button { cursor:pointer; } button:hover { border-color:var(--accent); }
+  .row { display:flex; gap:6px; } .row > * { flex:1; }
+  #bars .bar { position:fixed; z-index:1; left:0; right:0; height:0; background:#000; transition:height .4s; pointer-events:none; }
+  #bars .top { top:0; } #bars .bottom { bottom:0; } #bars.on .bar { height:12vh; }
+  #fade { position:fixed; inset:0; background:#000; opacity:0; pointer-events:none; }
+  #subtitle { position:fixed; z-index:5; bottom:14vh; left:0; right:0; text-align:center; font:600 20px/1.3 system-ui, sans-serif; text-shadow:0 2px 4px #000, 0 0 12px #000; padding:0 10vw; pointer-events:none; }
+  #status { position:fixed; z-index:10; bottom:12px; left:12px; color:var(--muted); }
+  #timeline, #pawnlist { color:var(--muted); white-space:pre; font-size:11px; max-height:160px; overflow:auto; }
+  .now { color:#fff; }
+</style>
+</head>
+<body>
+<div id="ui">
+  <div><label>Map</label><select id="map"></select></div>
+  <div><label>Scene</label><select id="scene"></select></div>
+  <div class="row"><button id="play">Pause</button><button id="free">Free cam</button><button id="hide">Hide UI (h)</button></div>
+  <div><label>Time <span id="tval">0.00</span> / <span id="tdur">0</span>s</label><input id="time" type="range" min="0" max="1" step="0.01" value="0"></div>
+  <div><label>Swap model</label><div class="row"><select id="swapactor"></select><select id="swapmodel"></select></div></div>
+  <div><label>Camera actions</label><div id="timeline"></div></div>
+  <div><label>Pawns</label><div id="pawnlist"></div></div>
+</div>
+<div id="bars"><div class="bar top"></div><div class="bar bottom"></div></div>
+<div id="fade"></div>
+<div id="subtitle"></div>
+<div id="status">loading…</div>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
+import { simulate, pawnStateAt } from '/public/js/sequencer.js';
+
+const $ = (id) => document.getElementById(id);
+const UNIT = 0.02;
+const ueVec = (v) => new THREE.Vector3(v[1], v[2], -v[0]);
+function ueRotBasis(rot) {
+  const [p, y, r] = rot.map((v) => (v / 65536) * Math.PI * 2);
+  const sp = Math.sin(p), cp = Math.cos(p), sy = Math.sin(y), cy = Math.cos(y), sr = Math.sin(r), cr = Math.cos(r);
+  return { fwd: ueVec([cp * cy, cp * sy, sp]), up: ueVec([-(cr * sp * cy + sr * sy), cy * sr - cr * sp * sy, cr * cp]) };
+}
+function ueRotQuat(rot) { const { fwd, up } = ueRotBasis(rot); return new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().lookAt(new THREE.Vector3(), fwd.clone().negate(), up)); }
+function cameraQuat(rot) { const { fwd, up } = ueRotBasis(rot); return new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().lookAt(new THREE.Vector3(), fwd, up)); }
+
+const PAWN_MESH = {
+  spideypawn: 'spideymesh', webheadpawn: 'spideymesh', animtestpawn: 'spideymesh', maryjanepawn: 'maryjanemesh', dococpawn: 'dococmesh', peterpawn: 'peterparkermesh', peterparkerpawn: 'peterparkermesh',
+  auntmaypawn: 'auntmaymesh', thug01pawn: 'thug01mesh', thugwithgunpawn: 'thug01mesh', prisonthugpawn: 'prisonthugmesh', superthugpawn: 'superthugmesh', cop01pawn: 'cop01mesh',
+  genericmalepawn: 'genericmalemesh', genericmale01pawn: 'genericmalemesh', genericmale02pawn: 'male02mesh', genericmale03pawn: 'male03mesh', genericmale04pawn: 'male04mesh', genericmale05pawn: 'male05mesh',
+  genericfemalepawn: 'female02mesh', genericfemale02pawn: 'female02mesh', genericfemale03pawn: 'female03mesh', genericfemale04pawn: 'female04mesh', genericfemale05pawn: 'female05mesh',
+  pumapawn: 'pumamesh', rhinopawn: 'rhinomesh', mysteriopawn: 'mysteriomesh', scientistpawn: 'scientistmesh', femalescientistpawn: 'femalescientistmesh', mysteriobotpawn: 'mysteriobotmesh',
+  mannedvanpawn: 'vanwhite', vanwhitepawn: 'vanwhite', nypdcruiserpawn: 'nypdcruiser', prisonercollectiblepawn: null };
+const meshFor = (def) => def ? PAWN_MESH[def.class.toLowerCase()] : 'spideymesh';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0b0d10);
+const camera = new THREE.PerspectiveCamera(85, innerWidth / innerHeight, 0.05, 2000);
+const controls = new OrbitControls(camera, renderer.domElement); controls.enabled = false;
+scene.add(new THREE.HemisphereLight(0xcfd8ff, 0x3a3328, 1.3));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6); sun.position.set(30, 60, 40); scene.add(sun);
+const loader = new GLTFLoader(); const gltfCache = new Map();
+const loadGLTF = (url) => { if (!gltfCache.has(url)) gltfCache.set(url, loader.loadAsync(url)); return gltfCache.get(url); };
+
+const S = { map: null, data: null, stage: null, stageGroup: null, staticsByTag: new Map(), pawns: [], sim: null, cams: [], t: 0, dur: 0, playing: true, free: false, audio: null, swaps: {}, audioIndex: {}, lastT: -1 };
+const clock = new THREE.Clock();
+
+async function loadStage(mapName) {
+  if (S.stageGroup) scene.remove(S.stageGroup);
+  S.stageGroup = new THREE.Group(); scene.add(S.stageGroup); S.staticsByTag = new Map();
+  let stage = null; try { stage = await (await fetch(`/public/levels/${mapName}/stage.json`)).json(); } catch {}
+  S.stage = stage; if (!stage) { $('status').textContent = 'no stage for ' + mapName; return; }
+  const byUrl = new Map(); for (const p of stage.statics) { if (!byUrl.has(p.url)) byUrl.set(p.url, []); byUrl.get(p.url).push(p); }
+  let n = 0;
+  await Promise.all([...byUrl.entries()].map(async ([url, list]) => {
+    let g; try { g = await loadGLTF(url); } catch { return; }
+    for (const p of list) { const o = g.scene.clone(); o.position.fromArray(p.pos); o.quaternion.fromArray(p.quat); o.scale.fromArray(p.scale); S.stageGroup.add(o); n++;
+      if (p.tag && p.tag !== 'StaticMeshActor') { if (!S.staticsByTag.has(p.tag)) S.staticsByTag.set(p.tag, []); S.staticsByTag.get(p.tag).push(o); } }
+  }));
+  if (stage.bsp) { try { S.stageGroup.add((await loadGLTF(stage.bsp)).scene); } catch {} }
+  $('status').textContent = `${mapName}: ${n} static meshes` + (stage.bsp ? ' + BSP' : '');
+}
+
+// ---- simulation context
+function findPoint(tag) {
+  if (!tag || tag === 'None') return null;
+  for (const [n, p] of Object.entries(S.data.points)) if ((p.Tag === tag || n === tag) && p.Location) return p;
+  for (const p of S.data.pawns) if ((p.Tag === tag || p.name === tag) && p.Location) return p;
+  const st = S.stage?.statics.find((s) => s.tag === tag); if (st) return { Location: null, pos: st.pos };
+  return null;
+}
+const ctx = {
+  unit: UNIT,
+  toWorld: (loc) => ueVec(loc).multiplyScalar(UNIT).toArray(),
+  pointPos: (tag) => { const p = findPoint(tag); return p ? (p.Location ? ctx.toWorld(p.Location) : p.pos) : null; },
+  pointRot: (tag) => findPoint(tag)?.Rotation || null,
+  hasStatic: (tag) => S.staticsByTag.has(tag),
+  canSpawn: (tag) => tag === 'SpideyPawn',
+  spawnPos: () => { const ps = Object.values(S.data.points).find((p) => p.class === 'PlayerStart'); return ps ? ctx.toWorld(ps.Location) : [0, 0, 0]; },
+  clipDuration: (pawnState, clip) => { const m = S.meshClips.get(S.swaps[pawnState.tag] || meshFor(pawnState.def) || 'spideymesh'); const c = m?.find((x) => x.name.toLowerCase() === String(clip).toLowerCase()); return c ? c.duration : 1; },
+  audioDuration: (dlg) => S.audioIndex[dlg] || null,
+  sceneDuration: (def) => def ? compile(def).dur : 0,
+  movieDur: 8 };
+
+// ---- camera compilation (SceneManager -> segments)
+const CAMORIENT = ['None', 'LookAtActor', 'FacePath', 'Interpolate', 'Dolly'];
+function compile(def) {
+  const segs = []; let t = 0; let prevPos = null, prevRot = null; const events = [];
+  for (const a of def.actions) {
+    const ip = a.IntPointData; const pos = ip?.Location ? ueVec(ip.Location).multiplyScalar(UNIT) : prevPos; const rot = ip?.Rotation || prevRot || [0, 0, 0];
+    let dur = a.Duration ?? 0; if (a.class === 'ActionTriggerDialog' && !a.Duration) dur = S.audioIndex[a.dlgName] || 3;
+    const seg = { action: a, start: t, end: t + dur, from: prevPos || pos, to: pos, fromRot: prevRot || rot, toRot: rot, orient: null, fades: [], fov: null };
+    for (const sa of a.SubActions || []) {
+      if (sa.class === 'SubActionOrientation') seg.orient = sa.CamOrientation;
+      else if (sa.class === 'SubActionFade') seg.fades.push({ out: sa.bFadeOut !== false, at: t + (sa.Delay || 0), dur: sa.Duration ?? 1 });
+      else if (sa.class === 'SubActionFOV') seg.fov = sa.FOV;
+    }
+    if (a.class === 'ActionTriggerDialog' && a.dlgName) events.push({ t, dialog: a.dlgName, subtitle: a.subtitle, dur });
+    segs.push(seg); t = seg.end; prevPos = pos; prevRot = rot;
+  }
+  return { def, segs, events, dur: t, startFade: def.StartFade, endFade: def.EndFade, cinematic: !!def.bCinematicView };
+}
+function evalCamera(tl, t) {
+  const seg = tl.segs.find((s) => t >= s.start && t < s.end) || tl.segs[tl.segs.length - 1]; if (!seg) return null;
+  const u = seg.end > seg.start ? THREE.MathUtils.clamp((t - seg.start) / (seg.end - seg.start), 0, 1) : 1;
+  const pos = seg.from && seg.to ? seg.from.clone().lerp(seg.to, u) : (seg.to || new THREE.Vector3());
+  camera.position.copy(pos);
+  const mode = CAMORIENT[seg.orient?.CamOrientation ?? 3] || 'Interpolate';
+  const qFrom = cameraQuat(seg.fromRot), qTo = cameraQuat(seg.toRot);
+  if (mode === 'LookAtActor' || mode === 'Dolly') {
+    const tgt = ctx.pointPos(seg.orient?.LookAtTag) || (seg.orient?.LookAt ? ctx.pointPos(seg.orient.LookAt.split('.').pop()) : null);
+    const pw = tgt ? null : S.pawns.find((p) => p.tag === seg.orient?.LookAtTag);
+    if (tgt) camera.lookAt(new THREE.Vector3().fromArray(tgt)); else if (pw) camera.lookAt(pw.obj.position.clone().add(new THREE.Vector3(0, 0.9, 0))); else camera.quaternion.copy(qTo);
+  } else if (mode === 'FacePath') { const dir = seg.to.clone().sub(seg.from); if (dir.lengthSq() > 1e-6) camera.lookAt(pos.clone().add(dir)); else camera.quaternion.copy(qTo); }
+  else if (mode === 'None') camera.quaternion.copy(qFrom);
+  else { const a = seg.orient?.PctInStart ?? 0, b = seg.orient?.PctInEnd ?? 1; const w = b > a ? THREE.MathUtils.clamp((u - a) / (b - a), 0, 1) : (u >= a ? 1 : 0); camera.quaternion.copy(qFrom).slerp(qTo, seg.end > seg.start ? w : 1); }
+  camera.fov = seg.fov || 85; camera.updateProjectionMatrix();
+  let op = 0;
+  if (tl.startFade?.FadeDuration) op = Math.max(op, 1 - THREE.MathUtils.clamp(t / tl.startFade.FadeDuration, 0, 1));
+  if (tl.endFade?.FadeDuration) op = Math.max(op, THREE.MathUtils.clamp((t - (tl.dur - tl.endFade.FadeDuration)) / tl.endFade.FadeDuration, 0, 1));
+  for (const s of tl.segs) for (const f of s.fades) { const k = THREE.MathUtils.clamp((t - f.at) / Math.max(f.dur, 0.01), 0, 1); if (t >= f.at) op = Math.max(op, f.out ? k : 1 - k); }
+  $('fade').style.opacity = op; $('bars').classList.toggle('on', tl.cinematic);
+  return seg;
+}
+
+// ---- pawns from simulation
+async function buildPawns() {
+  for (const p of S.pawns) scene.remove(p.obj); S.pawns = [];
+  for (const ps of S.sim.pawns) {
+    const meshName = S.swaps[ps.tag] ?? meshFor(ps.def); if (meshName === null) continue;
+    let g; try { g = await loadGLTF(`/public/models/characters/${meshName || 'genericmalemesh'}.glb`); } catch { continue; }
+    const model = SkeletonUtils.clone(g.scene); model.traverse((o) => { if (o.isMesh) o.frustumCulled = false; });
+    const holder = new THREE.Group(); holder.add(model); scene.add(holder);
+    const mixer = new THREE.AnimationMixer(model);
+    const idle = g.animations.find((c) => /^idle(rest)?$/i.test(c.name)) || g.animations.find((c) => /idle/i.test(c.name)) || g.animations[0];
+    S.pawns.push({ tag: ps.tag, state: ps, obj: holder, model, mixer, clips: g.animations, idle, action: null, clipName: null });
+  }
+  const sa = $('swapactor'); sa.innerHTML = '';
+  for (const p of S.pawns) { const o = document.createElement('option'); o.value = p.tag; o.textContent = `${p.tag} (${p.state.def?.class || 'spawned'})`; sa.appendChild(o); }
+}
+function applyClip(p, name, time, loop, rate) {
+  const clip = (name && (THREE.AnimationClip.findByName(p.clips, name) || p.clips.find((c) => c.name.toLowerCase() === String(name).toLowerCase()))) || p.idle;
+  if (!clip) return;
+  if (p.clipName !== clip.name) { if (p.action) p.action.stop(); p.action = p.mixer.clipAction(clip); p.action.play(); p.clipName = clip.name; }
+  const d = clip.duration || 1e-3;
+  p.action.setLoop(loop || clip === p.idle ? THREE.LoopRepeat : THREE.LoopOnce, Infinity); p.action.clampWhenFinished = true;
+  p.action.time = (loop || clip === p.idle) ? ((time * (rate || 1)) % d) : Math.min(time * (rate || 1), d - 1e-4);
+  p.mixer.update(0);
+}
+function evalPawns(t) {
+  const lines = [];
+  for (const p of S.pawns) {
+    const st = pawnStateAt(p.state, t); if (!st) continue;
+    p.obj.visible = st.visible; p.obj.position.fromArray(st.pos); p.obj.quaternion.copy(ueRotQuat([0, st.yaw, 0]));
+    applyClip(p, st.clip, st.clipTime, st.loop, st.rate);
+    lines.push(`${st.visible ? ' ' : 'x'} ${p.tag.padEnd(22)} ${(p.clipName || '-').slice(0, 22)}`);
+  }
+  $('pawnlist').textContent = lines.join('\n');
+  for (const [tag, list] of S.sim.hiddenStatics) { let vis = true; for (const e of list) if (e.t <= t) vis = e.visible; for (const o of S.staticsByTag.get(tag) || []) o.visible = vis; }
+}
+let subTimer = null;
+function say(dlg, subtitle, dur) {
+  $('subtitle').textContent = subtitle || dlg; clearTimeout(subTimer); subTimer = setTimeout(() => { $('subtitle').textContent = ''; }, (dur || 3) * 1000);
+  if (S.audio) S.audio.pause();
+  const a = new Audio(`/intermediate/audio/vo/${dlg}.m4a`); a.volume = 0.9; a.play().catch(() => {}); S.audio = a;
+}
+function evalEvents(t) {
+  for (const ev of S.events) if (ev.t > S.lastT && ev.t <= t) { if (ev.dialog) say(ev.dialog, ev.subtitle, ev.dur); else if (ev.caption) say(ev.caption, ev.caption, ev.dur); else if (ev.movie) say('[movie ' + ev.movie + ']', null, 3); }
+  S.lastT = t;
+}
+function activeCam(t) { let c = S.cams[0]; for (const x of S.cams) if (x.start <= t) c = x; return c; }
+
+async function setScene(name) {
+  const def = S.data.scenes.find((s) => s.name === name); if (!def) return;
+  S.sim = simulate(S.data, def.Tag, ctx);
+  S.cams = S.sim.camScenes.filter((c) => c.t >= 0).map((c) => ({ start: c.t, tl: compile(c.scene) }));
+  if (!S.cams.length || S.cams[0].tl.def !== def) S.cams.unshift({ start: 0, tl: compile(def) });
+  S.events = [...S.sim.events]; for (const c of S.cams) for (const e of c.tl.events) S.events.push({ ...e, t: e.t + c.start });
+  S.events.sort((a, b) => a.t - b.t);
+  const lastCam = S.cams[S.cams.length - 1];
+  S.dur = Math.max(S.sim.duration, lastCam.start + lastCam.tl.dur); S.t = 0; S.lastT = -1;
+  await buildPawns();
+  $('time').max = S.dur; $('tdur').textContent = S.dur.toFixed(1);
+  $('timeline').innerHTML = S.cams.map((c) => c.tl.segs.map((s) => `<div>${(c.start + s.start).toFixed(1).padStart(5)}s ${s.action.class.replace('Action', '')} ${s.action.IntPoint || ''} ${s.action.dlgName || ''} ${s.action.Comment ? '· ' + s.action.Comment : ''}</div>`).join('')).join('<div>— next scene —</div>');
+  console.log('sim log', S.sim.log.filter((l) => l.t >= 0));
+  seek(0);
+}
+function seek(t) {
+  S.t = THREE.MathUtils.clamp(t, 0, S.dur);
+  if (!S.free) { const c = activeCam(S.t); evalCamera(c.tl, S.t - c.start); }
+  evalPawns(S.t);
+  $('time').value = S.t; $('tval').textContent = S.t.toFixed(2);
+}
+async function loadMap(name) {
+  S.map = name; $('status').textContent = 'loading ' + name;
+  S.data = await (await fetch(`/public/cutscenes/${name}.json`)).json();
+  try { S.audioIndex = await (await fetch('/intermediate/audio/vo/index.json')).json(); } catch { S.audioIndex = {}; }
+  await loadStage(name);
+  // preload pawn meshes for clip durations
+  S.meshClips = new Map();
+  const names = new Set(['spideymesh']); for (const p of S.data.pawns) { const m = meshFor(p); if (m) names.add(m); } for (const v of Object.values(S.swaps)) names.add(v);
+  await Promise.all([...names].map(async (m) => { try { const g = await loadGLTF(`/public/models/characters/${m}.glb`); S.meshClips.set(m, g.animations); } catch {} }));
+  const sel = $('scene'); sel.innerHTML = '';
+  for (const s of S.data.scenes) { const o = document.createElement('option'); o.value = s.name; o.textContent = `${s.Tag || s.name} (${s.actions.length} actions)`; sel.appendChild(o); }
+  const want = new URL(location.href).searchParams.get('scene');
+  const first = S.data.scenes.find((s) => s.Tag === want || s.name === want) || S.data.scenes[0];
+  if (first) { sel.value = first.name; await setScene(first.name); }
+  window.__sm2.ready = true;
+}
+
+$('scene').onchange = (e) => setScene(e.target.value);
+$('map').onchange = (e) => loadMap(e.target.value);
+$('play').onclick = () => { S.playing = !S.playing; $('play').textContent = S.playing ? 'Pause' : 'Play'; };
+$('free').onclick = () => { S.free = !S.free; controls.enabled = S.free; $('free').textContent = S.free ? 'Scene cam' : 'Free cam'; if (S.free) { controls.target.copy(camera.position).add(camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(5)); controls.update(); } };
+$('hide').onclick = () => $('ui').classList.add('hidden');
+addEventListener('keydown', (e) => { if (e.key === 'h') $('ui').classList.toggle('hidden'); if (e.key === ' ') { $('play').click(); e.preventDefault(); } });
+$('time').oninput = (e) => { S.playing = false; $('play').textContent = 'Play'; seek(parseFloat(e.target.value)); };
+$('swapmodel').onchange = async (e) => { S.swaps[$('swapactor').value] = e.target.value; if (!S.meshClips.has(e.target.value)) { try { const g = await loadGLTF(`/public/models/characters/${e.target.value}.glb`); S.meshClips.set(e.target.value, g.animations); } catch {} } await setScene($('scene').value); };
+
+renderer.setAnimationLoop(() => {
+  const dt = clock.getDelta();
+  if (S.sim && S.playing) {
+    S.t += dt; if (S.t >= S.dur) { S.t = S.dur; S.playing = false; $('play').textContent = 'Play'; }
+    if (!S.free) { const c = activeCam(S.t); evalCamera(c.tl, S.t - c.start); }
+    evalPawns(S.t); evalEvents(S.t);
+    $('time').value = S.t; $('tval').textContent = S.t.toFixed(2);
+  }
+  if (S.free) controls.update();
+  renderer.render(scene, camera);
+});
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+
+window.__sm2 = { ready: false, S, scene, camera, renderer, seek, setScene, loadMap, say, THREE,
+  reloadPawns: () => setScene($('scene').value),
+  frame: (t) => { S.playing = false; seek(t); evalEvents(t); renderer.render(scene, camera); return t; },
+  setSize: (w, h) => { renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); } };
+
+const list = await (await fetch('/api/models')).json();
+const maps = list.cutscenes.map((u) => u.split('/').pop().replace('.json', ''));
+for (const m of maps) { const o = document.createElement('option'); o.value = m; o.textContent = m; $('map').appendChild(o); }
+for (const m of list.models.filter((u) => u.includes('/characters/'))) { const o = document.createElement('option'); const n = m.split('/').pop().replace('.glb', ''); o.value = n; o.textContent = n; $('swapmodel').appendChild(o); }
+const startMap = new URL(location.href).searchParams.get('map') || 'Wharf_Warehouse';
+if (maps.includes(startMap)) { $('map').value = startMap; await loadMap(startMap); } else { $('status').textContent = 'no cutscene json found'; window.__sm2.ready = true; }
+</script>
+</body>
+</html>

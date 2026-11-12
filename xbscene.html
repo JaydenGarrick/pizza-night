@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>SM2 Xbox Scene</title>
+<style>
+  :root { --bg:#0e1116; --panel:#1c2029; --fg:#e6e9ef; --muted:#8b93a1; }
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:13px ui-monospace,Menlo,monospace;overflow:hidden}
+  canvas{display:block}
+  #ui{position:fixed;top:12px;left:12px;width:340px;background:rgba(28,32,41,.92);border:1px solid #2c323b;border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px;z-index:10}
+  #ui.hidden{display:none}
+  #ui label{color:var(--muted);display:block;margin-bottom:2px} #ui select,#ui button,#ui input{width:100%;background:#0e1116;color:var(--fg);border:1px solid #2c323b;border-radius:6px;padding:6px}
+  .row{display:flex;gap:6px}.row>*{flex:1} #status{position:fixed;left:12px;bottom:10px;color:var(--muted);z-index:10}
+  #subtitle{position:fixed;bottom:6%;left:0;right:0;text-align:center;color:#fff;font:600 18px system-ui;text-shadow:0 2px 4px #000;z-index:2;pointer-events:none}
+</style></head><body>
+<div id="ui">
+  <div><label>Cutscene (all shots + dialogue)</label><select id="cutscene"><option value="">—</option></select></div>
+  <div><label>Single shot</label><select id="scene"><option value="">—</option></select></div>
+  <div><label>Level (background)</label><select id="level"><option value="">none</option></select></div>
+  <div class="row"><button id="play">Pause</button><button id="camfix">Cam fix: 3</button><button id="hide">Hide UI (h)</button></div>
+  <div><label>Time <span id="tlabel">0.00</span>s</label><input id="time" type="range" min="0" max="1" step="0.01" value="0"></div>
+  <div style="color:var(--muted)" id="info"></div>
+</div>
+<div id="subtitle"></div><div id="status">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
+import { loadXboxLevel, setLightRig, makeLoader, toCharacterMaterials } from '/public/js/xblevel.js';
+const $ = (id) => document.getElementById(id);
+const renderer = new THREE.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0e1116);
+const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 20000);
+setLightRig(scene, { interior: false });
+
+const controls = new OrbitControls(camera, renderer.domElement); controls.enabled = false;
+const loader = new GLTFLoader(); const loadGLTF = makeLoader(loader);
+// camera axis fix candidates (debug); 3 = identity is the verified convention (scene.json quats are already three.js camera quats)
+const FIX = [new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), -Math.PI / 2), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI), new THREE.Quaternion()];
+const S = { tl: null, t: 0, dur: 0, playing: true, fix: 3, levelGroup: null, audio: null, active: -1 };
+const q = new URLSearchParams(location.search); if (q.get('fix')) S.fix = +q.get('fix');
+// ?hero=birdman: Birdman stands in for Spider-Man and Peter.  The cutscene actors' skeletons are the gameplay rigs (60-joint 'spiderman', 52-joint
+// 'peter_casual'), and the retargeted Birdman GLBs share their joint names and bind poses exactly, so each shot's clip plays on a Birdman clone as is.
+const HERO = q.get('hero'); const STANDINS = { birdman: { spiderman: '/public/models/xbox/anim/birdman2_spiderman.glb', peter_casual: '/public/models/xbox/anim/birdman2_peter_casual.glb' },   // the survivors' Birdman v2 (civilian body, pigeon head) retargeted onto the cutscene rigs
+  birdman1: { spiderman: '/public/models/xbox/anim/birdman_moves.glb', peter_casual: '/public/models/xbox/anim/birdman_peter_casual.glb' } }; const STANDIN = STANDINS[HERO] || null; if (STANDIN) for (const k in STANDIN) if (q.get('standin_' + k)) STANDIN[k] = q.get('standin_' + k);   /* ?standin_spiderman=/url overrides one rig's stand-in (testing) */ const standinCache = new Map();
+async function standinFor(a) { if (!STANDIN || !STANDIN[a.skeleton]) return null; const url = STANDIN[a.skeleton]; if (!standinCache.has(url)) standinCache.set(url, loadGLTF(url)); return standinCache.get(url); }
+let INDEX = { cutscenes: [] };
+try { INDEX = await (await fetch('/public/xbox_cutscenes/index.json')).json(); } catch {}
+const AUDIO_ROOT = '/intermediate/xbox/audio/scene/'; let AUDIO_IDX = {};
+try { AUDIO_IDX = await (await fetch(AUDIO_ROOT + 'index.json')).json(); } catch {}
+const audioFor = (name) => { const k = Object.keys(AUDIO_IDX).find((k) => k.toUpperCase() === String(name).toUpperCase()); return k ? AUDIO_IDX[k].file : null; };
+
+async function loadLevel(name) {                       // name may be "XB_XE02+XB_H76I01": the first level sets the light rig
+  for (const l of S.levels || []) l.dispose(); S.levels = []; S.level = null; S.levelGroup = null;
+  if (!name || name === 'x' || name === 'none') { setLightRig(scene, { interior: false }); return; }
+  const names = name.split('+').filter(Boolean);
+  for (let i = 0; i < names.length; i++) { const lv = await loadXboxLevel(scene, names[i], { loadGLTF, rig: false, onStatus: (t) => { $('status').textContent = t; } }); S.levels.push(lv); if (i === 0) { S.level = lv; S.levelGroup = lv.group; } }
+  S.rigInterior = undefined; seek(S.t);
+}
+function clearTimeline() {
+  if (S.tl) for (const sh of S.tl.shots) for (const a of sh.actors) scene.remove(a.obj);
+  if (S.audio) { S.audio.pause(); S.audio = null; }
+  S.tl = null; S.active = -1;
+}
+async function loadShotDoc(doc, start) {
+  const shot = { name: doc.name, start, duration: doc.duration, doc, camera: doc.camera, actors: [] };
+  for (const a of doc.actors) {
+    try {
+      const gl = await loadGLTF(a.glb); const sub = await standinFor(a); const obj = SkeletonUtils.clone((sub || gl).scene); obj.visible = false; scene.add(obj); toCharacterMaterials(obj);   // each shot gets its own skinned copy (bones retargeted); the clip below is always the shot's own
+      if (sub) obj.traverse((o) => { if (o.isMesh && o.material && o.material.isMeshLambertMaterial) o.material.color.setRGB(1.2, 1.2, 1.2); });   // the stand-in's textures are darker than the game's baked ones (pizza.html does the same)
+      const mixer = new THREE.AnimationMixer(obj); const clip = gl.animations.find((c) => c.name === a.clip) || gl.animations[0];
+      const action = mixer.clipAction(clip); action.setLoop(THREE.LoopOnce); action.clampWhenFinished = true; action.play();
+      shot.actors.push({ ...a, obj, mixer, action, clip });
+    } catch (e) { console.warn('actor load failed', a.glb, e); }
+  }
+  return shot;
+}
+async function loadCutscene(name) {
+  const entry = INDEX.cutscenes.find((c) => c.name.toUpperCase() === name.toUpperCase()); if (!entry) throw new Error('no cutscene ' + name);
+  clearTimeline(); $('status').textContent = `loading ${entry.name} (${entry.shots.length} shots)…`;
+  const shots = [];
+  for (const s of entry.shots) { const doc = await (await fetch(`/public/xbox_cutscenes/${s.name}/scene.json`)).json(); shots.push(await loadShotDoc(doc, s.start)); }
+  S.tl = { name: entry.name, kind: 'cutscene', duration: entry.duration, shots, audioFile: entry.audio || audioFor(entry.name) };
+  finishLoad();
+  if (!q.get('level') && !q.get('map') && entry.level) { const want = (entry.levels && entry.levels.length ? entry.levels : [entry.level]).join('+'); if (S.loadedLevels !== want) { S.loadedLevels = want; $('level').value = entry.level; await loadLevel(want); } }
+}
+async function loadScene(url) {
+  clearTimeline(); const doc = await (await fetch(url)).json();
+  S.tl = { name: doc.name, kind: 'shot', duration: doc.duration, shots: [await loadShotDoc(doc, 0)], audioFile: null };
+  finishLoad();
+}
+function finishLoad() {
+  const tl = S.tl; S.dur = tl.duration; $('time').max = tl.duration;
+  const nact = tl.shots.reduce((n, s) => n + s.actors.length, 0);
+  $('info').textContent = `${tl.name}: ${tl.shots.length} shot(s), ${nact} actor instances, ${tl.duration.toFixed(2)}s${tl.audioFile ? ', dialogue ✓' : ''}`;
+  if (tl.audioFile) { S.audio = new Audio(tl.audioFile); }
+  window.__sm2.audioTracks = tl.audioFile ? [{ file: tl.audioFile, t: 0 }] : [];
+  seek(0);
+}
+const _v = new THREE.Vector3(), _f = new THREE.Vector3(), _u = new THREE.Vector3(), _h = new THREE.Vector3();
+function followCamera(sh) {
+  // shots without a camera block use the gameplay camera in the game; approximate with a follow cam behind the first actor
+  const a = sh.actors.find((x) => x.obj.getObjectByName('trajectory')); if (!a) { controls.enabled = true; return; }
+  const tr = a.obj.getObjectByName('trajectory'); tr.getWorldPosition(_v); const qw = tr.getWorldQuaternion(new THREE.Quaternion());
+  _f.set(0, 0, -1).applyQuaternion(qw); _u.set(0, 1, 0).applyQuaternion(qw);
+  const head = a.obj.getObjectByName('bip01_head'); if (head) head.getWorldPosition(_h); else _h.copy(_v).addScaledVector(_u, 0.7);
+  controls.enabled = false; camera.position.copy(_v).addScaledVector(_f, -3.2).addScaledVector(_u, 1.6); camera.position.y = Math.max(camera.position.y, _v.y + 0.3);
+  camera.up.set(0, 1, 0); camera.lookAt(_h); camera.fov = 45; camera.updateProjectionMatrix();
+}
+function applyCamera(c, t, sh) {
+  if (!c) { followCamera(sh); return; }
+  controls.enabled = false; const f = Math.min(c.n - 1, Math.max(0, Math.floor(t * c.fps))); const f2 = Math.min(c.n - 1, f + 1); const a = Math.min(1, Math.max(0, t * c.fps - f));
+  const p0 = new THREE.Vector3().fromArray(c.pos[f]), p1 = new THREE.Vector3().fromArray(c.pos[f2]); camera.position.lerpVectors(p0, p1, a);
+  const q0 = new THREE.Quaternion().fromArray(c.quat[f]), q1 = new THREE.Quaternion().fromArray(c.quat[f2]); q0.slerp(q1, a); camera.quaternion.copy(q0).multiply(FIX[S.fix]);
+  const fov = c.fov[f] * (1 - a) + c.fov[f2] * a; camera.fov = THREE.MathUtils.radToDeg(fov > 0.05 ? fov : 0.785); camera.updateProjectionMatrix();
+}
+function seek(t) {
+  const tl = S.tl; if (!tl) return;
+  S.t = Math.max(0, Math.min(tl.duration, t));
+  let k = 0; for (let i = 0; i < tl.shots.length; i++) if (tl.shots[i].start <= S.t + 1e-6) k = i;
+  for (let i = 0; i < tl.shots.length; i++) { const sh = tl.shots[i]; const on = i === k; for (const a of sh.actors) a.obj.visible = on; }
+  const sh = tl.shots[k]; const lt = Math.max(0, S.t - sh.start);
+  for (const a of sh.actors) { a.mixer.setTime(Math.min(lt, a.clip.duration - 1e-4)); a.mixer.update(0); }
+  // entities with an empty block in this shot hold the pose they had at the end of their last animated shot (reaction shots)
+  for (const name of (sh.doc.frozen || [])) {
+    for (let j = k - 1; j >= 0; j--) {
+      const prev = tl.shots[j].actors.find((a) => a.name === name);
+      if (prev) { prev.obj.visible = true; prev.mixer.setTime(prev.clip.duration - 1e-4); prev.mixer.update(0); break; }
+    }
+  }
+  applyCamera(sh.camera, lt, sh); S.active = k;
+  { // interior = the camera stands inside an interior level's box AND has a ceiling above it (street shots in front of a building have no ceiling)
+    let inside = camera.position.y < -100 && (S.levels || []).some((lv) => lv.interior);   // underground story sets (arenas, lab, pier): never sunlit
+    for (const lv of S.levels || []) { if (inside || !lv.interior || !lv.box || !lv.box.containsPoint(camera.position)) continue;
+      if (!lv.ceilMeshes) { lv.ceilMeshes = []; lv.group.traverse((o) => { if (o.isMesh && o.visible && o !== lv.lights) lv.ceilMeshes.push(o); }); }
+      const rc = new THREE.Raycaster(camera.position, new THREE.Vector3(0, 1, 0), 0.05, 120); if (rc.intersectObjects(lv.ceilMeshes, false).length) { inside = true; break; } }
+    if (inside !== S.rigInterior) { S.rigInterior = inside; setLightRig(scene, { interior: inside }); } }
+  // CITY_TRAFFIC is the game's high-altitude LOD of the traffic (additive car-light streaks on the roads): from a street-level camera it is a glowing smear on the asphalt
+  for (const lv of S.levels || []) { if (lv.traffic === undefined) { lv.traffic = []; for (const o of lv.group.children) if (/city_traffic/i.test(o.userData.placement?.url || '')) lv.traffic.push(o); } for (const o of lv.traffic) o.visible = camera.position.y > 60; }
+  $('time').value = S.t; $('tlabel').textContent = S.t.toFixed(2); $('subtitle').textContent = tl.kind === 'cutscene' && q.get('label') !== '0' ? `${sh.name}  (${lt.toFixed(1)}s)` : '';   // ?label=0: no shot label (video renders)
+  if (S.audio && Math.abs(S.audio.currentTime - S.t) > 0.3) S.audio.currentTime = S.t;
+}
+// Placement culling: the city is ~40 k placed objects and three.js issues a draw call for every mesh whose sphere touches the frustum, however
+// small on screen (39.5 k calls, 0.85 s per frame on the CPU).  Per frame each placement is tested once: outside the frustum, or smaller than
+// ~2 px (radius / distance < 0.0015), and it is hidden.  userData.__culled marks 'hidden by this cull only' for tools that index the set.
+const _fr = new THREE.Frustum(), _pm = new THREE.Matrix4(), _cb = new THREE.Box3();
+function cullLevels() {
+  camera.updateMatrixWorld(); _pm.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse); _fr.setFromProjectionMatrix(_pm);
+  for (const lv of S.levels || []) {
+    if (!lv.cull) { lv.cull = []; lv.group.updateMatrixWorld(true); for (const o of lv.group.children) { if (o === lv.lights || !o.visible) continue; _cb.setFromObject(o); if (_cb.isEmpty()) continue; const sp = _cb.getBoundingSphere(new THREE.Sphere()); if (sp.radius < 400) lv.cull.push({ o, sp }); } }
+    for (const e of lv.cull) { const d = e.sp.center.distanceTo(camera.position); const on = _fr.intersectsSphere(e.sp) && (d < e.sp.radius || e.sp.radius / d > 0.0015); e.o.visible = on; e.o.userData.__culled = !on; }
+  }
+}
+function draw() { if (q.get('cull') !== '0') cullLevels(); renderer.render(scene, camera); }
+let last = performance.now();
+function tick(now) {
+  requestAnimationFrame(tick); const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  if (S.playing && S.tl) { if (S.t < S.tl.duration) seek(S.t + dt); else S.playing = false; }
+  if (S.audio) { if (S.playing && S.audio.paused) S.audio.play().catch(() => {}); if (!S.playing && !S.audio.paused) S.audio.pause(); }
+  if (controls.enabled) controls.update(); if (!S.offline) draw();   // offline: a tool drives frame(t) itself, so the idle loop does not render the scene a second time
+}
+$('play').onclick = () => { S.playing = !S.playing; $('play').textContent = S.playing ? 'Pause' : 'Play'; if (S.playing && S.t >= S.tl.duration - 1e-3) seek(0); };
+$('time').oninput = (e) => { S.playing = false; $('play').textContent = 'Play'; seek(+e.target.value); };
+$('camfix').onclick = () => { S.fix = (S.fix + 1) % FIX.length; $('camfix').textContent = 'Cam fix: ' + S.fix; seek(S.t); };
+$('hide').onclick = () => { $('ui').classList.add('hidden'); }; addEventListener('keydown', (e) => { if (e.key === 'h') $('ui').classList.toggle('hidden'); });
+$('level').onchange = (e) => loadLevel(e.target.value);
+$('scene').onchange = (e) => { if (e.target.value) { $('cutscene').value = ''; loadScene(e.target.value); } };
+$('cutscene').onchange = (e) => { if (e.target.value) { $('scene').value = ''; loadCutscene(e.target.value); } };
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+const list = await (await fetch('/api/models')).json();
+for (const l of list.levels || []) { const o = document.createElement('option'); o.value = l; o.textContent = l; $('level').appendChild(o); }
+for (const c of INDEX.cutscenes) { const o = document.createElement('option'); o.value = c.name; o.textContent = `${c.name} (${c.shots.length} shots, ${c.duration.toFixed(0)}s${c.audio ? ', dialogue' : ''}${c.level ? ', ' + c.level : ''})`; $('cutscene').appendChild(o); }
+for (const c of INDEX.cutscenes) for (const s of c.shots) { const o = document.createElement('option'); o.value = `/public/xbox_cutscenes/${s.name}/scene.json`; o.textContent = `${s.name} (${s.actors.length} actors, ${s.duration.toFixed(1)}s)`; $('scene').appendChild(o); }
+window.__sm2 = { scene, camera, renderer, S, seek, loadScene, loadCutscene, loadLevel, applyCamera, audioTracks: [],
+  setSize: (w, h) => { renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); },
+  view: (p, t) => { controls.enabled = true; camera.position.set(...p); controls.target.set(...t); controls.update(); },
+  frame: (t) => { S.playing = false; S.offline = true; seek(t); draw(); return t; }, ready: false };
+const want = q.get('scene'); const lvl = q.get('level') || q.get('map');
+if (want && INDEX.cutscenes.some((c) => c.name.toUpperCase() === want.toUpperCase())) { $('cutscene').value = INDEX.cutscenes.find((c) => c.name.toUpperCase() === want.toUpperCase()).name; await loadCutscene(want); }
+else if (want) await loadScene(want.startsWith('/') ? want : `/public/xbox_cutscenes/${want}/scene.json`);
+else if (INDEX.cutscenes.length) { $('cutscene').value = INDEX.cutscenes[0].name; await loadCutscene(INDEX.cutscenes[0].name); }
+if (lvl) { $('level').value = lvl; await loadLevel(lvl); }
+if (q.get('t')) seek(+q.get('t'));
+$('status').textContent = 'ready'; window.__sm2.ready = true; requestAnimationFrame(tick);
+</script></body></html>

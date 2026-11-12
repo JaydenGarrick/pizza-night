@@ -1,0 +1,5340 @@
+{
+ "map": "Wharf_TrainStation",
+ "scenes": [
+  {
+   "name": "SceneManager0",
+   "bCinematicView": true,
+   "Tag": "L6M1_StationAmbush",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    335.2108459472656,
+    2412.6630859375,
+    49.29560089111328
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera8",
+     "IntPoint": "InterpolationPoint8",
+     "PathLength": 5522.08203125,
+     "IntPointData": {
+      "name": "InterpolationPoint8",
+      "Group": "None,AmbushCutScene",
+      "Location": [
+       -128.26182556152344,
+       2511.85595703125,
+       72.19084930419922
+      ],
+      "Rotation": [
+       -3116,
+       -17652,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera9",
+     "IntPoint": "InterpolationPoint9",
+     "Duration": 2.0,
+     "PathLength": 175.64295959472656,
+     "IntPointData": {
+      "name": "InterpolationPoint9",
+      "Group": "None,AmbushCutScene",
+      "Location": [
+       -128.6172332763672,
+       2336.211181640625,
+       72.19586944580078
+      ],
+      "Rotation": [
+       -1971,
+       -15595,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause3",
+     "IntPoint": "InterpolationPoint9",
+     "Duration": 0.10000000149011612,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "DocOck",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117203328,
+        "PctInStart": 0.15037593245506287,
+        "PctInEnd": 0.15037593245506287,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint9",
+      "Group": "None,AmbushCutScene",
+      "Location": [
+       -128.6172332763672,
+       2336.211181640625,
+       72.19586944580078
+      ],
+      "Rotation": [
+       -1971,
+       -15595,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog0",
+     "dlgName": "sp_tr_e_thereheis",
+     "Duration": 1.4666666984558105,
+     "subtitle": "There he is!"
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera10",
+     "IntPoint": "InterpolationPoint10",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "DocOck",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117203648,
+        "PctInStart": 0.26817041635513306,
+        "PctInEnd": 0.26817041635513306,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "DocEntersTrain"
+      }
+     ],
+     "PathLength": 4370.1640625,
+     "IntPointData": {
+      "name": "InterpolationPoint10",
+      "Group": "None,AmbushCutScene",
+      "Location": [
+       1060.845458984375,
+       -1872.9896240234375,
+       -169.47128295898438
+      ],
+      "Rotation": [
+       -1972,
+       -16863,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera11",
+     "IntPoint": "InterpolationPoint11",
+     "Duration": 2.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117202048,
+        "PctInStart": 0.26817041635513306,
+        "PctInEnd": 0.26817041635513306,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 749.9913940429688,
+     "IntPointData": {
+      "name": "InterpolationPoint11",
+      "Group": "None,AmbushCutScene",
+      "Location": [
+       1064.953857421875,
+       -2612.717041015625,
+       -45.856868743896484
+      ],
+      "Rotation": [
+       -535,
+       -19235,
+       -108
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog1",
+     "dlgName": "co_tr_E_noservice",
+     "Duration": 3.799999952316284,
+     "subtitle": null
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera3",
+     "IntPoint": "InterpolationPoint2",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117201888,
+        "PctInStart": 0.7042606472969055,
+        "PctInEnd": 0.7042606472969055,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       1101.2501220703125,
+       -2870.284423828125,
+       -47.27824020385742
+      ],
+      "Rotation": [
+       64633,
+       -43447,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog3",
+     "dlgName": "Do_Tr_E_youtooB",
+     "IntPoint": "InterpolationPoint2",
+     "Duration": 1.9333332777023315,
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       1101.2501220703125,
+       -2870.284423828125,
+       -47.27824020385742
+      ],
+      "Rotation": [
+       64633,
+       -43447,
+       0
+      ]
+     },
+     "subtitle": null
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause0",
+     "IntPoint": "InterpolationPoint2",
+     "Duration": 2.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117200608,
+        "PctInStart": 0.8496240377426147,
+        "PctInEnd": 0.8496240377426147,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "DocMoveAlong"
+      },
+      {
+       "class": "SubActionFade",
+       "Delay": 0.5,
+       "Duration": 1.0
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "MoreThugsArrive",
+       "Delay": 1.7000000476837158
+      },
+      {
+       "class": "SubActionFade",
+       "bFadeOut": false,
+       "Delay": 1.7999999523162842,
+       "Duration": 0.5
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       1101.2501220703125,
+       -2870.284423828125,
+       -47.27824020385742
+      ],
+      "Rotation": [
+       64633,
+       -43447,
+       0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager1",
+   "bCinematicView": true,
+   "Tag": "L6M1_TrainMovesOut",
+   "Location": [
+    239.41746520996094,
+    -3728.3984375,
+    341.46490478515625
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera1",
+     "IntPoint": "InterpolationPoint0",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "SpideyPawn",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117201408,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 204.00018310546875,
+     "IntPointData": {
+      "name": "InterpolationPoint0",
+      "Location": [
+       150.14907836914062,
+       -11671.5244140625,
+       431.46343994140625
+      ],
+      "Rotation": [
+       -1636,
+       -22920,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera2",
+     "IntPoint": "InterpolationPoint1",
+     "Duration": 6.0,
+     "SubActions": [
+      {
+       "class": "SubActionFade",
+       "Delay": 3.0,
+       "Duration": 2.0
+      },
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 0,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117203968,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "TrainRide",
+       "Delay": 5.0
+      }
+     ],
+     "PathLength": 204.00018310546875,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       150.15245056152344,
+       -11671.5107421875,
+       635.4647827148438
+      ],
+      "Rotation": [
+       -1636,
+       -23843,
+       0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager2",
+   "bCinematicView": true,
+   "NextSceneTag": "TrainLeftDone",
+   "Tag": "TrainLeft",
+   "Location": [
+    271.41748046875,
+    -3696.3984375,
+    341.46490478515625
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera0",
+     "IntPoint": "InterpolationPoint0",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "SpideyPawn",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117201408,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 204.00018310546875,
+     "IntPointData": {
+      "name": "InterpolationPoint0",
+      "Location": [
+       150.14907836914062,
+       -11671.5244140625,
+       431.46343994140625
+      ],
+      "Rotation": [
+       -1636,
+       -22920,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera1",
+     "IntPoint": "InterpolationPoint0",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 1,
+        "LookAt": null,
+        "LookAtTag": "SpideyPawn",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 117201408,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 204.00018310546875,
+     "IntPointData": {
+      "name": "InterpolationPoint0",
+      "Location": [
+       150.14907836914062,
+       -11671.5244140625,
+       431.46343994140625
+      ],
+      "Rotation": [
+       -1636,
+       -22920,
+       0
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "sequences": [
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger20",
+   "bLightChanged": true,
+   "Tag": "TrainMissedCutSceneTrigger",
+   "Location": [
+    -808.0549926757812,
+    -3904.085205078125,
+    362.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent44",
+     "ExternalEvent": "SpideyMissedTrain"
+    },
+    {
+     "class": "ACTION_IfCondition",
+     "name": "ACTION_IfCondition0",
+     "TriggeredConditionTag": "L6M1_TrainMovesOut"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent7",
+     "ExternalEvent": "JoBoo"
+    },
+    {
+     "class": "ACTION_EndSection",
+     "name": "ACTION_EndSection0"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent57",
+     "Event": "TrainLeft"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction4"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence5",
+   "PawnTag": "LeftSubThug03",
+   "Tag": "LeftSubThug03AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1727.8173828125,
+    -479.6733093261719,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer14",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint2",
+     "DestinationTag": "LeftSubThug03"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face3",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer31",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence12",
+   "PawnTag": "RightWalkThug01",
+   "Tag": "ThugsMoveIn",
+   "Group": "None,StationThugs",
+   "Location": [
+    1695.55322265625,
+    784.2380981445312,
+    378.4430236816406
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent9",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent8",
+     "Event": "WalkWayDoors"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM19",
+     "BaseAnim": "RunForwards",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_SetGroundSpeed",
+     "name": "ACTION_SetGroundSpeed20",
+     "Speed": 250.0,
+     "ActorTag": "RightWalkThug01"
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint9",
+     "DestinationTag": "RightThug01"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face10",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM20",
+     "BaseAnim": "IdleGun",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_SetGroundSpeed",
+     "name": "ACTION_SetGroundSpeed21",
+     "Speed": 400.0,
+     "ActorTag": "RightWalkThug01"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent59",
+     "Event": "WalkWayDoors"
+    },
+    {
+     "class": "ACTION_WaitForPlayer",
+     "name": "ACTION_WaitForPlayer8",
+     "Distance": 2048.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence0",
+   "PawnTag": "DocOckTrain",
+   "Tag": "DocResetAfterTrain",
+   "Group": "None,DocOck",
+   "Location": [
+    -543.67529296875,
+    -3782.708251953125,
+    362.169677734375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent28",
+     "ExternalEvent": "DocResetAfterTrain"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint2",
+     "DestinationTag": "DocOnTrainStart"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face2",
+     "DestinationTag": "LookTrain"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM1",
+     "BaseAnim": "IdleRest_All",
+     "bLoopAnim": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger4",
+   "Tag": "LeftSubThugDeathTrigger",
+   "Location": [
+    -1759.8382568359375,
+    -288.1186218261719,
+    -444.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent2",
+     "ExternalEvent": "LeftSubThugDefeated"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent9",
+     "Event": "ThugDefeated"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction2"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence14",
+   "PawnTag": "LeftSubThug04",
+   "Tag": "LeftSubThug04AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1856.22314453125,
+    -479.4565124511719,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer11",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint10",
+     "DestinationTag": "LeftSubThug04"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face11",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer32",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence1",
+   "PawnTag": "DocOck",
+   "Tag": "DocEntersTrain",
+   "Group": "None,DocOck",
+   "Location": [
+    1327.576416015625,
+    -2335.701416015625,
+    -149.9170684814453
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent0",
+     "ExternalEvent": "DocEntersTrain"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent6",
+     "Event": "ThugsMoveIn"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM0",
+     "BaseAnim": "WalkForwards_All",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint0",
+     "DestinationTag": "DocLaughs"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face0",
+     "DestinationTag": "LookHereDoc"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM2",
+     "BaseAnim": "DialogueTrainStation4_All",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent0",
+     "Event": "DocReachedCop"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent33",
+     "ExternalEvent": "DocMoveAlong"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM8",
+     "BaseAnim": "WalkForwards_All",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent4",
+     "Event": "LoadingGate1"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent5",
+     "Event": "LoadingGate2"
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint3",
+     "DestinationTag": "StairToTrain"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor1",
+     "DestroyTag": "DocOck"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger0",
+   "Tag": "TrainRide",
+   "Location": [
+    -336.9254150390625,
+    -3759.72998046875,
+    362.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent1",
+     "ExternalEvent": "TrainRide"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave14"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer3",
+     "PauseTime": 0.25
+    },
+    {
+     "class": "ACTION_ChangeLevel",
+     "name": "ACTION_ChangeLevel0",
+     "URL": "Wharf_Train.whr",
+     "bShowLoadingMessage": true
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence3",
+   "PawnTag": "SpideyPawn",
+   "Tag": "TrainLeft",
+   "Group": "None,DocOck",
+   "Location": [
+    -383.02947998046875,
+    -3743.741943359375,
+    362.169677734375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent31",
+     "ExternalEvent": "TrainLeft"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor0",
+     "ActorTag": "Train"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint1",
+     "DestinationTag": "SpideyAfterTrain1"
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint1",
+     "DestinationTag": "SpideyAfterTrain2"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent32",
+     "ExternalEvent": "TrainLeftDone"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor1",
+     "Visible": true,
+     "ActorTag": "Train"
+    },
+    {
+     "class": "ACTION_MoverReset",
+     "name": "ACTION_MoverReset0",
+     "ActorTag": "Train"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent2",
+     "Event": "DocResetAfterTrain"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint4",
+     "DestinationTag": "SpideyAtStairs"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face19",
+     "DestinationTag": "DocOnTrainStart"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger2",
+   "Tag": "Train",
+   "Location": [
+    -630.3330688476562,
+    -3786.482666015625,
+    384.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent29",
+     "ExternalEvent": "MissedTheTrain"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer0",
+     "PauseTime": 0.75
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent11",
+     "Event": "Train"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction0"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger6",
+   "Tag": "AfterAmbushSaveTrigger",
+   "Location": [
+    49.728004455566406,
+    -2815.658203125,
+    -21.999996185302734
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent23",
+     "ExternalEvent": "SaveTrigger"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify7",
+     "stateName": "L6M1_StationAmbush"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify8",
+     "stateName": "L6M1_SurvivedAmbush"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify9",
+     "stateName": "L6M1_AfterAmbush",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave3"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger5",
+   "Tag": "AfterAmbushSaveTrigger",
+   "Location": [
+    79.91690826416016,
+    -2815.823486328125,
+    -21.999996185302734
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent20",
+     "ExternalEvent": "L6M1_AfterAmbush"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor3",
+     "DestroyTag": "DocOck"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor4",
+     "DestroyTag": "TrainSecurity"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor5",
+     "DestroyTag": "RightSubThug01"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor10",
+     "DestroyTag": "RightSubThug02"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor11",
+     "DestroyTag": "RightSubThug03"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor12",
+     "DestroyTag": "RightSubThug04"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor6",
+     "DestroyTag": "LeftSubThug01"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor13",
+     "DestroyTag": "LeftSubThug02"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor14",
+     "DestroyTag": "LeftSubThug03"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor15",
+     "DestroyTag": "LeftSubThug04"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor7",
+     "DestroyTag": "RightWalkThug01"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor16",
+     "DestroyTag": "RightWalkThug02"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor17",
+     "DestroyTag": "RightWalkThug03"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor18",
+     "DestroyTag": "RightWalkThug04"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor8",
+     "DestroyTag": "LeftWalkThug01"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor19",
+     "DestroyTag": "LeftWalkThug02"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor20",
+     "DestroyTag": "LeftWalkThug03"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor21",
+     "DestroyTag": "LeftWalkThug04"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor9",
+     "DestroyTag": "BackupThug"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor22",
+     "DestroyTag": "LeftEntrThug01"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor23",
+     "DestroyTag": "LeftEntrThug02"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor24",
+     "DestroyTag": "LeftEntrThug03"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor25",
+     "DestroyTag": "LeftEntrThug04"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd1",
+     "MessageID": "L6M1_GetToDoc",
+     "Message": "Follow Doc Ock.",
+     "stateName": "L6M1_GetToDoc",
+     "isPrimary": true,
+     "ActorTag": "LookTrain"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence6",
+   "PawnTag": "LeftSubThug03",
+   "Tag": "LeftSubBackupAI",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1679.3885498046875,
+    -296.1539001464844,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face6",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_MoveToPlayer",
+     "name": "ACTION_MoveToPlayer1"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence2",
+   "PawnTag": "SpideyPawn",
+   "Tag": "L6M1_TrainMovesOut",
+   "Group": "None,DocOck",
+   "Location": [
+    -287.739013671875,
+    -3744.560302734375,
+    362.169677734375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent30",
+     "ExternalEvent": "L6M1_TrainMovesOut"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor2",
+     "ActorTag": "Train"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor3",
+     "Visible": true,
+     "ActorTag": "TrainCarsCine"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint3",
+     "DestinationTag": "SpideyOnTrain"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face4",
+     "DestinationTag": "DocOckTrain"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent3",
+     "Event": "TrainCarsCine"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer17",
+     "PauseTime": 10.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence4",
+   "PawnTag": "TrainSecurity",
+   "Tag": "L6M1_StationAmbush",
+   "Location": [
+    1064.0,
+    -2890.10009765625,
+    -24.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent34",
+     "ExternalEvent": "L6M1_StationAmbush"
+    },
+    {
+     "class": "ACTION_SetViewTarget",
+     "name": "ACTION_SetViewTarget0",
+     "ViewTargetTag": "DocOck"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent35",
+     "ExternalEvent": "DocReachedCop"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM7",
+     "BaseAnim": "DialogueGestures_TrainStation",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent36",
+     "ExternalEvent": "DocMoveAlong"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer4",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor2",
+     "DestroyTag": "TrainSecurity"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger1",
+   "Tag": "SpawnThugsTrigger",
+   "Location": [
+    335.91650390625,
+    2382.8466796875,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent3",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent13",
+     "Event": "LeftSubThugsArrive"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent14",
+     "Event": "RightSubThugsArrive"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence15",
+   "PawnTag": "RightSubThug02",
+   "Tag": "RightSubThug02AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    1600.4345703125,
+    -479.7325134277344,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer9",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint11",
+     "DestinationTag": "RightSubThug02"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face12",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer23",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger16",
+   "Tag": "GatesTrigger",
+   "Location": [
+    -335.8733215332031,
+    2416.07666015625,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent68",
+     "ExternalEvent": "GatesClose"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer21",
+     "PauseTime": 5.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent10",
+     "Event": "LoadingGate"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger9",
+   "Tag": "TrainCutSceneTrigger",
+   "Location": [
+    272.0000305175781,
+    -3759.64453125,
+    362.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent6",
+     "ExternalEvent": "AllAboard"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent15",
+     "Event": "AtTrain"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer2",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent16",
+     "Event": "L6M1_TrainMovesOut"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence10",
+   "PawnTag": "RightSubThug04",
+   "Tag": "RightSubThug04AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    1872.03369140625,
+    -480.0650634765625,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer8",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint7",
+     "DestinationTag": "RightSubThug04"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face8",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer30",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger8",
+   "Tag": "UpgradesTrigger",
+   "Location": [
+    -304.33624267578125,
+    2447.979248046875,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent129",
+     "ExternalEvent": "L6M1_StationAmbush"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable0"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable1",
+     "Upgrade": 1
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable2",
+     "Upgrade": 2
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence7",
+   "PawnTag": "LeftWalkThug01",
+   "Tag": "ThugsMoveIn",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1696.0316162109375,
+    785.0037231445312,
+    378.4430236816406
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent4",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM9",
+     "BaseAnim": "RunForwards",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_SetGroundSpeed",
+     "name": "ACTION_SetGroundSpeed9",
+     "Speed": 250.0,
+     "ActorTag": "LeftWalkThug01"
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint4",
+     "DestinationTag": "LeftThug01"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face5",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM10",
+     "BaseAnim": "IdleGun",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_SetGroundSpeed",
+     "name": "ACTION_SetGroundSpeed10",
+     "Speed": 400.0,
+     "ActorTag": "LeftWalkThug01"
+    },
+    {
+     "class": "ACTION_WaitForPlayer",
+     "name": "ACTION_WaitForPlayer3",
+     "Distance": 2048.0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger3",
+   "Tag": "Train",
+   "Location": [
+    -649.614501953125,
+    -3786.73095703125,
+    384.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent13",
+     "ExternalEvent": "Train"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd2",
+     "MessageID": "L6M1_CatchTrain",
+     "stateName": "L6M1_CatchTrain",
+     "isPrimary": true
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say1",
+     "dlgName": "sp_tr_e_ticket",
+     "subtitle": "Not so fast, Doc.  I need to see your ticket."
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction1"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence30",
+   "PawnTag": "LeftEntrThug02",
+   "Tag": "ThugsMoveIn",
+   "Group": "None,StationThugs",
+   "Location": [
+    -703.1134643554688,
+    -2912.997314453125,
+    -16.040727615356445
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent25",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer19",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint24",
+     "DestinationTag": "LeftEntrThug02"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face27",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer25",
+     "PauseTime": 8.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence23",
+   "PawnTag": "DocOckTrain",
+   "Tag": "L6M1_TrainMovesOut",
+   "Group": "None,DocOck",
+   "Location": [
+    -496.1960754394531,
+    -3754.38232421875,
+    362.169677734375
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent18",
+     "ExternalEvent": "L6M1_TrainMovesOut"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint0",
+     "DestinationTag": "DocOnTrain"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM4",
+     "BaseAnim": "IdleRest_All",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face1",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer1",
+     "PauseTime": 10.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence27",
+   "PawnTag": "LeftEntrThug04",
+   "Tag": "ThugsMoveIn",
+   "Group": "None,StationThugs",
+   "Location": [
+    -462.8702392578125,
+    -2911.660888671875,
+    -16.040727615356445
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent21",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer18",
+     "PauseTime": 3.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint21",
+     "DestinationTag": "LeftEntrThug04"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face22",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer27",
+     "PauseTime": 8.0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger135",
+   "Tag": "ScriptedTrigger",
+   "Location": [
+    901.2025146484375,
+    -2701.020751953125,
+    -28.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent220",
+     "ExternalEvent": "DestroyCop"
+    },
+    {
+     "class": "ACTION_DestroyActor",
+     "name": "ACTION_DestroyActor0",
+     "DestroyTag": "TrainSecurity"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence31",
+   "PawnTag": "LeftEntrThug03",
+   "Tag": "ThugsMoveIn",
+   "Group": "None,StationThugs",
+   "Location": [
+    -575.5676879882812,
+    -2912.644287109375,
+    -16.040727615356445
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent26",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer20",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint25",
+     "DestinationTag": "LeftEntrThug03"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face28",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer26",
+     "PauseTime": 8.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence20",
+   "PawnTag": "LeftSubThug03",
+   "Tag": "RightSubBackupAI",
+   "Group": "None,StationThugs",
+   "Location": [
+    1680.078125,
+    -296.9587097167969,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face17",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_MoveToPlayer",
+     "name": "ACTION_MoveToPlayer0"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence19",
+   "PawnTag": "LeftSubThug02",
+   "Tag": "LeftSubThug02AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1600.353515625,
+    -480.12591552734375,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer12",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint15",
+     "DestinationTag": "LeftSubThug02"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face16",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer15",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence18",
+   "PawnTag": "LeftSubThug01",
+   "Tag": "LeftSubThug01AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1456.24853515625,
+    -480.2765808105469,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint5",
+     "DestinationTag": "LeftSubThug01"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face7",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer13",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence16",
+   "PawnTag": "RightSubThug03",
+   "Tag": "RightSubThug03AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    1728.0047607421875,
+    -479.8480529785156,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer10",
+     "PauseTime": 2.0
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint12",
+     "DestinationTag": "RightSubThug03"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face13",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer28",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence29",
+   "PawnTag": "LeftEntrThug01",
+   "Tag": "ThugsMoveIn",
+   "Group": "None,StationThugs",
+   "Location": [
+    -830.7450561523438,
+    -2913.300048828125,
+    -16.040727615356445
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent24",
+     "ExternalEvent": "ThugsMoveIn"
+    },
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint23",
+     "DestinationTag": "LeftEntrThug01"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face26",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer24",
+     "PauseTime": 8.0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger62",
+   "Tag": "LeftSubThugDeathTrigger",
+   "Location": [
+    -1600.302490234375,
+    -287.9881286621094,
+    -444.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent145",
+     "ExternalEvent": "LeftSubThugDefeated01"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent58",
+     "Event": "ThugDefeated"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction51"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger61",
+   "Tag": "RightSubThugDeathTrigger",
+   "Location": [
+    1599.9700927734375,
+    -288.1634826660156,
+    -444.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent144",
+     "ExternalEvent": "RightSubThugDefeated"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent55",
+     "Event": "ThugDefeated"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction50"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger48",
+   "Tag": "GatesTrigger",
+   "Location": [
+    -271.89654541015625,
+    2416.050048828125,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent104",
+     "ExternalEvent": "L6M1_StationAmbush"
+    },
+    {
+     "class": "ACTION_LevelSetCurrent",
+     "name": "ACTION_LevelSetCurrent0",
+     "CurrentLevel": 6
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify0",
+     "stateName": "L6M1_StationAmbush",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify1",
+     "stateName": "L5M3_InSpace",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify2",
+     "stateName": "L5M3_MysterioDefeated"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify3",
+     "stateName": "L5M3_BugleBlowsUp"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify4",
+     "stateName": "L5M3_MysterioTurretDefeated"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify5",
+     "stateName": "L5M3_MysterioInterrogated"
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave0"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence21",
+   "PawnTag": "RightSubThug01",
+   "Tag": "RightSubThug01AI",
+   "Group": "None,StationThugs",
+   "Location": [
+    1472.1365966796875,
+    -480.0796813964844,
+    -437.8742370605469
+   ],
+   "actions": [
+    {
+     "class": "ACTION_MoveToPoint",
+     "name": "ACTION_MoveToPoint17",
+     "DestinationTag": "RightSubThug01"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face18",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer22",
+     "PauseTime": 5.0
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger7",
+   "Tag": "RightSubThugDeathTrigger",
+   "Location": [
+    1759.8516845703125,
+    -287.7554626464844,
+    -444.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent5",
+     "ExternalEvent": "RightSubThugDefeated01"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent12",
+     "Event": "ThugDefeated"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction3"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger21",
+   "Tag": "ObjectiveTrigger",
+   "Location": [
+    -79.77412414550781,
+    2303.492919921875,
+    106.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent45",
+     "ExternalEvent": "L6M1_StationAmbush"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd4",
+     "MessageID": "L6M1_SurvivedAmbush",
+     "Message": "Survive the Ambush.",
+     "stateName": "L6M1_SurvivedAmbush",
+     "isPrimary": true
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent22",
+     "ExternalEvent": "AmbushSurvived"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent1",
+     "Event": "LoadingGate1"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent7",
+     "Event": "LoadingGate2"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete1",
+     "stateName": "L6M1_SurvivedAmbush"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound3",
+     "Sound": "Events.ObjectiveComplete"
+    },
+    {
+     "class": "ACTION_HeroPointsAdd",
+     "name": "ACTION_HeroPointsAdd1",
+     "Points": 1000
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd0",
+     "MessageID": "L6M1_GetToDoc",
+     "Message": "Follow Doc Ock.",
+     "stateName": "L6M1_GetToDoc",
+     "isPrimary": true,
+     "ActorTag": "LookTrain"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent27",
+     "ExternalEvent": "AtTrain"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete0",
+     "stateName": "L6M1_GetToDoc"
+    },
+    {
+     "class": "ACTION_PlaySound",
+     "name": "ACTION_PlaySound4",
+     "Sound": "Events.ObjectiveComplete"
+    },
+    {
+     "class": "ACTION_HeroPointsAdd",
+     "name": "ACTION_HeroPointsAdd0",
+     "Points": 1000
+    }
+   ]
+  }
+ ],
+ "pawns": [
+  {
+   "class": "DocOcPawn",
+   "name": "DocOcPawn0",
+   "Tag": "DocOck",
+   "Group": "None,DocOck",
+   "Location": [
+    1023.16845703125,
+    -2175.341064453125,
+    -204.7050018310547
+   ],
+   "Rotation": [
+    0,
+    -16463,
+    0
+   ]
+  },
+  {
+   "class": "Thug01Pawn",
+   "name": "Thug01Pawn9",
+   "PeripheralVision": -1.0,
+   "Tag": "LeftEntrThug04",
+   "Event": "ThugDefeated",
+   "Group": "None,StationThugs",
+   "Location": [
+    -447.2065734863281,
+    -2816.518310546875,
+    -74.35652160644531
+   ],
+   "Rotation": [
+    0,
+    32616,
+    0
+   ]
+  },
+  {
+   "class": "Thug01Pawn",
+   "name": "Thug01Pawn15",
+   "PeripheralVision": -1.0,
+   "Tag": "LeftEntrThug03",
+   "Event": "ThugDefeated",
+   "Group": "None,StationThugs",
+   "Location": [
+    -575.7864990234375,
+    -2816.434326171875,
+    -74.35652160644531
+   ],
+   "Rotation": [
+    0,
+    32616,
+    0
+   ]
+  },
+  {
+   "class": "Thug01Pawn",
+   "name": "Thug01Pawn14",
+   "PeripheralVision": -1.0,
+   "Tag": "LeftEntrThug02",
+   "Event": "ThugDefeated",
+   "Group": "None,StationThugs",
+   "Location": [
+    -702.4055786132812,
+    -2816.742431640625,
+    -74.35652160644531
+   ],
+   "Rotation": [
+    0,
+    32616,
+    0
+   ]
+  },
+  {
+   "class": "Thug01Pawn",
+   "name": "Thug01Pawn13",
+   "PeripheralVision": -1.0,
+   "Tag": "LeftEntrThug01",
+   "Event": "ThugDefeated",
+   "Group": "None,StationThugs",
+   "Location": [
+    -832.5540771484375,
+    -2817.048095703125,
+    -74.35652160644531
+   ],
+   "Rotation": [
+    0,
+    32616,
+    0
+   ]
+  },
+  {
+   "class": "ThugWithGunPawn",
+   "name": "ThugWithGunPawn13",
+   "PeripheralVision": -1.0,
+   "Tag": "RightWalkThug01",
+   "Event": "ThugDefeated",
+   "Group": "None,StationThugs",
+   "Location": [
+    1696.059326171875,
+    928.1123046875,
+    320.0
+   ],
+   "Rotation": [
+    0,
+    -32728,
+    0
+   ]
+  },
+  {
+   "class": "DocOcPawn",
+   "name": "DocOcPawn2",
+   "IdleRest": "IdleRest_All",
+   "Tag": "DocOckTrain",
+   "Location": [
+    -147.30784606933594,
+    -6104.60009765625,
+    512.5465087890625
+   ],
+   "Rotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  {
+   "class": "ThugWithGunPawn",
+   "name": "ThugWithGunPawn5",
+   "PeripheralVision": -1.0,
+   "Tag": "LeftWalkThug01",
+   "Event": "ThugDefeated",
+   "Group": "None,StationThugs",
+   "Location": [
+    -1696.58056640625,
+    928.1038208007812,
+    320.0
+   ]
+  },
+  {
+   "class": "PrisonerCollectiblePawn",
+   "name": "PrisonerCollectiblePawn2",
+   "HeroPointValue": 0,
+   "GuardRadius": 256,
+   "Tag": "Prisoner22",
+   "Location": [
+    1600.20703125,
+    -2687.973388671875,
+    -80.0
+   ],
+   "Rotation": [
+    0,
+    -30711,
+    0
+   ]
+  },
+  {
+   "class": "Cop01Pawn",
+   "name": "Cop01Pawn0",
+   "Tag": "TrainSecurity",
+   "Location": [
+    1022.5926513671875,
+    -2814.709716796875,
+    -82.0
+   ],
+   "Rotation": [
+    0,
+    16780,
+    0
+   ],
+   "Skins": [
+    "Cop01Textures.Cop01Head256Version2",
+    "Cop01Textures.Cop01Body256Version2"
+   ]
+  },
+  {
+   "class": "PrisonerCollectiblePawn",
+   "name": "PrisonerCollectiblePawn1",
+   "HeroPointValue": 0,
+   "GuardRadius": 256,
+   "Tag": "Prisoner21",
+   "Location": [
+    -1690.001220703125,
+    213.96546936035156,
+    -491.3611145019531
+   ],
+   "Rotation": [
+    0,
+    -7159,
+    0
+   ]
+  }
+ ],
+ "points": {
+  "PathNode88": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 10
+   },
+   "nextNavigationPoint": "PathNode87",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -2.580437660217285,
+    899.0955810546875,
+    -152.0
+   ]
+  },
+  "PathNode72": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 9
+   },
+   "nextNavigationPoint": "PathNode71",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    21.401958465576172,
+    595.210205078125,
+    -152.0
+   ]
+  },
+  "PathNode17": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode16",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThug01",
+   "Group": "None,Station",
+   "Location": [
+    127.0711669921875,
+    -0.31626999378204346,
+    -152.0
+   ]
+  },
+  "Spawner24": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "Spawner23",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsArrive",
+   "Location": [
+    -1726.547607421875,
+    -383.9747009277344,
+    -440.0
+   ]
+  },
+  "Spawner11": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "Spawner10",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsArrive",
+   "Location": [
+    1599.6697998046875,
+    -383.68206787109375,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode84": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "PathNode83",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    772.896484375,
+    -972.8109130859375,
+    -152.0
+   ]
+  },
+  "PathNode54": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "PathNode53",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    270.61529541015625,
+    524.1864624023438,
+    -152.0
+   ]
+  },
+  "Spawner10": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "Spawner22",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsArrive",
+   "Location": [
+    1728.0745849609375,
+    -383.8065185546875,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode71": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "PathNode70",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    653.7183227539062,
+    626.265380859375,
+    -152.0
+   ]
+  },
+  "Spawner25": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "Spawner24",
+   "bPathsChanged": true,
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsArrive",
+   "Location": [
+    -1598.013427734375,
+    -384.2236022949219,
+    -440.0
+   ]
+  },
+  "PathNode113": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "Spawner17",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -0.1585153341293335,
+    -1152.513671875,
+    -152.0
+   ]
+  },
+  "PathNode55": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode89",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -324.3680419921875,
+    644.6995849609375,
+    -152.0
+   ]
+  },
+  "PathNode26": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode25",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1024.293701171875,
+    -2175.5166015625,
+    -152.0
+   ]
+  },
+  "PathNode52": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode105",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1032.0184326171875,
+    591.525390625,
+    -152.0
+   ]
+  },
+  "PathNode37": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode108",
+   "Base": "LevelInfo0",
+   "Tag": "LeftEntrThug01",
+   "Group": "None,Station",
+   "Location": [
+    -128.04293823242188,
+    -1663.941162109375,
+    -152.0
+   ]
+  },
+  "PathNode32": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode27",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    1023.56005859375,
+    -2175.866455078125,
+    -152.0
+   ]
+  },
+  "PathNode94": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode112",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -434.0858154296875,
+    -948.689208984375,
+    -152.0
+   ]
+  },
+  "PathNode60": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode59",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -953.544921875,
+    128.7208709716797,
+    -152.0
+   ]
+  },
+  "PathNode39": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode38",
+   "Base": "LevelInfo0",
+   "Tag": "LeftEntrThug03",
+   "Group": "None,Station",
+   "Location": [
+    -895.2941284179688,
+    -1663.6026611328125,
+    -152.0
+   ]
+  },
+  "PathNode67": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode66",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    627.6239013671875,
+    909.9505615234375,
+    -152.0
+   ]
+  },
+  "PathNode98": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 8
+   },
+   "nextNavigationPoint": "PathNode97",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    427.09625244140625,
+    1690.90869140625,
+    104.00000762939453
+   ]
+  },
+  "PathNode108": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode35",
+   "Base": "LevelInfo0",
+   "Tag": "RightEntrThug01",
+   "Group": "None,Station",
+   "Location": [
+    128.9409942626953,
+    -1664.46240234375,
+    -152.0
+   ]
+  },
+  "PathNode36": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode81",
+   "Base": "LevelInfo0",
+   "Tag": "RightEntrThug01",
+   "Group": "None,Station",
+   "Location": [
+    37.1756591796875,
+    -2115.649658203125,
+    -152.0
+   ]
+  },
+  "PathNode14": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode22",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThug03",
+   "Group": "None,Station",
+   "Location": [
+    -640.3843383789062,
+    0.031167984008789062,
+    -152.0
+   ]
+  },
+  "PathNode46": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode4",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -241.66900634765625,
+    197.50927734375,
+    -152.0
+   ]
+  },
+  "PathNode127": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode126",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -586.594482421875,
+    192.7085723876953,
+    -152.0
+   ]
+  },
+  "PathNode78": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode85",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1191.8060302734375,
+    -49.22977066040039,
+    -152.0
+   ]
+  },
+  "PathNode10": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 8
+   },
+   "ProscribedPaths": "PathNode2",
+   "nextNavigationPoint": "PathNode9",
+   "Base": "StaticMeshActor3",
+   "Tag": "LeftThug02",
+   "Group": "None,Station",
+   "Location": [
+    -896.675048828125,
+    896.3423461914062,
+    376.0
+   ]
+  },
+  "PathNode105": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode50",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1030.3966064453125,
+    145.4931640625,
+    -152.0
+   ]
+  },
+  "Spawner22": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "Spawner25",
+   "bPathsChanged": true,
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsArrive",
+   "Location": [
+    -1472.3851318359375,
+    -384.1004333496094,
+    -440.0
+   ]
+  },
+  "Spawner12": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "Spawner11",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsArrive",
+   "Location": [
+    1472.167724609375,
+    -383.9400634765625,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode49": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode48",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    262.505126953125,
+    202.37522888183594,
+    -152.0
+   ]
+  },
+  "PathNode56": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode104",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -496.016357421875,
+    333.98114013671875,
+    -152.0
+   ]
+  },
+  "PathNode59": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode58",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -753.8753662109375,
+    364.9891052246094,
+    -152.0
+   ]
+  },
+  "Spawner23": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "Spawner29",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsArrive",
+   "Location": [
+    -1854.3487548828125,
+    -384.01885986328125,
+    -440.0
+   ]
+  },
+  "PathNode75": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode74",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -716.1643676757812,
+    622.8528442382812,
+    -152.0
+   ]
+  },
+  "PathNode61": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode60",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -946.694580078125,
+    641.414794921875,
+    -152.0
+   ]
+  },
+  "PathNode126": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode125",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    72.72406768798828,
+    272.496826171875,
+    -152.0
+   ]
+  },
+  "PathNode47": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode46",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -216.5193328857422,
+    -502.77587890625,
+    -152.0
+   ]
+  },
+  "PathNode48": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode47",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    251.73353576660156,
+    -508.996337890625,
+    -152.0
+   ]
+  },
+  "PathNode65": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode121",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -206.9290313720703,
+    932.8483276367188,
+    -152.0
+   ]
+  },
+  "PathNode96": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode95",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    11.678789138793945,
+    1855.8533935546875,
+    104.00000762939453
+   ]
+  },
+  "PathNode34": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode33",
+   "Base": "LevelInfo0",
+   "Tag": "RightEntrThug03",
+   "Group": "None,Station",
+   "Location": [
+    896.2483520507812,
+    -1662.5966796875,
+    -152.0
+   ]
+  },
+  "PathNode22": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode21",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThug01",
+   "Group": "None,Station",
+   "Location": [
+    -128.27940368652344,
+    -0.4510425329208374,
+    -152.0
+   ]
+  },
+  "PathNode102": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode88",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -20.34908676147461,
+    1333.75537109375,
+    -24.0
+   ]
+  },
+  "Spawner13": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "Spawner12",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsArrive",
+   "Location": [
+    1872.2388916015625,
+    -383.8064270019531,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode81": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode107",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    700.5653686523438,
+    -1289.7689208984375,
+    -152.0
+   ]
+  },
+  "PathNode51": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode55",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    767.933349609375,
+    307.3290710449219,
+    -152.0
+   ]
+  },
+  "PathNode92": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode91",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -770.0648803710938,
+    1345.95068359375,
+    -24.0
+   ]
+  },
+  "PathNode120": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode119",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1139.9683837890625,
+    -84.80872344970703,
+    -152.0
+   ]
+  },
+  "PathNode35": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode34",
+   "Base": "LevelInfo0",
+   "Tag": "RightEntrThug02",
+   "Group": "None,Station",
+   "Location": [
+    511.8634338378906,
+    -1663.57666015625,
+    -152.0
+   ]
+  },
+  "PathNode104": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode54",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -174.70689392089844,
+    502.64654541015625,
+    -152.0
+   ]
+  },
+  "PathNode38": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode37",
+   "Base": "LevelInfo0",
+   "Tag": "LeftEntrThug02",
+   "Group": "None,Station",
+   "Location": [
+    -513.0756225585938,
+    -1664.12353515625,
+    -152.0
+   ]
+  },
+  "PathNode99": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode98",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    782.8613891601562,
+    1871.60400390625,
+    104.00000762939453
+   ]
+  },
+  "PathNode19": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode120",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -651.3799438476562,
+    -138.65162658691406,
+    -152.0
+   ]
+  },
+  "PathNode68": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode67",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    863.21484375,
+    942.9428100585938,
+    -152.0
+   ]
+  },
+  "PathNode7": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "ProscribedPaths": "PathNode0",
+   "nextNavigationPoint": "PathNode0",
+   "Base": "StaticMeshActor10",
+   "Tag": "RightThug02",
+   "Group": "None,Station",
+   "Location": [
+    896.5247802734375,
+    896.6419067382812,
+    376.0
+   ]
+  },
+  "PathNode90": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode102",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -287.3522033691406,
+    1374.0302734375,
+    -24.0
+   ]
+  },
+  "PathNode20": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode109",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThug04",
+   "Group": "None,Station",
+   "Location": [
+    -383.82025146484375,
+    -384.1991882324219,
+    -152.0
+   ]
+  },
+  "PathNode121": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode123",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -786.28466796875,
+    936.4545288085938,
+    -152.0
+   ]
+  },
+  "PathNode93": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode92",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -768.6627807617188,
+    1854.1514892578125,
+    104.00000762939453
+   ]
+  },
+  "Spawner14": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated01",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner8",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup01",
+   "Location": [
+    1727.31396484375,
+    -431.1619567871094,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "Spawner26": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner3",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup02",
+   "Location": [
+    1727.0286865234375,
+    -335.8049011230469,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "Spawner7": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner5",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup02",
+   "Location": [
+    -1600.8668212890625,
+    -336.0294189453125,
+    -440.0
+   ]
+  },
+  "PathNode62": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode61",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1233.939208984375,
+    376.3905334472656,
+    -152.0
+   ]
+  },
+  "Spawner5": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner4",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup02",
+   "Location": [
+    -1729.4010009765625,
+    -335.780517578125,
+    -440.0
+   ]
+  },
+  "PathNode15": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode13",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThug04",
+   "Group": "None,Station",
+   "Location": [
+    384.1654052734375,
+    -383.583251953125,
+    -152.0
+   ]
+  },
+  "PathNode116": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode115",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -877.3082275390625,
+    -1338.8004150390625,
+    -152.0
+   ]
+  },
+  "Spawner27": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner26",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup02",
+   "Location": [
+    1598.6239013671875,
+    -335.8939514160156,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode43": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode84",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    604.3704223632812,
+    -592.1624145507812,
+    -152.0
+   ]
+  },
+  "PathNode89": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode103",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    757.3309936523438,
+    1363.420166015625,
+    -24.0
+   ]
+  },
+  "PathNode110": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode36",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -606.5398559570312,
+    -605.056640625,
+    -152.0
+   ]
+  },
+  "PathNode76": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode75",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    894.6062622070312,
+    730.0781860351562,
+    -152.0
+   ]
+  },
+  "PathNode103": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode101",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    487.8529968261719,
+    1422.7198486328125,
+    -24.0
+   ]
+  },
+  "Spawner15": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated01",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner14",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup01",
+   "Location": [
+    1598.9091796875,
+    -431.0375061035156,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode53": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode52",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1323.814453125,
+    370.94219970703125,
+    -152.0
+   ]
+  },
+  "PathNode66": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode65",
+   "Base": "BlockingVolume3",
+   "Tag": "PathNode",
+   "Location": [
+    258.7097473144531,
+    947.5410766601562,
+    -146.22946166992188
+   ]
+  },
+  "PathNode57": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode56",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -261.732421875,
+    -201.6105194091797,
+    -152.0
+   ]
+  },
+  "Spawner1": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated01",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner0",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup01",
+   "Location": [
+    -1729.050048828125,
+    -431.2051696777344,
+    -440.0
+   ]
+  },
+  "Spawner2": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated01",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "Spawner1",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup01",
+   "Location": [
+    -1600.515869140625,
+    -431.4540710449219,
+    -440.0
+   ]
+  },
+  "PathNode64": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode122",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1045.1749267578125,
+    922.6577758789062,
+    -152.0
+   ]
+  },
+  "PathNode107": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode51",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    858.21533203125,
+    -703.0490112304688,
+    -152.0
+   ]
+  },
+  "PathNode18": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode17",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThug03",
+   "Group": "None,Station",
+   "Location": [
+    638.8790893554688,
+    1.6182554960250854,
+    -152.0
+   ]
+  },
+  "PathNode69": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode68",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1188.9951171875,
+    938.0294189453125,
+    -152.0
+   ]
+  },
+  "PathNode3": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "ProscribedPaths": "PathNode1",
+   "ForcedPaths": "PathNode2",
+   "nextNavigationPoint": "PathNode2",
+   "Base": "StaticMeshActor2",
+   "Tag": "LeftThug03",
+   "Group": "None,Station",
+   "Location": [
+    -1280.2349853515625,
+    928.3378295898438,
+    376.0
+   ]
+  },
+  "PathNode8": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 7
+   },
+   "nextNavigationPoint": "PathNode7",
+   "Base": "StaticMeshActor7",
+   "Tag": "RightThug01",
+   "Group": "None,Station",
+   "Location": [
+    191.76290893554688,
+    927.9337158203125,
+    376.0
+   ]
+  },
+  "PathNode130": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode129",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -72.04916381835938,
+    -2189.258544921875,
+    -152.0
+   ]
+  },
+  "PathNode115": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode114",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1180.538330078125,
+    -1352.83447265625,
+    -152.0
+   ]
+  },
+  "PathNode6": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "ProscribedPaths": "PathNode5",
+   "ForcedPaths": "PathNode0",
+   "nextNavigationPoint": "PathNode1",
+   "Base": "StaticMeshActor0",
+   "Tag": "RightThug03",
+   "Group": "None,Station",
+   "Location": [
+    1279.466796875,
+    928.6964721679688,
+    376.0
+   ]
+  },
+  "PathNode87": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode86",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    364.6157531738281,
+    991.0662231445312,
+    -152.0
+   ]
+  },
+  "PathNode16": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode15",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThug02",
+   "Group": "None,Station",
+   "Location": [
+    383.8766784667969,
+    0.12680280208587646,
+    -152.0
+   ]
+  },
+  "PathNode101": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode100",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1322.2562255859375,
+    1798.6514892578125,
+    104.00000762939453
+   ]
+  },
+  "PathNode131": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode130",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    87.04057312011719,
+    -2190.107666015625,
+    -152.0
+   ]
+  },
+  "Spawner6": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "BackupThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode31",
+   "Base": "LevelInfo0",
+   "Tag": "MoreThugsArrive",
+   "Group": "None,StationThugs",
+   "Location": [
+    -896.6233520507812,
+    -2303.863037109375,
+    -152.0
+   ],
+   "Rotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "Spawner16": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated01",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "Spawner15",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup01",
+   "Location": [
+    1471.4071044921875,
+    -431.17059326171875,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode11": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode12",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    1407.857421875,
+    -383.93994140625,
+    -440.0
+   ]
+  },
+  "PathNode114": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode94",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1182.4593505859375,
+    -994.780517578125,
+    -152.0
+   ]
+  },
+  "PathNode83": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode82",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1192.104248046875,
+    -1399.009033203125,
+    -152.0
+   ]
+  },
+  "Spawner17": {
+   "class": "Spawner",
+   "DeathEvent": "RightSubThugDefeated01",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "Spawner16",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup01",
+   "Location": [
+    1871.478271484375,
+    -431.161865234375,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "Spawner28": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "Spawner27",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup02",
+   "Location": [
+    1471.121826171875,
+    -336.02703857421875,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode95": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode124",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -323.9071960449219,
+    1957.283447265625,
+    104.00000762939453
+   ]
+  },
+  "PathNode9": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode8",
+   "Base": "StaticMeshActor6",
+   "Tag": "LeftThug01",
+   "Group": "None,Station",
+   "Location": [
+    -192.4644775390625,
+    927.98583984375,
+    376.0
+   ]
+  },
+  "PathNode80": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode79",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1362.7059326171875,
+    -637.843994140625,
+    -152.0
+   ]
+  },
+  "PathNode97": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode96",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    379.21026611328125,
+    1971.806396484375,
+    104.00000762939453
+   ]
+  },
+  "PathNode31": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode39",
+   "Base": "LevelInfo0",
+   "Tag": "LeftEntrThug04",
+   "Group": "None,Station",
+   "Location": [
+    -1279.35546875,
+    -1665.0440673828125,
+    -152.0
+   ]
+  },
+  "PathNode106": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode80",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1129.555419921875,
+    -851.95751953125,
+    -152.0
+   ]
+  },
+  "PathNode129": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode127",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -253.7901611328125,
+    -2194.4853515625,
+    -152.0
+   ]
+  },
+  "PathNode58": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode57",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    328.0798645019531,
+    -216.9806671142578,
+    -152.0
+   ]
+  },
+  "PathNode27": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode24",
+   "Base": "LevelInfo0",
+   "Tag": "DocLaughs",
+   "Group": "None,Station",
+   "Location": [
+    1023.7299194335938,
+    -2687.84326171875,
+    -23.99999237060547
+   ]
+  },
+  "PathNode63": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode64",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1242.56201171875,
+    828.6775512695312,
+    -152.0
+   ]
+  },
+  "PathNode82": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode106",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1296.3917236328125,
+    -1150.79833984375,
+    -152.0
+   ]
+  },
+  "PathNode111": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode110",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -732.70458984375,
+    -732.4486694335938,
+    -152.0
+   ]
+  },
+  "PathNode33": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode26",
+   "Base": "LevelInfo0",
+   "Tag": "RightEntrThug04",
+   "Group": "None,Station",
+   "Location": [
+    1279.739990234375,
+    -1665.1912841796875,
+    -152.0
+   ]
+  },
+  "PathNode24": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode23",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1407.7662353515625,
+    -383.5196838378906,
+    -440.0
+   ]
+  },
+  "PathNode50": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode49",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    525.5452880859375,
+    299.4146728515625,
+    -152.0
+   ]
+  },
+  "PathNode112": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode111",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -719.4117431640625,
+    -925.7852783203125,
+    -152.0
+   ]
+  },
+  "Spawner8": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "Spawner7",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup02",
+   "Location": [
+    -1475.238525390625,
+    -335.90625,
+    -440.0
+   ]
+  },
+  "PathNode134": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 6
+   },
+   "nextNavigationPoint": "PathNode133",
+   "Base": "StaticMeshActor0",
+   "Tag": "PathNode",
+   "Location": [
+    1296.0,
+    1104.0,
+    376.0
+   ]
+  },
+  "PathNode128": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode131",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    257.1796569824219,
+    -2187.919677734375,
+    -152.0
+   ]
+  },
+  "PathNode25": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode30",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1024.979736328125,
+    -2688.599853515625,
+    -23.99999237060547
+   ]
+  },
+  "Spawner3": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated01",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "Spawner2",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup01",
+   "Location": [
+    -1474.8875732421875,
+    -431.3309020996094,
+    -440.0
+   ]
+  },
+  "Spawner0": {
+   "class": "Spawner",
+   "DeathEvent": "LeftSubThugDefeated01",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode113",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup01",
+   "Location": [
+    -1856.8511962890625,
+    -431.24932861328125,
+    -440.0
+   ]
+  },
+  "PathNode125": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode63",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1264.0,
+    1824.0,
+    104.00000762939453
+   ]
+  },
+  "PathNode132": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 5
+   },
+   "nextNavigationPoint": "PathNode128",
+   "Base": "StaticMeshActor168",
+   "Tag": "PathNode",
+   "Location": [
+    -1280.0,
+    1344.0,
+    260.0000305175781
+   ]
+  },
+  "PathNode123": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode62",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1230.612060546875,
+    1068.1552734375,
+    -152.0
+   ]
+  },
+  "PathNode74": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode73",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1221.7486572265625,
+    1278.403564453125,
+    -152.0
+   ]
+  },
+  "PathNode21": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode20",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThug02",
+   "Group": "None,Station",
+   "Location": [
+    -384.0542297363281,
+    0.568466305732727,
+    -152.0
+   ]
+  },
+  "PathNode100": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode99",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1130.3837890625,
+    2068.332275390625,
+    104.00000762939453
+   ]
+  },
+  "PathNode13": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode11",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    736.19873046875,
+    -383.8219909667969,
+    -152.0
+   ]
+  },
+  "PathNode2": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "ProscribedPaths": "PathNode10",
+   "ForcedPaths": "PathNode3",
+   "nextNavigationPoint": "PlayerStart0",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1664.058349609375,
+    928.6102294921875,
+    376.0
+   ]
+  },
+  "PathNode133": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 4
+   },
+   "nextNavigationPoint": "PathNode132",
+   "Base": "StaticMeshActor2",
+   "Tag": "PathNode",
+   "Location": [
+    -1281.431884765625,
+    1103.88232421875,
+    376.0
+   ]
+  },
+  "PathNode119": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode118",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1344.5191650390625,
+    -169.97900390625,
+    -152.0
+   ]
+  },
+  "PathNode79": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode78",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1428.06201171875,
+    -317.638427734375,
+    -152.0
+   ]
+  },
+  "PathNode117": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode116",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1325.194091796875,
+    -645.8831787109375,
+    -152.0
+   ]
+  },
+  "PathNode73": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode72",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1280.1439208984375,
+    621.666748046875,
+    -152.0
+   ]
+  },
+  "PathNode28": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode134",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    895.4624633789062,
+    -2816.189453125,
+    -23.99999237060547
+   ]
+  },
+  "Spawner29": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "RightSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "Spawner28",
+   "Base": "LevelInfo0",
+   "Tag": "RightSubThugsBackup02",
+   "Location": [
+    1871.1929931640625,
+    -335.8048095703125,
+    -440.0
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PlayerStart0": {
+   "class": "PlayerStart",
+   "PathList": {
+    "_array": 3
+   },
+   "Base": "LevelInfo0",
+   "Tag": "PlayerStart",
+   "Group": "None,Station",
+   "Location": [
+    -111.5517349243164,
+    2303.496337890625,
+    84.0
+   ],
+   "Rotation": [
+    0,
+    -16415,
+    0
+   ]
+  },
+  "Spawner9": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "BackupThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode10",
+   "Base": "LevelInfo0",
+   "Tag": "MoreThugsArrive",
+   "Group": "None,StationThugs",
+   "Location": [
+    896.6172485351562,
+    -2303.697021484375,
+    -152.0
+   ],
+   "Rotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "PathNode29": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode77",
+   "Base": "LevelInfo0",
+   "Tag": "StairToTrain",
+   "Group": "None,Station",
+   "Location": [
+    0.95068359375,
+    -2816.755126953125,
+    -23.99999237060547
+   ]
+  },
+  "PathNode91": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode90",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -466.1171875,
+    1432.6761474609375,
+    -24.0
+   ]
+  },
+  "PathNode0": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "ProscribedPaths": "PathNode7",
+   "ForcedPaths": "PathNode6",
+   "nextNavigationPoint": "PathNode5",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    1664.194580078125,
+    928.1808471679688,
+    376.0
+   ]
+  },
+  "PathNode70": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode69",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1348.77490234375,
+    639.0211791992188,
+    -152.0
+   ]
+  },
+  "Spawner4": {
+   "class": "Spawner",
+   "DeathEvent": "ThugDefeated",
+   "PawnTag": "LeftSubThug",
+   "IsSingleShot": true,
+   "PawnList": {
+    "_array": 1
+   },
+   "PeripheralVision": -1.0,
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode28",
+   "Base": "LevelInfo0",
+   "Tag": "LeftSubThugsBackup02",
+   "Location": [
+    -1857.2021484375,
+    -335.8246765136719,
+    -440.0
+   ]
+  },
+  "PathNode85": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode76",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    1246.3428955078125,
+    1328.017578125,
+    -152.0
+   ]
+  },
+  "PathNode109": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 3
+   },
+   "nextNavigationPoint": "PathNode18",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -737.1211547851562,
+    -384.24090576171875,
+    -152.0
+   ]
+  },
+  "PathNode86": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode43",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    938.9943237304688,
+    1173.484130859375,
+    -152.0
+   ]
+  },
+  "PathNode122": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode19",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -941.11962890625,
+    1173.80322265625,
+    -152.0
+   ]
+  },
+  "PathNode77": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode32",
+   "Base": "LevelInfo0",
+   "Tag": "LookHereDoc",
+   "Group": "None,Station",
+   "Location": [
+    1023.7037963867188,
+    -2816.080078125,
+    -23.99999237060547
+   ]
+  },
+  "PathNode23": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode14",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1920.2333984375,
+    -448.2253723144531,
+    -440.0
+   ]
+  },
+  "PathNode41": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode42",
+   "Base": "BlockingVolume6",
+   "Tag": "SpideyAtStairs",
+   "Location": [
+    19.10917854309082,
+    -3566.10693359375,
+    315.05352783203125
+   ]
+  },
+  "PathNode1": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "ProscribedPaths": "PathNode3",
+   "nextNavigationPoint": "PathNode3",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -2015.5552978515625,
+    928.5588989257812,
+    376.0
+   ]
+  },
+  "PathNode12": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "Spawner9",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    1920.0897216796875,
+    -447.91461181640625,
+    -440.0
+   ]
+  },
+  "PathNode124": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode93",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Location": [
+    -1092.3433837890625,
+    2031.4041748046875,
+    104.00000762939453
+   ]
+  },
+  "PathNode5": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "ProscribedPaths": "PathNode6",
+   "nextNavigationPoint": "PathNode6",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    2015.8675537109375,
+    927.9718017578125,
+    376.0
+   ]
+  },
+  "PathNode118": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode117",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1447.688720703125,
+    -446.2989196777344,
+    -152.0
+   ]
+  },
+  "PathNode30": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "PathNode29",
+   "Base": "LevelInfo0",
+   "Tag": "PathNode",
+   "Group": "None,Station",
+   "Location": [
+    -1025.1961669921875,
+    -2815.085693359375,
+    -23.99999237060547
+   ]
+  },
+  "Teleporter1": {
+   "class": "Teleporter",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "Spawner6",
+   "Base": "LevelInfo0",
+   "Tag": "SpideyAtTrain",
+   "Location": [
+    0.2374841868877411,
+    -3840.1982421875,
+    340.0
+   ]
+  },
+  "PathNode4": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 1
+   },
+   "nextNavigationPoint": "PathNode45",
+   "Base": "LevelInfo0",
+   "Tag": "SpideyAfterTrain2",
+   "Location": [
+    -384.71685791015625,
+    -11776.34765625,
+    360.0
+   ],
+   "RelativeLocation": [
+    6.3542938232421875,
+    349.03515625,
+    313.6729736328125
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "PathNode44": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 2
+   },
+   "nextNavigationPoint": "Teleporter1",
+   "Base": "Mover16",
+   "Tag": "SpideyOnTrain",
+   "Location": [
+    -145.1554412841797,
+    -10900.5517578125,
+    559.6729736328125
+   ],
+   "RelativeLocation": [
+    -1.1554412841796875,
+    503.4482421875,
+    391.6729736328125
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "PathNode45": {
+   "class": "PathNode",
+   "PathList": {
+    "_array": 1
+   },
+   "ForcedPaths": "PathNode4",
+   "nextNavigationPoint": "PathNode40",
+   "Base": "LevelInfo0",
+   "Tag": "SpideyAfterTrain1",
+   "Location": [
+    -384.44482421875,
+    -11264.0029296875,
+    360.0
+   ],
+   "RelativeLocation": [
+    20.03728485107422,
+    -244.9912109375,
+    287.3990783691406
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "Trigger2": {
+   "class": "Trigger",
+   "TriggerType": 2,
+   "bTriggerOnceOnly": true,
+   "ClassProximityType": "Webhead.SpideyPawn",
+   "Event": "SaveTrigger",
+   "Touching": [
+    "SpiderBlue10",
+    "SpiderBlue11",
+    "SpiderBlue12"
+   ],
+   "Location": [
+    0.8674623966217041,
+    -2816.868896484375,
+    59.63017654418945
+   ],
+   "CollisionRadius": 260.0,
+   "CollisionHeight": 200.0
+  },
+  "InterpolationPoint2": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    1101.2501220703125,
+    -2870.284423828125,
+    -47.27824020385742
+   ],
+   "Rotation": [
+    64633,
+    -43447,
+    0
+   ]
+  },
+  "InterpolationPoint0": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    150.14907836914062,
+    -11671.5244140625,
+    431.46343994140625
+   ],
+   "Rotation": [
+    -1636,
+    -22920,
+    0
+   ]
+  },
+  "InterpolationPoint9": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    -128.6172332763672,
+    2336.211181640625,
+    72.19586944580078
+   ],
+   "Rotation": [
+    -1971,
+    -15595,
+    0
+   ]
+  },
+  "PathNode42": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode44",
+   "Base": "Mover17",
+   "Tag": "DocOnTrain",
+   "Location": [
+    -136.20028686523438,
+    -12140.068359375,
+    559.6729736328125
+   ],
+   "RelativeLocation": [
+    7.799713134765625,
+    607.931640625,
+    391.6729736328125
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "PathNode40": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode41",
+   "Base": "Mover12",
+   "Tag": "DocOnTrainStart",
+   "Location": [
+    -142.26153564453125,
+    -6114.2646484375,
+    559.6729736328125
+   ],
+   "RelativeLocation": [
+    1.73846435546875,
+    -86.2646484375,
+    391.6729736328125
+   ],
+   "RelativeRotation": [
+    0,
+    16384,
+    0
+   ]
+  },
+  "InterpolationPoint1": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    150.15245056152344,
+    -11671.5107421875,
+    635.4647827148438
+   ],
+   "Rotation": [
+    -1636,
+    -23843,
+    0
+   ]
+  },
+  "Counter2": {
+   "class": "Counter",
+   "NumToCount": 4,
+   "Tag": "LeftSubThugDefeated01",
+   "Event": "LeftSubThugsBackup02",
+   "Touching": [
+    "DestructibleObject2"
+   ],
+   "Location": [
+    -1632.313232421875,
+    -288.3974914550781,
+    -504.0
+   ]
+  },
+  "InterpolationPoint10": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    1060.845458984375,
+    -1872.9896240234375,
+    -169.47128295898438
+   ],
+   "Rotation": [
+    -1972,
+    -16863,
+    0
+   ]
+  },
+  "LookTarget56": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1416.320556640625,
+    1631.779541015625,
+    256.0630187988281
+   ]
+  },
+  "LookTarget57": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1568.39208984375,
+    1888.4481201171875,
+    31.786563873291016
+   ]
+  },
+  "LookTarget55": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1023.8924560546875,
+    1888.11962890625,
+    631.9950561523438
+   ]
+  },
+  "InterpolationPoint11": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    1064.953857421875,
+    -2612.717041015625,
+    -45.856868743896484
+   ],
+   "Rotation": [
+    -535,
+    -19235,
+    -108
+   ]
+  },
+  "InterpolationPoint8": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    -128.26182556152344,
+    2511.85595703125,
+    72.19084930419922
+   ],
+   "Rotation": [
+    -3116,
+    -17652,
+    0
+   ]
+  },
+  "LookTarget53": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1568.46240234375,
+    2143.99755859375,
+    31.825992584228516
+   ]
+  },
+  "LookTarget54": {
+   "class": "LookTarget",
+   "Tag": "LookTarget",
+   "Location": [
+    -1143.53857421875,
+    1632.3765869140625,
+    256.0250549316406
+   ]
+  },
+  "Counter0": {
+   "class": "Counter",
+   "NumToCount": 16,
+   "Tag": "ThugDefeated",
+   "Event": "AmbushSurvived",
+   "Location": [
+    -303.964111328125,
+    2415.870361328125,
+    40.0
+   ]
+  },
+  "Trigger1": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "TrainPlatformEnter",
+   "Event": "Train",
+   "Location": [
+    -362.5732727050781,
+    -3629.374755859375,
+    296.0
+   ]
+  },
+  "WebSwingPoint83": {
+   "class": "WebSwingPoint",
+   "SwingLength": 360.0,
+   "SwingAngle": 1.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -160.0299835205078,
+    -7168.7314453125,
+    1208.5426025390625
+   ]
+  },
+  "WebSwingPoint2": {
+   "class": "WebSwingPoint",
+   "SwingLength": 360.0,
+   "SwingAngle": 1.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -160.0884552001953,
+    -5633.2646484375,
+    1207.091796875
+   ]
+  },
+  "WebSwingPoint1": {
+   "class": "WebSwingPoint",
+   "SwingLength": 360.0,
+   "SwingAngle": 1.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -159.9248809814453,
+    -8655.3779296875,
+    1208.2318115234375
+   ]
+  },
+  "WebSwingPoint3": {
+   "class": "WebSwingPoint",
+   "SwingLength": 360.0,
+   "SwingAngle": 1.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -159.38162231445312,
+    -10065.7333984375,
+    1206.677490234375
+   ]
+  },
+  "Trigger0": {
+   "class": "Trigger",
+   "Tag": "TrainMovesOutTrigger",
+   "Event": "AllAboard",
+   "Group": "None,TrainLeavingCutScene",
+   "Location": [
+    318.18438720703125,
+    -3648.0859375,
+    -80.0
+   ]
+  },
+  "WebSwingPoint0": {
+   "class": "WebSwingPoint",
+   "SwingLength": 360.0,
+   "SwingAngle": 1.0,
+   "Tag": "WebSwingPoint",
+   "Location": [
+    -159.3286895751953,
+    -11561.177734375,
+    1205.74609375
+   ]
+  },
+  "LookTarget1": {
+   "class": "LookTarget",
+   "Tag": "LookTrain",
+   "Location": [
+    -139.28890991210938,
+    -4210.06591796875,
+    272.0
+   ]
+  },
+  "InterpolationPoint13": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    -95.69133758544922,
+    2351.557373046875,
+    73.33528137207031
+   ],
+   "Rotation": [
+    -1315,
+    -18108,
+    0
+   ]
+  },
+  "InterpolationPoint12": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Group": "None,AmbushCutScene",
+   "Location": [
+    1072.1751708984375,
+    -2752.2646484375,
+    -47.894771575927734
+   ],
+   "Rotation": [
+    -1972,
+    18388,
+    0
+   ]
+  },
+  "Counter4": {
+   "class": "Counter",
+   "NumToCount": 4,
+   "Tag": "RightSubThugDefeated01",
+   "Event": "RightSubThugsBackup02",
+   "Location": [
+    1727.8994140625,
+    -288.0227355957031,
+    -504.0
+   ]
+  },
+  "Counter1": {
+   "class": "Counter",
+   "NumToCount": 4,
+   "Tag": "LeftSubThugDefeated",
+   "Event": "LeftSubThugsBackup01",
+   "Location": [
+    -1728.0167236328125,
+    -287.81219482421875,
+    -504.0
+   ]
+  },
+  "Counter3": {
+   "class": "Counter",
+   "NumToCount": 4,
+   "Tag": "RightSubThugDefeated",
+   "Event": "RightSubThugsBackup01",
+   "Location": [
+    1631.881103515625,
+    -288.56512451171875,
+    -504.0
+   ]
+  }
+ },
+ "movies": []
+}

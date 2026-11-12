@@ -1,0 +1,2398 @@
+{
+ "map": "Wharf_Train",
+ "scenes": [
+  {
+   "name": "SceneManager0",
+   "bCinematicView": true,
+   "NextSceneTag": "IntroMovieComplete",
+   "Tag": "intromovie",
+   "Location": [
+    -2521.16943359375,
+    -128.2949676513672,
+    -776.4000244140625
+   ],
+   "SoundRadius": 1000.0,
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera0",
+     "IntPoint": "InterpolationPoint4",
+     "SubActions": [
+      {
+       "class": "SubActionFade",
+       "bFadeOut": false,
+       "Duration": 0.5
+      }
+     ],
+     "PathLength": 18652.099609375,
+     "IntPointData": {
+      "name": "InterpolationPoint4",
+      "Location": [
+       23008.46875,
+       361.8709716796875,
+       -829.200439453125
+      ],
+      "Rotation": [
+       0,
+       32768,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera2",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "fly by train",
+     "Duration": 4.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128208096,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 15600.87109375,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       7407.58447265625,
+       371.1436462402344,
+       -829.200439453125
+      ],
+      "Rotation": [
+       0,
+       32768,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera4",
+     "IntPoint": "InterpolationPoint2",
+     "Comment": "crane up to ock",
+     "Duration": 1.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128209376,
+        "PctInStart": 0.23346303403377533,
+        "PctInEnd": 0.23346303403377533,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 298.5426330566406,
+     "IntPointData": {
+      "name": "InterpolationPoint2",
+      "Location": [
+       7139.69091796875,
+       364.8775939941406,
+       -697.5999145507812
+      ],
+      "Rotation": [
+       0,
+       49152,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera5",
+     "IntPoint": "InterpolationPoint3",
+     "Duration": 1.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128209536,
+        "PctInStart": 0.29182878136634827,
+        "PctInEnd": 0.29182878136634827,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 223.59478759765625,
+     "IntPointData": {
+      "name": "InterpolationPoint3",
+      "Location": [
+       7184.15576171875,
+       154.5883026123047,
+       -635.9992065429688
+      ],
+      "Rotation": [
+       2000,
+       65534,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause1",
+     "IntPoint": "InterpolationPoint3",
+     "Duration": 2.0,
+     "IntPointData": {
+      "name": "InterpolationPoint3",
+      "Location": [
+       7184.15576171875,
+       154.5883026123047,
+       -635.9992065429688
+      ],
+      "Rotation": [
+       2000,
+       65534,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera8",
+     "IntPoint": "InterpolationPoint5",
+     "PathLength": 154.63314819335938,
+     "IntPointData": {
+      "name": "InterpolationPoint5",
+      "Location": [
+       7332.03759765625,
+       172.3412628173828,
+       -594.4006958007812
+      ],
+      "Rotation": [
+       63000,
+       -33000,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog0",
+     "dlgName": "Do_Tr_E_turnback",
+     "IntPoint": "InterpolationPoint5",
+     "Duration": 5.066666603088379,
+     "IntPointData": {
+      "name": "InterpolationPoint5",
+      "Location": [
+       7332.03759765625,
+       172.3412628173828,
+       -594.4006958007812
+      ],
+      "Rotation": [
+       63000,
+       -33000,
+       0
+      ]
+     },
+     "subtitle": null
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera6",
+     "IntPoint": "InterpolationPoint6",
+     "PathLength": 2973.64794921875,
+     "IntPointData": {
+      "name": "InterpolationPoint6",
+      "Location": [
+       4358.72607421875,
+       144.15467834472656,
+       -626.80322265625
+      ]
+     }
+    },
+    {
+     "class": "ActionTriggerDialog",
+     "name": "ActionTriggerDialog1",
+     "dlgName": "Sp_Tr_E_meyouwant",
+     "IntPoint": "InterpolationPoint6",
+     "Duration": 3.066666603088379,
+     "IntPointData": {
+      "name": "InterpolationPoint6",
+      "Location": [
+       4358.72607421875,
+       144.15467834472656,
+       -626.80322265625
+      ]
+     },
+     "subtitle": null
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause0",
+     "IntPoint": "InterpolationPoint6",
+     "Duration": 1.0,
+     "IntPointData": {
+      "name": "InterpolationPoint6",
+      "Location": [
+       4358.72607421875,
+       144.15467834472656,
+       -626.80322265625
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager1",
+   "bCinematicView": true,
+   "Tag": "DangerSense1",
+   "Location": [
+    6771.388671875,
+    496.3334045410156,
+    -686.488037109375
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera1",
+     "IntPoint": "InterpolationPoint9",
+     "Comment": "show doc derailing train",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128210976,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "OckDerailingTrain1"
+      }
+     ],
+     "PathLength": 349.41876220703125,
+     "IntPointData": {
+      "name": "InterpolationPoint9",
+      "Location": [
+       6787.453125,
+       376.01617431640625,
+       -686.488037109375
+      ],
+      "Rotation": [
+       65448,
+       -5660,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause2",
+     "IntPoint": "InterpolationPoint7",
+     "Duration": 2.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128208896,
+        "PctInStart": 0.3636363744735718,
+        "PctInEnd": 0.3636363744735718,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint7",
+      "Location": [
+       12205.861328125,
+       385.68719482421875,
+       -686.488037109375
+      ],
+      "Rotation": [
+       -88,
+       -5660,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera3",
+     "IntPoint": "InterpolationPoint10",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128208896,
+        "PctInStart": 0.3636363744735718,
+        "PctInEnd": 0.3636363744735718,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 349.41876220703125,
+     "IntPointData": {
+      "name": "InterpolationPoint10",
+      "Location": [
+       6536.80419921875,
+       154.40536499023438,
+       -585.6880493164062
+      ],
+      "Rotation": [
+       63200,
+       -168,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause3",
+     "IntPoint": "InterpolationPoint10",
+     "Duration": 3.5,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128210496,
+        "PctInStart": 0.3636363744735718,
+        "PctInEnd": 0.3636363744735718,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "DS2Start",
+       "Delay": 2.5
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint10",
+      "Location": [
+       6536.80419921875,
+       154.40536499023438,
+       -585.6880493164062
+      ],
+      "Rotation": [
+       63200,
+       -168,
+       0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager2",
+   "bCinematicView": true,
+   "Tag": "DangerSense2",
+   "Location": [
+    6803.388671875,
+    528.3333740234375,
+    -686.488037109375
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera0",
+     "IntPoint": "InterpolationPoint4",
+     "SubActions": [
+      {
+       "class": "SubActionFade",
+       "bFadeOut": false,
+       "Duration": 0.5
+      }
+     ],
+     "PathLength": 18652.099609375,
+     "IntPointData": {
+      "name": "InterpolationPoint4",
+      "Location": [
+       23008.46875,
+       361.8709716796875,
+       -829.200439453125
+      ],
+      "Rotation": [
+       0,
+       32768,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause0",
+     "IntPoint": "InterpolationPoint6",
+     "Duration": 1.0,
+     "IntPointData": {
+      "name": "InterpolationPoint6",
+      "Location": [
+       4358.72607421875,
+       144.15467834472656,
+       -626.80322265625
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera1",
+     "IntPoint": "InterpolationPoint9",
+     "Comment": "show doc derailing train",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128210976,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "OckDerailingTrain1"
+      }
+     ],
+     "PathLength": 349.41876220703125,
+     "IntPointData": {
+      "name": "InterpolationPoint9",
+      "Location": [
+       6787.453125,
+       376.01617431640625,
+       -686.488037109375
+      ],
+      "Rotation": [
+       65448,
+       -5660,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause1",
+     "IntPoint": "InterpolationPoint3",
+     "Duration": 2.0,
+     "IntPointData": {
+      "name": "InterpolationPoint3",
+      "Location": [
+       7184.15576171875,
+       154.5883026123047,
+       -635.9992065429688
+      ],
+      "Rotation": [
+       2000,
+       65534,
+       0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager4",
+   "Tag": "DeathCutscene",
+   "Location": [
+    3825.93798828125,
+    -237.33192443847656,
+    -730.3956298828125
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera7",
+     "IntPoint": "InterpolationPoint13",
+     "SubActions": [
+      {
+       "class": "SubActionFade"
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint13",
+      "Location": [
+       4390.4013671875,
+       -82.13483428955078,
+       -923.59521484375
+      ],
+      "Rotation": [
+       63072,
+       11004,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause4",
+     "IntPoint": "InterpolationPoint13",
+     "Duration": 3.0,
+     "IntPointData": {
+      "name": "InterpolationPoint13",
+      "Location": [
+       4390.4013671875,
+       -82.13483428955078,
+       -923.59521484375
+      ],
+      "Rotation": [
+       63072,
+       11004,
+       0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "SceneManager3",
+   "bCinematicView": true,
+   "Tag": "DangerSense3",
+   "Location": [
+    6835.388671875,
+    560.3333740234375,
+    -686.488037109375
+   ],
+   "actions": [
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera2",
+     "IntPoint": "InterpolationPoint1",
+     "Comment": "fly by train",
+     "Duration": 4.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128208096,
+        "PctInStart": 0.0,
+        "PctInEnd": 0.0,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 15600.87109375,
+     "IntPointData": {
+      "name": "InterpolationPoint1",
+      "Location": [
+       7407.58447265625,
+       371.1436462402344,
+       -829.200439453125
+      ],
+      "Rotation": [
+       0,
+       32768,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause2",
+     "IntPoint": "InterpolationPoint7",
+     "Duration": 2.0,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128208896,
+        "PctInStart": 0.3636363744735718,
+        "PctInEnd": 0.3636363744735718,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint7",
+      "Location": [
+       12205.861328125,
+       385.68719482421875,
+       -686.488037109375
+      ],
+      "Rotation": [
+       -88,
+       -5660,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionMoveCamera",
+     "name": "ActionMoveCamera3",
+     "IntPoint": "InterpolationPoint10",
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128208896,
+        "PctInStart": 0.3636363744735718,
+        "PctInEnd": 0.3636363744735718,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      }
+     ],
+     "PathLength": 349.41876220703125,
+     "IntPointData": {
+      "name": "InterpolationPoint10",
+      "Location": [
+       6536.80419921875,
+       154.40536499023438,
+       -585.6880493164062
+      ],
+      "Rotation": [
+       63200,
+       -168,
+       0
+      ]
+     }
+    },
+    {
+     "class": "ActionPause",
+     "name": "ActionPause3",
+     "IntPoint": "InterpolationPoint10",
+     "Duration": 3.5,
+     "SubActions": [
+      {
+       "class": "SubActionOrientation",
+       "CamOrientation": {
+        "CamOrientation": 3,
+        "LookAt": null,
+        "LookAtTag": "None",
+        "EaseIntime": 0.0,
+        "bReversePitch": 0,
+        "bReverseYaw": 0,
+        "bReverseRoll": 0,
+        "MA": 128210496,
+        "PctInStart": 0.3636363744735718,
+        "PctInEnd": 0.3636363744735718,
+        "PctInDuration": 0.0,
+        "StartingRotation": [
+         0,
+         0,
+         0
+        ],
+        "_struct": "Orientation"
+       }
+      },
+      {
+       "class": "SubActionTrigger",
+       "EventName": "DS2Start",
+       "Delay": 2.5
+      }
+     ],
+     "IntPointData": {
+      "name": "InterpolationPoint10",
+      "Location": [
+       6536.80419921875,
+       154.40536499023438,
+       -585.6880493164062
+      ],
+      "Rotation": [
+       63200,
+       -168,
+       0
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "sequences": [
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger10",
+   "Tag": "OckDerailingTrain",
+   "Location": [
+    6522.0439453125,
+    357.91363525390625,
+    -596.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent20",
+     "ExternalEvent": "OckDerailingTrain"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent2",
+     "Event": "DangerSense1"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent22",
+     "ExternalEvent": "OckDerailingTrain"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent6",
+     "Event": "DangerSense2"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent23",
+     "ExternalEvent": "OckDerailingTrain"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent7",
+     "Event": "DangerSense3"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger8",
+   "Tag": "DS1Start",
+   "Location": [
+    6542.734375,
+    315.96527099609375,
+    -577.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent25",
+     "ExternalEvent": "DS1Start"
+    },
+    {
+     "class": "ACTION_DangerSense",
+     "name": "ACTION_DangerSense0",
+     "Reactions": {
+      "_array": 1
+     },
+     "SuccessEvent": "DSYes",
+     "FailedEvent": "DSNo"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction1"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence5",
+   "PawnTag": "TrainSegmentA",
+   "Tag": "DerailA",
+   "Location": [
+    6843.43115234375,
+    429.43511962890625,
+    -639.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent12",
+     "ExternalEvent": "DerailA"
+    },
+    {
+     "class": "ACTION_TeleportActor",
+     "name": "ACTION_TeleportActor0",
+     "ActorTag": "ThrowableSpawner1",
+     "DestinationTag": "SpawnerLoc1B"
+    },
+    {
+     "class": "ACTION_TeleportActor",
+     "name": "ACTION_TeleportActor1",
+     "ActorTag": "ThrowableSpawner2",
+     "DestinationTag": "SpawnerLoc2B"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM3",
+     "BaseAnim": "Crash",
+     "AnimRate": 0.5
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent1",
+     "Event": "TrainGroundA"
+    },
+    {
+     "class": "ACTION_WaitForAnimEnd",
+     "name": "ACTION_WaitForAnimEnd3"
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity13",
+     "Velocity": [
+      -2000.0,
+      200.0,
+      -100.0
+     ],
+     "ActorTag": "TrainSegmentA"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor2",
+     "ActorTag": "TrainSegmentA"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence0",
+   "PawnTag": "DocOcPawn",
+   "bLightChanged": true,
+   "Tag": "L6M2_SeenMovie",
+   "Location": [
+    7193.86279296875,
+    454.5120544433594,
+    -611.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent9",
+     "ExternalEvent": "L6M2_SeenMovie"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face0",
+     "DestinationTag": "SpideyPlayerStart"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence11",
+   "PawnTag": "SpideyPawn",
+   "bLightChanged": true,
+   "Tag": "OckDerailingTrain1",
+   "Location": [
+    6627.1708984375,
+    402.60162353515625,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent21",
+     "ExternalEvent": "OckDerailingTrain1"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint1",
+     "DestinationTag": "SpideyDerail1",
+     "bBase": false
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face2",
+     "DestinationTag": "DocOcPawn"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence1",
+   "PawnTag": "SpideyPawn",
+   "Tag": "TriggeredScriptedSequence",
+   "Location": [
+    13997.90625,
+    -1.4673759937286377,
+    -608.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent17",
+     "ExternalEvent": "endlevel"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent19",
+     "ExternalEvent": "never"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger0",
+   "Tag": "SpideyDiedScript",
+   "Location": [
+    5800.888671875,
+    1153.3350830078125,
+    -1411.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent3",
+     "ExternalEvent": "SpideyDiedScript"
+    },
+    {
+     "class": "ACTION_LogMessage",
+     "name": "ACTION_LogMessage0",
+     "Message": "*** spidey died"
+    },
+    {
+     "class": "ACTION_LevelSwitch",
+     "name": "ACTION_LevelSwitch0",
+     "LevelStr": "Wharf_Train"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence3",
+   "PawnTag": "TrainSegmentC",
+   "Tag": "DerailC",
+   "Location": [
+    7023.36865234375,
+    428.68609619140625,
+    -639.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent11",
+     "ExternalEvent": "DerailC"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM2",
+     "BaseAnim": "Crash",
+     "AnimRate": 0.5
+    },
+    {
+     "class": "ACTION_DisplayTutorialMessage",
+     "name": "ACTION_DisplayTutorialMessage0",
+     "MessageID": "L6M2_Derail",
+     "Show": true
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer3",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity10",
+     "Velocity": [
+      100.0,
+      0.0,
+      3000.0
+     ],
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_SetPhysics",
+     "name": "ACTION_SetPhysics2",
+     "NewPhysicsMode": 2,
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent5",
+     "Event": "TrainGroundC"
+    },
+    {
+     "class": "ACTION_WaitForAnimEnd",
+     "name": "ACTION_WaitForAnimEnd2"
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity15",
+     "Velocity": [
+      -2000.0,
+      0.0,
+      200.0
+     ],
+     "ActorTag": "TrainSegmentC"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor1",
+     "ActorTag": "TrainSegmentC"
+    },
+    {
+     "class": "ACTION_DisplayTutorialMessage",
+     "name": "ACTION_DisplayTutorialMessage3"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence7",
+   "PawnTag": "DocOcPawn",
+   "Tag": "LoadNextLevel_not",
+   "Location": [
+    13820.8701171875,
+    -7.172355651855469,
+    -606.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent10",
+     "ExternalEvent": "LoadNextLevel"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint6",
+     "DestinationTag": "Car7Back"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face4",
+     "DestinationTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent15",
+     "ExternalEvent": "NeverGonnaCome"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger2",
+   "Tag": "DerailA_old",
+   "Location": [
+    7113.7666015625,
+    15.45815658569336,
+    -664.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent5",
+     "ExternalEvent": "DerailA_old"
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity3",
+     "Velocity": [
+      0.0,
+      0.0,
+      5000.0
+     ],
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity4",
+     "Velocity": [
+      -1000.0,
+      1000.0,
+      200.0
+     ],
+     "ActorTag": "TrainCar1",
+     "bSpin": true
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity5",
+     "Velocity": [
+      -1000.0,
+      -750.0,
+      200.0
+     ],
+     "ActorTag": "TrainCar2",
+     "bSpin": true
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger6",
+   "Tag": "DerailA",
+   "Location": [
+    6831.6162109375,
+    366.06036376953125,
+    -647.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent2",
+     "ExternalEvent": "DerailA"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say1",
+     "dlgName": "Do_Tr_E_flipscar1B",
+     "dlgSubtitle": false,
+     "subtitle": null
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger7",
+   "Tag": "DerailB",
+   "Location": [
+    6904.025390625,
+    364.97259521484375,
+    -647.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent7",
+     "ExternalEvent": "DerailB"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say2",
+     "dlgName": "Do_Tr_E_flipscar2B",
+     "dlgSubtitle": false,
+     "subtitle": null
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger3",
+   "Tag": "L6M2_Intro",
+   "Location": [
+    4486.16748046875,
+    289.48333740234375,
+    -585.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent6",
+     "ExternalEvent": "L6M2_Intro"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent0",
+     "Event": "intromovie"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger5",
+   "Tag": "DerailC",
+   "Location": [
+    6977.54931640625,
+    364.24468994140625,
+    -647.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent1",
+     "ExternalEvent": "DerailC"
+    },
+    {
+     "class": "ACTION_Say",
+     "name": "ACTION_Say0",
+     "dlgName": "Do_Tr_E_flipscar3B",
+     "dlgSubtitle": false,
+     "subtitle": null
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger4",
+   "bLightChanged": true,
+   "Tag": "IntroMovieComplete",
+   "Location": [
+    4489.857421875,
+    324.0139465332031,
+    -585.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent0",
+     "ExternalEvent": "IntroMovieComplete"
+    },
+    {
+     "class": "ACTION_CombatHelp",
+     "name": "ACTION_CombatHelp2",
+     "CombatIndex": 9
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify1",
+     "stateName": "L6M2_Intro"
+    },
+    {
+     "class": "ACTION_GamestateModify",
+     "name": "ACTION_GamestateModify2",
+     "stateName": "L6M2_SeenMovie",
+     "Value": 1
+    },
+    {
+     "class": "ACTION_GamestateSave",
+     "name": "ACTION_GamestateSave1"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence8",
+   "PawnTag": "SpideyPawn",
+   "bLightChanged": true,
+   "Tag": "LevelLoad",
+   "Location": [
+    4524.55859375,
+    431.1741027832031,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent18",
+     "ExternalEvent": "LevelLoad"
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable0",
+     "Upgrade": 1
+    },
+    {
+     "class": "ACTION_UpgradeEnable",
+     "name": "ACTION_UpgradeEnable1"
+    },
+    {
+     "class": "ACTION_LevelSetCurrent",
+     "name": "ACTION_LevelSetCurrent1",
+     "CurrentLevel": 6
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer2",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint0",
+     "DestinationTag": "SpideyPlayerStart"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face3",
+     "DestinationTag": "DocOcPawn"
+    },
+    {
+     "class": "ACTION_ObjectiveAdd",
+     "name": "ACTION_ObjectiveAdd1",
+     "MessageID": "L6M2_SurviveTrain",
+     "stateName": "L6M2_Complete",
+     "isPrimary": true
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence6",
+   "PawnTag": "TrainSegmentB",
+   "Tag": "DerailB",
+   "Location": [
+    6919.42333984375,
+    432.25958251953125,
+    -639.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent13",
+     "ExternalEvent": "DerailB"
+    },
+    {
+     "class": "ACTION_TeleportActor",
+     "name": "ACTION_TeleportActor2",
+     "ActorTag": "ThrowableSpawner1",
+     "DestinationTag": "SpawnerLoc1C"
+    },
+    {
+     "class": "ACTION_TeleportActor",
+     "name": "ACTION_TeleportActor3",
+     "ActorTag": "ThrowableSpawner2",
+     "DestinationTag": "SpawnerLoc2C"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM4",
+     "BaseAnim": "Crash",
+     "AnimRate": 0.5
+    },
+    {
+     "class": "ACTION_DisplayTutorialMessage",
+     "name": "ACTION_DisplayTutorialMessage2",
+     "MessageID": "L6M2_Derail",
+     "Show": true
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer5",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity12",
+     "Velocity": [
+      100.0,
+      0.0,
+      3000.0
+     ],
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_SetPhysics",
+     "name": "ACTION_SetPhysics1",
+     "NewPhysicsMode": 2,
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent4",
+     "Event": "TrainGroundB"
+    },
+    {
+     "class": "ACTION_WaitForAnimEnd",
+     "name": "ACTION_WaitForAnimEnd4"
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity14",
+     "Velocity": [
+      -2000.0,
+      -400.0,
+      -100.0
+     ],
+     "ActorTag": "TrainSegmentB"
+    },
+    {
+     "class": "ACTION_ShowActor",
+     "name": "ACTION_ShowActor3",
+     "ActorTag": "TrainSegmentB"
+    },
+    {
+     "class": "ACTION_DisplayTutorialMessage",
+     "name": "ACTION_DisplayTutorialMessage4"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence2",
+   "PawnTag": "SpideyPawn",
+   "Tag": "DSNo",
+   "Location": [
+    6635.01953125,
+    571.1212158203125,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent8",
+     "ExternalEvent": "DSNo"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM1",
+     "BaseAnim": "EvasiveManueverLeft",
+     "BlendInTime": 0.4000000059604645,
+     "FreezeFrame": 22.0
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity0",
+     "Velocity": [
+      0.0,
+      -500.0,
+      500.0
+     ],
+     "ActorTag": "SpideyPawn"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger11",
+   "Tag": "DS2Start",
+   "Location": [
+    9067.35546875,
+    325.6091613769531,
+    -577.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent28",
+     "ExternalEvent": "DS2Start"
+    },
+    {
+     "class": "ACTION_DangerSense",
+     "name": "ACTION_DangerSense1",
+     "Reactions": {
+      "_array": 1
+     },
+     "SuccessEvent": "DSYes2",
+     "FailedEvent": "DSNo"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction2"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger9",
+   "Tag": "DS3Start",
+   "Location": [
+    11961.1435546875,
+    325.63629150390625,
+    -577.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent24",
+     "ExternalEvent": "DS3Start"
+    },
+    {
+     "class": "ACTION_DangerSense",
+     "name": "ACTION_DangerSense2",
+     "Reactions": {
+      "_array": 1
+     },
+     "SuccessEvent": "DSYes3",
+     "FailedEvent": "DSNo"
+    },
+    {
+     "class": "ACTION_GotoAction",
+     "name": "ACTION_GotoAction0"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence4",
+   "PawnTag": "DocOcPawn",
+   "bLightChanged": true,
+   "Tag": "intromovie",
+   "Location": [
+    7228.28759765625,
+    376.6678466796875,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent14",
+     "ExternalEvent": "intromovie"
+    },
+    {
+     "class": "ACTION_PlayLocalSound",
+     "name": "ACTION_PlayLocalSound1",
+     "Sound": "Vehicle.TrainBy"
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face1",
+     "DestinationTag": "SpideyPlayerStart"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM0",
+     "BaseAnim": "IdleRest_All",
+     "bLoopAnim": true
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent16",
+     "ExternalEvent": "IntroMovieComplete"
+    }
+   ]
+  },
+  {
+   "class": "ScriptedTrigger",
+   "name": "ScriptedTrigger1",
+   "bLightChanged": true,
+   "Tag": "endlevel",
+   "Location": [
+    14450.4345703125,
+    349.7828674316406,
+    -604.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent4",
+     "ExternalEvent": "endlevel"
+    },
+    {
+     "class": "ACTION_ObjectiveComplete",
+     "name": "ACTION_ObjectiveComplete0",
+     "stateName": "L6M2_Complete"
+    },
+    {
+     "class": "ACTION_PlayMovie",
+     "name": "ACTION_PlayMovie0",
+     "Movie": "Cinematics.movies.L6M2_TrainCrashAnimatic"
+    },
+    {
+     "class": "ACTION_WaitForMovieEnded",
+     "name": "ACTION_WaitForMovieEnded0"
+    },
+    {
+     "class": "ACTION_ChangeLevel",
+     "name": "ACTION_ChangeLevel2",
+     "URL": "Wharf_Docks.whr"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence12",
+   "PawnTag": "SpideyPawn",
+   "Tag": "OckDerailingTrain2",
+   "Location": [
+    9151.7919921875,
+    412.2455139160156,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent26",
+     "ExternalEvent": "OckDerailingTrain2"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint3",
+     "DestinationTag": "SpideyDerail2",
+     "bBase": false
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face6",
+     "DestinationTag": "DocOcPawn"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence14",
+   "PawnTag": "SpideyPawn",
+   "bLightChanged": true,
+   "Tag": "DSYes2",
+   "Location": [
+    9154.4423828125,
+    515.0099487304688,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent32",
+     "ExternalEvent": "DSYes2"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM7",
+     "BaseAnim": "JumpUp",
+     "BlendInTime": 0.4000000059604645,
+     "FreezeFrame": 13.0
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer8",
+     "PauseTime": 0.30000001192092896
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity7",
+     "Velocity": [
+      0.0,
+      0.0,
+      800.0
+     ],
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer9",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint7",
+     "DestinationTag": "SpideyDerail2High",
+     "bBase": false,
+     "bRotate": false
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence10",
+   "PawnTag": "SpideyPawn",
+   "bLightChanged": true,
+   "Tag": "DSYes3",
+   "Location": [
+    12042.2119140625,
+    520.4984130859375,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent29",
+     "ExternalEvent": "DSYes3"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM5",
+     "BaseAnim": "JumpUp",
+     "BlendInTime": 0.4000000059604645,
+     "FreezeFrame": 13.0
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer1",
+     "PauseTime": 0.30000001192092896
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity2",
+     "Velocity": [
+      0.0,
+      0.0,
+      800.0
+     ],
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer4",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint4",
+     "DestinationTag": "SpideyDerail3High",
+     "bBase": false,
+     "bRotate": false
+    },
+    {
+     "class": "ACTION_TriggerEvent",
+     "name": "ACTION_TriggerEvent3",
+     "Event": "endlevel"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer0",
+     "PauseTime": 1.0
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint8",
+     "DestinationTag": "Car7Back"
+    },
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent30",
+     "ExternalEvent": "NeverGonnaCome"
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence13",
+   "PawnTag": "SpideyPawn",
+   "bLightChanged": true,
+   "Tag": "DSYes",
+   "Location": [
+    6628.400390625,
+    486.87896728515625,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent31",
+     "ExternalEvent": "DSYes"
+    },
+    {
+     "class": "Action_PLAYANIM",
+     "name": "Action_PLAYANIM9",
+     "BaseAnim": "JumpUp",
+     "FreezeFrame": 13.0
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer10",
+     "PauseTime": 0.30000001192092896
+    },
+    {
+     "class": "ACTION_AddVelocity",
+     "name": "ACTION_AddVelocity6",
+     "Velocity": [
+      0.0,
+      0.0,
+      800.0
+     ],
+     "ActorTag": "SpideyPawn"
+    },
+    {
+     "class": "ACTION_WaitForTimer",
+     "name": "ACTION_WaitForTimer7",
+     "PauseTime": 0.5
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint5",
+     "DestinationTag": "SpideyDerail1High",
+     "bBase": false,
+     "bRotate": false
+    }
+   ]
+  },
+  {
+   "class": "TriggeredScriptedSequence",
+   "name": "TriggeredScriptedSequence9",
+   "PawnTag": "SpideyPawn",
+   "Tag": "OckDerailingTrain3",
+   "Location": [
+    12045.580078125,
+    412.27264404296875,
+    -626.0
+   ],
+   "actions": [
+    {
+     "class": "ACTION_WaitForEvent",
+     "name": "ACTION_WaitForEvent27",
+     "ExternalEvent": "OckDerailingTrain3"
+    },
+    {
+     "class": "ACTION_TeleportToPoint",
+     "name": "ACTION_TeleportToPoint2",
+     "DestinationTag": "SpideyDerail3",
+     "bBase": false
+    },
+    {
+     "class": "ACTION_Face",
+     "name": "ACTION_Face5",
+     "DestinationTag": "DocOcPawn"
+    }
+   ]
+  }
+ ],
+ "pawns": [
+  {
+   "class": "DocOcPawn",
+   "name": "DocOcPawn0",
+   "SwipeDamage": 10,
+   "LevelInfo": [
+    null,
+    null,
+    [
+     1.2935386124182386e-41,
+     3.1280344406950074e-17
+    ]
+   ],
+   "objectHealth": [
+    null,
+    1,
+    1
+   ],
+   "sectionTime": [
+    30.0,
+    30.0,
+    30.0
+   ],
+   "ControllerClass": "Webhead.DocOcTrainController",
+   "bLightChanged": true,
+   "Tag": "DocOcPawn",
+   "Location": [
+    7250.66650390625,
+    153.34901428222656,
+    -620.0
+   ],
+   "Rotation": [
+    0,
+    32276,
+    0
+   ],
+   "bSelected": true
+  }
+ ],
+ "points": {
+  "InterpolationPoint6": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    4358.72607421875,
+    144.15467834472656,
+    -626.80322265625
+   ]
+  },
+  "InterpolationPoint7": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    12205.861328125,
+    385.68719482421875,
+    -686.488037109375
+   ],
+   "Rotation": [
+    -88,
+    -5660,
+    0
+   ]
+  },
+  "InterpolationPoint8": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    11955.212890625,
+    164.07638549804688,
+    -585.6880493164062
+   ],
+   "Rotation": [
+    -2336,
+    -168,
+    0
+   ]
+  },
+  "InterpolationPoint3": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    7184.15576171875,
+    154.5883026123047,
+    -635.9992065429688
+   ],
+   "Rotation": [
+    2000,
+    65534,
+    0
+   ]
+  },
+  "InterpolationPoint13": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    4390.4013671875,
+    -82.13483428955078,
+    -923.59521484375
+   ],
+   "Rotation": [
+    63072,
+    11004,
+    0
+   ]
+  },
+  "InterpolationPoint5": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    7332.03759765625,
+    172.3412628173828,
+    -594.4006958007812
+   ],
+   "Rotation": [
+    63000,
+    -33000,
+    0
+   ]
+  },
+  "PathNode4": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode0",
+   "Tag": "Car3Back",
+   "Location": [
+    8328.6025390625,
+    160.87625122070312,
+    -604.2102661132812
+   ]
+  },
+  "InterpolationPoint12": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    9061.4248046875,
+    164.04925537109375,
+    -585.6880493164062
+   ],
+   "Rotation": [
+    -2336,
+    -168,
+    0
+   ]
+  },
+  "PathNode6": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode15",
+   "Tag": "Car5Back",
+   "Location": [
+    11059.8154296875,
+    163.42503356933594,
+    -604.2102661132812
+   ]
+  },
+  "InterpolationPoint11": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    9312.0732421875,
+    385.6600646972656,
+    -686.488037109375
+   ],
+   "Rotation": [
+    -88,
+    -5660,
+    0
+   ]
+  },
+  "InterpolationPoint9": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    6787.453125,
+    376.01617431640625,
+    -686.488037109375
+   ],
+   "Rotation": [
+    65448,
+    -5660,
+    0
+   ]
+  },
+  "InterpolationPoint10": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    6536.80419921875,
+    154.40536499023438,
+    -585.6880493164062
+   ],
+   "Rotation": [
+    63200,
+    -168,
+    0
+   ]
+  },
+  "PathNode1": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode16",
+   "bPathsChanged": true,
+   "Tag": "Car7Back",
+   "Location": [
+    13819.2158203125,
+    163.07388305664062,
+    -604.2102661132812
+   ]
+  },
+  "PathNode9": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode1",
+   "Tag": "Car4Front",
+   "Location": [
+    8611.443359375,
+    157.64781188964844,
+    -604.2102661132812
+   ]
+  },
+  "PathNode10": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode9",
+   "Tag": "Car4Back",
+   "Location": [
+    9687.1748046875,
+    160.0139617919922,
+    -604.2102661132812
+   ]
+  },
+  "InterpolationPoint2": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    7139.69091796875,
+    364.8775939941406,
+    -697.5999145507812
+   ],
+   "Rotation": [
+    0,
+    49152,
+    0
+   ]
+  },
+  "PathNode8": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode11",
+   "Tag": "Car6Front",
+   "Location": [
+    11352.755859375,
+    161.02793884277344,
+    -604.2102661132812
+   ]
+  },
+  "InterpolationPoint4": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    23008.46875,
+    361.8709716796875,
+    -829.200439453125
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode0": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode2",
+   "bPathsChanged": true,
+   "Tag": "BossC",
+   "Location": [
+    12735.8173828125,
+    160.04751586914062,
+    -604.2102661132812
+   ]
+  },
+  "InterpolationPoint1": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    7407.58447265625,
+    371.1436462402344,
+    -829.200439453125
+   ],
+   "Rotation": [
+    0,
+    32768,
+    0
+   ]
+  },
+  "PathNode16": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode6",
+   "Tag": "SpideyDerail3",
+   "Location": [
+    12173.8046875,
+    165.95477294921875,
+    -604.2102661132812
+   ]
+  },
+  "PathNode7": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode8",
+   "Tag": "Car7Front",
+   "Location": [
+    12708.30078125,
+    159.2283477783203,
+    -604.2102661132812
+   ]
+  },
+  "PathNode3": {
+   "class": "PathNode",
+   "bPathsChanged": true,
+   "Tag": "BossA",
+   "Location": [
+    7259.55810546875,
+    159.94448852539062,
+    -604.2102661132812
+   ]
+  },
+  "PathNode11": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode10",
+   "Tag": "Car5Front",
+   "Location": [
+    9949.0966796875,
+    159.73731994628906,
+    -604.2102661132812
+   ]
+  },
+  "Trigger0": {
+   "class": "Trigger",
+   "Tag": "SpideyOnLastCar",
+   "Event": "endlevel",
+   "Touching": [
+    "PhysicsVolume0"
+   ],
+   "Location": [
+    12940.0,
+    276.0,
+    -1496.0
+   ]
+  },
+  "PathNode15": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode4",
+   "bPathsChanged": true,
+   "Tag": "SpideyDerail2",
+   "Location": [
+    9324.3701171875,
+    164.6608123779297,
+    -604.2102661132812
+   ]
+  },
+  "PathNode2": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode3",
+   "Tag": "BossB",
+   "Location": [
+    9995.8291015625,
+    159.8062286376953,
+    -604.2102661132812
+   ]
+  },
+  "PathNode14": {
+   "class": "PathNode",
+   "nextNavigationPoint": "SpideyPlayerStart0",
+   "Tag": "SpideyDerail1",
+   "Location": [
+    6631.42138671875,
+    160.1143341064453,
+    -643.0
+   ],
+   "bDirectional": true
+  },
+  "InterpolationPoint0": {
+   "class": "InterpolationPoint",
+   "Tag": "InterpolationPoint",
+   "Location": [
+    -500.0,
+    -300.0,
+    300.0
+   ]
+  },
+  "LookTarget2": {
+   "class": "LookTarget",
+   "Tag": "SpawnerLoc1B",
+   "Location": [
+    10200.5966796875,
+    -208.63015747070312,
+    -1254.1007080078125
+   ]
+  },
+  "LookTarget3": {
+   "class": "LookTarget",
+   "Tag": "SpawnerLoc2B",
+   "Location": [
+    10204.3935546875,
+    533.466064453125,
+    -1254.1007080078125
+   ]
+  },
+  "LookTarget1": {
+   "class": "LookTarget",
+   "Tag": "SpawnerLoc1C",
+   "Location": [
+    12962.1318359375,
+    -184.17837524414062,
+    -1254.1007080078125
+   ]
+  },
+  "LookTarget0": {
+   "class": "LookTarget",
+   "Tag": "SpawnerLoc2C",
+   "Location": [
+    12965.9287109375,
+    557.9179077148438,
+    -1254.1007080078125
+   ]
+  },
+  "Trigger1": {
+   "class": "Trigger",
+   "bTriggerOnceOnly": true,
+   "Tag": "SpideyDied",
+   "Event": "SpideyDiedScript",
+   "Location": [
+    5888.0,
+    1152.0,
+    -1408.0
+   ]
+  },
+  "PathNode5": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode4",
+   "bPathsChanged": true,
+   "bLightChanged": true,
+   "Tag": "SpideyDerail2High",
+   "Location": [
+    9328.3701171875,
+    168.6608123779297,
+    1264.0
+   ]
+  },
+  "PathNode13": {
+   "class": "PathNode",
+   "nextNavigationPoint": "SpideyPlayerStart0",
+   "bPathsChanged": true,
+   "bLightChanged": true,
+   "Tag": "SpideyDerail1High",
+   "Location": [
+    6635.42138671875,
+    164.1143341064453,
+    1264.0
+   ],
+   "bDirectional": true
+  },
+  "PathNode12": {
+   "class": "PathNode",
+   "nextNavigationPoint": "PathNode6",
+   "bPathsChanged": true,
+   "bLightChanged": true,
+   "Tag": "SpideyDerail3High",
+   "Location": [
+    12177.8046875,
+    169.95477294921875,
+    1264.0
+   ]
+  }
+ },
+ "movies": [
+  {
+   "name": "ACTION_PlayMovie0",
+   "Movie": "Cinematics.movies.L6M2_TrainCrashAnimatic"
+  }
+ ]
+}

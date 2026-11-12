@@ -1,0 +1,1127 @@
+[
+ {
+  "name": "i_arcade",
+  "pack": "AG_AIR_COMBO",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_arcade.png"
+ },
+ {
+  "name": "i_arcade_poi",
+  "pack": "AG_AIR_COMBO",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_arcade_poi.png"
+ },
+ {
+  "name": "i_arcade_box",
+  "pack": "AG_AIR_COMBO",
+  "w": 64,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_arcade_box.png"
+ },
+ {
+  "name": "i_arcade_life",
+  "pack": "AG_AIR_COMBO",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_arcade_life.png"
+ },
+ {
+  "name": "i_us_sm2qqwa",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2qqwa.png"
+ },
+ {
+  "name": "i_us_sm2swgkck",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2swgkck.png"
+ },
+ {
+  "name": "i_us_sm2grapweb",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2grapweb.png"
+ },
+ {
+  "name": "i_us_sm2grapple",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2grapple.png"
+ },
+ {
+  "name": "i_us_sm2counterattackjmp2",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2counterattackjmp2.png"
+ },
+ {
+  "name": "i_us_sm2counterattackattack",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2counterattackattack.png"
+ },
+ {
+  "name": "i_us_sm2heroattackjmp",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2heroattackjmp.png"
+ },
+ {
+  "name": "i_us_sm2qqcattack",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2qqcattack.png"
+ },
+ {
+  "name": "i_us_sm2webhanger",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2webhanger.png"
+ },
+ {
+  "name": "i_us_sm2qqcshove",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2qqcshove.png"
+ },
+ {
+  "name": "i_us_sm2idlzipline",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2idlzipline.png"
+ },
+ {
+  "name": "i_us_sm2airheadkck",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2airheadkck.png"
+ },
+ {
+  "name": "i_us_sm2grapsupknee",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2grapsupknee.png"
+ },
+ {
+  "name": "i_us_sm2qqstwirlpun",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2qqstwirlpun.png"
+ },
+ {
+  "name": "i_us_sm2airgrappiledr",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2airgrappiledr.png"
+ },
+ {
+  "name": "i_us_sm2shoulderslam",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2shoulderslam.png"
+ },
+ {
+  "name": "i_us_sm2humanmissile",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2humanmissile.png"
+ },
+ {
+  "name": "i_us_sm2chargepun",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2chargepun.png"
+ },
+ {
+  "name": "i_us_sm2airgrapwebslam",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_sm2airgrapwebslam.png"
+ },
+ {
+  "name": "i_us_smairjmp",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_smairjmp.png"
+ },
+ {
+  "name": "i_us_smairattack3",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_smairattack3.png"
+ },
+ {
+  "name": "i_us_smairattack4",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_smairattack4.png"
+ },
+ {
+  "name": "i_us_slingshot",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_slingshot.png"
+ },
+ {
+  "name": "sm2trickjmpd2",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpd2.png"
+ },
+ {
+  "name": "sm2trickjmpu2",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpu2.png"
+ },
+ {
+  "name": "sm2trickjmpd3",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpd3.png"
+ },
+ {
+  "name": "sm2trickjmpu3",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpu3.png"
+ },
+ {
+  "name": "sm2trickjmpd4",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpd4.png"
+ },
+ {
+  "name": "sm2trickjmpu4",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpu4.png"
+ },
+ {
+  "name": "sm2trickjmpu5",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpu5.png"
+ },
+ {
+  "name": "sm2trickjmpu4quick",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpu4quick.png"
+ },
+ {
+  "name": "sm2trickjmpu5quick",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpu5quick.png"
+ },
+ {
+  "name": "sm2trickjmpd2slow",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/sm2trickjmpd2slow.png"
+ },
+ {
+  "name": "i_us_wallsprint_dur",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_wallsprint_dur.png"
+ },
+ {
+  "name": "i_us_multi_web_1",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_multi_web_1.png"
+ },
+ {
+  "name": "i_us_multi_web_2",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_multi_web_2.png"
+ },
+ {
+  "name": "i_us_multi_web_3",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_multi_web_3.png"
+ },
+ {
+  "name": "i_us_combatarena",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_combatarena.png"
+ },
+ {
+  "name": "i_us_yankback",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_yankback.png"
+ },
+ {
+  "name": "i_us_air_speed_b",
+  "pack": "B07I05",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_us_air_speed_b.png"
+ },
+ {
+  "name": "i_us_strengthupgrade",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_strengthupgrade.png"
+ },
+ {
+  "name": "i_us_cur_swing_speed",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_cur_swing_speed.png"
+ },
+ {
+  "name": "i_us_movietheatre",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_movietheatre.png"
+ },
+ {
+  "name": "i_us_gv_health_purchase",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_gv_health_purchase.png"
+ },
+ {
+  "name": "i_us_gv_minimap_purchase",
+  "pack": "B07I05",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_us_gv_minimap_purchase.png"
+ },
+ {
+  "name": "webtarget",
+  "pack": "CITY",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/webtarget.png"
+ },
+ {
+  "name": "spideywebstring",
+  "pack": "CITY",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/spideywebstring.png"
+ },
+ {
+  "name": "spideywebstringb",
+  "pack": "CITY",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/spideywebstringb.png"
+ },
+ {
+  "name": "spideywebstringc",
+  "pack": "CITY",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/spideywebstringc.png"
+ },
+ {
+  "name": "fx_webtilea",
+  "pack": "CITY",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/fx_webtilea.png"
+ },
+ {
+  "name": "fx_webtileb",
+  "pack": "CITY",
+  "w": 128,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/fx_webtileb.png"
+ },
+ {
+  "name": "fx_webslpt_bits",
+  "pack": "CITY",
+  "w": 32,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/fx_webslpt_bits.png"
+ },
+ {
+  "name": "fx_websplatb",
+  "pack": "CITY",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/fx_websplatb.png"
+ },
+ {
+  "name": "itm_pizzabox",
+  "pack": "CITY_EXTRA_J",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_pizzabox.png"
+ },
+ {
+  "name": "i_neue",
+  "pack": "GAME",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_neue.png"
+ },
+ {
+  "name": "i_poi_01",
+  "pack": "GAME",
+  "w": 128,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_poi_01.png"
+ },
+ {
+  "name": "i_poi_02",
+  "pack": "GAME",
+  "w": 128,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_poi_02.png"
+ },
+ {
+  "name": "i_bar_fade",
+  "pack": "GAME",
+  "w": 64,
+  "h": 16,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_bar_fade.png"
+ },
+ {
+  "name": "i_igo_gauge",
+  "pack": "GAME",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_igo_gauge.png"
+ },
+ {
+  "name": "i_minimap_n",
+  "pack": "GAME",
+  "w": 16,
+  "h": 16,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_minimap_n.png"
+ },
+ {
+  "name": "i_map_icons_a",
+  "pack": "GAME",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_map_icons_a.png"
+ },
+ {
+  "name": "i_map_icons_b",
+  "pack": "GAME",
+  "w": 128,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_map_icons_b.png"
+ },
+ {
+  "name": "i_map_icons_c",
+  "pack": "GAME",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_map_icons_c.png"
+ },
+ {
+  "name": "i_balance_meter",
+  "pack": "GAME",
+  "w": 128,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_balance_meter.png"
+ },
+ {
+  "name": "i_bc_2_distance_gauge",
+  "pack": "GAME",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_bc_2_distance_gauge.png"
+ },
+ {
+  "name": "i_web_reticle_dark",
+  "pack": "GAME",
+  "w": 32,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_web_reticle_dark.png"
+ },
+ {
+  "name": "i_web_reticle_light",
+  "pack": "GAME",
+  "w": 32,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_web_reticle_light.png"
+ },
+ {
+  "name": "i_menu_items_a",
+  "pack": "GAME",
+  "w": 16,
+  "h": 16,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_menu_items_a.png"
+ },
+ {
+  "name": "minimapmask",
+  "pack": "GAME",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/minimapmask.png"
+ },
+ {
+  "name": "i_serpentine",
+  "pack": "GAME",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_serpentine.png"
+ },
+ {
+  "name": "i_loading_icon",
+  "pack": "GAME",
+  "w": 32,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_loading_icon.png"
+ },
+ {
+  "name": "i_3d_bonus_icons",
+  "pack": "GAME",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_3d_bonus_icons.png"
+ },
+ {
+  "name": "desticon",
+  "pack": "GAME",
+  "w": 32,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/desticon.png"
+ },
+ {
+  "name": "i_button_icons",
+  "pack": "GAME",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_button_icons.png"
+ },
+ {
+  "name": "i_map_counter",
+  "pack": "GAME",
+  "w": 128,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_map_counter.png"
+ },
+ {
+  "name": "i_map_compass",
+  "pack": "GAME",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_map_compass.png"
+ },
+ {
+  "name": "i_opt_con_image",
+  "pack": "GAME",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_opt_con_image.png"
+ },
+ {
+  "name": "i_zeroes",
+  "pack": "GAME",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_zeroes.png"
+ },
+ {
+  "name": "i_bc_distance_gauge",
+  "pack": "GAME",
+  "w": 128,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_bc_distance_gauge.png"
+ },
+ {
+  "name": "i_credits_sm2_logo",
+  "pack": "GAME",
+  "w": 256,
+  "h": 16,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_credits_sm2_logo.png"
+ },
+ {
+  "name": "i_pizza_counter",
+  "pack": "GAME",
+  "w": 128,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_pizza_counter.png"
+ },
+ {
+  "name": "i_green_box_trim",
+  "pack": "GAME",
+  "w": 64,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_green_box_trim.png"
+ },
+ {
+  "name": "i_camera_counter_icon",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_camera_counter_icon.png"
+ },
+ {
+  "name": "itm_genericropea",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 32,
+  "h": 32,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_genericropea.png"
+ },
+ {
+  "name": "male_jumpsuit_1",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/male_jumpsuit_1.png"
+ },
+ {
+  "name": "male_jumpsuit_2",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/male_jumpsuit_2.png"
+ },
+ {
+  "name": "i_monitor_counter_icon",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_monitor_counter_icon.png"
+ },
+ {
+  "name": "itm_wwasher",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 128,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_wwasher.png"
+ },
+ {
+  "name": "itm_pizzabag",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_pizzabag.png"
+ },
+ {
+  "name": "i_pizza_counter_icon",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_pizza_counter_icon.png"
+ },
+ {
+  "name": "i_pizza_counter_icon_lev",
+  "pack": "PK_LM_PIZZA_DELIV",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_pizza_counter_icon_lev.png"
+ },
+ {
+  "name": "i_car_health_meter",
+  "pack": "PK_SH_ROAD_RAGE_00",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_car_health_meter.png"
+ },
+ {
+  "name": "black_cat_env",
+  "pack": "PK_STORY_00",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/black_cat_env.png"
+ },
+ {
+  "name": "itm_mjbillboard_big",
+  "pack": "PK_STORY_00",
+  "w": 512,
+  "h": 512,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_mjbillboard_big.png"
+ },
+ {
+  "name": "itm_title_tobey",
+  "pack": "PK_STORY_00",
+  "w": 512,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/itm_title_tobey.png"
+ },
+ {
+  "name": "itm_title_alfred",
+  "pack": "PK_STORY_00",
+  "w": 512,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/itm_title_alfred.png"
+ },
+ {
+  "name": "itm_title_kirsten",
+  "pack": "PK_STORY_00",
+  "w": 512,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/itm_title_kirsten.png"
+ },
+ {
+  "name": "itm_title_spiderman2",
+  "pack": "PK_STORY_00",
+  "w": 512,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/itm_title_spiderman2.png"
+ },
+ {
+  "name": "blackcat",
+  "pack": "PK_STORY_00",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/blackcat.png"
+ },
+ {
+  "name": "blackcat_fur",
+  "pack": "PK_STORY_00",
+  "w": 128,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/blackcat_fur.png"
+ },
+ {
+  "name": "i_igo_gauge_boss",
+  "pack": "PK_STORY_05B",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_igo_gauge_boss.png"
+ },
+ {
+  "name": "beck_head",
+  "pack": "PK_STORY_29",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/beck_head.png"
+ },
+ {
+  "name": "conv_clerk_1",
+  "pack": "PK_STORY_29",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/conv_clerk_1.png"
+ },
+ {
+  "name": "conv_clerk_flesh_1",
+  "pack": "PK_STORY_29",
+  "w": 256,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/conv_clerk_flesh_1.png"
+ },
+ {
+  "name": "peter_glasses",
+  "pack": "PK_STORY_29",
+  "w": 64,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/peter_glasses.png"
+ },
+ {
+  "name": "mysterio",
+  "pack": "PK_STORY_29",
+  "w": 512,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/mysterio.png"
+ },
+ {
+  "name": "mysterio_metal",
+  "pack": "PK_STORY_29",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/mysterio_metal.png"
+ },
+ {
+  "name": "mysterio_quentin",
+  "pack": "PK_STORY_29",
+  "w": 256,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/mysterio_quentin.png"
+ },
+ {
+  "name": "mysterio_quentin_metal",
+  "pack": "PK_STORY_29",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/mysterio_quentin_metal.png"
+ },
+ {
+  "name": "i_mysterio_hb_bar",
+  "pack": "PK_STORY_29",
+  "w": 16,
+  "h": 16,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_mysterio_hb_bar.png"
+ },
+ {
+  "name": "i_mysterio_hb_frame",
+  "pack": "PK_STORY_29",
+  "w": 128,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": true,
+  "file": "/public/ui/i_mysterio_hb_frame.png"
+ },
+ {
+  "name": "itm_myst_bowl",
+  "pack": "PK_STORY_29",
+  "w": 128,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_myst_bowl.png"
+ },
+ {
+  "name": "itm_myst_bowlm",
+  "pack": "PK_STORY_29",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/itm_myst_bowlm.png"
+ },
+ {
+  "name": "i_loa_bkg_blu",
+  "pack": "SPIDERMANLOGO",
+  "w": 512,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_loa_bkg_blu.png"
+ },
+ {
+  "name": "i_loading_screen_bkg",
+  "pack": "SPIDERMANLOGO",
+  "w": 512,
+  "h": 256,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_loading_screen_bkg.png"
+ },
+ {
+  "name": "i_so_icon_easy",
+  "pack": "SPIDERMANLOGO",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_so_icon_easy.png"
+ },
+ {
+  "name": "i_so_icon_normal",
+  "pack": "SPIDERMANLOGO",
+  "w": 128,
+  "h": 128,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_so_icon_normal.png"
+ },
+ {
+  "name": "i_legal_spid",
+  "pack": "SPIDERMANLOGO",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_legal_spid.png"
+ },
+ {
+  "name": "i_legal_atvi",
+  "pack": "SPIDERMANLOGO",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_legal_atvi.png"
+ },
+ {
+  "name": "i_legal_marv",
+  "pack": "SPIDERMANLOGO",
+  "w": 128,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_legal_marv.png"
+ },
+ {
+  "name": "i_legal_colum",
+  "pack": "SPIDERMANLOGO",
+  "w": 256,
+  "h": 64,
+  "fmt": "DDS",
+  "alpha": false,
+  "file": "/public/ui/i_legal_colum.png"
+ }
+]

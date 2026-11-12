@@ -1,0 +1,1 @@
+{"map": "XF06", "unit_scale": 1.0, "statics": [{"actor": "XF06R", "class": "cell", "cell": "XF06", "mesh": "XF06.XF06R", "url": "/public/models/xbox/static/XF06__xf06r.glb", "tag": "XF06R", "pos": [0, 0, 0], "quat": [0, 0, 0, 1], "scale": [1, 1, 1]}], "bsp": null, "lights": [], "interior": true}

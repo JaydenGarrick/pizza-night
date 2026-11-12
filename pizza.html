@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Pizza Time</title>
+<style>
+  :root { --bg:#0e1116; --fg:#e6e9ef; --muted:#8b93a1; }
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:13px ui-monospace,Menlo,monospace;overflow:hidden}
+  canvas{display:block}
+  #ui{position:fixed;top:12px;left:12px;width:300px;background:rgba(28,32,41,.92);border:1px solid #2c323b;border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px;z-index:10}
+  #ui.hidden{display:none} #ui label{color:var(--muted);display:block;margin-bottom:2px} #ui button,#ui input,#ui select{width:100%;background:#0e1116;color:var(--fg);border:1px solid #2c323b;border-radius:6px;padding:6px}
+  .row{display:flex;gap:6px}.row>*{flex:1} #status{position:fixed;left:12px;bottom:10px;color:var(--muted);z-index:10}
+  #hud{position:fixed;top:14px;right:18px;width:420px;height:110px;display:none;z-index:5;pointer-events:none;image-rendering:auto}
+  #banner{position:fixed;top:11%;left:50%;transform:translateX(-50%);width:1200px;max-width:96vw;height:120px;pointer-events:none;z-index:6;opacity:0;transition:opacity .3s}
+  #box{position:fixed;left:50%;bottom:7%;transform:translateX(-50%);width:min(760px,86vw);background:rgba(0,0,0,.72);border:2px solid rgba(255,255,255,.75);border-radius:6px;padding:12px 18px;font:500 20px system-ui;color:#fff;z-index:6;pointer-events:none;display:none;line-height:1.35}
+  #box b{color:#ffd54a;margin-right:8px}
+</style></head><body>
+<div id="ui">
+  <div style="font-weight:700">🍕 Pizza Time</div>
+  <div class="row"><button id="play">Pause</button><button id="hide">Hide UI (h)</button></div>
+  <div><label>Time <span id="tlabel">0.00</span>s</label><input id="time" type="range" min="0" max="1" step="0.01" value="0"></div>
+  <div><label>Camera</label><select id="cam"><option value="auto">scripted</option><option value="side">side tracking</option><option value="free">free orbit</option></select></div>
+  <div style="color:var(--muted)" id="info"></div>
+</div>
+<canvas id="hud" width="420" height="110"></canvas>
+<canvas id="banner" width="1200" height="120"></canvas><div id="box"></div><div id="status">loading…</div>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { loadXboxLevel, setLightRig, makeLoader, toCharacterMaterials } from '/public/js/xblevel.js';
+import { BitmapFont } from '/public/js/bitmapfont.js';
+const $ = (id) => document.getElementById(id);
+let SKIN = null;   // ?ff=v1|v2|v3 -> public/ff/skin_<v>.json (F&F Pizzeria textures, sign models, branded props)
+const q = new URLSearchParams(location.search);
+{ const ff = q.get('ff') || 'default'; if (ff !== 'none') { try { SKIN = await (await fetch(`/public/ff/${ff === 'default' ? 'default' : 'skin_' + ff}.json`)).json(); } catch (e) { console.warn('no skin', e); } } }   // F&F Pizzeria skin on by default; ?ff=none for the original, ?ff=v1|v3 for the other variants
+const propUrl = (u) => (SKIN && SKIN.props && SKIN.props[u]) || u;
+const renderer = new THREE.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.08, 6000);
+const rig = setLightRig(scene, { interior: false }); scene.add(camera);
+const controls = new OrbitControls(camera, renderer.domElement); controls.enabled = false;
+const loader = new GLTFLoader(); const loadGLTF = makeLoader(loader);
+const loadImage = (src) => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+const S = { t: 0, dur: 0, playing: true, cam: 'auto', sim: null, route: null, audio: [], actors: {}, web: null, pizza: null, bag: null };
+const INTRO = 14.0;                       // pizzeria scene length (s); the music and timer start at the cut to the street
+
+async function loadLevel(name, filter) { return loadXboxLevel(scene, name, { loadGLTF, filter, rig: false, skin: SKIN, onStatus: (t) => { $('status').textContent = t; } }); }
+// ---------- simulation (deterministic 60 Hz) ------------------------------------------------------------------------
+// intro (pizzeria) -> launch (run out of the door to the avenue) -> jump -> swing/fly ... -> land -> run -> deliver -> done
+function simulate(R) {
+  const G = 40.0, DT = 1 / 60, RUN = 8.0, ATTACH_X = 14, PELV = 1.1;             // PELV: pelvis-root height above the street on foot
+  const legs = R.legs.map((l) => ({ c0: new THREE.Vector3(l.c0[0], 0, l.c0[1]), D: new THREE.Vector3(l.dir[0], 0, l.dir[1]), N: new THREE.Vector3(l.nrm[0], 0, l.nrm[1]), len: l.length }));
+  const anchors = R.anchors.map((a) => ({ p: new THREE.Vector3().fromArray(a.anchor), g: a.ground, leg: legs[a.leg] }));
+  const along = (pt, lg) => (pt.x - lg.c0.x) * lg.D.x + (pt.z - lg.c0.z) * lg.D.z, lat = (pt, lg) => (pt.x - lg.c0.x) * lg.N.x + (pt.z - lg.c0.z) * lg.N.z;
+  const groundAt = (pt) => { let b = anchors[0].g, bd = 1e9; for (const a of anchors) { const d = a.p.distanceToSquared(pt); if (d < bd) { bd = d; b = a.g; } } return b; };
+  const door = new THREE.Vector3(R.door[0], R.door[1] + PELV, R.door[2]);
+  const lg0 = anchors[0].leg; const launchPt = anchors[0].p.clone().addScaledVector(lg0.D, -14); launchPt.y = R.door[1] + PELV; launchPt.addScaledVector(lg0.N, 3 - lat(anchors[0].p, lg0));
+  const deliver = new THREE.Vector3().fromArray(R.deliver); deliver.y += PELV;
+  const p = door.clone(), v = new THREE.Vector3(); const out = []; let t = 0, phase = 'intro', ai = 0, L = 0, flyT = 0, swingT = 0, landT = 0, runT = 0, deliverT = 0, swings = 0, zipFrom = null, zipTo = null, zipT = 0, zipDur = 1;
+  const push = () => out.push({ t, p: p.clone(), v: v.clone(), phase, anchor: phase === 'swing' ? anchors[ai].p.clone() : (phase === 'zip' ? anchors[0].p.clone() : null), swings, L, g: groundAt(p), dir: (anchors[Math.min(ai, anchors.length - 1)].leg.D).clone() });
+  for (let step = 0; step < 60 * 300; step++) {
+    const g = groundAt(p); const cur = anchors[Math.min(ai, anchors.length - 1)]; const lg = cur.leg; const D = lg.D, N = lg.N;
+    if (phase === 'intro') { if (t >= INTRO) { phase = 'launch'; runT = 0; } }
+    else if (phase === 'launch') {
+      const to = launchPt.clone().sub(p); to.y = 0; runT += DT;
+      if (to.length() < 1.0) { phase = 'jump'; flyT = 0; v.copy(D).multiplyScalar(12).add(new THREE.Vector3(0, 18, 0)).addScaledVector(N, -2.5); }
+      else { v.copy(to.normalize().multiplyScalar(RUN * Math.min(1, runT / 0.6))); p.addScaledVector(v, DT); p.y = R.door[1] + PELV; }
+    } else if (phase === 'jump') {                                      // leap off the street, then web-zip up to the first anchor
+      v.y -= G * DT; p.addScaledVector(v, DT); flyT += DT;
+      if (v.y <= 2.0) { phase = 'zip'; zipFrom = p.clone(); zipTo = anchors[0].p.clone().addScaledVector(D, -5).add(new THREE.Vector3(0, -7, 0)); zipT = 0; zipDur = zipFrom.distanceTo(zipTo) / 24; }
+    } else if (phase === 'zip') {
+      zipT += DT; const k = Math.min(1, zipT / zipDur); const e = k * k * (3 - 2 * k); p.copy(zipFrom).lerp(zipTo, e); v.copy(zipTo).sub(zipFrom).normalize().multiplyScalar(24);
+      if (k >= 1) { phase = 'swing'; ai = 0; L = p.distanceTo(anchors[0].p); swingT = 0; swings++; v.copy(D).multiplyScalar(16).add(new THREE.Vector3(0, 2, 0)); }
+    } else if (phase === 'fly') {
+      v.y -= G * DT; flyT += DT;
+      // steer the horizontal velocity toward the next anchor's street direction (turning the corner) and back to its centreline
+      const corner = ai > 0 && ai < anchors.length && anchors[ai].leg !== anchors[ai - 1].leg;
+      const vh = new THREE.Vector3(v.x, 0, v.z); const sp = vh.length(); if (sp > 1e-3) { const want = D.clone().multiplyScalar(sp); vh.lerp(want, Math.min(1, (corner ? 6.0 : 2.5) * DT)); vh.setLength(sp); v.x = vh.x; v.z = vh.z; }
+      const l = lat(p, lg), vl = v.dot(N); v.addScaledVector(N, -vl * 1.0 * DT - l * 0.5 * DT); p.addScaledVector(v, DT);
+      const a = anchors[ai];
+      if (a) {
+        const dx = along(a.p, lg) - along(p, lg);
+        if (dx < -2) ai++;
+        else if (dx <= ATTACH_X + (corner ? 12 : 4) && p.y < a.p.y - 4 && flyT > 0.15) { L = p.distanceTo(a.p); phase = 'swing'; swingT = 0; swings++; }
+      } else { if (v.y < -12) v.y = -12; if (p.y <= g + PELV + 0.05) { p.y = g + PELV; phase = 'land'; landT = 0; v.copy(D).multiplyScalar(RUN); } }
+      if (phase === 'fly' && a && p.y < g + PELV + 0.2 && flyT > 0.5) { p.y = g + PELV; phase = 'land'; landT = 0; v.copy(D).multiplyScalar(RUN); ai = anchors.length; }
+    } else if (phase === 'swing') {
+      const a = anchors[ai].p; v.y -= G * DT; p.addScaledVector(v, DT);
+      const Lmin = a.y - (g + PELV + 1.5); if (L > Lmin) L = Math.max(Lmin, L - 4.0 * DT);                    // reel the web in so the arc clears the street
+      const r = p.clone().sub(a); const d = r.length(); if (d > L) { r.multiplyScalar(L / d); p.copy(a).add(r); const rn = r.clone().normalize(); const radial = v.dot(rn); if (radial > 0) v.addScaledVector(rn, -radial); }
+      { const rn = p.clone().sub(a).normalize(); const tg = D.clone().addScaledVector(rn, -D.dot(rn)).normalize(); v.addScaledVector(tg, 4.0 * DT); }   // pump the swing forward
+      v.multiplyScalar(1 - 0.03 * DT); const l = lat(p, lg), vl = v.dot(N); v.addScaledVector(N, -vl * 1.5 * DT - l * 0.6 * DT); swingT += DT;
+      const ahead = along(p, lg) - along(a, lg); const angle = Math.atan2(ahead, Math.max(1e-3, a.y - p.y)) * 180 / Math.PI;
+      if ((swingT > 0.4 && angle > 30 && v.y > 0 && p.y > g + 4) || p.y > a.y - 3 || swingT > 2.2) { phase = 'fly'; flyT = 0; ai++; if (v.y < 6) v.y = 6; if (v.length() < 20) v.setLength(20); if (v.dot(D) < 10) v.addScaledVector(D, 10 - v.dot(D)); }
+    } else if (phase === 'land') { landT += DT; p.addScaledVector(v, DT); p.y = g + PELV; if (landT > 0.55) { phase = 'run'; runT = 0; } }
+    else if (phase === 'run') {
+      runT += DT; const toD = deliver.clone().sub(p); toD.y = 0;
+      if (toD.length() < 1.2 || runT > 40) { phase = 'deliver'; deliverT = 0; v.set(0, 0, 0); }
+      else { v.copy(toD.normalize().multiplyScalar(RUN)); p.addScaledVector(v, DT); p.y = deliver.y; }
+    } else if (phase === 'deliver') { deliverT += DT; if (deliverT > 4.5) phase = 'done'; }
+    else { push(); break; }
+    if ((phase === 'swing' || phase === 'fly') && p.y < g + PELV - 0.1) { p.y = g + PELV - 0.1; if (v.y < 0) v.y = 0; }   // never clip through the street
+    t += DT; push();
+    if (phase === 'done') break;
+  }
+  let prev = null; for (const s of out) { if (s.phase !== prev) { s.start = true; prev = s.phase; } }
+  return out;
+}
+// ---------- actors
+async function loadActor(url, pos, lookAt) {
+  const gl = await loadGLTF(url); const obj = gl.scene; scene.add(obj);
+  if ((gl.parser.json.asset.extras || {}).rigged_from) obj.traverse((o) => { if (o.isMesh) { const m = new THREE.MeshLambertMaterial({ map: o.material.map || null, color: new THREE.Color(1.2, 1.2, 1.2), side: THREE.DoubleSide }); if (m.map) m.map.colorSpace = THREE.SRGBColorSpace; o.material = m; o.frustumCulled = false; } });   // custom rigs carry full-brightness textures (no x2)
+  else toCharacterMaterials(obj);
+  const mixer = new THREE.AnimationMixer(obj); const actions = {};
+  const floor = {};
+  for (const c of gl.animations) { const a = mixer.clipAction(c); a.setLoop(THREE.LoopRepeat); a.setEffectiveWeight(0); a.play(); actions[c.name] = a; const ex = (gl.parser.json.animations.find((x) => x.name === c.name) || {}).extras; if (ex && ex.floor_offset) floor[c.name] = ex.floor_offset; }
+  if (pos) obj.position.fromArray(pos); if (lookAt) obj.lookAt(new THREE.Vector3().fromArray(lookAt).setY(obj.position.y));   // gameplay rigs face +Z
+  return { obj, mixer, actions, floor, base: pos ? [...pos] : null };
+}
+function setBlend(actor, blend) {        // blend: {clip: [weight, time, clamp?]}  -> returns the blended pelvis height above the floor
+  let fo = 0, wsum = 0;
+  for (const [n, a] of Object.entries(actor.actions)) { const b = blend[n]; if (b) { a.setEffectiveWeight(b[0]); const d = a.getClip().duration; const tt = b[2] ? Math.min(b[1], d - 1e-4) : (b[1] % d); a.time = tt;
+      const arr = actor.floor[n]; if (arr && arr.length) { const v = arr[Math.min(arr.length - 1, Math.floor(tt / d * arr.length))]; fo += b[0] * (v > 0.2 ? v : 1.0); } else fo += b[0] * 1.0; wsum += b[0]; } else a.setEffectiveWeight(0); }
+  actor.mixer.update(0); return wsum > 0 ? fo / wsum : 1.0;
+}
+async function loadActors() {
+  const R = S.route; const P = R.pizzeria;
+  S.actors.spidey = await loadActor('/public/models/xbox/anim/birdman_moves.glb');   // Birdman does the delivery too (retarget of birdman.glb onto spidey_moves.glb's rig: all 35 sprint/jump/swing/land clips)
+  try { S.actors.peter = await loadActor('/public/models/xbox/anim/birdman_pizza.glb', P.peter, P.aziz); } catch (e) { console.warn('no birdman', e); }   // Birdman plays Peter (birdman.glb retargeted onto the Peter intro rig: SM2PPIDL/TALK clips)
+  try { S.actors.aziz = await loadActor('/public/models/xbox/anim/aziz.glb', P.aziz, P.peter); } catch (e) { console.warn('no aziz', e); }
+  try { const pz = await loadGLTF(propUrl('/public/models/xbox/props/itm_pizzaboxflat.glb')); S.pizza = pz.scene; const hand = S.actors.spidey.obj.getObjectByName('bip01_l_hand'); (hand || S.actors.spidey.obj).add(S.pizza); S.pizza.position.set(0.0, 0.02, 0.02); S.pizza.rotation.set(-Math.PI / 2, 0, 0); S.pizza.scale.setScalar(0.8); } catch (e) { console.warn('no pizza box', e); }   // closed flat box, waiter's grip
+  try { const bg = await loadGLTF(propUrl('/public/models/xbox/props/itm_pizzabag.glb')); S.bag = bg.scene; scene.add(S.bag); S.bag.position.set(P.counter[0] + 0.5, P.counter[1], P.counter[2]); } catch (e) { console.warn('no pizza bag', e); }
+  try { S.actors.customer = await loadActor('/public/models/xbox/anim/ped_pizza_customer.glb', R.customer, R.deliver);
+    if (S.pizza) { S.pizza2 = S.pizza.clone(true); const h = S.actors.customer.obj.getObjectByName('bip01_r_hand') || S.actors.customer.obj; h.add(S.pizza2); S.pizza2.position.set(0.0, 0.03, 0.03); S.pizza2.rotation.set(Math.PI, 0, 0); S.pizza2.scale.setScalar(0.8); S.pizza2.visible = false; }   // the box after the handoff
+  } catch (e) { console.warn('no customer', e); }
+  { const tl = new THREE.TextureLoader(); const wt = tl.load('/public/ui/spideywebstringb.png'); wt.wrapS = THREE.ClampToEdgeWrapping; wt.wrapT = THREE.RepeatWrapping; wt.colorSpace = THREE.SRGBColorSpace; wt.anisotropy = 8;
+    S.webTex = wt; S.web = new THREE.Mesh(new THREE.BufferGeometry(), new THREE.MeshBasicMaterial({ map: wt, transparent: true, alphaTest: 0.1, depthWrite: false, side: THREE.DoubleSide, color: 0xffffff })); S.web.frustumCulled = false; S.web.renderOrder = 3; scene.add(S.web); S.web.visible = false; }
+  // HUD: the game's pizza counter frame + pizza icon + 'zeroes' digit font; banner in the Serpentine font
+  S.hud = { frame: await loadImage('/public/ui/i_pizza_counter.png'), icon: await loadImage('/public/ui/i_pizza_counter_icon.png'), digits: await BitmapFont.load('i_zeroes'), serp: await BitmapFont.load('i_serpentine'), lastText: '', lastBanner: '' };
+  // traffic: the city's own vehicle kit driving along the route's roads (replaces the additive car-light streak layer, which is a high-altitude LOD)
+  S.cars = [];
+  try {
+    const list = (await (await fetch('/public/models/xbox/vehicles/vehicles.json')).json()).filter((v) => ['v_citycara_000', 'v_citycara_000', 'f_boxtruck'].includes(v.name));   // only COMPLETE bodies: the taxi and the box truck (the other kit sections are damage/door parts the game assembles on its vehicle rig)
+    const prepCar = (root) => { toCharacterMaterials(root); root.traverse((o) => { if (o.isMesh) { o.material.vertexColors = false; o.material.side = THREE.DoubleSide; if (o.material.name === 'glass' || o.material.name === 'v_itm_car_window') { o.material.transparent = true; o.material.opacity = 0.85; } } }); };   // vehicles are runtime-lit entities (like characters): Lambert x2 under the sun, no baked vertex colour
+    const kits = []; for (const v of list) { const g = await loadGLTF(v.glb); prepCar(g.scene); kits.push({ v, scene: g.scene }); }
+    const wheelKit = await loadGLTF('/public/models/xbox/vehicles/v_citycara_000.glb'); prepCar(wheelKit.scene); const wheels = []; wheelKit.scene.traverse((o) => { if (o.name === 'wheel_front' || o.name === 'wheel_rear') wheels.push(o); });
+    let seed = 7; const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+    R.legs.forEach((lg, li) => {
+      const D = new THREE.Vector3(lg.dir[0], 0, lg.dir[1]), N = new THREE.Vector3(lg.nrm[0], 0, lg.nrm[1]), c0 = new THREE.Vector3(lg.c0[0], 0, lg.c0[1]);
+      const gs = R.anchors.filter((a) => a.leg === li).map((a) => a.ground); const g = gs.length ? gs.reduce((a, b) => a + b, 0) / gs.length : R.door[1];
+      for (const [lat, dirSign] of [[3.4, 1], [6.6, 1], [-3.4, -1], [-6.6, -1]]) {     // two lanes each way; right-hand traffic
+        for (let s0 = rnd() * 50; s0 < lg.length - 20; s0 += 48 + rnd() * 40) {
+          const k = kits[Math.floor(rnd() * kits.length)]; const car = k.scene.clone(true);
+          { const tint = TINTS[Math.floor(rnd() * TINTS.length)]; car.traverse((o) => { if (o.isMesh && o.material && o.material.name === 'body') { o.material = o.material.clone(); o.material.color.setHex(tint).multiplyScalar(2.2); } }); }   // 'body' = untinted base the game colours per instance
+          if (!k.v.whole && !car.getObjectByName('wheel_front')) for (const [nm, z] of [['wheel_front', k.v.zmin + 0.9], ['wheel_rear', k.v.zmax - 0.9]]) { const w = wheels[nm === 'wheel_front' ? 0 : 1].clone(true); w.position.set(0, k.v.ymin + 0.42, z); car.add(w); }
+          const box = new THREE.Box3().setFromObject(car); car.userData = { leg: li, lat, dirSign, s0, speed: 10 + rnd() * 4, lift: -box.min.y, D, N, c0, g, len: lg.length };
+          scene.add(car); S.cars.push(car);
+        }
+      }
+    });
+  } catch (e) { console.warn('no traffic', e); }
+}
+const TINTS = [0xb8b8b8, 0x2a2a30, 0x8a1a1a, 0x1d3a7a, 0xd8d8d0, 0x5a6a3a, 0x6a1a3a, 0x3a3a3a, 0xc7a23a];   // sedan/van body tints (silver, black, red, blue, white, olive, maroon, graphite, gold)
+const VERT = ['SMSWGVERT000', 'SMSWGVERT045', 'SMSWGVERT090', 'SMSWGVERT135', 'SMSWGVERT180', 'SMSWGVERT225', 'SMSWGVERT270', 'SMSWGVERT315'];
+function swingBlend(angleDeg, tSwing, useB) {      // pose set authored per rope angle: 0 = hanging below the anchor, +45 = ahead/up, 315 = behind
+  const a = ((angleDeg % 360) + 360) % 360; const k = a / 45; const i0 = Math.floor(k) % 8, i1 = (i0 + 1) % 8, f = k - Math.floor(k);
+  const n0 = VERT[i0] + (useB ? 'B' : ''), n1 = VERT[i1] + (useB ? 'B' : ''); const b = {}; b[n0] = [1 - f, tSwing]; b[n1] = [f, tSwing]; return b;
+}
+function spideyBlend(s, pt, t) {
+  const sw = s.swings % 2 === 1; let cur;
+  if (s.phase === 'launch') cur = pt < 0.2 ? { SM2IDL2SPRINT: [1, pt, 1] } : { SM2SPRINT: [1, pt] };
+  else if (s.phase === 'jump') cur = pt < 0.5 ? { SMAIRJMP: [1, pt, 1] } : { SMJMPSPRINTFLY: [1, pt - 0.5, 1] };
+  else if (s.phase === 'swing') {
+    const dir = Math.sign(s.v.x || 1); const ahead = s.anchor ? (s.p.x - s.anchor.x) * dir : 0; const ang = s.anchor ? Math.atan2(ahead, Math.max(1e-3, s.anchor.y - s.p.y)) * 180 / Math.PI : 0;
+    cur = swingBlend(ang, pt, sw); if (pt < 0.27) { const f = pt / 0.27; for (const k in cur) cur[k][0] *= f; cur.SMJMP2WEBSWG = [1 - f, pt, 1]; }
+  } else if (s.phase === 'fly') cur = { SMWEBJMPFLY: [1, Math.min(pt, 1.3), 1] };
+  else if (s.phase === 'zip') cur = { SMWEBJMPFLY: [1, Math.min(pt, 1.3), 1] };   // stable flight pose (SMJMPSPRINTFLY is a forward flip and passes through upside-down at 0.35 s)
+  else if (s.phase === 'land') cur = { SM2LND2RUNHARD: [1, pt, 1] };
+  else if (s.phase === 'run') cur = { SM2SPRINT: [1, pt] };
+  else if (s.phase === 'deliver') cur = pt < 2.0 ? { SM2WHATSUP: [1, pt, 1] } : { SM2IDL: [1, pt] };
+  else cur = { SM2IDL: [1, t] };
+  return cur;
+}
+// ---------- per-frame application
+const _f = new THREE.Vector3(), _up = new THREE.Vector3(0, 1, 0), _m = new THREE.Matrix4(), _qa = new THREE.Quaternion(), _tmp = new THREE.Vector3();
+function sample(t) { const i = Math.min(S.sim.length - 1, Math.max(0, Math.floor(t * 60))); return S.sim[i]; }
+function phaseStartIndex(i) { let j = Math.min(i, S.sim.length - 1); while (j > 0 && !S.sim[j].start) j--; return j; }
+function collideCamera(tgt) {   // keep the camera out of buildings: raycast from the subject back to the camera against nearby world meshes
+  const dir = camera.position.clone().sub(tgt); const dist = dir.length(); dir.normalize();
+  if (!S.colliders || dist < 0.5) return;
+  const near = []; const seg = new THREE.Line3(tgt, camera.position); const cp = new THREE.Vector3();
+  for (const c of S.colliders) { seg.closestPointToPoint(c.c, true, cp); if (cp.distanceToSquared(c.c) < c.r * c.r) near.push(c.o); }
+  if (!near.length) return;
+  const rc = new THREE.Raycaster(tgt, dir, 0, dist); const hit = rc.intersectObjects(near, false)[0];
+  if (hit) camera.position.copy(tgt).addScaledVector(dir, Math.max(1.0, hit.distance - 0.5));
+}
+function viewClear(camPos, tgt) {   // true when none of 7 rays (centre, +-0.9 m sideways, +-0.6 m up/down, shoulders) from the subject to the camera hits a nearby world mesh
+  if (!S.colliders) return true;
+  const dir = camPos.clone().sub(tgt); const dist = dir.length(); if (dist < 0.5) return true; dir.normalize();
+  const side = new THREE.Vector3().crossVectors(dir, _up).normalize();
+  const near = []; const seg = new THREE.Line3(tgt, camPos); const cp = new THREE.Vector3();
+  for (const c of S.colliders) { seg.closestPointToPoint(c.c, true, cp); if (cp.distanceToSquared(c.c) < (c.r + 0.6) * (c.r + 0.6)) near.push(c.o); }
+  if (!near.length) return true;
+  for (const off of [[0, 0], [0.9, 0], [-0.9, 0], [0, 0.6], [0, -0.6], [0.5, 0.5], [-0.5, 0.5]]) {   // 1.8 m wide: a lamppost right beside the subject counts as blocking
+    const from = tgt.clone().addScaledVector(side, off[0]).addScaledVector(_up, off[1]);
+    const rc = new THREE.Raycaster(from, camPos.clone().sub(from).normalize(), 0, dist); if (rc.intersectObjects(near, false).length) return false;
+  }
+  return true;
+}
+function placeClear(cands, tgt) {   // first candidate camera position with a clear view of the subject (else the first, pulled in by collideCamera)
+  for (const c of cands) if (viewClear(c, tgt)) { camera.position.copy(c); return; }
+  camera.position.copy(cands[0]); collideCamera(tgt);
+}
+function buildWeb(from, to) {   // the game's web line: a camera-facing textured ribbon along a slightly sagging curve (spideywebstring, strand along V)
+  const len = from.distanceTo(to); const sag = Math.min(0.6, len * 0.012);
+  const curve = new THREE.CatmullRomCurve3([from.clone(), from.clone().lerp(to, 0.5).add(new THREE.Vector3(0, -sag, 0)), to.clone()]);
+  const N = 24, W = 0.03; const pos = new Float32Array((N + 1) * 6), uv = new Float32Array((N + 1) * 4); const idx = [];   // 6 cm ribbon: the strand texture is ~65% opaque across, so ~4 cm of web
+  const p = new THREE.Vector3(), tg = new THREE.Vector3(), side = new THREE.Vector3(), toCam = new THREE.Vector3();
+  for (let i = 0; i <= N; i++) {
+    const k = i / N; curve.getPoint(k, p); curve.getTangent(k, tg); toCam.copy(camera.position).sub(p); side.crossVectors(tg, toCam).normalize().multiplyScalar(W);
+    pos.set([p.x - side.x, p.y - side.y, p.z - side.z, p.x + side.x, p.y + side.y, p.z + side.z], i * 6); uv.set([0, k * len / 0.9, 1, k * len / 0.9], i * 4);
+    if (i < N) idx.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
+  }
+  const g = S.web.geometry; g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.BufferAttribute(uv, 2)); g.setIndex(idx); g.computeBoundingSphere();
+}
+function applyFrame(t) {
+  const s = sample(t); if (!s) return; const i = Math.floor(t * 60); const j0 = phaseStartIndex(i); const pt = t - S.sim[j0].t; const R = S.route; const sp = S.actors.spidey;
+  const inIntro = s.phase === 'intro';
+  { const sun = scene.getObjectByName('sun'); if (sun) sun.intensity = inIntro ? 0.0 : 2.0; const sky = scene.getObjectByName('xb_sky'); if (sky) sky.visible = !inIntro; }
+  sp.obj.visible = !inIntro; const handed = (s.phase === 'deliver' && pt > 1.4) || s.phase === 'done';
+  if (S.pizza) S.pizza.visible = !inIntro && !handed; if (S.pizza2) S.pizza2.visible = handed;
+  if (S.bag) S.bag.visible = inIntro;
+  // --- Spidey
+  if (!inIntro) {
+    sp.obj.position.copy(s.p);
+    _f.copy(s.v); _f.y *= (s.phase === 'swing' ? 0.15 : 0.35); if (_f.lengthSq() < 1e-4) _f.copy(s.dir); _f.normalize();
+    if (s.phase === 'deliver' || s.phase === 'done') _f.set(R.customer[0] - s.p.x, 0, R.customer[2] - s.p.z).normalize();
+    const up = _up.clone();
+    if (s.phase === 'swing' && s.anchor) { up.copy(s.anchor).sub(s.p).normalize(); _f.addScaledVector(up, -_f.dot(up));                 // hang from the rope, face along the arc
+      if (_f.lengthSq() < 1e-3) _f.copy(s.dir).addScaledVector(up, -s.dir.dot(up));   // attach instant: the zip velocity is along the rope, so face down the leg instead of a zero vector
+      _f.normalize(); }
+    else if (s.phase === 'fly' || s.phase === 'jump' || s.phase === 'zip') {   // airborne: body follows the velocity, forward pitch capped at 50 deg, up orthogonalised so the frame can never roll over
+      const horiz = Math.hypot(_f.x, _f.z), maxTan = s.phase === 'zip' ? 0.27 : 1.19;   // the dive clip is already ~90 deg forward: a steep zip root would point the head at the ground, so keep the zip nearly level
+      if (Math.abs(_f.y) > maxTan * Math.max(horiz, 1e-3)) { _f.y = Math.sign(_f.y) * maxTan * Math.max(horiz, 1e-3); _f.normalize(); }
+      up.addScaledVector(_f, -up.dot(_f)).normalize();
+      if (s.phase !== 'zip') { const pitch = THREE.MathUtils.clamp(s.v.y * 0.015, -0.25, 0.25); up.applyAxisAngle(_tmp.copy(_f).cross(up).normalize(), -pitch); } }
+    _m.lookAt(_f, new THREE.Vector3(), up); _qa.setFromRotationMatrix(_m); sp.obj.quaternion.copy(_qa);                     // Matrix4.lookAt(eye, target): Z = eye - target, so eye=_f puts the rig's +Z (its forward) along _f
+    let blend = spideyBlend(s, pt, t);
+    if (pt < 0.25 && j0 > 0 && s.phase !== 'launch') {                                                                    // 0.25 s cross-fade from the previous phase's last pose
+      const ps = S.sim[j0 - 1]; const pj0 = phaseStartIndex(j0 - 1); const pb = spideyBlend(ps, ps.t - S.sim[pj0].t, ps.t); const f = pt / 0.25; const mix = {};
+      for (const k in pb) mix[k] = [pb[k][0] * (1 - f), pb[k][1], pb[k][2]];
+      for (const k in blend) { if (mix[k]) mix[k][0] += blend[k][0] * f; else mix[k] = [blend[k][0] * f, blend[k][1], blend[k][2]]; }
+      blend = mix;
+    }
+    const fo = setBlend(sp, blend); if (['launch', 'land', 'run', 'deliver', 'done'].includes(s.phase)) sp.obj.position.y = s.g + fo; sp.obj.updateMatrixWorld(true);
+    if ((s.phase === 'swing' || s.phase === 'zip') && s.anchor) {
+      const hand = sp.obj.getObjectByName(s.swings % 2 === 1 ? 'bip01_l_hand' : 'bip01_r_hand') || sp.obj; const hp = new THREE.Vector3(); hand.getWorldPosition(hp);
+      S.webLine = { from: hp.clone(), to: s.anchor.clone() }; S.web.visible = true;   // geometry is built once the camera is placed (camera-facing ribbon)
+    } else S.web.visible = false;
+  } else S.web.visible = false;
+  // --- intro actors
+  if (S.actors.peter && S.actors.aziz) {
+    const pe = S.actors.peter, az = S.actors.aziz; pe.obj.visible = az.obj.visible = inIntro;
+    if (inIntro) {
+      pe.obj.position.y = pe.base[1] + setBlend(pe, t < 1.0 ? { SM2PPIDL: [1, t] } : t < 5.0 ? { SM2PPTALK01: [1, t - 1.0] } : t < 9.0 ? { SM2PPIDL: [1, t] } : t < 12.0 ? { SM2PPTALK02: [1, t - 9.0] } : { SM2PPIDL: [1, t] });
+      az.obj.position.y = az.base[1] + setBlend(az, t < 6.0 ? { CIVSTALK1: [1, t] } : t < 10.0 ? { CIVSTALK2: [1, t - 6.0] } : t < 12.0 ? { CIVSWAVE1: [1, t - 10.0, 1] } : { CIVSWAITIDL: [1, t] });
+    }
+  }
+  if (S.actors.customer) { const c = S.actors.customer; const grab = s.phase === 'deliver' || s.phase === 'done'; c.obj.position.y = c.base[1] + setBlend(c, grab ? { CIVSGRABPIZZA: [1, pt, 1] } : { CIVSPIZZAIDL: [1, t] }); }
+  // --- camera
+  if (S.cam === 'auto') {
+    camera.up.set(0, 1, 0);
+    if (inIntro) {
+      const P = R.pizzeria; const peHead = new THREE.Vector3(P.peter[0], 1.55, P.peter[2]), azHead = new THREE.Vector3(P.aziz[0], 1.6, P.aziz[2]);
+      if (t < 4.5 || (t >= 8 && t < 12)) { camera.position.set(P.peter[0] + 1.25, 1.85, P.peter[2] - 2.3); camera.lookAt(azHead); camera.fov = 38; }       // over Peter's shoulder
+      else if (t < 8) { camera.position.set(P.aziz[0] - 1.25, 1.9, P.aziz[2] + 2.3); camera.lookAt(peHead); camera.fov = 38; }                            // over Aziz's shoulder
+      else { camera.position.set(P.counter[0] + 4.2, 1.6, P.counter[2] + 0.4); camera.lookAt(P.counter[0], 1.1, P.counter[2]); camera.fov = 50; }       // wide two-shot
+    } else if (s.phase === 'launch') {
+      const tgt = new THREE.Vector3(s.p.x, s.g + 1.1, s.p.z);
+      if (!S.launchCam && S.colliders) {   // one fixed camera for the whole sprint (chosen once the camera colliders exist): beside and beyond the take-off point on the street side, looking back at the door
+        const L = S.sim.filter((x) => x.phase === 'launch'); const first = L[0], last = L[L.length - 1];
+        const d = last.p.clone().sub(first.p); d.y = 0; d.normalize(); const nx = -d.z, nz = d.x;
+        const lg = R.legs[0]; const c0 = new THREE.Vector3(lg.c0[0], 0, lg.c0[1]), D0 = new THREE.Vector3(lg.dir[0], 0, lg.dir[1]);
+        const distToRoad = (q) => { const v = q.clone().sub(c0); v.y = 0; return v.addScaledVector(D0, -v.dot(D0)).length(); };   // the street side = nearer the first leg's road centreline
+        const sg = distToRoad(new THREE.Vector3(last.p.x - 6 * nx, 0, last.p.z - 6 * nz)) < distToRoad(new THREE.Vector3(last.p.x + 6 * nx, 0, last.p.z + 6 * nz)) ? 1 : -1;
+        const cands = [[5, 4], [8, 2], [10, 4], [7, 6], [12, 2], [4, 8], [6, 10], [3, 6]].map(([l, f]) => new THREE.Vector3(last.p.x - sg * l * nx + f * d.x, last.g + 2.2, last.p.z - sg * l * nz + f * d.z));
+        const pts = L.filter((x, k) => k % 8 === 0 || k === L.length - 1).map((x) => new THREE.Vector3(x.p.x, x.g + 1.1, x.p.z));   // the whole sprint path, ~1 m apart
+        let best = cands[0], bestN = -1;
+        for (const c of cands) { const n = pts.filter((q) => viewClear(c, q)).length; if (n === pts.length) { best = c; bestN = n; break; } if (n > bestN) { best = c; bestN = n; } }
+        S.launchCam = best;
+      }
+      if (S.launchCam) camera.position.copy(S.launchCam); else camera.position.set(s.p.x - 6, s.g + 2.4, s.p.z - 6);
+      collideCamera(tgt); camera.lookAt(tgt); camera.fov = 45;
+    } else if (s.phase === 'deliver' || s.phase === 'done') {
+      // side two-shot from the street: perpendicular to the Spidey->customer line, on whichever side is nearer the road centreline
+      const cust = new THREE.Vector3().fromArray(R.customer); const mid = s.p.clone().lerp(cust, 0.5); mid.y = s.g + 1.0;
+      const right = _tmp.set(_f.z, 0, -_f.x); const lg = R.legs[R.legs.length - 1]; const c0 = new THREE.Vector3(lg.c0[0], 0, lg.c0[1]), D = new THREE.Vector3(lg.dir[0], 0, lg.dir[1]);
+      const distToRoad = (q) => { const v = q.clone().sub(c0); v.y = 0; const along = v.dot(D); return v.addScaledVector(D, -along).length(); };
+      const a = mid.clone().addScaledVector(right, 4.2), b = mid.clone().addScaledVector(right, -4.2); const sgn = distToRoad(a) < distToRoad(b) ? 1 : -1;
+      const look = mid.clone(); const cands = [[4.2, 0], [5.0, 1.2], [5.0, -1.2], [3.6, 0]].map(([l, f]) => mid.clone().addScaledVector(right, sgn * l).addScaledVector(_f, f).setY(s.g + 1.6));
+      placeClear(cands, look); camera.lookAt(look); camera.fov = 42;
+    } else {
+      const acc = new THREE.Vector3(); let n = 0; const fwd = new THREE.Vector3();        // chase: average of the last 0.3 s of "behind the hero" positions
+      for (let k = i; k >= 0 && n < 18; k--, n++) { const ss = S.sim[k]; if (!ss || ss.phase === 'intro' || ss.phase === 'launch') break; const ff = ss.v.clone(); ff.y *= 0.3; if (ff.lengthSq() < 1e-4) ff.copy(_f); ff.normalize(); fwd.add(ff); acc.add(ss.p.clone().addScaledVector(ff, -7.0).add(new THREE.Vector3(0, 2.6, 0))); }
+      if (n) { acc.multiplyScalar(1 / n); fwd.normalize(); camera.position.copy(acc); }
+      collideCamera(s.p.clone().add(new THREE.Vector3(0, 0.8, 0)));
+      camera.lookAt(s.p.clone().add(new THREE.Vector3(0, 0.8, 0)).addScaledVector(fwd, 5));
+      camera.fov = s.phase === 'swing' ? 68 : 62;
+    }
+    camera.updateProjectionMatrix();
+  } else if (S.cam === 'side') { camera.position.set(s.p.x - 6, s.p.y + 4, s.p.z + 26); camera.lookAt(s.p); camera.fov = 50; camera.updateProjectionMatrix(); }
+  if (S.web && S.web.visible && S.webLine) buildWeb(S.webLine.from, S.webLine.to);
+  // --- HUD / text
+  const tm = Math.max(0, 480 - (t - INTRO)); $('hud').style.display = inIntro ? 'none' : 'block';
+  const txt = `${Math.floor(tm / 60)}:${String(Math.floor(tm % 60)).padStart(2, '0')}`;
+  if (S.hud && txt !== S.hud.lastText) {   // pizza counter: green frame (128x32 @3x) + pizza icon + digits in the HUD font
+    const c = $('hud'), ctx = c.getContext('2d'); ctx.clearRect(0, 0, c.width, c.height); ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(S.hud.frame, 36, 18, 384, 96); ctx.drawImage(S.hud.icon, 0, 12, 88, 88);
+    ctx.shadowColor = '#000'; ctx.shadowBlur = 6; S.hud.digits.draw(ctx, txt, 250, 30, 2.4, 'center'); ctx.shadowBlur = 0; S.hud.lastText = txt;
+  }
+  const bannerOn = (t >= INTRO && t < INTRO + 2.5) || s.phase === 'done'; $('banner').style.opacity = bannerOn ? 1 : 0; const bt = s.phase === 'done' ? 'DELIVERY COMPLETE' : 'PIZZA DELIVERY';
+  if (S.hud && bt !== S.hud.lastBanner) { const c = $('banner'), ctx = c.getContext('2d'); ctx.clearRect(0, 0, c.width, c.height); ctx.shadowColor = '#000'; ctx.shadowBlur = 10; S.hud.serp.draw(ctx, bt, 600, 20, 2.6, 'center'); S.hud.lastBanner = bt; }
+  if (S.cars) for (const car of S.cars) { const u = car.userData; let a = (u.s0 + u.speed * Math.max(0, t - INTRO) * u.dirSign) % u.len; if (a < 0) a += u.len; car.position.copy(u.c0).addScaledVector(u.D, a).addScaledVector(u.N, u.lat); car.position.y = u.g + u.lift; car.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, -1), u.D.clone().multiplyScalar(u.dirSign)); car.visible = !inIntro; }
+  let box = '';
+  if (inIntro) { if (t > 0.6 && t < 6.2) box = '<b>Mr. Aziz</b>Parker! You’re late again! Here — take these pizzas.'; else if (t >= 6.2 && t < 9.2) box = '<b>Peter</b>Sorry, Mr. Aziz. I’ll get them there on time.'; else if (t >= 9.2 && t < 13.2) box = '<b>Mr. Aziz</b>Eight minutes. If they’re cold, you’re fired. Go!'; }
+  else if (s.phase === 'deliver') box = pt < 2.2 ? '<b>Spider-Man</b>Pizza delivery!' : '<b>Customer</b>Thanks, Spidey!';
+  $('box').style.display = box ? 'block' : 'none'; $('box').innerHTML = box;
+}
+function seek(t) { S.t = Math.max(0, Math.min(S.dur, t)); applyFrame(S.t); $('time').value = S.t; $('tlabel').textContent = S.t.toFixed(2);
+  for (const a of S.audio) { const lt = S.t - a.t; if (lt >= 0 && lt < (a.el.duration || 1e9) - 0.2) { if (Math.abs(a.el.currentTime - lt) > 0.35) a.el.currentTime = lt; a.want = true; } else a.want = false; } }
+let last = performance.now();
+function tick(now) {
+  requestAnimationFrame(tick); const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  if (S.playing) { if (S.t < S.dur) seek(S.t + dt); else S.playing = false; }
+  for (const a of S.audio) { if (S.playing && a.want && a.el.paused) a.el.play().catch(() => {}); if ((!S.playing || !a.want) && !a.el.paused) a.el.pause(); }
+  if (S.cam === 'free') { controls.enabled = true; controls.update(); } else controls.enabled = false;
+  renderer.render(scene, camera);
+}
+$('play').onclick = () => { S.playing = !S.playing; $('play').textContent = S.playing ? 'Pause' : 'Play'; if (S.playing && S.t >= S.dur - 1e-3) seek(0); };
+$('time').oninput = (e) => { S.playing = false; $('play').textContent = 'Play'; seek(+e.target.value); };
+$('cam').onchange = (e) => { S.cam = e.target.value; if (S.cam === 'free') controls.target.copy(S.actors.spidey.obj.position); seek(S.t); };
+$('hide').onclick = () => $('ui').classList.add('hidden'); addEventListener('keydown', (e) => { if (e.key === 'h') $('ui').classList.toggle('hidden'); if (e.key === ' ') $('play').click(); });
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+
+S.route = await (await fetch('/public/pizza/route.json')).json();
+S.sim = simulate(S.route); S.dur = S.sim[S.sim.length - 1].t; $('time').max = S.dur;
+const phases = {}; for (const s of S.sim) phases[s.phase] = (phases[s.phase] || 0) + 1 / 60;
+$('info').textContent = `${S.dur.toFixed(1)} s · ` + Object.entries(phases).map(([k, v]) => `${k} ${v.toFixed(1)}s`).join(' · ');
+await loadActors();
+const MUSIC = '/intermediate/xbox/audio/music/MX_FINICULI.m4a', AZIZ = '/intermediate/xbox/audio/voice/VSSLM004.m4a';
+S.audio = [{ el: new Audio(MUSIC), t: INTRO }, { el: new Audio(AZIZ), t: 0.6 }];
+window.__sm2 = { scene, camera, renderer, S, seek, audioTracks: [{ file: MUSIC, t: INTRO }, { file: AZIZ, t: 0.6 }],
+  setSize: (w, h) => { renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); },
+  frame: (t) => { S.playing = false; seek(t); renderer.render(scene, camera); return t; }, ready: false };
+if (q.get('level') !== 'none') {
+  const R = S.route; const near = (x, z) => R.waypoints.some((w, i) => { if (i === 0) return false; const a = R.waypoints[i - 1], dx = w[0] - a[0], dz = w[1] - a[1], L2 = dx * dx + dz * dz; const tt = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / L2)); const px = a[0] + tt * dx - x, pz = a[1] + tt * dz - z; return px * px + pz * pz < 380 * 380; });
+  // keep identity-placed world geometry (cell R meshes, lego buildings, ground are baked in world coords) + props near the route
+  await loadLevel(R.level, (p) => !/city_traffic/i.test(p.url) && ((Math.abs(p.pos[0]) < 1e-6 && Math.abs(p.pos[2]) < 1e-6) || near(p.pos[0], p.pos[2])));   // no high-altitude traffic streak layer: real kit cars drive the route instead
+  await loadLevel(R.pizzeria.level, (p) => !/ped_|tableb/i.test(p.url));          // Joe's Pizza interior (drop its unplaced ped/table placeholders)
+  // camera colliders: every visible world mesh with a world-space bounding sphere (ground, water and additive effects excluded)
+  S.colliders = []; const sph = new THREE.Sphere();
+  const carSet = new Set(); for (const c of (S.cars || [])) c.traverse((o) => carSet.add(o));
+  scene.traverse((o) => { if (!o.isMesh || !o.visible || o.isSkinnedMesh || !o.material || o.material.transparent || carSet.has(o)) return; const n = (o.parent && o.parent.name || '').toLowerCase(); if (n.includes('city_ground') || n.includes('ocean') || n.includes('animclouds')) return;   // traffic never blocks the camera (a truck passing under the chase cam filled the frame)
+    if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere(); sph.copy(o.geometry.boundingSphere).applyMatrix4(o.matrixWorld); if (sph.radius > 400) return; S.colliders.push({ o, c: sph.center.clone(), r: sph.radius }); });
+}
+seek(+(q.get('t') || 0)); $('status').textContent = 'ready'; window.__sm2.ready = true; requestAnimationFrame(tick);
+</script></body></html>

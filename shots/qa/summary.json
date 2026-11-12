@@ -1,0 +1,36 @@
+[
+ {
+  "name": "SA12_DOCBANK",
+  "duration": 57.933,
+  "shots": 11,
+  "audio": false,
+  "level": "XB_XF03",
+  "samples": [
+   {
+    "t": 14.48,
+    "shot": "SA12_DOCBANK_03",
+    "actors": 2,
+    "vis": 2,
+    "inview": 2,
+    "cam": true
+   },
+   {
+    "t": 28.97,
+    "shot": "SA12_DOCBANK_06",
+    "actors": 15,
+    "vis": 15,
+    "inview": 9,
+    "cam": true
+   },
+   {
+    "t": 43.45,
+    "shot": "SA12_DOCBANK_09",
+    "actors": 8,
+    "vis": 8,
+    "inview": 5,
+    "cam": true
+   }
+  ],
+  "ok": true
+ }
+]
